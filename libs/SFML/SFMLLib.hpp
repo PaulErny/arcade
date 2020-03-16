@@ -2,93 +2,102 @@
 ** EPITECH PROJECT, 2020
 ** OOP_arcade_2019
 ** File description:
-** ILibs
+** SFMLLib
 */
 
-#ifndef ILIBS_HPP
-#define ILIBS_HPP
+#ifndef SFMLLIB_HPP
+#define SFMLLIB_HPP
 
-#include <string>
+#include <vector>
+#include <SFML/Window.hpp>
+#include <SFML/Graphics.hpp>
+#include <memory>
+#include "../ILibs.hpp"
 
-enum ShapeType {
-    RECTANGLE,
-    CIRCLE,
-};
-
-class ILibs {
+class SFMLLib : public ILibs {
     public:
-        virtual ~ILibs()=default;
+        SFMLLib();
+        ~SFMLLib();
 
         /* ------------------------------- RELATED TO SHAPES ------------------------------- */
         // explicit. if rectangle -> use $width and $height, if sphere -> $width = radius
         // returns the index of the newly created shape in a std::vector of shapes
-        virtual int createShape(ShapeType, int width, int height=0)=0;
+        int createShape(ShapeType, int width, int height=0);
         // draws the shape contained at $index of the vector of shapes
-        virtual void drawShape(int index)=0;
+        void drawShape(int index);
         // sets the position of the shape contained at $index of the vector of shapes
-        virtual void setShapePos(int index, int x, int y)=0;
+        void setShapePos(int index, int x, int y);
         // sets the color of the shape contained at $index of the vector of shapes
-        virtual void setShapeColor(int index, int r, int g, int b, int a=255)=0;
+        void setShapeColor(int index, int r, int g, int b, int a=255);
         // deletes the shape contained at $index of the vector of shapes
-        virtual void deleteShape(int index)=0;
+        void deleteShape(int index);
 
         /* ------------------------------- RELATED TO SPRITES / TEXTURES ------------------------------- */
         // creates a texture from the image file given as parameter
         // returns the index of the newly created texture
-        virtual int createTextureFromFile(const std::string filename)=0;
+        int createTextureFromFile(const std::string filename);
         // creates a sprite and assigns it the id of the texture returned by createTexture()
         // returns the index of the newly created sprite
-        virtual int createSprite(int textureId)=0;
+        int createSprite(int textureId);
         // draws the sprite contained at $spriteId of the vector of shapes
-        virtual void drawSprite(int spriteId)=0;
+        void drawSprite(int spriteId);
         // sets the position of the sprite contained at $spriteId of the vector of shapes
-        virtual void setSpritePos(int spriteId, int x, int y)=0;
+        void setSpritePos(int spriteId, int x, int y);
         // deletes the sprite contained at $spriteId of the vector of sprites
-        virtual void deleteSprite(int spriteId)=0;
+        void deleteSprite(int spriteId);
         // deletes the texture contained at $textureId of the vector of textures
-        virtual void deleteTexture(int spriteId)=0;
+        void deleteTexture(int spriteId);
 
         /* ------------------------------- RELATED TO TEXT ------------------------------- */
         // creates a texture from the image file given as parameter
         // returns the index of the newly created texture
-        virtual int createFontFromFile(const std::string filename)=0;
+        int createFontFromFile(const std::string filename);
         // creates a text and sets if font according to the id returned by createFontFromFile()
         // returns the index of the newly created text
-        virtual int createText(std::string text, int fontId)=0;
+        int createText(std::string text, int fontId);
         // draws the text contained at $textId of the vector of shapes
-        virtual void drawText(int textId)=0;
+        void drawText(int textId);
         // sets the string of a text element
-        virtual void setTextString(std::string str)=0;
+        void setTextString(std::string str);
         // sets the position of the sprite contained at $spriteId of the vector of shapes
-        virtual void setTextPos(int textId, int x, int y)=0;
+        void setTextPos(int textId, int x, int y);
         // sets the size of the text to $charSize
-        virtual void setTextCharSize(int textId, int charSize)=0;
+        void setTextCharSize(int textId, int charSize);
         // changes the color of the text
-        virtual void setTextColor(int textId, int r, int g, int b, int a=255)=0;
+        void setTextColor(int textId, int r, int g, int b, int a=255);
         // deletes the text contained at $textId of the vector of texts
-        virtual void deleteText(int TextId)=0;
+        void deleteText(int TextId);
         // deletes the font contained at $fontId of the vector of fonts
-        virtual void deleteFont(int FontId)=0;
+        void deleteFont(int FontId);
 
         /* ------------------------------- RELATED TO WINDOWS ------------------------------- */
         // creates a window of size ($width * $height) and named $name
-        virtual void createWindow(int width, int height, std::string name)=0;
+        void createWindow(int width, int height, std::string name);
         // returns true if the window is open
-        virtual bool isWindowOpen(void)=0;
+        bool isWindowOpen(void);
         // refreshes the window
-        virtual void clearWindow(void)=0;
+        void clearWindow(void);
         // resizes window to ($width * $height)
-        virtual void resizeWindow(int width, int height)=0;
+        void resizeWindow(int width, int height);
         // renames the window to $name
-        virtual void renameWindow(std::string name)=0;
+        void renameWindow(std::string name);
         // deletes the window
-        virtual void deleteWindow(void)=0;
+        void deleteWindow(void);
 
         /* ------------------------------- RELATED TO EVENTS ------------------------------- */
         // handle events occuring in the window
-        virtual bool events(void)=0;
+        bool events(void);
         // closes the window in case of such an event
-        virtual void closeWindowEvent(void)=0; 
+        void closeWindowEvent(void);
+
+    private:
+        std::vector<std::shared_ptr<sf::Texture>> textures;
+        std::vector<std::shared_ptr<sf::Sprite>> sprites;
+        std::vector<std::shared_ptr<sf::Font>> fonts;
+        std::vector<std::shared_ptr<sf::Text>> texts;
+        std::vector<std::shared_ptr<sf::Shape>> shapes;
+        std::shared_ptr<sf::RenderWindow> window;
+        sf::Event event;
 };
 
-#endif /* !ILIBS_HPP */
+#endif /* !SFMLLIB_HPP_ */
