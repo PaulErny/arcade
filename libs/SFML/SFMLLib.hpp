@@ -77,6 +77,8 @@ class SFMLLib : public ILibs {
         bool isWindowOpen(void);
         // refreshes the window
         void clearWindow(void);
+        // updates the display
+        void update(void);
         // resizes window to ($width * $height)
         void resizeWindow(int width, int height);
         // renames the window to $name
@@ -96,7 +98,7 @@ class SFMLLib : public ILibs {
         std::vector<std::shared_ptr<sf::Font>> fonts;
         std::vector<std::shared_ptr<sf::Text>> texts;
         std::vector<std::shared_ptr<sf::Shape>> shapes;
-        std::shared_ptr<sf::RenderWindow> window;
+        sf::RenderWindow window;
         sf::Event event;
 };
 

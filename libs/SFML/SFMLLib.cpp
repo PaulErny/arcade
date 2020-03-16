@@ -25,20 +25,20 @@ int SFMLLib::createShape(ShapeType type, int width, int height)
         this->shapes.push_back(std::make_shared<sf::CircleShape>(width));
     } else
         throw "SFML createShape() -> unknown shape requested";
-    return(this->shapes.size()); // -1 ?
+    return(this->shapes.size() - 1);
 }
 
 void SFMLLib::drawShape(int index)
 {
-    if (this->shapes[index])
-        this->window->draw(*this->shapes[index].get());
+    if (this->shapes.size() > index && this->shapes[index])
+        this->window.draw(*this->shapes[index].get());
     else
         throw "SFML drawShape() -> unknown index"; 
 }
 
 void SFMLLib::setShapeColor(int index, int r, int g, int b, int a)
 {
-    if (this->shapes[index])
+    if (this->shapes.size() > index && this->shapes[index])
         this->shapes[index]->setFillColor(sf::Color(r, g, b, a));
     else
         throw "SFML setShapeColor() -> unknown index"; 
@@ -46,7 +46,7 @@ void SFMLLib::setShapeColor(int index, int r, int g, int b, int a)
 
 void SFMLLib::deleteShape(int index)
 {
-    if (this->shapes.size() >= index && this->shapes[index])
+    if (this->shapes.size() > index && this->shapes[index])
         this->shapes.erase(this->shapes.begin() + index);
     else
         throw "SFML deleteShape() -> unknown index"; 
@@ -54,7 +54,7 @@ void SFMLLib::deleteShape(int index)
 
 void SFMLLib::setShapePos(int index, int x, int y)
 {
-    if (this->shapes[index])
+    if (this->shapes.size() > index && this->shapes[index])
         this->shapes[index]->setPosition(sf::Vector2f(x, y));
     else
         throw "SFML setShapePos() -> unknown index";    
@@ -132,29 +132,34 @@ void SFMLLib::deleteFont(int FontId)
 
 void SFMLLib::createWindow(int width, int height, std::string name)
 {
-    this->window = std::make_shared<sf::RenderWindow>(sf::VideoMode(1080, 1080), name, sf::Style::Titlebar | sf::Style::Resize | sf::Style::Close);
+    this->window.create(sf::VideoMode(1080, 1080), name, sf::Style::Titlebar | sf::Style::Resize | sf::Style::Close);
 }
 
 bool SFMLLib::isWindowOpen(void)
 {
-    if (this->window->isOpen())
+    if (this->window.isOpen())
         return (true);
     return (false);
 }
 
 void SFMLLib::clearWindow(void)
 {
-    this->window->clear(sf::Color(41, 42, 48));
+    this->window.clear(sf::Color(41, 42, 48));
+}
+
+void SFMLLib::update(void)
+{
+    this->window.display();
 }
 
 void SFMLLib::resizeWindow(int width, int height)
 {
-    this->window->setSize(sf::Vector2u(width, height));
+    this->window.setSize(sf::Vector2u(width, height));
 }
 
 void SFMLLib::renameWindow(std::string name)
 {
-    this->window->setTitle(name);
+    this->window.setTitle(name);
 }
 
 void SFMLLib::deleteWindow(void)
@@ -165,11 +170,11 @@ void SFMLLib::deleteWindow(void)
 
 bool SFMLLib::events(void)
 {
-    return(this->window->pollEvent(this->event));
+    return(this->window.pollEvent(this->event));
 }
 
 void SFMLLib::closeWindowEvent(void)
 {
     if (this->event.type == sf::Event::Closed)
-        this->window->close();
+        this->window.close();
 }

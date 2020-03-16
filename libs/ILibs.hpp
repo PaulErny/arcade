@@ -77,6 +77,8 @@ class ILibs {
         virtual bool isWindowOpen(void)=0;
         // refreshes the window
         virtual void clearWindow(void)=0;
+        // updates the display
+        virtual void update(void)=0;
         // resizes window to ($width * $height)
         virtual void resizeWindow(int width, int height)=0;
         // renames the window to $name
