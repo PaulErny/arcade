@@ -32,21 +32,15 @@ class ILibs {
         // deletes the shape contained at $index of the vector of shapes
         virtual void deleteShape(int index)=0;
 
-        /* ------------------------------- RELATED TO SPRITES / TEXTURES ------------------------------- */
-        // creates a texture from the image file given as parameter
-        // returns the index of the newly created texture
-        virtual int createTextureFromFile(const std::string filename)=0;
-        // creates a sprite and assigns it the id of the texture returned by createTexture()
-        // returns the index of the newly created sprite
-        virtual int createSprite(int textureId)=0;
-        // draws the sprite contained at $spriteId of the vector of shapes
-        virtual void drawSprite(int spriteId)=0;
-        // sets the position of the sprite contained at $spriteId of the vector of shapes
-        virtual void setSpritePos(int spriteId, int x, int y)=0;
-        // deletes the sprite contained at $spriteId of the vector of sprites
-        virtual void deleteSprite(int spriteId)=0;
-        // deletes the texture contained at $textureId of the vector of textures
-        virtual void deleteTexture(int spriteId)=0;
+        /* ------------------------------- RELATED TO SPRITES ------------------------------- */
+        // creates a sprite from an image and return its ID to later modify it
+        virtual int createImageFromFile(std::string filename)=0;
+        // draws the sprite contained at $ImageId of the vector of shapes
+        virtual void drawImage(int ImageId)=0;
+        // sets the position of the sprite contained at $ImageId of the vector of shapes
+        virtual void setImagePos(int ImageId, int x, int y)=0;
+        // deletes the sprite contained at $ImageId of the vector of sprites
+        virtual void deleteImage(int ImageId)=0;
 
         /* ------------------------------- RELATED TO TEXT ------------------------------- */
         // creates a texture from the image file given as parameter

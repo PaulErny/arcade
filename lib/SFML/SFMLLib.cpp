@@ -60,31 +60,22 @@ void SFMLLib::setShapePos(int index, int x, int y)
         throw "SFML setShapePos() -> unknown index";    
 }
 
-/* ------------------------------- RELATED TO SPRITES / TEXTURES ------------------------------- */
+/* ------------------------------- RELATED TO SPRITES ------------------------------- */
 
-int SFMLLib::createTextureFromFile(const std::string filename)
+int SFMLLib::createImageFromFile(std::string filename)
 {
     return (-1);
 }
 
-int SFMLLib::createSprite(int textureId)
-{
-    return (-1);
-}
-
-void SFMLLib::drawSprite(int spriteId)
+void SFMLLib::drawImage(int ImageId)
 {
 }
 
-void SFMLLib::setSpritePos(int spriteId, int x, int y)
+void SFMLLib::setImagePos(int ImageId, int x, int y)
 {
 }
 
-void SFMLLib::deleteSprite(int spriteId)
-{
-}
-
-void SFMLLib::deleteTexture(int spriteId)
+void SFMLLib::deleteImage(int ImageId)
 {
 }
 
