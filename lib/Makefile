@@ -14,11 +14,15 @@ CXXFLAGS = -Wall -Wextra
 all: MAKE
 
 clean:
-	$(RM) $(OBJS)
+	make clean -C ./SDL/
+	make clean -C ./SFML/
 
-fclean: clean
-	$(RM) $(NAME)
+fclean:
+	make fclean -C ./SDL/
+	make fclean -C ./SFML/
 
-re: fclean all
+re: 
+	make re -C ./SDL/
+	make re -C ./SFML/
 
 .PHONY: all clean fclean re
