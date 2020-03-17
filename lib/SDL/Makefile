@@ -1,6 +1,6 @@
 NAME	= lib_arcade_SDL2.so
 
-CC	= g++
+CXX	= g++
 
 RM	= rm -f
 
@@ -8,15 +8,15 @@ SRCS	= ./Sdl.cpp
 
 OBJS	= $(SRCS:.cpp=.o)
 
-CPPFLAGS = -I ./pp
-CXXFLAGS = -std=c++17 -Wall -Wextra
-LIBFLAGS = -lSDL2
-DYNLIBFLAGS = -fPIC -shared
+CPPFLAGS = -I ./
+override CXXFLAGS = -std=c++17 -Wall -Wextra
+override LDLIBS = -lSDL2
+override LDFLAGS = -fPIC -shared
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	 $(CC) $(DYNLIBFLAGS) $(LIBFLAGS) $(OBJS) -o $(NAME)
+	 $(CXX) $(LDFLAGS) $(LDLIBS) $(SRCS) -o $(NAME) $(CXXFLAGS)
 
 clean:
 	$(RM) $(OBJS)

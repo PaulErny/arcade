@@ -1,6 +1,8 @@
 NAME	= program
 
-CC	= make -C ./SDL/
+MAKE: 
+	make -C ./SDL/
+	make -C ./SFML/
 
 RM	= rm -f
 
@@ -9,10 +11,7 @@ OBJS	= $(SRCS:.cpp=.o)
 CPPFLAGS = -I ./pp
 CXXFLAGS = -Wall -Wextra
 
-all: $(NAME)
-
-$(NAME): $(OBJS)
-	 $(CC)
+all: MAKE
 
 clean:
 	$(RM) $(OBJS)

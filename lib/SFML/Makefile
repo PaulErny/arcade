@@ -1,20 +1,22 @@
-NAME	= program
+NAME	= lib_arcade_SFML.so
 
-CC	= g++
+CXX	= g++
 
 RM	= rm -f
 
-SRCS	= ./SFMLLib.cpp 
+SRCS	= ./SFMLLib.cpp
 
 OBJS	= $(SRCS:.cpp=.o)
 
-CPPFLAGS = -I ./pp
-CPPFLAGS += -Wall -Wextra
+CPPFLAGS = -I ./
+override CXXFLAGS = -std=c++17
+override LDLIBS = -lSDL2
+override LDFLAGS = -fPIC -shared
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	 $(CC) $(OBJS) -o $(NAME) $(LDFLAGS)
+	 $(CXX) $(LDFLAGS) $(LDLIBS) $(SRCS) -o $(NAME) $(CXXFLAGS)
 
 clean:
 	$(RM) $(OBJS)
