@@ -64,19 +64,41 @@ void SFMLLib::setShapePos(int index, int x, int y)
 
 int SFMLLib::createImageFromFile(std::string filename)
 {
-    return (-1);
+    // creates the texture
+    this->textures.push_back(std::make_unique<sf::Texture>());
+    if (!this->textures[this->textures.size() - 1])
+        throw "SFML createImageFromFile() -> could not create texture";
+    if (!this->textures[this->textures.size() - 1]->loadFromFile(filename))
+        throw "SFML createImageFromFile() -> could not load texture from file " + filename;
+    // creates the sprite
+    this->sprites.push_back(std::make_unique<sf::Sprite>(*this->textures[this->textures.size() - 1].get()));
+    if (!this->sprites[this->sprites.size() - 1])
+        throw "SFML createImageFromFile() -> could not create sprite from " + filename;
+    return(this->sprites.size() - 1);
 }
 
 void SFMLLib::drawImage(int ImageId)
 {
+    if (this->sprites[ImageId])
+        this->window.draw(*this->sprites[ImageId].get());
+    else
+        throw "SFML drawImage() -> unknown index";
 }
 
 void SFMLLib::setImagePos(int ImageId, int x, int y)
 {
+    if (this->sprites[ImageId])
+        this->sprites[ImageId]->setPosition(x, y);
+    else
+        throw "SFML setImagePos() -> unknown index";
 }
 
 void SFMLLib::deleteImage(int ImageId)
 {
+    if (this->sprites.size() > ImageId && this->sprites[ImageId])
+        this->sprites.erase(this->sprites.begin() + ImageId);
+    else
+        throw "SFML deleteImage() -> unknown index"; 
 }
 
 /* ------------------------------- RELATED TO TEXT ------------------------------- */
@@ -88,7 +110,7 @@ int SFMLLib::createFontFromFile(const std::string filename)
         throw "SFML createFontFromFile() -> could not create font";
     if (!this->fonts[this->fonts.size() - 1]->loadFromFile(filename))
         throw "SFML createFontFromFile() -> could not load font from file " + filename;
-    return(this->shapes.size() - 1);
+    return(this->fonts.size() - 1);
 }
 
 int SFMLLib::createText(std::string text, int fontId)

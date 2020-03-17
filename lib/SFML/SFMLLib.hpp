@@ -34,13 +34,13 @@ class SFMLLib : public ILibs {
 
         /* ------------------------------- RELATED TO SPRITES ------------------------------- */
         // creates a sprite from an image and return its ID to later modify it
-        virtual int createImageFromFile(std::string filename)=0;
+        int createImageFromFile(std::string filename);
         // draws the sprite contained at $ImageId of the vector of shapes
-        virtual void drawImage(int ImageId)=0;
+        void drawImage(int ImageId);
         // sets the position of the sprite contained at $ImageId of the vector of shapes
-        virtual void setImagePos(int ImageId, int x, int y)=0;
+        void setImagePos(int ImageId, int x, int y);
         // deletes the sprite contained at $ImageId of the vector of sprites
-        virtual void deleteImage(int ImageId)=0;
+        void deleteImage(int ImageId);
 
         /* ------------------------------- RELATED TO TEXT ------------------------------- */
         // creates a texture from the image file given as parameter
