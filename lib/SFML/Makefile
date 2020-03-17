@@ -10,7 +10,7 @@ OBJS	= $(SRCS:.cpp=.o)
 
 CPPFLAGS = -I ./
 override CXXFLAGS = -std=c++17
-override LDLIBS = -lSDL2
+override LDLIBS = -lsfml-system -lsfml-graphics -lsfml-window
 override LDFLAGS = -fPIC -shared
 
 all: $(NAME)

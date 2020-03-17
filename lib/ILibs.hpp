@@ -58,7 +58,7 @@ class ILibs {
         // draws the text contained at $textId of the vector of shapes
         virtual void drawText(int textId)=0;
         // sets the string of a text element
-        virtual void setTextString(std::string str)=0;
+        virtual void setTextString(int textId, std::string str)=0;
         // sets the position of the sprite contained at $spriteId of the vector of shapes
         virtual void setTextPos(int textId, int x, int y)=0;
         // sets the size of the text to $charSize

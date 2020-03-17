@@ -20,9 +20,9 @@ SFMLLib::~SFMLLib()
 int SFMLLib::createShape(ShapeType type, int width, int height)
 {
     if (type == RECTANGLE) {
-        this->shapes.push_back(std::make_shared<sf::RectangleShape>(sf::Vector2f(width, height)));
+        this->shapes.push_back(std::make_unique<sf::RectangleShape>(sf::Vector2f(width, height)));
     } else if (type == CIRCLE) {
-        this->shapes.push_back(std::make_shared<sf::CircleShape>(width));
+        this->shapes.push_back(std::make_unique<sf::CircleShape>(width));
     } else
         throw "SFML createShape() -> unknown shape requested";
     return(this->shapes.size() - 1);
@@ -92,40 +92,78 @@ void SFMLLib::deleteTexture(int spriteId)
 
 int SFMLLib::createFontFromFile(const std::string filename)
 {
-    return (-1);
+    this->fonts.push_back(std::make_unique<sf::Font>());
+    if (!this->fonts[this->fonts.size() - 1])
+        throw "SFML createFontFromFile() -> could not create font";
+    if (!this->fonts[this->fonts.size() - 1]->loadFromFile(filename))
+        throw "SFML createFontFromFile() -> could not load font from file " + filename;
+    return(this->shapes.size() - 1);
 }
 
 int SFMLLib::createText(std::string text, int fontId)
 {
-    return (-1);
+    if (!this->fonts[fontId])
+        throw "SFML createText() -> given font unknown";
+    this->texts.push_back(std::make_unique<sf::Text>(text, *this->fonts[fontId].get()));
+    if (!this->texts[this->texts.size() - 1])
+        throw "SFML createText() -> couldn't create text";
+    return (this->texts.size() - 1);
 }
 
 void SFMLLib::drawText(int textId)
 {
+    if (this->texts.size() > textId && this->texts[textId])
+        this->window.draw(*this->texts[textId].get());
+    else
+        throw "SFML drawText() -> unknown index";
 }
 
-void SFMLLib::setTextString(std::string str)
+void SFMLLib::setTextString(int textId, std::string str)
 {
+    if (this->texts.size() > textId && this->texts[textId])
+        this->texts[textId]->setString(str);
+    else
+        throw "SFML setTextString() -> unknown index";
 }
 
 void SFMLLib::setTextPos(int textId, int x, int y)
 {
+    if (this->texts.size() > textId && this->texts[textId])
+        this->texts[textId]->setPosition(sf::Vector2f(x, y));
+    else
+        throw "SFML setTextPos() -> unknown index"; 
 }
 
 void SFMLLib::setTextCharSize(int textId, int charSize)
 {
+    if (this->texts.size() > textId && this->texts[textId])
+        this->texts[textId]->setCharacterSize(charSize);
+    else
+        throw "SFML setTextCharSize() -> unknown index"; 
 }
 
 void SFMLLib::setTextColor(int textId, int r, int g, int b, int a)
 {
+    if (this->texts.size() > textId && this->texts[textId])
+        this->texts[textId]->setFillColor(sf::Color(r, g, b, a));
+    else
+        throw "SFML setTextColor() -> unknown index"; 
 }
 
 void SFMLLib::deleteText(int TextId)
 {
+    if (this->texts.size() > TextId && this->texts[TextId])
+        this->texts.erase(this->texts.begin() + TextId);
+    else
+        throw "SFML deleteText() -> unknown index"; 
 }
 
 void SFMLLib::deleteFont(int FontId)
 {
+    if (this->fonts.size() > FontId && this->fonts[FontId])
+        this->fonts.erase(this->fonts.begin() + FontId);
+    else
+        throw "SFML deleteFont() -> unknown index"; 
 }
 
 /* ------------------------------- RELATED TO WINDOWS ------------------------------- */

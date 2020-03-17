@@ -58,7 +58,7 @@ class SFMLLib : public ILibs {
         // draws the text contained at $textId of the vector of shapes
         void drawText(int textId);
         // sets the string of a text element
-        void setTextString(std::string str);
+        void setTextString(int textId, std::string str);
         // sets the position of the sprite contained at $spriteId of the vector of shapes
         void setTextPos(int textId, int x, int y);
         // sets the size of the text to $charSize
@@ -93,11 +93,11 @@ class SFMLLib : public ILibs {
         void closeWindowEvent(void);
 
     private:
-        std::vector<std::shared_ptr<sf::Texture>> textures;
-        std::vector<std::shared_ptr<sf::Sprite>> sprites;
-        std::vector<std::shared_ptr<sf::Font>> fonts;
-        std::vector<std::shared_ptr<sf::Text>> texts;
-        std::vector<std::shared_ptr<sf::Shape>> shapes;
+        std::vector<std::unique_ptr<sf::Texture>> textures;
+        std::vector<std::unique_ptr<sf::Sprite>> sprites;
+        std::vector<std::unique_ptr<sf::Font>> fonts;
+        std::vector<std::unique_ptr<sf::Text>> texts;
+        std::vector<std::unique_ptr<sf::Shape>> shapes;
         sf::RenderWindow window;
         sf::Event event;
 };
