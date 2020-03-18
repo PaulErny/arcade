@@ -84,7 +84,7 @@ class ILibs {
         // handle events occuring in the window
         virtual bool events(void)=0;
         // closes the window in case of such an event
-        virtual void closeWindowEvent(void)=0; 
+        virtual void closeWindowEvent(void)=0;
 };
 
 #endif /* !ILIBS_HPP */

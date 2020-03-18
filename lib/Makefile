@@ -8,10 +8,15 @@ RM	= rm -f
 
 OBJS	= $(SRCS:.cpp=.o)
 
+MVSO:
+	mv SDL/lib_arcade_SFML.so ./
+	mv SFML/lib_arcade_SDL2.so ./
+
 CPPFLAGS = -I ./pp
 CXXFLAGS = -Wall -Wextra
 
 all: MAKE
+	MVSO
 
 clean:
 	make clean -C ./SDL/
