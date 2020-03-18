@@ -15,6 +15,13 @@ enum ShapeType {
     CIRCLE,
 };
 
+enum state {
+    NOTHING,
+    MENU,
+    PAUSE,
+    GAME
+};
+
 class ILibs {
     public:
         virtual ~ILibs()=default;
@@ -85,6 +92,13 @@ class ILibs {
         virtual bool events(void)=0;
         // closes the window in case of such an event
         virtual void closeWindowEvent(void)=0;
+
+        /* ------------------------------- MENU ------------------------------- */
+        // menu for selecting the graphical lib. returns 0 if nCurses is selected, 2 for SFML and 3 for SDL -1 for errors
+        int libSelectionMenu(state &pgState, bool close, std::vector<std::string> &libsNames);
+        // menu to select the game. returns 0 for game 0 if $gamesNames, 1 for game 2 if $gamesNames, etc...
+        int menu(state &pgState, bool close, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores);
+
 };
 
 #endif /* !ILIBS_HPP */
