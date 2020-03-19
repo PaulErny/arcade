@@ -9,6 +9,7 @@
 #define ILIBS_HPP
 
 #include <string>
+#include <vector>
 
 enum ShapeType {
     RECTANGLE,
