@@ -6,7 +6,8 @@ RM	= rm -f
 
 SRCS	= ./game.cpp \
 	  ./lib.cpp \
-	  ./main.cpp 
+	  ./name.cpp \
+	  ./menu.cpp 
 
 OBJS	= $(SRCS:.cpp=.o)
 

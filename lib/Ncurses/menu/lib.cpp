@@ -5,7 +5,7 @@
 ** lib
 */
 
-#include "main.hpp"
+#include "menu.hpp"
 
 int NcursesLib::check_lib(int selection, const char **lib_list)
 {

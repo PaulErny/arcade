@@ -31,7 +31,6 @@ public:
     int menu_game(NcursesLib game);
     std::string get_name(int, int);
     std::string menu_name(void);
-    void DrawMenu(void);
     void test(int, int);
     
     /* ------------------------------- RELATED TO SHAPES ------------------------------- */

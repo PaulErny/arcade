@@ -5,7 +5,7 @@
 ** main
 */
 
-#include "main.hpp"
+#include "menu.hpp"
 
 NcursesLib::NcursesLib(int selection, int row, int col,
                        int arraylength, int width, int menulength)
@@ -39,56 +39,6 @@ void NcursesLib::test(int row, int col)
     mvprintw(row / 2 - 2, (col - strlen(title4)) / 2, "%s", title4);
     mvprintw(row / 2 - 1, (col - strlen(title5)) / 2, "%s", title5);
     attroff(COLOR_PAIR(1));
-} 
-
-std::string NcursesLib::get_name(int row, int col)
-{
-    char title[] = "ENTER YOUR NAME";
-    char str[80];
-    initscr();
-    getmaxyx(stdscr, row, col);
-    mvprintw(row / 2, (col - strlen(title)) / 2, "%s", title);
-    mvprintw(row / 2 + 1, (col - strlen(title)) / 2, "\t");
-    getstr(str);
-    clear();
-    return (str);
-}
-
-std::string NcursesLib::menu_name(void)
-{
-    int row, col;
-    std::string thename;
-
-    initscr();
-    getmaxyx(stdscr, row, col);
-    this->test(10, col);
-    thename = this->get_name(row, col);
-    endwin();
-    return (thename);
-}
-
-void NcursesLib::DrawMenu(void)
-{
-    NcursesLib lib(0, 1, 4, 4, 5, 5);
-    NcursesLib game(0, 1, 3, 3, 4, 4);
-    std::string name;
-    int row, col;
-
-
-    initscr();
-    getmaxyx(stdscr, row, col);
-    this->test(row, col);
-    name = this->get_name(row, col);
-    this->test(10, col);
-    noecho();
-    keypad(stdscr, TRUE);
-    curs_set(0);
-    mvprintw(3, 150, "Your name = %s", name.c_str());
-    //lib.menu_lib(lib);
-    game.menu_game(game);
-    refresh();
-    getch();
-    endwin();
 }
 
 /* ------------------------------- RELATED TO SHAPES ------------------------------- */
@@ -239,16 +189,6 @@ int NcursesLib::gameSelectionMenu(state &pgState, bool close, std::vector<std::s
 
     which_game = menu_game(game);
     return (which_game);
-}
-
-std::string NcursesLib::enterName(state &pgState, bool close)
-{
-    pgState = NOTHING;
-    close = true;
-    std::string thename;
-
-    thename = menu_name();
-    return (thename);
 }
 
 int main(void)

@@ -5,7 +5,7 @@
 ** game
 */
 
-#include "main.hpp"
+#include "menu.hpp"
 
 int NcursesLib::check_game(int selection, const char **game_list)
 {
