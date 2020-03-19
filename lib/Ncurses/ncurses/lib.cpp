@@ -7,14 +7,7 @@
 
 #include "main.hpp"
 
-const char *lib_list[] = {
-    "Ncurses",
-    "SFML",
-    "SDL",
-    "Exit",
-};
-
-int MenuNcurse::check_lib(int selection)
+int MenuNcurse::check_lib(int selection, const char **lib_list)
 {
     if (strcmp(lib_list[selection], "Ncurses") == 0)
         mvprintw(20, 0, "Ncurses", lib_list[selection]);
@@ -25,10 +18,15 @@ int MenuNcurse::check_lib(int selection)
     return (27);
 }
 
-void MenuNcurse::menu_lib(MenuNcurse lib)
+int MenuNcurse::inLib(MenuNcurse lib)
 {
     int counter, offset = 0, ky = 0;
-
+    const char *lib_list[] = {
+    "Ncurses",
+    "SFML",
+    "SDL",
+    "Exit",
+};
     while (ky != 27)
     {
         for (counter = 0; counter < lib._menulength - 1; counter++)
@@ -82,9 +80,26 @@ void MenuNcurse::menu_lib(MenuNcurse lib)
                 offset = lib._arraylength - lib._menulength;
             break;
         case 10: //enter
-            ky = check_lib(lib._selection);
+            ky = check_lib(lib._selection, lib_list);
             break;
         }
         mvprintw(0, 0, "%i", lib._selection);
     }
+    return (0);
+}
+
+int MenuNcurse::menu_lib(MenuNcurse lib)
+{
+    int row, col;
+
+    initscr();
+    getmaxyx(stdscr, row, col);
+    this->test(10, col);
+    noecho();
+    keypad(stdscr, TRUE);
+    curs_set(0);
+    this->inLib(lib);
+    refresh();
+    endwin();
+    return (0);
 }
