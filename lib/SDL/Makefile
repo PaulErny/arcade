@@ -4,20 +4,17 @@ CXX	= g++
 
 RM	= rm -f
 
-SRCS	= ./Sdl.cpp 
+SRCS	= ./SDLLib.cpp
 
 OBJS	= $(SRCS:.cpp=.o)
 
-MVSO:
-	mv lib_arcade_SDL2.so ../
-
 CPPFLAGS = -I ./
-override CXXFLAGS = -std=c++17 -Wall -Wextra
+override CXXFLAGS = -std=c++17
 override LDLIBS = -lSDL2
 override LDFLAGS = -fPIC -shared
 
 all: $(NAME)
-	MVSO
+	mv lib_arcade_SDL2.so ../
 
 $(NAME): $(OBJS)
 	 $(CXX) $(LDFLAGS) $(LDLIBS) $(SRCS) -o $(NAME) $(CXXFLAGS)
