@@ -7,7 +7,7 @@
 
 #include "main.hpp"
 
-int MenuNcurse::check_lib(int selection, const char **lib_list)
+int NcursesLib::check_lib(int selection, const char **lib_list)
 {
     if (strcmp(lib_list[selection], "Ncurses") == 0)
         mvprintw(20, 0, "Ncurses", lib_list[selection]);
@@ -18,7 +18,7 @@ int MenuNcurse::check_lib(int selection, const char **lib_list)
     return (27);
 }
 
-int MenuNcurse::inLib(MenuNcurse lib)
+int NcursesLib::inLib(NcursesLib lib)
 {
     int counter, offset = 0, ky = 0;
     const char *lib_list[] = {
@@ -88,7 +88,7 @@ int MenuNcurse::inLib(MenuNcurse lib)
     return (0);
 }
 
-int MenuNcurse::menu_lib(MenuNcurse lib)
+int NcursesLib::menu_lib(NcursesLib lib)
 {
     int row, col;
 

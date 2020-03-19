@@ -14,24 +14,23 @@
 #include <algorithm>
 #include <cstring>
 #include "../../ILibs.hpp"
-using namespace std;
 
-class MenuNcurse : public ILibs
+class NcursesLib : public ILibs
 {
 private:
     /* data */
 public:
-    MenuNcurse(int, int, int, int, int, int);
-    ~MenuNcurse();
+    NcursesLib(int, int, int, int, int, int);
+    ~NcursesLib();
 
     int check_lib(int selection, const char **);
     int check_game(int selection, const char **);
-    int menu_lib(MenuNcurse lib);
-    int inLib(MenuNcurse lib);
-    int inGame(MenuNcurse lib);
-    int menu_game(MenuNcurse game);
-    string get_name(int, int);
-    string menu_name(void);
+    int menu_lib(NcursesLib lib);
+    int inLib(NcursesLib lib);
+    int inGame(NcursesLib lib);
+    int menu_game(NcursesLib game);
+    std::string get_name(int, int);
+    std::string menu_name(void);
     void DrawMenu(void);
     void test(int, int);
     
@@ -108,7 +107,7 @@ public:
         // menu to select the game. returns 0 for game 0 if $gamesNames, 1 for game 2 if $gamesNames, etc...
         int gameSelectionMenu(state &pgState, bool close, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores);
         // menu to enter the name. returns string with the name
-        string enterName(state &pgState, bool close);
+        std::string enterName(state &pgState, bool close);
 
 
     int _selection;

@@ -10,6 +10,7 @@
 
 #include <string>
 #include <vector>
+#include <iostream>
 
 enum ShapeType {
     RECTANGLE,
@@ -96,11 +97,11 @@ class ILibs {
 
          /* ------------------------------- MENU ------------------------------- */
         // menu for selecting the graphical lib. returns 0 if nCurses is selected, 2 for SFML and 3 for SDL -1 for errors
-        virtual int libSelectionMenu(state &pgState, bool close, std::vector<std::string> &libsNames)=0;
+        int libSelectionMenu(state &pgState, bool close, std::vector<std::string> &libsNames);
         // menu to select the game. returns 0 for game 0 if $gamesNames, 1 for game 2 if $gamesNames, etc...
-        virtual int gameSelectionMenu(state &pgState, bool close, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores)=0;
+        int gameSelectionMenu(state &pgState, bool close, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores);
         // menu to enter the name. returns string with the name
-        virtual string enterName(state &pgState, bool close)=0;
+        std::string enterName(state &pgState, bool close);
 
 };
 

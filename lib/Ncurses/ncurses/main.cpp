@@ -6,9 +6,8 @@
 */
 
 #include "main.hpp"
-using namespace std;
 
-MenuNcurse::MenuNcurse(int selection, int row, int col,
+NcursesLib::NcursesLib(int selection, int row, int col,
                        int arraylength, int width, int menulength)
 {
     this->_selection = selection;
@@ -19,11 +18,11 @@ MenuNcurse::MenuNcurse(int selection, int row, int col,
     this->_menulength = menulength;
 }
 
-MenuNcurse::~MenuNcurse()
+NcursesLib::~NcursesLib()
 {
 }
 
-void MenuNcurse::test(int row, int col)
+void NcursesLib::test(int row, int col)
 {
     char title1[] = "   ____    ___  _________    ____  _____";
     char title2[] = "   /   |  / __ |/ ____/   |  / __ |/ ___/";
@@ -42,7 +41,7 @@ void MenuNcurse::test(int row, int col)
     attroff(COLOR_PAIR(1));
 } 
 
-string MenuNcurse::get_name(int row, int col)
+std::string NcursesLib::get_name(int row, int col)
 {
     char title[] = "ENTER YOUR NAME";
     char str[80];
@@ -55,10 +54,10 @@ string MenuNcurse::get_name(int row, int col)
     return (str);
 }
 
-string MenuNcurse::menu_name(void)
+std::string NcursesLib::menu_name(void)
 {
     int row, col;
-    string thename;
+    std::string thename;
 
     initscr();
     getmaxyx(stdscr, row, col);
@@ -68,11 +67,11 @@ string MenuNcurse::menu_name(void)
     return (thename);
 }
 
-void MenuNcurse::DrawMenu(void)
+void NcursesLib::DrawMenu(void)
 {
-    MenuNcurse lib(0, 1, 4, 4, 5, 5);
-    MenuNcurse game(0, 1, 3, 3, 4, 4);
-    string name;
+    NcursesLib lib(0, 1, 4, 4, 5, 5);
+    NcursesLib game(0, 1, 3, 3, 4, 4);
+    std::string name;
     int row, col;
 
 
@@ -94,159 +93,159 @@ void MenuNcurse::DrawMenu(void)
 
 /* ------------------------------- RELATED TO SHAPES ------------------------------- */
 
-int MenuNcurse::createShape(ShapeType type, int width, int height)
+int NcursesLib::createShape(ShapeType type, int width, int height)
 {
     return (0);
 }
 
-void MenuNcurse::drawShape(int index)
+void NcursesLib::drawShape(int index)
 {
 }
 
-void MenuNcurse::setShapeColor(int index, int r, int g, int b, int a)
+void NcursesLib::setShapeColor(int index, int r, int g, int b, int a)
 {
 }
 
-void MenuNcurse::deleteShape(int index)
+void NcursesLib::deleteShape(int index)
 {
 }
 
-void MenuNcurse::setShapePos(int index, int x, int y)
+void NcursesLib::setShapePos(int index, int x, int y)
 {   
 }
 
 /* ------------------------------- RELATED TO SPRITES ------------------------------- */
 
-int MenuNcurse::createImageFromFile(std::string filename)
+int NcursesLib::createImageFromFile(std::string filename)
 {
     return (0);
 }
 
-void MenuNcurse::drawImage(int ImageId)
+void NcursesLib::drawImage(int ImageId)
 {
 }
 
-void MenuNcurse::setImagePos(int ImageId, int x, int y)
+void NcursesLib::setImagePos(int ImageId, int x, int y)
 {
 }
 
-void MenuNcurse::deleteImage(int ImageId)
+void NcursesLib::deleteImage(int ImageId)
 {
 }
 
 /* ------------------------------- RELATED TO TEXT ------------------------------- */
 
-int MenuNcurse::createFontFromFile(const std::string filename)
+int NcursesLib::createFontFromFile(const std::string filename)
 {
     return (0);
 }
 
-int MenuNcurse::createText(std::string text, int fontId)
+int NcursesLib::createText(std::string text, int fontId)
 {
     return (0);
 }
 
-void MenuNcurse::drawText(int textId)
+void NcursesLib::drawText(int textId)
 {
 }
 
-void MenuNcurse::setTextString(int textId, std::string str)
+void NcursesLib::setTextString(int textId, std::string str)
 {
 }
 
-void MenuNcurse::setTextPos(int textId, int x, int y)
+void NcursesLib::setTextPos(int textId, int x, int y)
 {
 }
 
-void MenuNcurse::setTextCharSize(int textId, int charSize)
+void NcursesLib::setTextCharSize(int textId, int charSize)
 {
 }
 
-void MenuNcurse::setTextColor(int textId, int r, int g, int b, int a)
+void NcursesLib::setTextColor(int textId, int r, int g, int b, int a)
 {
 }
 
-void MenuNcurse::deleteText(int TextId)
+void NcursesLib::deleteText(int TextId)
 {
 }
 
-void MenuNcurse::deleteFont(int FontId)
+void NcursesLib::deleteFont(int FontId)
 {
 }
 
 /* ------------------------------- RELATED TO WINDOWS ------------------------------- */
 
-void MenuNcurse::createWindow(int width, int height, std::string name)
+void NcursesLib::createWindow(int width, int height, std::string name)
 {
 }
 
-bool MenuNcurse::isWindowOpen(void)
+bool NcursesLib::isWindowOpen(void)
 {
 }
 
-void MenuNcurse::clearWindow(void)
+void NcursesLib::clearWindow(void)
 {
 }
 
-void MenuNcurse::update(void)
+void NcursesLib::update(void)
 {
 }
 
-void MenuNcurse::resizeWindow(int width, int height)
+void NcursesLib::resizeWindow(int width, int height)
 {
 }
 
-void MenuNcurse::renameWindow(std::string name)
+void NcursesLib::renameWindow(std::string name)
 {
 }
 
-void MenuNcurse::deleteWindow(void)
+void NcursesLib::deleteWindow(void)
 {
 }
 
 /* ------------------------------- RELATED TO EVENTS ------------------------------- */
 
-bool MenuNcurse::events(void)
+bool NcursesLib::events(void)
 {
-    return (true);
+    return (0);
 }
 
-void MenuNcurse::closeWindowEvent(void)
+void NcursesLib::closeWindowEvent(void)
 {
 }
 
 /* ------------------------------- MENU ------------------------------- */
 
-int MenuNcurse::libSelectionMenu(state &pgState, bool close, std::vector<std::string> &libsNames)
+int NcursesLib::libSelectionMenu(state &pgState, bool close, std::vector<std::string> &libsNames)
 {
     pgState = NOTHING;
     libsNames;
     close = true;
-    MenuNcurse lib(0, 1, 4, 4, 5, 5);
+    NcursesLib lib(0, 1, 4, 4, 5, 5);
     int which_lib = 0;
 
     which_lib = menu_lib(lib);
     return (which_lib);
 }
 
-int MenuNcurse::gameSelectionMenu(state &pgState, bool close, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores)
+int NcursesLib::gameSelectionMenu(state &pgState, bool close, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores)
 {
     pgState = NOTHING;
     gamesNames;
     highScores;
     close = true;
-    MenuNcurse game(0, 1, 3, 3, 4, 4);
+    NcursesLib game(0, 1, 3, 3, 4, 4);
     int which_game = 0;
 
     which_game = menu_game(game);
     return (which_game);
 }
 
-string MenuNcurse::enterName(state &pgState, bool close)
+std::string NcursesLib::enterName(state &pgState, bool close)
 {
     pgState = NOTHING;
     close = true;
-    string thename;
+    std::string thename;
 
     thename = menu_name();
     return (thename);
@@ -259,11 +258,10 @@ int main(void)
     std::vector<std::string> gamesNames;
     std::vector<std::vector<std::string>> highScores;
     bool close = true;
-    MenuNcurse *menu = NULL;
+    NcursesLib *menu = NULL;
 
     menu->enterName(pgState, close);
     menu->libSelectionMenu(pgState, close, libsNames);
     menu->gameSelectionMenu(pgState, close, gamesNames, highScores);
-    string entername(state &pgState, bool close);
     return (0);
 }

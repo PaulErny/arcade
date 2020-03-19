@@ -7,7 +7,7 @@
 
 #include "main.hpp"
 
-int MenuNcurse::check_game(int selection, const char **game_list)
+int NcursesLib::check_game(int selection, const char **game_list)
 {
     if (strcmp(game_list[selection], "Snake") == 0)
         mvprintw(20, 20, "Snake", game_list[selection]);
@@ -16,7 +16,7 @@ int MenuNcurse::check_game(int selection, const char **game_list)
     return (27);
 }
 
-int MenuNcurse::inGame(MenuNcurse game)
+int NcursesLib::inGame(NcursesLib game)
 {
     int counter, offset = 0, ky = 0;
     const char *game_list[] = {
@@ -85,12 +85,11 @@ int MenuNcurse::inGame(MenuNcurse game)
     return (0);
 }
 
-int MenuNcurse::menu_game(MenuNcurse lib)
+int NcursesLib::menu_game(NcursesLib lib)
 {
     int row, col;
     initscr();
     getmaxyx(stdscr, row, col);
-    this->test(10, col);
     noecho();
     keypad(stdscr, TRUE);
     curs_set(0);
