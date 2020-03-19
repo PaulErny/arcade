@@ -16,7 +16,7 @@ int MenuNcurse::check_game(int selection, const char **game_list)
     return (27);
 }
 
-void MenuNcurse::menu_game(MenuNcurse game)
+int MenuNcurse::inGame(MenuNcurse game)
 {
     int counter, offset = 0, ky = 0;
     const char *game_list[] = {
@@ -82,4 +82,21 @@ void MenuNcurse::menu_game(MenuNcurse game)
         }
         mvprintw(0, 0, "%i", game._selection);
     }
+    return (0);
+}
+
+int MenuNcurse::menu_game(MenuNcurse lib)
+{
+    int row, col;
+    initscr();
+    getmaxyx(stdscr, row, col);
+    this->test(10, col);
+    noecho();
+    keypad(stdscr, TRUE);
+    curs_set(0);
+    this->inGame(lib);
+    refresh();
+    getch(); // a enlever pour lancer direct après enter
+    endwin();
+    return (0);
 }
