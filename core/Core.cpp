@@ -73,7 +73,7 @@ void Core::laodLib()
 {
     void *handle = dlopen(m_arg, RTLD_LAZY);
 
-    if (dlerror() == NULL)
+    if (dlerror() != NULL)
         throw "Cannot open lib";
     std::unique_ptr<ILibs> (*create)();
     create = (std::unique_ptr<ILibs>(*)())dlsym(handle, "create_object");
