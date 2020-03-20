@@ -18,6 +18,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	 $(CXX) $(OBJS) -o $(NAME) $(LDFLAGS)
+	 mv arcade ../
 
 clean:
 	$(RM) $(OBJS)

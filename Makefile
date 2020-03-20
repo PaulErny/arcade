@@ -1,3 +1,7 @@
+NAME	= arcade
+
+RM	= rm -f
+
 MAKE:
 	make -C ./lib/
 	make -C ./core/
@@ -23,6 +27,7 @@ clean:
 	make clean -C ./games/
 
 fclean:
+	$(RM) $(NAME)
 	make fclean -C ./lib/
 	make fclean -C ./core/
 	make fclean -C ./games/
