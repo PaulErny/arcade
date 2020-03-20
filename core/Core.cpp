@@ -34,16 +34,12 @@ void Core::fillLibVector()
         if (fileString.find(".so") != std::string::npos && 
         fileString.find("lib_") == 0 && 
         fileString.find("arcade_") == 4) {
-            for (auto i = 11; i < fileString.find(".so"); i++) {
+            for (auto i = 11; i < (int)fileString.find(".so"); i++) {
                 toVector.push_back(fileString[i]);
             }
             m_libs.push_back(toVector);
             toVector.clear();
         }
-    }
-    for (int i = 0; i < m_libs.size(); i++)
-    {
-        std::cout << m_libs.at(i) << ' ';
     }
 }
 
@@ -63,17 +59,13 @@ void Core::fillGamesVector()
             fileString.find("games_") == 0 &&
             fileString.find("arcade_") == 6)
         {
-            for (auto i = 13; i < fileString.find(".so"); i++)
+            for (auto i = 13; i < (int)fileString.find(".so"); i++)
             {
                 toVector.push_back(fileString[i]);
             }
             m_games.push_back(toVector);
             toVector.clear();
         }
-    }
-    for (int i = 0; i < m_libs.size(); i++)
-    {
-        std::cout << m_libs.at(i) << ' ';
     }
 }
 
