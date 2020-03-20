@@ -14,7 +14,7 @@ override LDLIBS = -lSDL2
 override LDFLAGS = -fPIC -shared
 
 all: $(NAME)
-	mv lib_arcade_SDL2.so ../
+	mv $(NAME) ../
 
 $(NAME): $(OBJS)
 	 $(CXX) $(LDFLAGS) $(LDLIBS) $(SRCS) -o $(NAME) $(CXXFLAGS)

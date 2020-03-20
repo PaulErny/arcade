@@ -11,6 +11,7 @@
 class Core
 {
 private:
+    void *m_handle;
     char *m_arg;
     std::vector<std::string> m_libs;
     std::vector<std::string> m_games;
@@ -19,6 +20,8 @@ public:
     ~Core();
     std::vector<std::string> getLibs() const;
     std::vector<std::string> getGames() const;
+    void nextLib(std::string libName);
+    void previousLib(std::string libName);
     void fillLibVector();
     void fillGamesVector();
     void laodLib();

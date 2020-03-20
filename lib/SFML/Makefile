@@ -14,7 +14,7 @@ override LDLIBS = -lsfml-system -lsfml-graphics -lsfml-window
 override LDFLAGS = -fPIC -shared
 
 all: $(NAME)
-	mv lib_arcade_SFML.so ../
+	mv $(NAME) ../
 
 $(NAME): $(OBJS)
 	 $(CXX) $(LDFLAGS) $(LDLIBS) $(SRCS) -o $(NAME) $(CXXFLAGS)
