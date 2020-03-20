@@ -1,4 +1,4 @@
-NAME	= lib_arcade_SDL2.so
+NAME	= lib_arcade_sdl2.so
 
 CXX	= g++
 
