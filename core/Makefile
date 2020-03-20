@@ -1,21 +1,23 @@
-NAME	= program
+NAME	= arcade
 
 CXX	= g++
 
 RM	= rm -f
 
-SRCS	= ./main.cpp 
+SRCS	= ./Core.cpp \
+	  		./main.cpp 
 
 OBJS	= $(SRCS:.cpp=.o)
 
-CPPFLAGS = -I 
-CXXFLAGS = -std=c++17 -Wall -Wextra
+CPPFLAGS = -I ./pp
+override CXXFLAGS = -std=c++17 -Wall -Wextra
+
 LDFLAGS = -ldl
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	 $(CC) $(OBJS) $(LDFLAGS) -o $(NAME) 
+	 $(CXX) $(OBJS) -o $(NAME) $(LDFLAGS)
 
 clean:
 	$(RM) $(OBJS)
