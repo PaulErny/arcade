@@ -1,15 +1,25 @@
 #ifndef SDL_HPP
 #define SDL_HPP
 
-#include "SDL2/SDL.h"
-#include "../ILibs.hpp"
 #include <memory>
+#include <vector>
+#include "SDL2/SDL.h"
+#include "SDL2/SDL_ttf.h"
+#include "SDL2/SDL_image.h"
+#include "../ILibs.hpp"
 
 class SDLLib : public ILibs
 {
 private:
-    /* data */
-public:
+    SDL_Window *gWindow = NULL;
+    SDL_Surface *gScreenSurface = NULL;
+    SDL_Renderer *gRenderer = NULL;
+    SDL_Surface *gHelloWorld = NULL;
+    SDL_Event e;
+    bool quit; 
+    std::vector<SDL_Texture *> gTexture;
+    std::vector<TTF_Font *> gfont;  
+    public:
     SDLLib(/* args */);
     ~SDLLib();
     /* ------------------------------- RELATED TO SHAPES ------------------------------- */
@@ -78,6 +88,14 @@ public:
     bool events(void);
     // closes the window in case of such an event
     void closeWindowEvent(void);
+
+    /* ------------------------------- MENU ------------------------------- */
+    // menu for selecting the graphical lib. returns 0 if nCurses is selected, 2 for SFML and 3 for SDL -1 for errors
+    int libSelectionMenu(state &pgState, bool close, std::vector<std::string> &libsNames);
+    // menu to select the game. returns 0 for game 0 if $gamesNames, 1 for game 2 if $gamesNames, etc...
+    int gameSelectionMenu(state &pgState, bool close, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores);
+    // menu to enter the name. returns string with the name
+    std::string enterName(state &pgState, bool close);
 };
 
 #endif
