@@ -5,7 +5,7 @@
 ** name
 */
 
-#include "menu.hpp"
+#include "../NcursesLib.hpp"
 
 std::string NcursesLib::get_name(int row, int col)
 {

@@ -5,7 +5,7 @@
 ** main
 */
 
-#include "menu.hpp"
+#include "../NcursesLib.hpp"
 
 NcursesLib::NcursesLib(int selection, int row, int col,
                        int arraylength, int width, int menulength)

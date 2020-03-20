@@ -10,14 +10,25 @@
 
 #include "../ILibs.hpp"
 #include <ncurses.h>
+#include <cstring>
 
-class libNcurses : public ILibs
+class NcursesLib : public ILibs
 {
 private:
     /* data */
 public:
-    libNcurses();
-    ~libNcurses();
+    NcursesLib(int, int, int, int, int, int);
+    ~NcursesLib();
+
+    int check_lib(int selection, const char **);
+    int check_game(int selection, const char **);
+    int menu_lib(NcursesLib lib);
+    int inLib(NcursesLib lib);
+    int inGame(NcursesLib lib);
+    int menu_game(NcursesLib game);
+    std::string get_name(int, int);
+    std::string menu_name(void);
+    void test(int, int);
 
     /* ------------------------------- RELATED TO SHAPES ------------------------------- */
         // explicit. if rectangle -> use $width and $height, if sphere -> $width = radius
@@ -93,15 +104,13 @@ public:
         int gameSelectionMenu(state &pgState, bool close, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores);
         // menu to enter the name. returns string with the name
         std::string enterName(state &pgState, bool close);
+
+    int _selection;
+    int _row;
+    int _col;
+    int _arraylength;
+    int _width;
+    int _menulength;
 };
-
-libNcurses::libNcurses(/* args */)
-{
-}
-
-libNcurses::~libNcurses()
-{
-}
-
 
 #endif /* !LIB_HPP_ */

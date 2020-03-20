@@ -9,88 +9,88 @@
 
 /* ------------------------------- RELATED TO SHAPES ------------------------------- */
 
-int libNcurses::createShape(ShapeType type, int width, int height)
+int NcursesLib::createShape(ShapeType type, int width, int height)
 {
 }
 
-void libNcurses::drawShape(int index)
+void NcursesLib::drawShape(int index)
 {
 }
 
-void libNcurses::setShapeColor(int index, int r, int g, int b, int a)
+void NcursesLib::setShapeColor(int index, int r, int g, int b, int a)
 {
 }
 
-void libNcurses::deleteShape(int index)
+void NcursesLib::deleteShape(int index)
 {
 }
 
-void libNcurses::setShapePos(int index, int x, int y)
+void NcursesLib::setShapePos(int index, int x, int y)
 {
 }
 
 /* ------------------------------- RELATED TO SPRITES ------------------------------- */
 
-int libNcurses::createImageFromFile(std::string filename)
+int NcursesLib::createImageFromFile(std::string filename)
 {
     return (0);
 }
 
-void libNcurses::drawImage(int ImageId)
+void NcursesLib::drawImage(int ImageId)
 {
 }
 
-void libNcurses::setImagePos(int ImageId, int x, int y)
+void NcursesLib::setImagePos(int ImageId, int x, int y)
 {
 }
 
-void libNcurses::deleteImage(int ImageId)
+void NcursesLib::deleteImage(int ImageId)
 {
 }
 
 /* ------------------------------- RELATED TO TEXT ------------------------------- */
 
-int libNcurses::createFontFromFile(const std::string filename)
+int NcursesLib::createFontFromFile(const std::string filename)
 {
     return (0);
 }
 
-int libNcurses::createText(std::string text, int fontId)
+int NcursesLib::createText(std::string text, int fontId)
 {
     return (0);
 }
 
-void libNcurses::drawText(int textId)
+void NcursesLib::drawText(int textId)
 {
 }
 
-void libNcurses::setTextString(int textId, std::string str)
+void NcursesLib::setTextString(int textId, std::string str)
 {
 }
 
-void libNcurses::setTextPos(int textId, int x, int y)
+void NcursesLib::setTextPos(int textId, int x, int y)
 {
 }
 
-void libNcurses::setTextCharSize(int textId, int charSize)
+void NcursesLib::setTextCharSize(int textId, int charSize)
 {
 }
 
-void libNcurses::setTextColor(int textId, int r, int g, int b, int a)
+void NcursesLib::setTextColor(int textId, int r, int g, int b, int a)
 {
 }
 
-void libNcurses::deleteText(int TextId)
+void NcursesLib::deleteText(int TextId)
 {
 }
 
-void libNcurses::deleteFont(int FontId)
+void NcursesLib::deleteFont(int FontId)
 {
 }
 
 /* ------------------------------- RELATED TO WINDOWS ------------------------------- */
 
-void libNcurses::createWindow(int width, int height, std::string name)
+void NcursesLib::createWindow(int width, int height, std::string name)
 {
     initscr();            /* init de ncurses */
     keypad(stdscr, TRUE); /* pour récupérer les événements du clavier */
@@ -103,40 +103,40 @@ void libNcurses::createWindow(int width, int height, std::string name)
     }
 }
 
-bool libNcurses::isWindowOpen(void)
+bool NcursesLib::isWindowOpen(void)
 {
 }
 
-void libNcurses::clearWindow(void)
+void NcursesLib::clearWindow(void)
 {
     clear();
 }
 
-void libNcurses::update(void)
+void NcursesLib::update(void)
 {
     refresh();
 }
 
-void libNcurses::resizeWindow(int width, int height)
+void NcursesLib::resizeWindow(int width, int height)
 {
 }
 
-void libNcurses::renameWindow(std::string name)
+void NcursesLib::renameWindow(std::string name)
 {
 }
 
-void libNcurses::deleteWindow(void)
+void NcursesLib::deleteWindow(void)
 {
     endwin();    
 }
 
 /* ------------------------------- RELATED TO EVENTS ------------------------------- */
 
-bool libNcurses::events(void)
+bool NcursesLib::events(void)
 {
     return (0);
 }
 
-void libNcurses::closeWindowEvent(void)
+void NcursesLib::closeWindowEvent(void)
 {
 }
