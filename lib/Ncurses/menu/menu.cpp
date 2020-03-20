@@ -41,129 +41,6 @@ void NcursesLib::test(int row, int col)
     attroff(COLOR_PAIR(1));
 }
 
-/* ------------------------------- RELATED TO SHAPES ------------------------------- */
-
-int NcursesLib::createShape(ShapeType type, int width, int height)
-{
-    return (0);
-}
-
-void NcursesLib::drawShape(int index)
-{
-}
-
-void NcursesLib::setShapeColor(int index, int r, int g, int b, int a)
-{
-}
-
-void NcursesLib::deleteShape(int index)
-{
-}
-
-void NcursesLib::setShapePos(int index, int x, int y)
-{   
-}
-
-/* ------------------------------- RELATED TO SPRITES ------------------------------- */
-
-int NcursesLib::createImageFromFile(std::string filename)
-{
-    return (0);
-}
-
-void NcursesLib::drawImage(int ImageId)
-{
-}
-
-void NcursesLib::setImagePos(int ImageId, int x, int y)
-{
-}
-
-void NcursesLib::deleteImage(int ImageId)
-{
-}
-
-/* ------------------------------- RELATED TO TEXT ------------------------------- */
-
-int NcursesLib::createFontFromFile(const std::string filename)
-{
-    return (0);
-}
-
-int NcursesLib::createText(std::string text, int fontId)
-{
-    return (0);
-}
-
-void NcursesLib::drawText(int textId)
-{
-}
-
-void NcursesLib::setTextString(int textId, std::string str)
-{
-}
-
-void NcursesLib::setTextPos(int textId, int x, int y)
-{
-}
-
-void NcursesLib::setTextCharSize(int textId, int charSize)
-{
-}
-
-void NcursesLib::setTextColor(int textId, int r, int g, int b, int a)
-{
-}
-
-void NcursesLib::deleteText(int TextId)
-{
-}
-
-void NcursesLib::deleteFont(int FontId)
-{
-}
-
-/* ------------------------------- RELATED TO WINDOWS ------------------------------- */
-
-void NcursesLib::createWindow(int width, int height, std::string name)
-{
-}
-
-bool NcursesLib::isWindowOpen(void)
-{
-}
-
-void NcursesLib::clearWindow(void)
-{
-}
-
-void NcursesLib::update(void)
-{
-}
-
-void NcursesLib::resizeWindow(int width, int height)
-{
-}
-
-void NcursesLib::renameWindow(std::string name)
-{
-}
-
-void NcursesLib::deleteWindow(void)
-{
-}
-
-/* ------------------------------- RELATED TO EVENTS ------------------------------- */
-
-bool NcursesLib::events(void)
-{
-    return (0);
-}
-
-void NcursesLib::closeWindowEvent(void)
-{
-}
-
 /* ------------------------------- MENU ------------------------------- */
 
 int NcursesLib::libSelectionMenu(state &pgState, bool close, std::vector<std::string> &libsNames)
@@ -191,17 +68,17 @@ int NcursesLib::gameSelectionMenu(state &pgState, bool close, std::vector<std::s
     return (which_game);
 }
 
-int main(void)
-{
-    state pgState = NOTHING;
-    std::vector<std::string> libsNames;
-    std::vector<std::string> gamesNames;
-    std::vector<std::vector<std::string>> highScores;
-    bool close = true;
-    NcursesLib *menu = NULL;
+// int main(void)
+// {
+//     state pgState = NOTHING;
+//     std::vector<std::string> libsNames;
+//     std::vector<std::string> gamesNames;
+//     std::vector<std::vector<std::string>> highScores;
+//     bool close = true;
+//     NcursesLib *menu = NULL;
 
-    menu->enterName(pgState, close);
-    menu->libSelectionMenu(pgState, close, libsNames);
-    menu->gameSelectionMenu(pgState, close, gamesNames, highScores);
-    return (0);
-}
+//     menu->enterName(pgState, close);
+//     menu->libSelectionMenu(pgState, close, libsNames);
+//     menu->gameSelectionMenu(pgState, close, gamesNames, highScores);
+//     return (0);
+// }
