@@ -4,7 +4,7 @@ CXX	= g++
 
 RM	= rm -f
 
-SRCS	= ./lib.cpp \
+SRCS	= ./NcursesLib.cpp \
 			./menu/enterName.cpp \
 			./menu/inGame.cpp \
 			./menu/inLib.cpp \

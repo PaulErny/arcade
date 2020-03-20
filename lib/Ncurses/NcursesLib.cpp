@@ -5,7 +5,7 @@
 ** lib
 */
 
-#include "lib.hpp"
+#include "NcursesLib.hpp"
 
 /* ------------------------------- RELATED TO SHAPES ------------------------------- */
 
