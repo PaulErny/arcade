@@ -92,12 +92,14 @@ void SDLLib::deleteImage(int ImageId)
 
 int SDLLib::createFontFromFile(const std::string filename)
 {
-
+    gFont.push_back(TTF_OpenFont("../../resources/Roboto-Medium.ttf", 24));
 }
 
 int SDLLib::createText(std::string text, int fontId)
 {
-
+    gTextSurface.push_back(TTF_RenderText_Solid(gFont.at(gFont.size()), text.c_str(), gColor.at(gColor.size())));
+    if (gTextSurface.at(gTextSurface.size() - 1) == NULL)
+        throw "Unable to create texture from rendered text";
 }
 
 void SDLLib::drawText(int textId)
@@ -112,7 +114,12 @@ void SDLLib::setTextString(int textId, std::string str)
 
 void SDLLib::setTextPos(int textId, int x, int y)
 {
-
+    SDL_Rect Message_rect; //create a rect
+    Message_rect.x = x;    //controls the rect's x coordinate
+    Message_rect.y = y;    // controls the rect's y coordinte
+    Message_rect.w = 100;  // controls the width of the rect
+    Message_rect.h = 100;
+    gRect.push_back(Message_rect);
 }
 
 void SDLLib::setTextCharSize(int textId, int charSize)
@@ -122,7 +129,7 @@ void SDLLib::setTextCharSize(int textId, int charSize)
 
 void SDLLib::setTextColor(int textId, int r, int g, int b, int a)
 {
-
+    gColor.push_back({r, g, b});
 }
 
 void SDLLib::deleteText(int TextId)
@@ -159,6 +166,8 @@ void SDLLib::createWindow(int width, int height, std::string name)
             {
                 throw ("SDL_image could not initialize!");
             }
+            if (TTF_Init() == -1)
+                throw "SDL_TTF coud not initialize!";
         }
     }
 }
@@ -193,6 +202,7 @@ void SDLLib::deleteWindow(void)
     gWindow = NULL;
     gRenderer = NULL;
     IMG_Quit();
+    TTF_Quit();
     SDL_Quit();
 }
 

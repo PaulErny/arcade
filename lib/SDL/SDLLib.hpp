@@ -12,13 +12,16 @@ class SDLLib : public ILibs
 {
 private:
     SDL_Window *gWindow = NULL;
-    SDL_Surface *gScreenSurface = NULL;
+    SDL_Surface * gScreenSurface = NULL;
+    std::vector<SDL_Surface *> gTextSurface;
     SDL_Renderer *gRenderer = NULL;
     SDL_Surface *gHelloWorld = NULL;
     SDL_Event e;
     bool quit; 
     std::vector<SDL_Texture *> gTexture;
-    std::vector<TTF_Font *> gfont;  
+    std::vector<TTF_Font *> gFont;
+    std::vector<SDL_Color> gColor;
+    std::vector<SDL_Rect> gRect;
     public:
     SDLLib(/* args */);
     ~SDLLib();
