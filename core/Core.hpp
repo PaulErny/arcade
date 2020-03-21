@@ -6,6 +6,7 @@
 #include <memory>
 #include <vector>
 #include <dirent.h>
+#include <regex>
 #include "../lib/ILibs.hpp"
 
 class Core
@@ -18,8 +19,8 @@ private:
 public:
     Core(char *arg);
     ~Core();
-    std::vector<std::string> getLibs() const;
-    std::vector<std::string> getGames() const;
+    const std::vector<std::string> &getLibs() const;
+    const std::vector<std::string> &getGames() const;
     void nextLib(std::string libName);
     void previousLib(std::string libName);
     void fillLibVector();

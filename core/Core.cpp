@@ -32,12 +32,12 @@ void Core::previousLib(std::string libName)
     std::unique_ptr<ILibs> Lib = (std::unique_ptr<ILibs>)create();
 }
 
-std::vector<std::string> Core::getLibs() const
+const std::vector<std::string> &Core::getLibs() const
 {
     return (m_libs);
 }
 
-std::vector<std::string> Core::getGames() const
+const std::vector<std::string> &Core::getGames() const
 {
     return (m_games);
 }
@@ -50,12 +50,11 @@ void Core::fillLibVector()
         throw "No lib directory";
     std::string fileString;
     std::string toVector;
+    std::regex regLib("lib_arcade_.*[.so]$");
     struct dirent *file = NULL;
     while ((file = readdir(rep)) != NULL) {
         fileString.assign(file->d_name);
-        if (fileString.find(".so") != std::string::npos && 
-        fileString.find("lib_") == 0 && 
-        fileString.find("arcade_") == 4) {
+        if (std::regex_search(fileString, regLib)) {
             for (auto i = 11; i < (int)fileString.find(".so"); i++) {
                 toVector.push_back(fileString[i]);
             }
@@ -63,7 +62,10 @@ void Core::fillLibVector()
             toVector.clear();
         }
     }
+    closedir(rep);
 }
+
+//
 
 void Core::fillGamesVector()
 {
@@ -73,13 +75,12 @@ void Core::fillGamesVector()
         throw "No lib directory";
     std::string fileString;
     std::string toVector;
+    std::regex regGames("games_arcade_.*[.so]$");
     struct dirent *file = NULL;
     while ((file = readdir(rep)) != NULL)
     {
         fileString.assign(file->d_name);
-        if (fileString.find(".so") != std::string::npos &&
-            fileString.find("games_") == 0 &&
-            fileString.find("arcade_") == 6)
+        if (std::regex_search(fileString, regGames))
         {
             for (auto i = 13; i < (int)fileString.find(".so"); i++)
             {
@@ -89,6 +90,7 @@ void Core::fillGamesVector()
             toVector.clear();
         }
     }
+    closedir(rep);
 }
 
 void Core::laodLib()
@@ -99,5 +101,7 @@ void Core::laodLib()
         throw "Cannot open lib";
     std::unique_ptr<ILibs> (*create)();
     create = (std::unique_ptr<ILibs>(*)())dlsym(m_handle, "create_object");
+    if (dlerror() != NULL)
+        throw "Cannot open lib";
     std::unique_ptr<ILibs> Lib = (std::unique_ptr<ILibs>)create();
 }
