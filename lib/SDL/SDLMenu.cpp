@@ -17,7 +17,7 @@ std::string SDLLib::enterName(state &pgState, bool close)
 
 }
 
-void SDLLib::eventMenu()
+void SDLLib::eventMenu(int &indexLib)
 {
     while (SDL_PollEvent(&e) != 0) {
         this->closeWindowEvent();
@@ -42,6 +42,10 @@ void SDLLib::eventMenu()
                     if (indexGame < sizeGamesName) {
                         indexGame += 1;
                     }
+                }
+                if (e.key.keysym.sym == SDLK_e) {
+                    std::cout << "bite" << std::endl;
+                    indexLib++;
                 }
             }
         }
@@ -77,9 +81,9 @@ void SDLLib::init_menu(std::vector<std::string> &libsNames, std::vector<std::str
     SDL_QueryTexture(texturePseudo, NULL, NULL, &texW, &texH);
 }
 
-int SDLLib::menu(state &pgState, bool close, std::vector<std::string> &libsNames, std::vector<std::string> &gamesName, std::vector<std::vector<std::string>> highScores, std::string &pseudo)
+int SDLLib::menu(state &pgState, bool close, std::vector<std::string> &libsNames, std::vector<std::string> &gamesName, std::vector<std::vector<std::string>> highScores, std::string &pseudo, int &indexLib)
 {
-    this->eventMenu();
+    this->eventMenu(indexLib);
     this->clearWindow();
     if (name == "") {
         rectPseudo = {240, 540, (int)text.size() * 50, 100};
