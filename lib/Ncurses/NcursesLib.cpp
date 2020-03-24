@@ -128,6 +128,6 @@ bool NcursesLib::events(void)
     return (0);
 }
 
-void NcursesLib::closeWindowEvent(void)
+bool NcursesLib::closeWindowEvent(void)
 {
 }
