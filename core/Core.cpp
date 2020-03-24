@@ -114,10 +114,10 @@ void Core::laodLib()
     std::vector<std::string> libs{"SDL", "SFML", "ncurses"};
     std::vector<std::vector<std::string>> highScores{{"pseudo1\t10655", "pseudo2\t10385", "pseudo1\t4521"}, {"pseudo1\t53", "pseudo2\t41", "pseudo1\t9"}};
     std::string pseudo = "";
+    Lib->init_menu(libs, names, highScores, pseudo);
 
     while (Lib->isWindowOpen())
     {
-        std::cout << "salut " << std::endl;
         while (Lib->events())
             Lib->closeWindowEvent();
         Lib->clearWindow();
