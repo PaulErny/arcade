@@ -48,82 +48,72 @@ void SDLLib::eventMenu()
     }
 }
 
-int SDLLib::menu(state &pgState, bool close, std::vector<std::string> &libsNames, std::vector<std::string> &gamesName, std::vector<std::vector<std::string>> highScores, std::string &pseudo)
+void SDLLib::init_menu(std::vector<std::string> &libsNames, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores, std::string &pseudo)
 {
-    TTF_Font *font = TTF_OpenFont("resources/Roboto-Medium.ttf", 14);
+    name = pseudo;
+    font = TTF_OpenFont("resources/Roboto-Medium.ttf", 14);
     if (font == NULL)
         throw "cannot open font";
-    SDL_Color color = {255, 255, 255};
-    SDL_Color yellowColor = {255, 255, 0};
-    SDL_Surface *surfacePseudo = TTF_RenderText_Solid(font, "", color);
-    SDL_Texture *texturePseudo = SDL_CreateTextureFromSurface(gRenderer, surfacePseudo);
-    SDL_Surface *surfaceEnterPseudo = TTF_RenderText_Solid(font, "Enter your name :", color);
-    SDL_Texture *textureEnterPseudo = SDL_CreateTextureFromSurface(gRenderer, surfaceEnterPseudo);
-    SDL_Surface *surfaceNextLib = TTF_RenderText_Solid(font, "Press E for next lib", color);
-    SDL_Texture *textureNextLib = SDL_CreateTextureFromSurface(gRenderer, surfaceNextLib);
-    SDL_Surface *surfacePrevLib = TTF_RenderText_Solid(font, "Press A for previous lib", color);
-    SDL_Texture *texturePrevLib = SDL_CreateTextureFromSurface(gRenderer, surfacePrevLib);
-    SDL_Surface *surfaceYourName = TTF_RenderText_Solid(font, "Your name : ", color);
-    SDL_Texture *textureYourName = SDL_CreateTextureFromSurface(gRenderer, surfaceYourName);
-    std::vector<SDL_Surface *> gamesSurface;
-    std::vector<SDL_Texture *> gamesTexture;
-    std::vector<SDL_Rect> gamesRect;
-    sizeGamesName = (int)gamesName.size() - 1;
-    for (auto i = 0; i < (int)gamesName.size(); i++) {
-        gamesSurface.push_back(TTF_RenderText_Solid(font, gamesName.at(i).c_str(), color));
+    color = {255, 255, 255};
+    yellowColor = {255, 255, 0};
+    surfacePseudo = TTF_RenderText_Solid(font, "", color);
+    texturePseudo = SDL_CreateTextureFromSurface(gRenderer, surfacePseudo);
+    surfaceEnterPseudo = TTF_RenderText_Solid(font, "Enter your name :", color);
+    textureEnterPseudo = SDL_CreateTextureFromSurface(gRenderer, surfaceEnterPseudo);
+    surfaceNextLib = TTF_RenderText_Solid(font, "Press E for next lib", color);
+    textureNextLib = SDL_CreateTextureFromSurface(gRenderer, surfaceNextLib);
+    surfacePrevLib = TTF_RenderText_Solid(font, "Press A for previous lib", color);
+    texturePrevLib = SDL_CreateTextureFromSurface(gRenderer, surfacePrevLib);
+    surfaceYourName = TTF_RenderText_Solid(font, "Your name : ", color);
+    textureYourName = SDL_CreateTextureFromSurface(gRenderer, surfaceYourName);
+    sizeGamesName = (int)gamesNames.size() - 1;
+    for (auto i = 0; i < (int)gamesNames.size(); i++)
+    {
+        gamesSurface.push_back(TTF_RenderText_Solid(font, gamesNames.at(i).c_str(), color));
         gamesTexture.push_back(SDL_CreateTextureFromSurface(gRenderer, gamesSurface.at(i)));
-        gamesRect.push_back({600, i * 100 + 200, (int)gamesName.at(i).size() * 50, 100});
+        gamesRect.push_back({600, i * 100 + 200, (int)gamesNames.at(i).size() * 50, 100});
     }
-    std::cout << gamesTexture.size() << std::endl;
     SDL_StartTextInput();
-    int texW = 1000;
-    int texH = 200;
-    int count = 0;
     SDL_QueryTexture(texturePseudo, NULL, NULL, &texW, &texH);
+}
 
-    SDL_Rect rectPseudo = {240, 540, 100, 100};
-    SDL_Rect rectEnterPseudo = {10, 100, texW, texH};
-    SDL_Rect rectNextLib = {0, 200, 500, 100};
-    SDL_Rect rectPrevLib = {0, 300, 500, 100};
-    SDL_Rect rectYourName = {10, 10, 300, 50};
-    while (this->isWindowOpen()) {
-        this->eventMenu();
-        this->clearWindow();
-        if (name == "") {
-            rectPseudo = {240, 540, (int)text.size() * 50, 100};
-            SDL_RenderCopy(gRenderer, texturePseudo, NULL, &rectPseudo);
-            SDL_RenderCopy(gRenderer, textureEnterPseudo, NULL, &rectEnterPseudo);
-            if (rendertext && name == "") {
-                surfacePseudo = TTF_RenderText_Solid(font, text.c_str(), color);
-                texturePseudo = SDL_CreateTextureFromSurface(gRenderer, surfacePseudo);
-                SDL_SetTextInputRect(&rectPseudo);
-            }
-        } else {
-            if (count == 0) {
-                rectPseudo = {400, 0, (int)name.size() * 50, 100};
-                surfacePseudo = TTF_RenderText_Solid(font, name.c_str(), color);
-                texturePseudo = SDL_CreateTextureFromSurface(gRenderer, surfacePseudo);
-            }
-            SDL_RenderCopy(gRenderer, textureYourName, NULL, &rectYourName);
-            SDL_RenderCopy(gRenderer, texturePseudo, NULL, &rectPseudo);
-            SDL_RenderCopy(gRenderer, textureNextLib, NULL, &rectNextLib);
-            SDL_RenderCopy(gRenderer, textureNextLib, NULL, &rectPrevLib);
-            for (auto i = 0; i < (int)gamesName.size(); i++) {
-                if (i == indexGame) {
-                    if (indexGame < (int)gamesSurface.size()) {
-                    gamesSurface.at(indexGame) = TTF_RenderText_Solid(font, gamesName.at(indexGame).c_str(), yellowColor);
-                    gamesTexture.at(indexGame) = SDL_CreateTextureFromSurface(gRenderer, gamesSurface.at(indexGame));
-                    }
-                } else {
-                    gamesSurface.at(i) = TTF_RenderText_Solid(font, gamesName.at(i).c_str(), color);
-                    gamesTexture.at(i) = SDL_CreateTextureFromSurface(gRenderer, gamesSurface.at(i));
-                }
-                SDL_RenderCopy(gRenderer, gamesTexture.at(i), NULL, &gamesRect.at(i));
-            }
-            count = 1;
+int SDLLib::menu(state &pgState, bool close, std::vector<std::string> &libsNames, std::vector<std::string> &gamesName, std::vector<std::vector<std::string>> highScores, std::string &pseudo)
+{
+    this->eventMenu();
+    this->clearWindow();
+    if (name == "") {
+        rectPseudo = {240, 540, (int)text.size() * 50, 100};
+        SDL_RenderCopy(gRenderer, texturePseudo, NULL, &rectPseudo);
+        SDL_RenderCopy(gRenderer, textureEnterPseudo, NULL, &rectEnterPseudo);
+        if (rendertext && name == "") {
+            surfacePseudo = TTF_RenderText_Solid(font, text.c_str(), color);
+            texturePseudo = SDL_CreateTextureFromSurface(gRenderer, surfacePseudo);
+            SDL_SetTextInputRect(&rectPseudo);
         }
-        rendertext = false;
-        this->update();
+    } else {
+        if (count == 0) {
+            rectPseudo = {400, 0, (int)name.size() * 50, 100};
+            surfacePseudo = TTF_RenderText_Solid(font, name.c_str(), color);
+            texturePseudo = SDL_CreateTextureFromSurface(gRenderer, surfacePseudo);
+        }
+        SDL_RenderCopy(gRenderer, textureYourName, NULL, &rectYourName);
+        SDL_RenderCopy(gRenderer, texturePseudo, NULL, &rectPseudo);
+        SDL_RenderCopy(gRenderer, textureNextLib, NULL, &rectNextLib);
+        SDL_RenderCopy(gRenderer, textureNextLib, NULL, &rectPrevLib);
+        for (auto i = 0; i < (int)gamesName.size(); i++) {
+            if (i == indexGame) {
+                if (indexGame < (int)gamesSurface.size()) {
+                gamesSurface.at(indexGame) = TTF_RenderText_Solid(font, gamesName.at(indexGame).c_str(), yellowColor);
+                gamesTexture.at(indexGame) = SDL_CreateTextureFromSurface(gRenderer, gamesSurface.at(indexGame));
+                }
+            } else {
+                gamesSurface.at(i) = TTF_RenderText_Solid(font, gamesName.at(i).c_str(), color);
+                gamesTexture.at(i) = SDL_CreateTextureFromSurface(gRenderer, gamesSurface.at(i));
+            }
+            SDL_RenderCopy(gRenderer, gamesTexture.at(i), NULL, &gamesRect.at(i));
+        }
+        count = 1;
     }
-    SDL_StopTextInput();
+    rendertext = false;
+    this->update();
 }

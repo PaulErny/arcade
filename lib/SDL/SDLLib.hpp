@@ -27,7 +27,32 @@ private:
     std::vector<TTF_Font *> gFont;
     std::vector<SDL_Color> gColor;
     std::vector<SDL_Rect> gRect;
-    public:
+    SDL_Color color = {255, 255, 255};
+    SDL_Color yellowColor = {255, 255, 0};
+    SDL_Surface *surfacePseudo;
+    SDL_Texture *texturePseudo;
+    SDL_Surface *surfaceEnterPseudo;
+    SDL_Texture *textureEnterPseudo;
+    SDL_Surface *surfaceNextLib;
+    SDL_Texture *textureNextLib;
+    SDL_Surface *surfacePrevLib;
+    SDL_Texture *texturePrevLib;
+    SDL_Surface *surfaceYourName;
+    SDL_Texture *textureYourName;
+    std::vector<SDL_Surface *> gamesSurface;
+    std::vector<SDL_Texture *> gamesTexture;
+    std::vector<SDL_Rect> gamesRect;
+    TTF_Font *font;
+    int texW = 1000;
+    int texH = 200;
+    int count = 0;
+    SDL_Rect rectPseudo = {240, 540, 100, 100};
+    SDL_Rect rectEnterPseudo = {10, 100, texW, texH};
+    SDL_Rect rectNextLib = {0, 200, 500, 100};
+    SDL_Rect rectPrevLib = {0, 300, 500, 100};
+    SDL_Rect rectYourName = {10, 10, 300, 50};
+
+public : 
     SDLLib(/* args */);
     ~SDLLib();
     /* ------------------------------- RELATED TO SHAPES ------------------------------- */
@@ -105,6 +130,7 @@ private:
     // menu to enter the name. returns string with the name
     std::string enterName(state &pgState, bool close);
     void eventMenu();
+    void init_menu(std::vector<std::string> &libsNames, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores, std::string &pseudo);
     int menu(state &pgState, bool close, std::vector<std::string> &libsNames, std::vector<std::string> &gamesName, std::vector<std::vector<std::string>> highScores, std::string &pseudo);
 };
 

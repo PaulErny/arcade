@@ -140,7 +140,7 @@ void SDLLib::createWindow(int width, int height, std::string name)
 
 bool SDLLib::isWindowOpen(void)
 {
-    return (quit);
+    return (!quit);
 }
 
 void SDLLib::clearWindow(void)
