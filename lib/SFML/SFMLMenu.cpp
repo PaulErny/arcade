@@ -16,7 +16,7 @@ SFMLMenu::~SFMLMenu()
 {
 }
 
-int SFMLMenu::menu(state &pgState, bool close, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores, std::string &pseudo)
+int SFMLMenu::menu(state &pgState, bool close, std::vector<std::string> &libsNames, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores, std::string &pseudo)
 {
     int bgID = graphics->createImageFromFile("../resources/background.png");
     int fontID = graphics->createFontFromFile("../resources/ARCADE_I.TTF");

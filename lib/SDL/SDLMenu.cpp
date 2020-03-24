@@ -48,7 +48,7 @@ void SDLLib::eventMenu()
     }
 }
 
-int SDLLib::menu(state &pgState, bool close, std::vector<std::string> &gamesName, std::vector<std::vector<std::string>> highScores, std::string &pseudo)
+int SDLLib::menu(state &pgState, bool close, std::vector<std::string> &libsNames, std::vector<std::string> &gamesName, std::vector<std::vector<std::string>> highScores, std::string &pseudo)
 {
     this->createWindow(1080, 1080, "Menu SDL");
     TTF_Font *font = TTF_OpenFont("../../resources/Roboto-Medium.ttf", 14);

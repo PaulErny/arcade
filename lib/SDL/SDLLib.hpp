@@ -105,7 +105,7 @@ private:
     // menu to enter the name. returns string with the name
     std::string enterName(state &pgState, bool close);
     void eventMenu();
-    int menu(state &pgState, bool close, std::vector<std::string> &gamesName, std::vector<std::vector<std::string>> highScores, std::string &pseudo);
+    int menu(state &pgState, bool close, std::vector<std::string> &libsNames, std::vector<std::string> &gamesName, std::vector<std::vector<std::string>> highScores, std::string &pseudo);
 };
 
 #endif

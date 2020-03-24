@@ -102,7 +102,7 @@ class SFMLLib : public ILibs {
         int gameSelectionMenu(state &pgState, bool close, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores);
         // menu to enter the name. returns string with the name
         std::string enterName(state &pgState, bool close);
-        int menu(state &pgState, bool close, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores, std::string &pseudo);
+        int menu(state &pgState, bool close, std::vector<std::string> &libsNames, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores, std::string &pseudo);
 
     private:
         std::vector<std::unique_ptr<sf::Texture>> textures;
