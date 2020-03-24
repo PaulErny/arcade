@@ -51,7 +51,7 @@ void SDLLib::eventMenu()
 void SDLLib::init_menu(std::vector<std::string> &libsNames, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores, std::string &pseudo)
 {
     name = pseudo;
-    font = TTF_OpenFont("resources/Roboto-Medium.ttf", 14);
+    font = TTF_OpenFont("resources/ARCADE_I.TTF", 14);
     if (font == NULL)
         throw "cannot open font";
     color = {255, 255, 255};
