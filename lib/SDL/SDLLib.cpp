@@ -181,11 +181,16 @@ bool SDLLib::events(void)
     }
 }
 
-void SDLLib::closeWindowEvent(void)
+bool SDLLib::closeWindowEvent(void)
 {
     if (e.type == SDL_QUIT) {
             quit = true;
     }
+}
+
+bool SDLLib::keyReleasedEvent(void)
+{
+
 }
 
 extern "C" std::unique_ptr<SDLLib> create_object()

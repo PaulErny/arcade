@@ -95,17 +95,17 @@ private:
     // handle events occuring in the window
     bool events(void);
     // closes the window in case of such an event
-    void closeWindowEvent(void);
-
+    bool closeWindowEvent(void);
+    bool keyReleasedEvent(void);
     /* ------------------------------- MENU ------------------------------- */
     // menu for selecting the graphical lib. returns 0 if nCurses is selected, 2 for SFML and 3 for SDL -1 for errors
     int libSelectionMenu(state &pgState, bool close, std::vector<std::string> &libsNames);
     // menu to select the game. returns 0 for game 0 if $gamesNames, 1 for game 2 if $gamesNames, etc...
     int gameSelectionMenu(state &pgState, bool close, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores);
     // menu to enter the name. returns string with the name
-    std::string enterName(state pgState, bool close);
+    std::string enterName(state &pgState, bool close);
     void eventMenu();
-    int DrawMenu(state pgState, bool close, std::vector<std::string> gamesName, std::vector<std::vector<std::string>> highScores);
+    int menu(state &pgState, bool close, std::vector<std::string> &gamesName, std::vector<std::vector<std::string>> highScores, std::string &pseudo);
 };
 
 #endif
