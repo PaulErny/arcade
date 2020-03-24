@@ -11,6 +11,7 @@
 
 int NcursesLib::createShape(ShapeType type, int width, int height)
 {
+    return (0);
 }
 
 void NcursesLib::drawShape(int index)
@@ -96,6 +97,7 @@ void NcursesLib::createWindow(int width, int height, std::string name)
 
 bool NcursesLib::isWindowOpen(void)
 {
+    return (true);
 }
 
 void NcursesLib::clearWindow(void)
