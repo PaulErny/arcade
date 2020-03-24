@@ -95,7 +95,7 @@ void SDLLib::setTextCharSize(int textId, int charSize)
 
 void SDLLib::setTextColor(int textId, int r, int g, int b, int a)
 {
-    gColor.push_back({r, g, b});
+    gColor.push_back({static_cast<Uint8>(r), static_cast<Uint8>(g), static_cast<Uint8>(b)});
 }
 
 void SDLLib::deleteText(int TextId)

@@ -130,6 +130,12 @@ bool NcursesLib::events(void)
 
 bool NcursesLib::closeWindowEvent(void)
 {
+    return (false);
+}
+
+bool NcursesLib::keyReleasedEvent(void)
+{
+    return (false);
 }
 
 extern "C" std::unique_ptr<NcursesLib> create_object()
