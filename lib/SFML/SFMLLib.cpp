@@ -233,6 +233,11 @@ bool SFMLLib::keyReleasedEvent(void)
 }
 
 /* ------------------------------- MENU ------------------------------- */
+void SFMLLib::init_menu(std::vector<std::string> &libsNames, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores, std::string &pseudo)
+{
+    this->main_menu->init_menu(libsNames, gamesNames, highScores, pseudo);
+}
+
 int SFMLLib::menu(state &pgState, bool close,  std::vector<std::string> &libsNames, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores, std::string &pseudo)
 {
     return (this->main_menu->menu(pgState, close, libsNames, gamesNames, highScores, pseudo));

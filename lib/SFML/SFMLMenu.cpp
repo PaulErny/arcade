@@ -16,32 +16,31 @@ SFMLMenu::~SFMLMenu()
 {
 }
 
-int SFMLMenu::menu(state &pgState, bool close, std::vector<std::string> &libsNames, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores, std::string &pseudo)
+void SFMLMenu::init_menu(std::vector<std::string> &libsNames, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores, std::string &pseudo)
 {
-    int bgID = graphics->createImageFromFile("resources/background.png");
-    int fontID = graphics->createFontFromFile("resources/ARCADE_I.TTF");
+    this->bgID = graphics->createImageFromFile("resources/background.png");
+    this->fontID = graphics->createFontFromFile("resources/ARCADE_I.TTF");
 
-    int nibblerImgID = graphics->createImageFromFile("games/nibbler/preview.jpg");
-    int pacmanImgID = graphics->createImageFromFile("games/pacman/preview.png");
+    this->nibblerImgID = graphics->createImageFromFile("games/nibbler/preview.jpg");
+    this->pacmanImgID = graphics->createImageFromFile("games/pacman/preview.png");
 
     // create play btn
-    this->buttons.push_back(graphics->createText("PLAY", fontID));
+    this->buttons.push_back(graphics->createText("PLAY", this->fontID));
     graphics->setTextCharSize(this->buttons[0], 50);
     graphics->setTextPos(this->buttons[0], 440, 760);
 
     // create highscore btn
-    this->buttons.push_back(graphics->createText("Highscores", fontID));
+    this->buttons.push_back(graphics->createText("Highscores", this->fontID));
     graphics->setTextCharSize(this->buttons[1], 20);
     graphics->setTextPos(this->buttons[1], 440, 860);
 
     // creates games btn
-    std::vector<int> gamesNamesID;
     for (int i = 0; i < gamesNames.size(); i++)
-        this->buttons.push_back(graphics->createText(gamesNames[i], fontID));
+        this->buttons.push_back(graphics->createText(gamesNames[i], this->fontID));
     graphics->setTextColor(this->buttons[this->currentBtn], 230, 230, 0);
 
-    graphics->setImagePos(pacmanImgID, 355, 590);
-    graphics->setImagePos(nibblerImgID, 592, 590);
+    graphics->setImagePos(this->pacmanImgID, 355, 590);
+    graphics->setImagePos(this->nibblerImgID, 592, 590);
     
     int xPos = 335;
     for (int i = 2; i < gamesNames.size() + 2; i++) { // i = 2 bcs i=0 is the play btn and i=1 is highscores btn
@@ -51,26 +50,28 @@ int SFMLMenu::menu(state &pgState, bool close, std::vector<std::string> &libsNam
 
     // create high scores
     std::vector<std::vector<std::string>>::iterator it;
-    std::vector<std::vector<int>> scoreTextID;
     xPos = 335;
     int yPos = 625;
     int j = 0;
     for (it = highScores.begin(); it < highScores.end(); it++) {
-        scoreTextID.resize(j+1);
+        this->scoreTextID.resize(j+1);
         for (int i = 0; i < it->size(); i++) {
-            scoreTextID[j].push_back(graphics->createText(highScores[j][i], fontID));
-            graphics->setTextPos(scoreTextID[j][i], xPos, yPos);
-            graphics->setTextCharSize(scoreTextID[j][i], 13);
+            this->scoreTextID[j].push_back(graphics->createText(highScores[j][i], this->fontID));
+            graphics->setTextPos(this->scoreTextID[j][i], xPos, yPos);
+            graphics->setTextCharSize(this->scoreTextID[j][i], 13);
             yPos += 35;
         }
         j++;
         yPos = 625;
         xPos += 220;
     }
+}
 
+int SFMLMenu::menu(state &pgState, bool close, std::vector<std::string> &libsNames, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores, std::string &pseudo)
+{
     bool isHighscoresMenu = false;
 
-    this->getPseudo(pgState, pseudo, bgID, fontID);
+    this->getPseudo(pgState, pseudo);
 
     while (graphics->isWindowOpen()) {
         while (graphics->events()) {
@@ -93,23 +94,23 @@ int SFMLMenu::menu(state &pgState, bool close, std::vector<std::string> &libsNam
             }
         }
         
-        graphics->drawImage(bgID);
+        graphics->drawImage(this->bgID);
         if (this->chosenAction == -1) {
             // draw buttons
             for (int i = 0; i < this->buttons.size(); i++)
                 graphics->drawText(this->buttons[i]);
-            graphics->drawImage(pacmanImgID);
-            graphics->drawImage(nibblerImgID);
+            graphics->drawImage(this->pacmanImgID);
+            graphics->drawImage(this->nibblerImgID);
         } else if (this->chosenAction == 0) {
             pgState = GAME;
             return (this->chosenGame);
         } else if (this->chosenAction == 1) {
-            this->displayHighScores(scoreTextID, this->buttons, isHighscoresMenu);
+            this->displayHighScores(this->buttons, isHighscoresMenu);
         }
         graphics->update();
     }
-    graphics->deleteFont(fontID);
-    graphics->deleteImage(bgID);
+    graphics->deleteFont(this->fontID);
+    graphics->deleteImage(this->bgID);
     return (-1);
 }
 
@@ -180,15 +181,15 @@ void SFMLMenu::chooseAction()
     this->chosenAction = -1;
 }
 
-void SFMLMenu::displayHighScores(std::vector<std::vector<int>> scoreTextID, std::vector<int> gamesNamesID, bool &isHighscoresMenu)
+void SFMLMenu::displayHighScores(std::vector<int> gamesNamesID, bool &isHighscoresMenu)
 {
     // draw games high scores
     int i = 0;
 
     graphics->drawText(gamesNamesID[this->chosenGame + 2]);
-    for (i = 0; i != this->chosenGame && i < scoreTextID.size(); i++);
-    for (int j = 0; j < scoreTextID[i].size(); j++) {
-        graphics->drawText(scoreTextID[i][j]);
+    for (i = 0; i != this->chosenGame && i < this->scoreTextID.size(); i++);
+    for (int j = 0; j < this->scoreTextID[i].size(); j++) {
+        graphics->drawText(this->scoreTextID[i][j]);
     }
     if (!this->isKeyDown && sf::Keyboard::isKeyPressed(sf::Keyboard::BackSpace)) {
         this->isKeyDown = true;
@@ -198,11 +199,11 @@ void SFMLMenu::displayHighScores(std::vector<std::vector<int>> scoreTextID, std:
     }
 }
 
-void SFMLMenu::getPseudo(state pgState, std::string &pseudo, int bgID, int fontID)
+void SFMLMenu::getPseudo(state pgState, std::string &pseudo)
 {
     sf::Event event;
-    int textID = graphics->createText("enter your name :", fontID);
-    int pseudoID = graphics->createText(pseudo, fontID);
+    int textID = graphics->createText("enter your name :", this->fontID);
+    int pseudoID = graphics->createText(pseudo, this->fontID);
 
     graphics->setTextPos(textID, 380, 660);
     graphics->setTextCharSize(textID, 20);
@@ -232,7 +233,7 @@ void SFMLMenu::getPseudo(state pgState, std::string &pseudo, int bgID, int fontI
         graphics->clearWindow();
 
         graphics->setTextString(pseudoID, pseudo);
-        graphics->drawImage(bgID);
+        graphics->drawImage(this->bgID);
         graphics->drawText(textID);
         graphics->drawText(pseudoID);
 
