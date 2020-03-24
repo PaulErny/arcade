@@ -118,11 +118,7 @@ void Core::laodLib()
 
     while (Lib->isWindowOpen())
     {
-        while (Lib->events())
-            Lib->closeWindowEvent();
-        Lib->clearWindow();
         if (pgState == MENU)
             Lib->menu(pgState, false, libs, names, highScores, pseudo);
-        Lib->update();
     }
 }

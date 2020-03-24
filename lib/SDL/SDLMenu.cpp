@@ -114,6 +114,6 @@ int SDLLib::menu(state &pgState, bool close, std::vector<std::string> &libsNames
         }
         count = 1;
     }
-    rendertext = false;
     this->update();
+    rendertext = false;
 }
