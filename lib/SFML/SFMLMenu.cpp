@@ -18,11 +18,11 @@ SFMLMenu::~SFMLMenu()
 
 int SFMLMenu::menu(state &pgState, bool close, std::vector<std::string> &libsNames, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores, std::string &pseudo)
 {
-    int bgID = graphics->createImageFromFile("../resources/background.png");
-    int fontID = graphics->createFontFromFile("../resources/ARCADE_I.TTF");
+    int bgID = graphics->createImageFromFile("resources/background.png");
+    int fontID = graphics->createFontFromFile("resources/ARCADE_I.TTF");
 
-    int nibblerImgID = graphics->createImageFromFile("../games/nibbler/preview.jpg");
-    int pacmanImgID = graphics->createImageFromFile("../games/pacman/preview.png");
+    int nibblerImgID = graphics->createImageFromFile("games/nibbler/preview.jpg");
+    int pacmanImgID = graphics->createImageFromFile("games/pacman/preview.png");
 
     // create play btn
     this->buttons.push_back(graphics->createText("PLAY", fontID));
@@ -216,7 +216,7 @@ void SFMLMenu::getPseudo(state pgState, std::string &pseudo, int bgID, int fontI
             if (event.type == sf::Event::TextEntered) {
                 if (event.text.unicode < 128 && !this->isKeyDown) {
                     this->isKeyDown = true;
-                    if (event.text.unicode == 10) { // enter key
+                    if (event.text.unicode == 13 || event.text.unicode == 10) { // enter key
                         return;
                     } else if (event.text.unicode == 8) { // backspace
                         if (pseudo.size() > 0) 

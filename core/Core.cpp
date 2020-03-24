@@ -108,5 +108,21 @@ void Core::laodLib()
     if (dlerror() != NULL)
         throw "Cannot open lib";
     std::unique_ptr<ILibs> Lib = (std::unique_ptr<ILibs>)create();
-    //Lib->enterName(MENU, true);
+    Lib->createWindow(1080, 1080, "Arcade");
+    state pgState = MENU;
+    std::vector<std::string> names{"pacman", "nibbler"};
+    std::vector<std::string> libs{"SDL", "SFML", "ncurses"};
+    std::vector<std::vector<std::string>> highScores{{"pseudo1\t10655", "pseudo2\t10385", "pseudo1\t4521"}, {"pseudo1\t53", "pseudo2\t41", "pseudo1\t9"}};
+    std::string pseudo = "";
+
+    while (Lib->isWindowOpen())
+    {
+        std::cout << "salut " << std::endl;
+        while (Lib->events())
+            Lib->closeWindowEvent();
+        Lib->clearWindow();
+        if (pgState == MENU)
+            Lib->menu(pgState, false, libs, names, highScores, pseudo);
+        Lib->update();
+    }
 }

@@ -50,8 +50,7 @@ void SDLLib::eventMenu()
 
 int SDLLib::menu(state &pgState, bool close, std::vector<std::string> &libsNames, std::vector<std::string> &gamesName, std::vector<std::vector<std::string>> highScores, std::string &pseudo)
 {
-    this->createWindow(1080, 1080, "Menu SDL");
-    TTF_Font *font = TTF_OpenFont("../../resources/Roboto-Medium.ttf", 14);
+    TTF_Font *font = TTF_OpenFont("resources/Roboto-Medium.ttf", 14);
     if (font == NULL)
         throw "cannot open font";
     SDL_Color color = {255, 255, 255};
@@ -87,7 +86,7 @@ int SDLLib::menu(state &pgState, bool close, std::vector<std::string> &libsNames
     SDL_Rect rectNextLib = {0, 200, 500, 100};
     SDL_Rect rectPrevLib = {0, 300, 500, 100};
     SDL_Rect rectYourName = {10, 10, 300, 50};
-    while (!this->isWindowOpen()) {
+    while (this->isWindowOpen()) {
         this->eventMenu();
         this->clearWindow();
         if (name == "") {

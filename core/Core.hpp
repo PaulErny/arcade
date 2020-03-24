@@ -14,6 +14,7 @@ class Core
 private:
     void *m_handle;
     char *m_arg;
+    int indexLib;
     std::vector<std::string> m_libs;
     std::vector<std::string> m_games;
 public:
