@@ -61,7 +61,7 @@ int NcursesLib::gameSelectionMenu(state &pgState, bool close, std::vector<std::s
     return (which_game);
 }
 
-int main(void)
+int NcursesLib::menu(state &pgState, bool close, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores, std::string &pseudo)
 {
     state pgState = NOTHING;
     std::vector<std::string> libsNames;
@@ -73,5 +73,4 @@ int main(void)
     menu->enterName(pgState, close);
     menu->libSelectionMenu(pgState, close, libsNames);
     menu->gameSelectionMenu(pgState, close, gamesNames, highScores);
-    return (0);
 }

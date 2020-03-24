@@ -108,5 +108,5 @@ void Core::laodLib()
     if (dlerror() != NULL)
         throw "Cannot open lib";
     std::unique_ptr<ILibs> Lib = (std::unique_ptr<ILibs>)create();
-    Lib->enterName(MENU, true);
+    //Lib->enterName(MENU, true);
 }
