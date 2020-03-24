@@ -16,11 +16,11 @@ void Core::nextLib(std::string libName)
         dlclose(m_handle);
     std::string open("lib/lib_arcade_" + libName);
     m_handle = dlopen(open.c_str(), RTLD_LAZY);
-    std::shared_ptr<ILibs> (*create)();
-    create = (std::shared_ptr<ILibs>(*)())dlsym(m_handle, "create_object");
+    std::unique_ptr<ILibs> (*create)();
+    create = (std::unique_ptr<ILibs>(*)())dlsym(m_handle, "create_object");
     if (dlerror() != NULL)
         throw "Cannot open lib";
-    std::shared_ptr<ILibs> Lib = (std::shared_ptr<ILibs>)create();
+    std::unique_ptr<ILibs> Lib = (std::unique_ptr<ILibs>)create();
 }
 
 void Core::changeLib()
@@ -28,22 +28,23 @@ void Core::changeLib()
     // if (dlclose(m_handle);
     if (dlerror() != NULL)
         throw dlerror();
-    if (indexLib >= m_libs.size())
+    if (indexLib >= (int)m_libs.size()) {
         indexLib = 0;
-    if (indexLib < 0)
-        indexLib = m_libs.size() - 1;
-    std::cout << m_libs.size() << std::endl;
+    }
+    if (indexLib < 0) {
+        indexLib = (int)m_libs.size() - 1;
+    }
+    std::cout << (int)m_libs.size() - 1 << std::endl;
     std::string open("lib/lib_arcade_" + m_libs.at(indexLib) + ".so");
-    std::cout << open << std::endl;
     m_handle = dlopen(open.c_str(), RTLD_LAZY);
     if (dlerror() != NULL)
         throw "Cannot open Lib";
-    std::shared_ptr<ILibs> (*create)();
-    create = (std::shared_ptr<ILibs>(*)())dlsym(m_handle, "create_object");
+    std::unique_ptr<ILibs> (*create)();
+    create = (std::unique_ptr<ILibs>(*)())dlsym(m_handle, "create_object");
     if (dlerror() != NULL)
         throw "Cannot open lib";
     std::cout << "ok" << std::endl;
-    Lib = (std::shared_ptr<ILibs>)create();
+    Lib = (std::unique_ptr<ILibs>)create();
 }
 
 const std::vector<std::string> &Core::getLibs() const
@@ -124,11 +125,11 @@ void Core::laodLib()
 
     if (dlerror() != NULL)
         throw "Cannot open lib";
-    std::shared_ptr<ILibs> (*create)();
-    create = (std::shared_ptr<ILibs>(*)())dlsym(m_handle, "create_object");
+    std::unique_ptr<ILibs> (*create)();
+    create = (std::unique_ptr<ILibs>(*)())dlsym(m_handle, "create_object");
     if (dlerror() != NULL)
         throw "Cannot open lib";
-    Lib = (std::shared_ptr<ILibs>)create();
+    Lib = (std::unique_ptr<ILibs>)create();
     Lib->createWindow(1080, 1080, "Arcade");
     state pgState = MENU;
     std::vector<std::string> names{"pacman", "nibbler"};

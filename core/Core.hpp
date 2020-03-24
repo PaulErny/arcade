@@ -17,7 +17,7 @@ private:
     int indexLib;
     std::vector<std::string> m_libs;
     std::vector<std::string> m_games;
-    std::shared_ptr<ILibs> Lib;
+    std::unique_ptr<ILibs> Lib;
 public : Core(char *arg);
     ~Core();
     const std::vector<std::string> &getLibs() const;
