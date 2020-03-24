@@ -41,10 +41,9 @@ int NcursesLib::libSelectionMenu(state &pgState, bool close, std::vector<std::st
     pgState = NOTHING;
     libsNames;
     close = true;
-    NcursesLib lib;
     int which_lib = 0;
 
-    which_lib = menu_lib(lib);
+    which_lib = menu_lib();
     return (which_lib);
 }
 
@@ -54,10 +53,9 @@ int NcursesLib::gameSelectionMenu(state &pgState, bool close, std::vector<std::s
     gamesNames;
     highScores;
     close = true;
-    NcursesLib game;
     int which_game = 0;
 
-    which_game = menu_game(game);
+    which_game = menu_game();
     return (which_game);
 }
 
@@ -77,9 +75,7 @@ int NcursesLib::menu(state &pgState, bool close, std::vector<std::string> &libsN
         if (pseudo.empty() == true)
             test.enterName(pgState, close);
         test.libSelectionMenu(pgState, close, libsNames);
-        indexLib = this->_indexLib;
         test.gameSelectionMenu(pgState, close, gamesNames, highScores);
-        indexLib = this->_indexLib;
     }
     return (0);
 }

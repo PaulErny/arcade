@@ -23,10 +23,10 @@ public:
 
     int check_lib(int selection, const char **);
     int check_game(int selection, const char **);
-    int menu_lib(NcursesLib lib);
-    int inLib(NcursesLib lib);
-    int inGame(NcursesLib lib);
-    int menu_game(NcursesLib game);
+    int menu_lib(void);
+    int inLib(void);
+    int inGame(void);
+    int menu_game(void);
     std::string get_name(int, int);
     std::string menu_name(void);
     void test(int, int);

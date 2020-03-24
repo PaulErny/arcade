@@ -16,7 +16,7 @@ int NcursesLib::check_game(int selection, const char **game_list)
     return (27);
 }
 
-int NcursesLib::inGame(NcursesLib game)
+int NcursesLib::inGame()
 {
     int counter, offset = 0, ky = 0;
     int selection = 0;
@@ -91,14 +91,14 @@ int NcursesLib::inGame(NcursesLib game)
     return (0);
 }
 
-int NcursesLib::menu_game(NcursesLib lib)
+int NcursesLib::menu_game()
 {
     initscr();
 //    getmaxyx(stdscr, row, col);
     noecho();
     keypad(stdscr, TRUE);
     curs_set(0);
-    this->inGame(lib);
+    this->inGame();
     refresh();
     getch(); // a enlever pour lancer direct après enter
     endwin();

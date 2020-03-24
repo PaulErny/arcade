@@ -18,7 +18,7 @@ int NcursesLib::check_lib(int selection, const char **lib_list)
     return (27);
 }
 
-int NcursesLib::inLib(NcursesLib lib)
+int NcursesLib::inLib(void)
 {
     int counter, offset = 0, ky = 0;
     int selection = 0;
@@ -98,7 +98,7 @@ int NcursesLib::inLib(NcursesLib lib)
     return (0);
 }
 
-int NcursesLib::menu_lib(NcursesLib lib)
+int NcursesLib::menu_lib(void)
 {
     int row, col;
     int the;
@@ -109,7 +109,7 @@ int NcursesLib::menu_lib(NcursesLib lib)
     noecho();
     keypad(stdscr, TRUE);
     curs_set(0);
-    the = this->inLib(lib);
+    the = this->inLib();
     refresh();
     endwin();
     return (the);
