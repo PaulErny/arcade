@@ -104,6 +104,7 @@ class ILibs {
         virtual int gameSelectionMenu(state &pgState, bool close, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores)=0;
         // menu to enter the name. returns string with the name
         virtual std::string enterName(state &pgState, bool close)=0;
+        virtual void init_menu(std::vector<std::string> &libsNames, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores, std::string &pseudo)=0;
         virtual int menu(state &pgState, bool close, std::vector<std::string> &libsNames, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores, std::string &pseudo)=0;
 
 };
