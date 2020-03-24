@@ -17,6 +17,11 @@ private:
     SDL_Renderer *gRenderer = NULL;
     SDL_Surface *gHelloWorld = NULL;
     SDL_Event e;
+    std::string text = "";
+    std::string name = "";
+    int indexGame = 0;
+    int sizeGamesName = 0;
+    bool rendertext = false;
     bool quit; 
     std::vector<SDL_Texture *> gTexture;
     std::vector<TTF_Font *> gFont;
@@ -98,7 +103,9 @@ private:
     // menu to select the game. returns 0 for game 0 if $gamesNames, 1 for game 2 if $gamesNames, etc...
     int gameSelectionMenu(state &pgState, bool close, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores);
     // menu to enter the name. returns string with the name
-    std::string enterName(state &pgState, bool close);
+    std::string enterName(state pgState, bool close);
+    void eventMenu();
+    int DrawMenu(state pgState, bool close, std::vector<std::string> gamesName, std::vector<std::vector<std::string>> highScores);
 };
 
 #endif

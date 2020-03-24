@@ -12,7 +12,6 @@ SDLLib::~SDLLib()
 
 int SDLLib::createShape(ShapeType type, int width, int height)
 {
-
 }
 
 void SDLLib::drawShape(int index)
@@ -92,19 +91,19 @@ void SDLLib::deleteImage(int ImageId)
 
 int SDLLib::createFontFromFile(const std::string filename)
 {
-    gFont.push_back(TTF_OpenFont("../../resources/Roboto-Medium.ttf", 24));
+    gFont.push_back(TTF_OpenFont(filename.c_str(), 24));
 }
 
 int SDLLib::createText(std::string text, int fontId)
 {
-    gTextSurface.push_back(TTF_RenderText_Solid(gFont.at(gFont.size()), text.c_str(), gColor.at(gColor.size())));
+    gTextSurface.push_back(TTF_RenderText_Solid(gFont.at(gFont.size() - 1), text.c_str(), gColor.at(gColor.size() - 1)));
+    gTexture.push_back(SDL_CreateTextureFromSurface(gRenderer, gTextSurface.at(0)));
     if (gTextSurface.at(gTextSurface.size() - 1) == NULL)
         throw "Unable to create texture from rendered text";
 }
 
 void SDLLib::drawText(int textId)
 {
-
 }
 
 void SDLLib::setTextString(int textId, std::string str)
@@ -146,29 +145,29 @@ void SDLLib::deleteFont(int FontId)
 
 void SDLLib::createWindow(int width, int height, std::string name)
 {
-    gWindow = SDL_CreateWindow("SDL WINDOW", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 1080, 1080, SDL_WINDOW_SHOWN);
+    SDL_Init(SDL_INIT_VIDEO);
+    this->quit = false;
+    gWindow = SDL_CreateWindow(name.c_str(), SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_SHOWN);
     if (gWindow == NULL)
         throw ("Window could not be created!");
-    else
-    {
+
         //Create renderer for window
         gRenderer = SDL_CreateRenderer(gWindow, -1, SDL_RENDERER_ACCELERATED);
-        if (gRenderer == NULL)
-            throw ("Renderer could not be created!");
-        else
-        {
-            //Initialize renderer color
-            SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
+    if (gRenderer == NULL)
+        throw("Renderer could not be created!");
+    else
+    {
+        //Initialize renderer color
+        // SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
 
-            //Initialize PNG loading
-            int imgFlags = IMG_INIT_PNG;
-            if (!(IMG_Init(imgFlags) & imgFlags))
-            {
-                throw ("SDL_image could not initialize!");
-            }
-            if (TTF_Init() == -1)
-                throw "SDL_TTF coud not initialize!";
+        //Initialize PNG loading
+        int imgFlags = IMG_INIT_PNG;
+        if (!(IMG_Init(imgFlags) & imgFlags))
+        {
+            throw("SDL_image could not initialize!");
         }
+        if (TTF_Init() == -1)
+            throw "SDL_TTF coud not initialize!";
     }
 }
 
@@ -210,17 +209,15 @@ void SDLLib::deleteWindow(void)
 
 bool SDLLib::events(void)
 {
+    while (SDL_PollEvent(&e) != 0) {
+        this->closeWindowEvent();
+    }
 }
 
 void SDLLib::closeWindowEvent(void)
 {
-    while (SDL_PollEvent(&e) != 0)
-    {
-        //User requests quit
-        if (e.type == SDL_QUIT)
-        {
+    if (e.type == SDL_QUIT) {
             quit = true;
-        }
     }
 }
 
