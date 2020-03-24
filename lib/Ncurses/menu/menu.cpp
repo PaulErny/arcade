@@ -25,7 +25,7 @@ void NcursesLib::test(int row, int col)
     start_color();
     init_pair(1, COLOR_RED, COLOR_BLACK);
 
-	attron(COLOR_PAIR(1));
+    attron(COLOR_PAIR(1));
     mvprintw(row / 2 - 5, (col - strlen(title1)) / 2, "%s", title1);
     mvprintw(row / 2 - 4, (col - strlen(title2)) / 2, "%s", title2);
     mvprintw(row / 2 - 3, (col - strlen(title3)) / 2, "%s", title3);
@@ -55,7 +55,7 @@ int NcursesLib::gameSelectionMenu(state &pgState, bool close, std::vector<std::s
     highScores;
     close = true;
     NcursesLib game;
-    int which_game = 0;    
+    int which_game = 0;
 
     which_game = menu_game(game);
     return (which_game);
@@ -68,9 +68,18 @@ int NcursesLib::menu(state &pgState, bool close, std::vector<std::string> &libsN
     highScores;
     close = true;
     NcursesLib test;
+    int i = 0;
+    this->_indexLib = indexLib;
 
-    test.enterName(pgState, close);
-    test.libSelectionMenu(pgState, close, libsNames);
-    test.gameSelectionMenu(pgState, close, gamesNames, highScores);
+    while (i != 27)
+    {
+        i = getch();
+        if (pseudo.empty() == true)
+            test.enterName(pgState, close);
+        test.libSelectionMenu(pgState, close, libsNames);
+        indexLib = this->_indexLib;
+        test.gameSelectionMenu(pgState, close, gamesNames, highScores);
+        indexLib = this->_indexLib;
+    }
     return (0);
 }

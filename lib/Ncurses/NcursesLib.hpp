@@ -30,6 +30,7 @@ public:
     std::string get_name(int, int);
     std::string menu_name(void);
     void test(int, int);
+    int _indexLib;
 
     /* ------------------------------- RELATED TO SHAPES ------------------------------- */
         // explicit. if rectangle -> use $width and $height, if sphere -> $width = radius
