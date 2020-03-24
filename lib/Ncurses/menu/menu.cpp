@@ -7,15 +7,8 @@
 
 #include "../NcursesLib.hpp"
 
-NcursesLib::NcursesLib(int selection, int row, int col,
-                       int arraylength, int width, int menulength)
+NcursesLib::NcursesLib()
 {
-    this->_selection = selection;
-    this->_row = row;
-    this->_col = col;
-    this->_arraylength = arraylength;
-    this->_width = width;
-    this->_menulength = menulength;
 }
 
 NcursesLib::~NcursesLib()
@@ -48,7 +41,7 @@ int NcursesLib::libSelectionMenu(state &pgState, bool close, std::vector<std::st
     pgState = NOTHING;
     libsNames;
     close = true;
-    NcursesLib lib(0, 1, 4, 4, 5, 5);
+    NcursesLib lib;
     int which_lib = 0;
 
     which_lib = menu_lib(lib);
@@ -61,24 +54,24 @@ int NcursesLib::gameSelectionMenu(state &pgState, bool close, std::vector<std::s
     gamesNames;
     highScores;
     close = true;
-    NcursesLib game(0, 1, 3, 3, 4, 4);
-    int which_game = 0;
+    NcursesLib game;
+    int which_game = 0;    
 
     which_game = menu_game(game);
     return (which_game);
 }
 
-// int main(void)
-// {
-//     state pgState = NOTHING;
-//     std::vector<std::string> libsNames;
-//     std::vector<std::string> gamesNames;
-//     std::vector<std::vector<std::string>> highScores;
-//     bool close = true;
-//     NcursesLib *menu = NULL;
+int main(void)
+{
+    state pgState = NOTHING;
+    std::vector<std::string> libsNames;
+    std::vector<std::string> gamesNames;
+    std::vector<std::vector<std::string>> highScores;
+    bool close = true;
+    NcursesLib *menu = NULL;
 
-//     menu->enterName(pgState, close);
-//     menu->libSelectionMenu(pgState, close, libsNames);
-//     menu->gameSelectionMenu(pgState, close, gamesNames, highScores);
-//     return (0);
-// }
+    menu->enterName(pgState, close);
+    menu->libSelectionMenu(pgState, close, libsNames);
+    menu->gameSelectionMenu(pgState, close, gamesNames, highScores);
+    return (0);
+}

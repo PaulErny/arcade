@@ -92,15 +92,6 @@ void NcursesLib::deleteFont(int FontId)
 
 void NcursesLib::createWindow(int width, int height, std::string name)
 {
-    initscr();            /* init de ncurses */
-    keypad(stdscr, TRUE); /* pour récupérer les événements du clavier */
-    noecho();             /* pour masquer l'affichage du buffer stdin dans la console */
-
-    while (1)
-    {
-        if (getch() == 27)
-            break;
-    }
 }
 
 bool NcursesLib::isWindowOpen(void)

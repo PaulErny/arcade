@@ -19,6 +19,12 @@ int NcursesLib::check_game(int selection, const char **game_list)
 int NcursesLib::inGame(NcursesLib game)
 {
     int counter, offset = 0, ky = 0;
+    int selection = 0;
+    int row = 1;
+    int col = 3;
+    int arraylength = 3;
+    int width = 4;
+    int menulength = 4;
     const char *game_list[] = {
     "Snake",
     "PAC-MAN",
@@ -26,70 +32,69 @@ int NcursesLib::inGame(NcursesLib game)
     };
     while (ky != 27)
     {
-        for (counter = 0; counter < game._menulength - 1; counter++)
+        for (counter = 0; counter < menulength - 1; counter++)
         {
-            if (counter + offset == game._selection)
+            if (counter + offset == selection)
                 attron(A_REVERSE);
-            mvprintw(game._row + counter + 20, game._col + 120, game_list[counter + offset]);
+            mvprintw(row + counter + 20, col + 120, game_list[counter + offset]);
             attroff(A_REVERSE);
         }
         ky = getch();
         switch (ky)
         {
         case KEY_UP:
-            if (game._selection)
+            if (selection)
             {
-                game._selection--;
-                if (game._selection < offset)
+                selection--;
+                if (selection < offset)
                     offset--;
             }
             break;
         case KEY_DOWN:
-            if (game._selection < game._arraylength - 1)
+            if (selection < arraylength - 1)
             {
-                game._selection++;
-                if (game._selection > offset + game._menulength - 1)
+                selection++;
+                if (selection > offset + menulength - 1)
                     offset++;
             }
             break;
         case KEY_HOME:
-            game._selection = 0;
+            selection = 0;
             offset = 0;
             break;
         case KEY_END:
-            game._selection = game._arraylength - 1;
-            offset = game._arraylength - game._menulength;
+            selection = arraylength - 1;
+            offset = arraylength - menulength;
             break;
         case KEY_PPAGE:
-            game._selection -= game._menulength;
-            if (game._selection < 0)
-                game._selection = 0;
-            offset -= game._menulength;
+            selection -= menulength;
+            if (selection < 0)
+                selection = 0;
+            offset -= menulength;
             if (offset < 0)
                 offset = 0;
             break;
         case KEY_NPAGE:
-            game._selection += game._menulength;
-            if (game._selection > game._arraylength - 1)
-                game._selection = game._arraylength - 1;
-            offset += game._menulength;
-            if (offset > game._arraylength - game._menulength)
-                offset = game._arraylength - game._menulength;
+            selection += menulength;
+            if (selection > arraylength - 1)
+                selection = arraylength - 1;
+            offset += menulength;
+            if (offset > arraylength - menulength)
+                offset = arraylength - menulength;
             break;
         case 10: //enter
-            ky = check_game(game._selection, game_list);
+            ky = check_game(selection, game_list);
             break;
         }
-        mvprintw(0, 0, "%i", game._selection);
+        mvprintw(0, 0, "%i", selection);
     }
     return (0);
 }
 
 int NcursesLib::menu_game(NcursesLib lib)
 {
-    int row, col;
     initscr();
-    getmaxyx(stdscr, row, col);
+//    getmaxyx(stdscr, row, col);
     noecho();
     keypad(stdscr, TRUE);
     curs_set(0);

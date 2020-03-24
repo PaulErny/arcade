@@ -21,6 +21,12 @@ int NcursesLib::check_lib(int selection, const char **lib_list)
 int NcursesLib::inLib(NcursesLib lib)
 {
     int counter, offset = 0, ky = 0;
+    int selection = 0;
+    int row = 1;
+    int col = 4;
+    int arraylength = 4;
+    int width = 5;
+    int menulength = 5;
     const char *lib_list[] = {
     "Ncurses",
     "SFML",
@@ -29,61 +35,61 @@ int NcursesLib::inLib(NcursesLib lib)
 };
     while (ky != 27)
     {
-        for (counter = 0; counter < lib._menulength - 1; counter++)
+        for (counter = 0; counter < menulength - 1; counter++)
         {
-            if (counter + offset == lib._selection)
+            if (counter + offset == selection)
                 attron(A_REVERSE);
-            mvprintw(lib._row + counter + 20, lib._col + 100, lib_list[counter + offset]);
+            mvprintw(row + counter + 20, col + 100, lib_list[counter + offset]);
             attroff(A_REVERSE);
         }
         ky = getch();
         switch (ky)
         {
         case KEY_UP:
-            if (lib._selection)
+            if (selection)
             {
-                lib._selection--;
-                if (lib._selection < offset)
+                selection--;
+                if (selection < offset)
                     offset--;
             }
             break;
         case KEY_DOWN:
-            if (lib._selection < lib._arraylength - 1)
+            if (selection < arraylength - 1)
             {
-                lib._selection++;
-                if (lib._selection > offset + lib._menulength - 1)
+                selection++;
+                if (selection > offset + menulength - 1)
                     offset++;
             }
             break;
         case KEY_HOME:
-            lib._selection = 0;
+            selection = 0;
             offset = 0;
             break;
         case KEY_END:
-            lib._selection = lib._arraylength - 1;
-            offset = lib._arraylength - lib._menulength;
+            selection = arraylength - 1;
+            offset = arraylength - menulength;
             break;
         case KEY_PPAGE:
-            lib._selection -= lib._menulength;
-            if (lib._selection < 0)
-                lib._selection = 0;
-            offset -= lib._menulength;
+            selection -= menulength;
+            if (selection < 0)
+                selection = 0;
+            offset -= menulength;
             if (offset < 0)
                 offset = 0;
             break;
         case KEY_NPAGE:
-            lib._selection += lib._menulength;
-            if (lib._selection > lib._arraylength - 1)
-                lib._selection = lib._arraylength - 1;
-            offset += lib._menulength;
-            if (offset > lib._arraylength - lib._menulength)
-                offset = lib._arraylength - lib._menulength;
+            selection += menulength;
+            if (selection > arraylength - 1)
+                selection = arraylength - 1;
+            offset += menulength;
+            if (offset > arraylength - menulength)
+                offset = arraylength - menulength;
             break;
         case 10: //enter
-            ky = check_lib(lib._selection, lib_list);
+            ky = check_lib(selection, lib_list);
             break;
         }
-        mvprintw(0, 0, "%i", lib._selection);
+        mvprintw(0, 0, "%i", selection);
     }
     return (0);
 }

@@ -17,7 +17,7 @@ class NcursesLib : public ILibs
 private:
     /* data */
 public:
-    NcursesLib(int, int, int, int, int, int);
+    NcursesLib();
     ~NcursesLib();
 
     int check_lib(int selection, const char **);
@@ -95,7 +95,9 @@ public:
         // handle events occuring in the window
         bool events(void);
         // closes the window in case of such an event
-        void closeWindowEvent(void);
+        bool closeWindowEvent(void);
+        // returns true if a key was released
+        bool keyReleasedEvent(void);
 
         /* ------------------------------- MENU ------------------------------- */
         // menu for selecting the graphical lib. returns 0 if nCurses is selected, 2 for SFML and 3 for SDL -1 for errors
@@ -103,14 +105,9 @@ public:
         // menu to select the game. returns 0 for game 0 if $gamesNames, 1 for game 2 if $gamesNames, etc...
         int gameSelectionMenu(state &pgState, bool close, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores);
         // menu to enter the name. returns string with the name
-        std::string enterName(state &pgState, bool close);
+        std::string enterName(state pgState, bool close);
+        int menu(state &pgState, bool close, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores, std::string &pseudo);
 
-    int _selection;
-    int _row;
-    int _col;
-    int _arraylength;
-    int _width;
-    int _menulength;
 };
 
 #endif /* !LIB_HPP_ */
