@@ -80,7 +80,7 @@ int SDLLib::DrawMenu(state pgState, bool close, std::vector<std::string> gamesNa
     int texW = 1000;
     int texH = 200;
     int count = 0;
-    // SDL_QueryTexture(texturePseudo, NULL, NULL, &texW, &texH);
+    SDL_QueryTexture(texturePseudo, NULL, NULL, &texW, &texH);
 
     SDL_Rect rectPseudo = {240, 540, 100, 100};
     SDL_Rect rectEnterPseudo = {10, 100, texW, texH};
