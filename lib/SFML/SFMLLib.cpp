@@ -243,6 +243,16 @@ int SFMLLib::libSelectionMenu(state &pgState, bool close, std::vector<std::strin
     return (-1);
 }
 
+int SFMLLib::gameSelectionMenu(state &pgState, bool close, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores)
+{
+    return (-1);
+}
+
+std::string SFMLLib::enterName(state &pgState, bool close)
+{
+    return (nullptr);
+}
+
 extern "C" std::unique_ptr<SFMLLib> create_object()
 {
     return std::make_unique<SFMLLib>();

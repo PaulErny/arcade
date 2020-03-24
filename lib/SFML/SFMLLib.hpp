@@ -94,12 +94,6 @@ class SFMLLib : public ILibs {
         bool closeWindowEvent(void);
         // returns true if a key was released
         bool keyReleasedEvent(void);
-        
-        /* ------------------------------- MENU ------------------------------- */
-        // menu for selecting the graphical lib. returns 0 if nCurses is selected, 2 for SFML and 3 for SDL -1 for errors
-        int libSelectionMenu(state &pgState, bool close, std::vector<std::string> &libsNames);
-        // menu to select the game. returns 0 for game 0 if $gamesNames, 1 for game 2 if $gamesNames, etc...
-        int menu(state &pgState, bool close, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores, std::string &pseudo);
 
         /* ------------------------------- MENU ------------------------------- */
         // menu for selecting the graphical lib. returns 0 if nCurses is selected, 2 for SFML and 3 for SDL -1 for errors
@@ -108,6 +102,7 @@ class SFMLLib : public ILibs {
         int gameSelectionMenu(state &pgState, bool close, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores);
         // menu to enter the name. returns string with the name
         std::string enterName(state &pgState, bool close);
+        int menu(state &pgState, bool close, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores, std::string &pseudo);
 
     private:
         std::vector<std::unique_ptr<sf::Texture>> textures;
