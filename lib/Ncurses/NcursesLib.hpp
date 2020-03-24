@@ -8,9 +8,10 @@
 #ifndef LIB_HPP_
 #define LIB_HPP_
 
-#include "../ILibs.hpp"
 #include <ncurses.h>
 #include <cstring>
+#include <memory>
+#include "../ILibs.hpp"
 
 class NcursesLib : public ILibs
 {

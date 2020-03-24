@@ -131,3 +131,8 @@ bool NcursesLib::events(void)
 bool NcursesLib::closeWindowEvent(void)
 {
 }
+
+extern "C" std::unique_ptr<NcursesLib> create_object()
+{
+    return std::make_unique<NcursesLib>();
+}
