@@ -138,6 +138,11 @@ bool NcursesLib::keyReleasedEvent(void)
     return (false);
 }
 
+void NcursesLib::init_menu(std::vector<std::string> &libsNames, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores, std::string &pseudo)
+{
+
+}
+
 extern "C" std::unique_ptr<NcursesLib> create_object()
 {
     return std::make_unique<NcursesLib>();
