@@ -8,11 +8,16 @@
 #ifndef SFMLLIB_HPP
 #define SFMLLIB_HPP
 
+#include <iostream>
+
 #include <vector>
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 #include <memory>
 #include "../ILibs.hpp"
+#include "SFMLMenu.hpp"
+
+class SFMLMenu;
 
 class SFMLLib : public ILibs {
     public:
@@ -83,8 +88,18 @@ class SFMLLib : public ILibs {
         /* ------------------------------- RELATED TO EVENTS ------------------------------- */
         // handle events occuring in the window
         bool events(void);
+        // return the SFML event variable
+        sf::Event getEvt(void);
         // closes the window in case of such an event
-        void closeWindowEvent(void);
+        bool closeWindowEvent(void);
+        // returns true if a key was released
+        bool keyReleasedEvent(void);
+        
+        /* ------------------------------- MENU ------------------------------- */
+        // menu for selecting the graphical lib. returns 0 if nCurses is selected, 2 for SFML and 3 for SDL -1 for errors
+        int libSelectionMenu(state &pgState, bool close, std::vector<std::string> &libsNames);
+        // menu to select the game. returns 0 for game 0 if $gamesNames, 1 for game 2 if $gamesNames, etc...
+        int menu(state &pgState, bool close, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores, std::string &pseudo);
 
         /* ------------------------------- MENU ------------------------------- */
         // menu for selecting the graphical lib. returns 0 if nCurses is selected, 2 for SFML and 3 for SDL -1 for errors
@@ -102,6 +117,9 @@ class SFMLLib : public ILibs {
         std::vector<std::unique_ptr<sf::Shape>> shapes;
         sf::RenderWindow window;
         sf::Event event;
+        std::unique_ptr<SFMLMenu> main_menu;
+
+        bool isKeyDown=false;
 };
 
 #endif /* !SFMLLIB_HPP_ */

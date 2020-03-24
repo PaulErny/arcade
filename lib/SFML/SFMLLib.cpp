@@ -9,6 +9,7 @@
 
 SFMLLib::SFMLLib()
 {
+    this->main_menu = std::make_unique<SFMLMenu>(this);
 }
 
 SFMLLib::~SFMLLib()
@@ -44,14 +45,6 @@ void SFMLLib::setShapeColor(int index, int r, int g, int b, int a)
         throw "SFML setShapeColor() -> unknown index"; 
 }
 
-void SFMLLib::deleteShape(int index)
-{
-    if (this->shapes.size() > index && this->shapes[index])
-        this->shapes.erase(this->shapes.begin() + index);
-    else
-        throw "SFML deleteShape() -> unknown index"; 
-}
-
 void SFMLLib::setShapePos(int index, int x, int y)
 {
     if (this->shapes.size() > index && this->shapes[index])
@@ -59,6 +52,11 @@ void SFMLLib::setShapePos(int index, int x, int y)
     else
         throw "SFML setShapePos() -> unknown index";    
 }
+
+void SFMLLib::deleteShape(int index)
+{
+}
+
 
 /* ------------------------------- RELATED TO SPRITES ------------------------------- */
 
@@ -95,10 +93,6 @@ void SFMLLib::setImagePos(int ImageId, int x, int y)
 
 void SFMLLib::deleteImage(int ImageId)
 {
-    if (this->sprites.size() > ImageId && this->sprites[ImageId])
-        this->sprites.erase(this->sprites.begin() + ImageId);
-    else
-        throw "SFML deleteImage() -> unknown index"; 
 }
 
 /* ------------------------------- RELATED TO TEXT ------------------------------- */
@@ -165,18 +159,10 @@ void SFMLLib::setTextColor(int textId, int r, int g, int b, int a)
 
 void SFMLLib::deleteText(int TextId)
 {
-    if (this->texts.size() > TextId && this->texts[TextId])
-        this->texts.erase(this->texts.begin() + TextId);
-    else
-        throw "SFML deleteText() -> unknown index"; 
 }
 
 void SFMLLib::deleteFont(int FontId)
 {
-    if (this->fonts.size() > FontId && this->fonts[FontId])
-        this->fonts.erase(this->fonts.begin() + FontId);
-    else
-        throw "SFML deleteFont() -> unknown index"; 
 }
 
 /* ------------------------------- RELATED TO WINDOWS ------------------------------- */
@@ -184,6 +170,7 @@ void SFMLLib::deleteFont(int FontId)
 void SFMLLib::createWindow(int width, int height, std::string name)
 {
     this->window.create(sf::VideoMode(1080, 1080), name, sf::Style::Titlebar | sf::Style::Resize | sf::Style::Close);
+    this->window.setKeyRepeatEnabled(false);
 }
 
 bool SFMLLib::isWindowOpen(void)
@@ -224,10 +211,36 @@ bool SFMLLib::events(void)
     return(this->window.pollEvent(this->event));
 }
 
-void SFMLLib::closeWindowEvent(void)
+sf::Event SFMLLib::getEvt(void)
 {
-    if (this->event.type == sf::Event::Closed)
+    return (this->event);
+}
+
+bool SFMLLib::closeWindowEvent(void)
+{
+    if (this->event.type == sf::Event::Closed) {
         this->window.close();
+        return true;
+    }
+    return false;
+}
+
+bool SFMLLib::keyReleasedEvent(void)
+{
+    if (this->event.type == sf::Event::KeyReleased)
+        return (true);
+    return false;
+}
+
+/* ------------------------------- MENU ------------------------------- */
+int SFMLLib::menu(state &pgState, bool close, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores, std::string &pseudo)
+{
+    return (this->main_menu->menu(pgState, close, gamesNames, highScores, pseudo));
+}
+
+int SFMLLib::libSelectionMenu(state &pgState, bool close, std::vector<std::string> &libsNames)
+{
+    return (-1);
 }
 
 extern "C" std::unique_ptr<SFMLLib> create_object()
