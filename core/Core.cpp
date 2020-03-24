@@ -16,24 +16,34 @@ void Core::nextLib(std::string libName)
         dlclose(m_handle);
     std::string open("lib/lib_arcade_" + libName);
     m_handle = dlopen(open.c_str(), RTLD_LAZY);
-    std::unique_ptr<ILibs> (*create)();
-    create = (std::unique_ptr<ILibs>(*)())dlsym(m_handle, "create_object");
+    std::shared_ptr<ILibs> (*create)();
+    create = (std::shared_ptr<ILibs>(*)())dlsym(m_handle, "create_object");
     if (dlerror() != NULL)
         throw "Cannot open lib";
-    std::unique_ptr<ILibs> Lib = (std::unique_ptr<ILibs>)create();
+    std::shared_ptr<ILibs> Lib = (std::shared_ptr<ILibs>)create();
 }
 
-void Core::previousLib(std::string libName)
+void Core::changeLib()
 {
-    if (m_handle != NULL)
-        dlclose(m_handle);
-    std::string open("lib/lib_arcade_" + libName);
+    // if (dlclose(m_handle);
+    if (dlerror() != NULL)
+        throw dlerror();
+    if (indexLib >= m_libs.size())
+        indexLib = 0;
+    if (indexLib < 0)
+        indexLib = m_libs.size() - 1;
+    std::cout << m_libs.size() << std::endl;
+    std::string open("lib/lib_arcade_" + m_libs.at(indexLib) + ".so");
+    std::cout << open << std::endl;
     m_handle = dlopen(open.c_str(), RTLD_LAZY);
-    std::unique_ptr<ILibs> (*create)();
-    create = (std::unique_ptr<ILibs>(*)())dlsym(m_handle, "create_object");
+    if (dlerror() != NULL)
+        throw "Cannot open Lib";
+    std::shared_ptr<ILibs> (*create)();
+    create = (std::shared_ptr<ILibs>(*)())dlsym(m_handle, "create_object");
     if (dlerror() != NULL)
         throw "Cannot open lib";
-    std::unique_ptr<ILibs> Lib = (std::unique_ptr<ILibs>)create();
+    std::cout << "ok" << std::endl;
+    Lib = (std::shared_ptr<ILibs>)create();
 }
 
 const std::vector<std::string> &Core::getLibs() const
@@ -97,28 +107,52 @@ void Core::fillGamesVector()
     closedir(rep);
 }
 
+void Core::indexLibFill()
+{
+    std::regex reg;
+    for (int i = 0; i < m_libs.size(); i++) {
+        reg = m_libs.at(i);
+        if (std::regex_search(m_arg, reg)) {
+            indexLib = i; 
+        }
+    }
+}
+
 void Core::laodLib()
 {
     m_handle = dlopen(m_arg, RTLD_LAZY);
 
     if (dlerror() != NULL)
         throw "Cannot open lib";
-    std::unique_ptr<ILibs> (*create)();
-    create = (std::unique_ptr<ILibs>(*)())dlsym(m_handle, "create_object");
+    std::shared_ptr<ILibs> (*create)();
+    create = (std::shared_ptr<ILibs>(*)())dlsym(m_handle, "create_object");
     if (dlerror() != NULL)
         throw "Cannot open lib";
-    std::unique_ptr<ILibs> Lib = (std::unique_ptr<ILibs>)create();
+    Lib = (std::shared_ptr<ILibs>)create();
     Lib->createWindow(1080, 1080, "Arcade");
     state pgState = MENU;
     std::vector<std::string> names{"pacman", "nibbler"};
-    std::vector<std::string> libs{"SDL", "SFML", "ncurses"};
+    // this->fillLibVector();
+    m_libs = {"sdl2", "sfml", "ncurses"};
+    this->indexLibFill();
+    std::cout << indexLib << std::endl;
     std::vector<std::vector<std::string>> highScores{{"pseudo1\t10655", "pseudo2\t10385", "pseudo1\t4521"}, {"pseudo1\t53", "pseudo2\t41", "pseudo1\t9"}};
     std::string pseudo = "";
-    Lib->init_menu(libs, names, highScores, pseudo);
+    Lib->init_menu(m_libs, names, highScores, pseudo);
+    int ind = 0;
 
     while (Lib->isWindowOpen())
     {
+        ind = indexLib;
         if (pgState == MENU)
-            Lib->menu(pgState, false, libs, names, highScores, pseudo);
+            Lib->menu(pgState, false, m_libs, names, highScores, pseudo, indexLib);
+        // std::cout << indexLib << std::endl;
+        if (ind != indexLib) {
+            Lib->deleteWindow();
+            changeLib();
+            Lib->createWindow(1080, 1080, "Arcade");
+            Lib->init_menu(m_libs, names, highScores, pseudo);
+        }
     }
+    // dlclose(m_handle);
 }

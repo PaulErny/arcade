@@ -17,13 +17,14 @@ private:
     int indexLib;
     std::vector<std::string> m_libs;
     std::vector<std::string> m_games;
-public:
-    Core(char *arg);
+    std::shared_ptr<ILibs> Lib;
+public : Core(char *arg);
     ~Core();
     const std::vector<std::string> &getLibs() const;
     const std::vector<std::string> &getGames() const;
     void nextLib(std::string libName);
-    void previousLib(std::string libName);
+    void indexLibFill();
+    void changeLib();
     void fillLibVector();
     void fillGamesVector();
     void laodLib();
