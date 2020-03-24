@@ -4,7 +4,8 @@ CXX	= g++
 
 RM	= rm -f
 
-SRCS	= ./SDLLib.cpp
+SRCS	= ./SDLLib.cpp \
+			./SDLMenu.cpp
 
 OBJS	= $(SRCS:.cpp=.o)
 

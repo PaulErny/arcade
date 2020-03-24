@@ -4,7 +4,8 @@ CXX	= g++
 
 RM	= rm -f
 
-SRCS	= ./SFMLLib.cpp
+SRCS	= ./SFMLLib.cpp \
+			./SFMLMenu.cpp 
 
 OBJS	= $(SRCS:.cpp=.o)
 
