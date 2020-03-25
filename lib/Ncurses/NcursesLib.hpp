@@ -30,8 +30,31 @@ public:
     std::string get_name(int, int);
     std::string menu_name(void);
     void test(int, int);
+    void init_menu();
     int _indexLib;
-    int ky;
+
+    int _counter_lib;
+    int _offset_lib;
+    int _selection_lib;
+    int _row_lib;
+    int _col_lib;
+    int _arraylength_lib;
+    int _width_lib;
+    int _menulength_lib;
+
+    int _counter_game;
+    int _offset_game;
+    int _selection_game;
+    int _row_game;
+    int _col_game;
+    int _arraylength_game;
+    int _width_game;
+    int _menulength_game;
+
+    int _ky;
+    int _ky2;
+    int _row_gen;
+    int _col_gen;
 
     /* ------------------------------- RELATED TO SHAPES ------------------------------- */
         // explicit. if rectangle -> use $width and $height, if sphere -> $width = radius

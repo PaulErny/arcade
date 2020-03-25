@@ -147,17 +147,17 @@ void NcursesLib::init_menu(std::vector<std::string> &libsNames, std::vector<std:
 
 void NcursesLib::nextGraphicLib(int &indexLib)
 {
-    ky = getch();
+    this->_ky2 = getch();
 
-    if (ky == 101)
+    if (this->_ky2 == 101)
         indexLib = indexLib + 1;
 }
 
 void NcursesLib::prevGraphicLib(int &indexLib)
 {
-    ky = getch();
+    this->_ky = getch();
     
-    if (ky == 97)
+    if (this->_ky == 97)
         indexLib = indexLib - 1;
 }
 

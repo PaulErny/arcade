@@ -59,25 +59,54 @@ int NcursesLib::gameSelectionMenu(state &pgState, bool close, std::vector<std::s
     return (which_game);
 }
 
+void NcursesLib::init_menu()
+{
+    this->_ky = 0;
+    this->_ky2 = 0;
+
+    this->_counter_lib = 0;
+    this->_offset_lib = 0;
+    this->_selection_lib = 0;
+    this->_row_lib = 1;
+    this->_col_lib = 4;
+    this->_arraylength_lib = 4;
+    this->_width_lib = 5;
+    this->_menulength_lib = 5;
+
+    this->_counter_game = 0;
+    this->_offset_game = 0;
+    this->_selection_game = 0;
+    this->_row_game = 1;
+    this->_col_game = 3;
+    this->_arraylength_game = 3;
+    this->_width_game = 4;
+    this->_menulength_game = 4;
+}
+
 int NcursesLib::menu(state &pgState, bool close, std::vector<std::string> &libsNames, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores, std::string &pseudo, int &indexLib)
 {
     libsNames;
     gamesNames;
     highScores;
     close = true;
-    this->_indexLib = 0;
+    int t, e;
     int i = 0;
-    
+    this->_indexLib = 0;
+    this->init_menu();
+    getmaxyx(stdscr, t, e);
+    this->test(10, e);
 
-    // while (i != 27)
-    // {
-        // i = getch();
+    while (_ky2 != 27)
+    {
+        _ky2 = getch();
         if (pseudo.empty() == true)
             pseudo = this->enterName(pgState, close);
         this->libSelectionMenu(pgState, close, libsNames);
-        indexLib = this->_indexLib;
         this->gameSelectionMenu(pgState, close, gamesNames, highScores);
-        indexLib = this->_indexLib;
-    // }
+        this->nextGraphicLib(indexLib);
+        // std::cout << "ici ->>>>>" << this->_indexLib << std::endl;
+        // indexLib = this->_indexLib;
+        // std::cout << "après ->>>>" << this->_indexLib << std::endl;
+    }
     return (0);
 }

@@ -20,54 +20,43 @@ int NcursesLib::check_lib(int selection, const char **lib_list)
 
 int NcursesLib::inLib(void)
 {
-    int counter, offset = 0, ky = 0;
-    int selection = 0;
-    int row = 1;
-    int col = 4;
-    int arraylength = 4;
-    int width = 5;
-    int menulength = 5;
     const char *lib_list[] = {
     "Ncurses",
     "SFML",
     "SDL",
     "Exit",
 };
-    while (ky != 27)
+    while (this->_ky != 27)
     {
-        for (counter = 0; counter < menulength - 1; counter++)
+        for (this->_counter_lib = 0; this->_counter_lib < this->_menulength_lib - 1; this->_counter_lib++)
         {
-            if (counter + offset == selection)
+            if (this->_counter_lib + this->_offset_lib == this->_selection_lib)
                 attron(A_REVERSE);
-            mvprintw(row + counter + 20, col + 100, lib_list[counter + offset]);
+            mvprintw(this->_row_lib + this->_counter_lib + 20, this->_col_lib + 100, lib_list[this->_counter_lib + this->_offset_lib]);
             attroff(A_REVERSE);
         }
-        ky = getch();
-        switch (ky)
+        this->_ky = getch();
+        switch (this->_ky)
         {
         case KEY_UP:
-            if (selection)
+            if (this->_selection_lib)
             {
-                selection--;
-                if (selection < offset)
-                    offset--;
+                this->_selection_lib--;
+                if (this->_selection_lib < this->_offset_lib)
+                    this->_offset_lib--;
             }
             break;
         case KEY_DOWN:
-            if (selection < arraylength - 1)
+            if (this->_selection_lib < this->_arraylength_lib - 1)
             {
-                selection++;
-                if (selection > offset + menulength - 1)
-                    offset++;
+                this->_selection_lib++;
+                if (this->_selection_lib > this->_offset_lib + this->_menulength_lib - 1)
+                    this->_offset_lib++;
             }
             break;
         case 10: //enter
-            ky = check_lib(selection, lib_list);
+            this->_ky = check_lib(this->_selection_lib, lib_list);
             break;
-        case 122:
-            this->_indexLib = this->_indexLib - 1;
-        case 101:
-            this->_indexLib = this->_indexLib + 1;
         }
         mvprintw(0, 0, "%i", this->_indexLib);
     }
@@ -77,16 +66,15 @@ int NcursesLib::inLib(void)
 int NcursesLib::menu_lib(void)
 {
     int row, col;
-    int the;
 
     initscr();
-    getmaxyx(stdscr, row, col);
-    this->test(10, col);
     noecho();
     keypad(stdscr, TRUE);
     curs_set(0);
-    the = this->inLib();
+    getmaxyx(stdscr, row, col);
+    this->test(10, col);
+    this->inLib();
     refresh();
-    endwin();
-    return (the);
+    // endwin();
+    return (0);
 }
