@@ -53,6 +53,7 @@ public:
 
     int _ky;
     int _ky2;
+    int _ky_gen;
     int _row_gen;
     int _col_gen;
 

@@ -57,6 +57,8 @@ int NcursesLib::inLib(void)
         case 10: //enter
             this->_ky = check_lib(this->_selection_lib, lib_list);
             break;
+        case 101:
+            this->_indexLib = this->_indexLib + 1;
         }
         mvprintw(0, 0, "%i", this->_indexLib);
     }
@@ -65,16 +67,16 @@ int NcursesLib::inLib(void)
 
 int NcursesLib::menu_lib(void)
 {
-    int row, col;
+    //int row, col;
 
-    initscr();
+    //initscr();
     noecho();
     keypad(stdscr, TRUE);
     curs_set(0);
-    getmaxyx(stdscr, row, col);
-    this->test(10, col);
+    getmaxyx(stdscr, this->_row_gen, this->_col_gen);
+    this->test(10, this->_col_gen);
     this->inLib();
     refresh();
-    // endwin();
+    endwin();
     return (0);
 }

@@ -142,21 +142,37 @@ bool NcursesLib::keyReleasedEvent(void)
 
 void NcursesLib::init_menu(std::vector<std::string> &libsNames, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores, std::string &pseudo)
 {
+    this->_ky = 0;
+    this->_ky2 = 0;
+    this->_ky_gen = 0;
 
+    this->_counter_lib = 0;
+    this->_offset_lib = 0;
+    this->_selection_lib = 0;
+    this->_row_lib = 1;
+    this->_col_lib = 4;
+    this->_arraylength_lib = 4;
+    this->_width_lib = 5;
+    this->_menulength_lib = 5;
+
+    this->_counter_game = 0;
+    this->_offset_game = 0;
+    this->_selection_game = 0;
+    this->_row_game = 1;
+    this->_col_game = 3;
+    this->_arraylength_game = 3;
+    this->_width_game = 4;
+    this->_menulength_game = 4;
 }
 
 void NcursesLib::nextGraphicLib(int &indexLib)
 {
-    this->_ky2 = getch();
-
-    if (this->_ky2 == 101)
+    if (this->_ky_gen == 101)
         indexLib = indexLib + 1;
 }
 
 void NcursesLib::prevGraphicLib(int &indexLib)
-{
-    this->_ky = getch();
-    
+{   
     if (this->_ky == 97)
         indexLib = indexLib - 1;
 }
