@@ -20,11 +20,11 @@ class SFMLMenu {
         ~SFMLMenu();
 
         void init_menu(std::vector<std::string> &libsNames, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores, std::string &pseudo);
-        int menu(state &pgState, bool close, std::vector<std::string> &libsNames, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores, std::string &pseudo);
+        int menu(state &pgState, bool close, std::vector<std::string> &libsNames, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores, std::string &pseudo, int &indexLib);
         void chooseGame();
         void rechoose();
         void chooseAction();
-        void displayHighScores(std::vector<int> gamesNamesID, bool &isHighscoresMenu);
+        void displayHighScores(std::vector<int> gamesNamesID);
         void getPseudo(state pgState, std::string &pseudo);
 
     private:
@@ -34,6 +34,7 @@ class SFMLMenu {
         int chosenAction = -1;
         std::vector<int> buttons;
         bool isKeyDown=false;
+        bool isHighscoresMenu = false;
 
         int bgID;
         int fontID;

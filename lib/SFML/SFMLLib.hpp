@@ -11,6 +11,7 @@
 #include <iostream>
 
 #include <vector>
+#include <unistd.h>
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 #include <memory>
