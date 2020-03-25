@@ -60,10 +60,12 @@ int NcursesLib::inLib(void)
         case 'e':
             std::cerr << "E" << std::endl;
             this->_indexLib = this->_indexLib - 1;
+            return (-1);
             break;
         case 'p':
             std::cerr << "P" << std::endl;
             this->_indexLib = this->_indexLib + 1;
+            return (-1);
             break;
         }
         mvprintw(0, 0, "%i", this->_indexLib);

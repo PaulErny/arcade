@@ -25,17 +25,15 @@ std::string NcursesLib::menu_name(void)
     int row, col;
     std::string thename;
 
-    initscr();
     getmaxyx(stdscr, row, col);
     this->test(10, col);
     thename = this->get_name(row, col);
-    endwin();
     return (thename);
 }
 
 std::string NcursesLib::enterName(state &pgState, bool close)
 {
-    pgState = NOTHING;
+    pgState = MENU;
     close = true;
     std::string thename;
 

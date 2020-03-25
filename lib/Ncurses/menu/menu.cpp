@@ -38,7 +38,7 @@ void NcursesLib::test(int row, int col)
 
 int NcursesLib::libSelectionMenu(state &pgState, bool close, std::vector<std::string> &libsNames)
 {
-    pgState = NOTHING;
+    pgState = MENU;
     libsNames;
     close = true;
     int which_lib = 0;
@@ -49,7 +49,7 @@ int NcursesLib::libSelectionMenu(state &pgState, bool close, std::vector<std::st
 
 int NcursesLib::gameSelectionMenu(state &pgState, bool close, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores)
 {
-    pgState = NOTHING;
+    pgState = MENU;
     gamesNames;
     highScores;
     close = true;
@@ -74,11 +74,15 @@ int NcursesLib::menu(state &pgState, bool close, std::vector<std::string> &libsN
         this->_ky_gen = getch();
         if (pseudo.empty() == true)
             pseudo = this->enterName(pgState, close);
-        indexLib = this->libSelectionMenu(pgState, close, libsNames);
-        indexLib = this->_indexLib;
-        indexLib = this->gameSelectionMenu(pgState, close, gamesNames, highScores);
-        this->nextGraphicLib(indexLib);
-        // std::cout << "ici ->>>>>" << this->_indexLib << std::endl;
+        if (this->libSelectionMenu(pgState, close, libsNames) == -1) {
+            indexLib = this->_indexLib;
+            return (0);
+        }
+        if (this->gameSelectionMenu(pgState, close, gamesNames, highScores) == -1) {
+            indexLib = this->_indexLib;
+            return (0);
+        }
+             // std::cout << "ici ->>>>>" << this->_indexLib << std::endl;
         // std::cout << "après ->>>>" << this->_indexLib << std::endl;
     // }
     return (0);
