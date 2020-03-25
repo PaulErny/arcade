@@ -96,6 +96,9 @@ class ILibs {
         virtual bool closeWindowEvent(void)=0;
         // returns true if a key was released
         virtual bool keyReleasedEvent(void)=0;
+        // checks if a btn to change lib is pressed and changes indexLib accordingly
+        virtual void nextGraphicLib(int &indexLib)=0;
+        virtual void prevGraphicLib(int &indexLib)=0;
 
         /* ------------------------------- MENU ------------------------------- */
         // menu for selecting the graphical lib. returns 0 if nCurses is selected, 2 for SFML and 3 for SDL -1 for errors
