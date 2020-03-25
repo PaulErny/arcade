@@ -45,7 +45,10 @@ void SDLLib::eventMenu(int &indexLib)
                 }
                 if (e.key.keysym.sym == SDLK_e) {
                     std::cout << "bite" << std::endl;
-                    indexLib++;
+                    this->nextGraphicLib(indexLib);
+                }
+                if (e.key.keysym.sym == SDLK_a) {
+                    this->prevGraphicLib(indexLib);
                 }
             }
         }
