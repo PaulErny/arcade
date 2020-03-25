@@ -61,14 +61,6 @@ int NcursesLib::gameSelectionMenu(state &pgState, bool close, std::vector<std::s
 
 int NcursesLib::menu(state &pgState, bool close, std::vector<std::string> &libsNames, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores, std::string &pseudo, int &indexLib)
 {
-    libsNames;
-    gamesNames;
-    highScores;
-    close = true;
-    int row, col;
-    getmaxyx(stdscr, row, col);
-    this->test(10, col);
-
     // while (_ky2 != 27)
     // {
         this->_ky_gen = getch();
