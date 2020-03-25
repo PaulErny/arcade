@@ -65,17 +65,15 @@ int NcursesLib::menu(state &pgState, bool close, std::vector<std::string> &libsN
     gamesNames;
     highScores;
     close = true;
-    NcursesLib test;
-    int i = 0;
-    this->_indexLib = indexLib;
+    this->_indexLib = 0;
+    
 
-    while (i != 27)
-    {
-        i = getch();
+    // while (i != 27)
+    // {
         if (pseudo.empty() == true)
-            test.enterName(pgState, close);
-        test.libSelectionMenu(pgState, close, libsNames);
-        test.gameSelectionMenu(pgState, close, gamesNames, highScores);
-    }
+            this->enterName(pgState, close);
+        indexLib = this->libSelectionMenu(pgState, close, libsNames);
+        indexLib = this->gameSelectionMenu(pgState, close, gamesNames, highScores);
+    // }
     return (0);
 }

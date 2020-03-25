@@ -31,6 +31,7 @@ public:
     std::string menu_name(void);
     void test(int, int);
     int _indexLib;
+    int ky;
 
     /* ------------------------------- RELATED TO SHAPES ------------------------------- */
         // explicit. if rectangle -> use $width and $height, if sphere -> $width = radius
@@ -100,6 +101,9 @@ public:
         bool closeWindowEvent(void);
         // returns true if a key was released
         bool keyReleasedEvent(void);
+        // checks if a btn to change lib is pressed and changes indexLib accordingly
+        void nextGraphicLib(int &indexLib);
+        void prevGraphicLib(int &indexLib);
 
         /* ------------------------------- MENU ------------------------------- */
         // menu for selecting the graphical lib. returns 0 if nCurses is selected, 2 for SFML and 3 for SDL -1 for errors

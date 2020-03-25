@@ -61,37 +61,37 @@ int NcursesLib::inLib(void)
                     offset++;
             }
             break;
-        case KEY_HOME:
-            selection = 0;
-            offset = 0;
-            break;
-        case KEY_END:
-            selection = arraylength - 1;
-            offset = arraylength - menulength;
-            break;
-        case KEY_PPAGE:
-            selection -= menulength;
-            if (selection < 0)
-                selection = 0;
-            offset -= menulength;
-            if (offset < 0)
-                offset = 0;
-            break;
-        case KEY_NPAGE:
-            selection += menulength;
-            if (selection > arraylength - 1)
-                selection = arraylength - 1;
-            offset += menulength;
-            if (offset > arraylength - menulength)
-                offset = arraylength - menulength;
-            break;
+        // case KEY_HOME:
+        //     selection = 0;
+        //     offset = 0;
+        //     break;
+        // case KEY_END:
+        //     selection = arraylength - 1;
+        //     offset = arraylength - menulength;
+        //     break;
+        // case KEY_PPAGE:
+        //     selection -= menulength;
+        //     if (selection < 0)
+        //         selection = 0;
+        //     offset -= menulength;
+        //     if (offset < 0)
+        //         offset = 0;
+        //     break;
+        // case KEY_NPAGE:
+        //     selection += menulength;
+        //     if (selection > arraylength - 1)
+        //         selection = arraylength - 1;
+        //     offset += menulength;
+        //     if (offset > arraylength - menulength)
+        //         offset = arraylength - menulength;
+        //     break;
         case 10: //enter
             ky = check_lib(selection, lib_list);
             break;
         case 97:
-            this->_indexLib = this->_indexLib - 1;
+            return (this->_indexLib = this->_indexLib - 1);
         case 101:
-            this->_indexLib = this->_indexLib + 1;
+            return (this->_indexLib = this->_indexLib + 1);
         }
         mvprintw(0, 0, "%i", this->_indexLib);
     }

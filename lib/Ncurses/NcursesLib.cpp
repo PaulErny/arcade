@@ -145,6 +145,22 @@ void NcursesLib::init_menu(std::vector<std::string> &libsNames, std::vector<std:
 
 }
 
+void NcursesLib::nextGraphicLib(int &indexLib)
+{
+    ky = getch();
+
+    if (ky == 101)
+        indexLib = indexLib + 1;
+}
+
+void NcursesLib::prevGraphicLib(int &indexLib)
+{
+    ky = getch();
+    
+    if (ky == 97)
+        indexLib = indexLib - 1;
+}
+
 extern "C" std::unique_ptr<NcursesLib> create_object()
 {
     return std::make_unique<NcursesLib>();
