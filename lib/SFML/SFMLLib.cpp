@@ -232,6 +232,18 @@ bool SFMLLib::keyReleasedEvent(void)
     return false;
 }
 
+void SFMLLib::nextGraphicLib(int &indexLib)
+{
+    if (this->event.type == sf::Event::KeyPressed && this->event.key.code == sf::Keyboard::E)
+        indexLib++;
+}
+
+void SFMLLib::prevGraphicLib(int &indexLib)
+{
+    if (this->event.type == sf::Event::KeyPressed && this->event.key.code == sf::Keyboard::A)
+        indexLib--;
+}
+
 /* ------------------------------- MENU ------------------------------- */
 void SFMLLib::init_menu(std::vector<std::string> &libsNames, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores, std::string &pseudo)
 {

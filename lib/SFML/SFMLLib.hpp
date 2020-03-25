@@ -94,6 +94,9 @@ class SFMLLib : public ILibs {
         bool closeWindowEvent(void);
         // returns true if a key was released
         bool keyReleasedEvent(void);
+        // checks if a btn to change lib is pressed and changes indexLib accordingly
+        void nextGraphicLib(int &indexLib);
+        void prevGraphicLib(int &indexLib);
 
         /* ------------------------------- MENU ------------------------------- */
         // menu for selecting the graphical lib. returns 0 if nCurses is selected, 2 for SFML and 3 for SDL -1 for errors

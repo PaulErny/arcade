@@ -157,3 +157,37 @@ void Core::laodLib()
     }
     // dlclose(m_handle);
 }
+
+
+void Core::loop()
+{
+    state pgState = MENU; // add to class variables ?
+    std::vector<std::vector<std::string>> highScores{{"pseudo1\t10655", "pseudo2\t10385", "pseudo1\t4521"}, {"pseudo1\t53", "pseudo2\t41", "pseudo1\t9"}};
+    std::vector<std::string> names{"pacman", "nibbler"};
+    std::string pseudo = "";
+    int gameToLaunch = -1;
+
+    while (this->Lib->isWindowOpen()) {
+        while (this->Lib->events()) {
+            this->Lib->closeWindowEvent();
+        }
+
+        // check for prev or next lib
+        // this->Lib->nextGraphicLib();
+        // this->Lib->prevGraphicLib();
+
+        this->Lib->clearWindow();
+
+        if (pgState == MENU) {
+            if (!this->isMenuInit)
+                this->Lib->init_menu(this->m_libs, names, highScores, pseudo);
+            gameToLaunch = Lib->menu(pgState, false, m_libs, names, highScores, pseudo, indexLib);
+        } else if (pgState == GAME) {
+            // start playing
+        } else {
+            // blem
+        }
+
+        this->Lib->update();
+    }
+}

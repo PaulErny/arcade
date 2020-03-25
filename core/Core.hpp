@@ -15,9 +15,11 @@ private:
     void *m_handle;
     char *m_arg;
     int indexLib;
+    bool isMenuInit=false;
     std::vector<std::string> m_libs;
     std::vector<std::string> m_games;
     std::unique_ptr<ILibs> Lib;
+
 public : Core(char *arg);
     ~Core();
     const std::vector<std::string> &getLibs() const;
@@ -28,6 +30,9 @@ public : Core(char *arg);
     void fillLibVector();
     void fillGamesVector();
     void laodLib();
+
+    void loop();
+
 };
 
 #endif
