@@ -63,17 +63,20 @@ int NcursesLib::menu(state &pgState, bool close, std::vector<std::string> &libsN
 {
     // while (_ky2 != 27)
     // {
-        this->_ky_gen = getch();
-        if (pseudo.empty() == true)
-            pseudo = this->enterName(pgState, close);
-        if (this->libSelectionMenu(pgState, close, libsNames) == -1) {
-            indexLib = this->_indexLib;
-            return (0);
-        }
-        if (this->gameSelectionMenu(pgState, close, gamesNames, highScores) == -1) {
-            indexLib = this->_indexLib;
-            return (0);
-        }
+    getmaxyx(stdscr, row, col);
+    this->test(10, col);
+    // this->_ky_gen = getch();
+    this->_indexLib = indexLib;
+    if (pseudo.empty() == true)
+        pseudo = this->enterName(pgState, close);
+    if (this->libSelectionMenu(pgState, close, libsNames) == -1) {
+        indexLib = this->_indexLib;
+        return (0);
+    }
+    if (this->gameSelectionMenu(pgState, close, gamesNames, highScores) == -1) {
+        indexLib = this->_indexLib;
+        return (0);
+    }
              // std::cout << "ici ->>>>>" << this->_indexLib << std::endl;
         // std::cout << "après ->>>>" << this->_indexLib << std::endl;
     // }

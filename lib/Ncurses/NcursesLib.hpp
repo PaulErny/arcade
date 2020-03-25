@@ -16,23 +16,8 @@
 class NcursesLib : public ILibs
 {
 private:
-    /* data */
-public:
-    NcursesLib();
-    ~NcursesLib();
-
-    int check_lib(int selection, const char **);
-    int check_game(int selection, const char **);
-    int menu_lib(void);
-    int inLib(void);
-    int inGame(void);
-    int menu_game(void);
-    std::string get_name(int, int);
-    std::string menu_name(void);
-    void test(int, int);
-    void init_menu();
-    int _indexLib;
-
+    int row, col;
+    int _indexLib = 0;
     int _counter_lib;
     int _offset_lib;
     int _selection_lib;
@@ -56,6 +41,21 @@ public:
     int _ky_gen;
     int _row_gen;
     int _col_gen;
+
+public:
+    NcursesLib();
+    ~NcursesLib();
+
+    int check_lib(int selection, const char **);
+    int check_game(int selection, const char **);
+    int menu_lib(void);
+    int inLib(void);
+    int inGame(void);
+    int menu_game(void);
+    std::string get_name(int, int);
+    std::string menu_name(void);
+    void test(int, int);
+    void init_menu();
 
     /* ------------------------------- RELATED TO SHAPES ------------------------------- */
         // explicit. if rectangle -> use $width and $height, if sphere -> $width = radius

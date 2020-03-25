@@ -166,9 +166,6 @@ void NcursesLib::init_menu(std::vector<std::string> &libsNames, std::vector<std:
     this->_arraylength_game = 3;
     this->_width_game = 4;
     this->_menulength_game = 4;
-    int row, col;
-    getmaxyx(stdscr, row, col);
-    this->test(10, col);
 }
 
 void NcursesLib::nextGraphicLib(int &indexLib)
