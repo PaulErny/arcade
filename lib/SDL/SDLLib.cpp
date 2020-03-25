@@ -193,12 +193,18 @@ bool SDLLib::closeWindowEvent(void)
 
 void SDLLib::nextGraphicLib(int &indexLib)
 {
-    indexLib++;
+    if (e.type == SDL_KEYDOWN) {
+        if (e.key.keysym.sym == SDLK_e)
+            indexLib++;
+    }
 }
 
 void SDLLib::prevGraphicLib(int &indexLib)
 {
-    indexLib--;
+    if (e.type == SDL_KEYDOWN) {
+        if (e.key.keysym.sym == SDLK_a)
+            indexLib--;
+    }
 }
 
 bool SDLLib::keyReleasedEvent(void)
