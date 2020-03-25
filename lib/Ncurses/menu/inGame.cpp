@@ -26,9 +26,9 @@ int NcursesLib::inGame()
     int width = 4;
     int menulength = 4;
     const char *game_list[] = {
-    "Snake",
-    "PAC-MAN",
-    "Exit",
+        "Snake",
+        "PAC-MAN",
+        "Exit",
     };
     while (ky != 27)
     {
@@ -58,43 +58,23 @@ int NcursesLib::inGame()
                     offset++;
             }
             break;
-        case KEY_HOME:
-            selection = 0;
-            offset = 0;
-            break;
-        case KEY_END:
-            selection = arraylength - 1;
-            offset = arraylength - menulength;
-            break;
-        case KEY_PPAGE:
-            selection -= menulength;
-            if (selection < 0)
-                selection = 0;
-            offset -= menulength;
-            if (offset < 0)
-                offset = 0;
-            break;
-        case KEY_NPAGE:
-            selection += menulength;
-            if (selection > arraylength - 1)
-                selection = arraylength - 1;
-            offset += menulength;
-            if (offset > arraylength - menulength)
-                offset = arraylength - menulength;
-            break;
         case 10: //enter
             ky = check_game(selection, game_list);
             break;
+        case 122:
+            this->_indexLib = this->_indexLib - 1;
+        case 101:
+            this->_indexLib = this->_indexLib + 1;
         }
         mvprintw(0, 0, "%i", selection);
     }
-    return (0);
+    return (18);
 }
 
 int NcursesLib::menu_game()
 {
     initscr();
-//    getmaxyx(stdscr, row, col);
+    //    getmaxyx(stdscr, row, col);
     noecho();
     keypad(stdscr, TRUE);
     curs_set(0);
