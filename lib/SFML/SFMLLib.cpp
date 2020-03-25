@@ -252,7 +252,7 @@ void SFMLLib::init_menu(std::vector<std::string> &libsNames, std::vector<std::st
 
 int SFMLLib::menu(state &pgState, bool close,  std::vector<std::string> &libsNames, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores, std::string &pseudo, int &indexLib)
 {
-    return (this->main_menu->menu(pgState, close, libsNames, gamesNames, highScores, pseudo));
+    return (this->main_menu->menu(pgState, close, libsNames, gamesNames, highScores, pseudo, indexLib));
 }
 
 int SFMLLib::libSelectionMenu(state &pgState, bool close, std::vector<std::string> &libsNames)
@@ -270,7 +270,7 @@ std::string SFMLLib::enterName(state &pgState, bool close)
     return (nullptr);
 }
 
-extern "C" std::shared_ptr<SFMLLib> create_object()
+extern "C" std::unique_ptr<SFMLLib> create_object()
 {
-    return std::make_shared<SFMLLib>();
+    return std::make_unique<SFMLLib>();
 }

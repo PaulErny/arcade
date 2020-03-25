@@ -67,50 +67,52 @@ void SFMLMenu::init_menu(std::vector<std::string> &libsNames, std::vector<std::s
     }
 }
 
-int SFMLMenu::menu(state &pgState, bool close, std::vector<std::string> &libsNames, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores, std::string &pseudo)
+int SFMLMenu::menu(state &pgState, bool close, std::vector<std::string> &libsNames, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores, std::string &pseudo, int &indexLib)
 {
-    bool isHighscoresMenu = false;
 
-    this->getPseudo(pgState, pseudo);
+    if (pseudo.empty())
+        this->getPseudo(pgState, pseudo);
 
-    while (graphics->isWindowOpen()) {
-        while (graphics->events()) {
-            if (graphics->closeWindowEvent())
-                pgState = NOTHING;
-            if (graphics->keyReleasedEvent())
-                this->isKeyDown = false;
-        }
-        graphics->clearWindow();
-        // check btn
-        if (this->chosenGame == -1)
-            this->chooseGame();
-        else {
-            if (!isHighscoresMenu)
-                this->rechoose();
-            if (this->chosenAction == -1) {
-                this->chooseAction();
-                if (this->chosenAction == 1)
-                    isHighscoresMenu = true;
-            }
-        }
-        
-        graphics->drawImage(this->bgID);
-        if (this->chosenAction == -1) {
-            // draw buttons
-            for (int i = 0; i < this->buttons.size(); i++)
-                graphics->drawText(this->buttons[i]);
-            graphics->drawImage(this->pacmanImgID);
-            graphics->drawImage(this->nibblerImgID);
-        } else if (this->chosenAction == 0) {
-            pgState = GAME;
-            return (this->chosenGame);
-        } else if (this->chosenAction == 1) {
-            this->displayHighScores(this->buttons, isHighscoresMenu);
-        }
-        graphics->update();
+    // events
+    while (graphics->events()) {
+        if (graphics->closeWindowEvent())
+            pgState = NOTHING;
+        if (graphics->keyReleasedEvent())
+            this->isKeyDown = false;
+        graphics->nextGraphicLib(indexLib);
+        graphics->prevGraphicLib(indexLib);
     }
-    graphics->deleteFont(this->fontID);
-    graphics->deleteImage(this->bgID);
+
+    graphics->clearWindow();
+    
+    // check btn
+    if (this->chosenGame == -1)
+        this->chooseGame();
+    else {
+        if (!this->isHighscoresMenu)
+            this->rechoose();
+        if (this->chosenAction == -1) {
+            this->chooseAction();
+            if (this->chosenAction == 1)
+                this->isHighscoresMenu = true;
+        }
+    }
+
+    graphics->drawImage(this->bgID);
+    if (this->chosenAction == -1) {
+        // draw buttons
+        for (int i = 0; i < this->buttons.size(); i++)
+            graphics->drawText(this->buttons[i]);
+        graphics->drawImage(this->pacmanImgID);
+        graphics->drawImage(this->nibblerImgID);
+    } else if (this->chosenAction == 0) {
+        pgState = GAME;
+        graphics->update();
+        return (this->chosenGame);
+    } else if (this->chosenAction == 1) {
+        this->displayHighScores(this->buttons);
+    }
+    graphics->update();
     return (-1);
 }
 
@@ -181,21 +183,22 @@ void SFMLMenu::chooseAction()
     this->chosenAction = -1;
 }
 
-void SFMLMenu::displayHighScores(std::vector<int> gamesNamesID, bool &isHighscoresMenu)
+void SFMLMenu::displayHighScores(std::vector<int> gamesNamesID)
 {
     // draw games high scores
     int i = 0;
-
+    
     graphics->drawText(gamesNamesID[this->chosenGame + 2]);
     for (i = 0; i != this->chosenGame && i < this->scoreTextID.size(); i++);
-    for (int j = 0; j < this->scoreTextID[i].size(); j++) {
-        graphics->drawText(this->scoreTextID[i][j]);
-    }
+    // for (int j = 0; j < this->scoreTextID[i].size(); j++) {
+    //     graphics->drawText(this->scoreTextID[i][j]);
+    // }
+    // std::cout << this->chosenGame << " " << this->chosenAction << std::endl;
     if (!this->isKeyDown && sf::Keyboard::isKeyPressed(sf::Keyboard::BackSpace)) {
         this->isKeyDown = true;
         graphics->setTextColor(gamesNamesID[1], 230, 230, 0);
         this->chosenAction = -1;
-        isHighscoresMenu = false;
+        this->isHighscoresMenu = false;
     }
 }
 
