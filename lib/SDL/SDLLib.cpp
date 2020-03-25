@@ -191,6 +191,16 @@ bool SDLLib::closeWindowEvent(void)
     return (false);
 }
 
+void SDLLib::nextGraphicLib(int &indexLib)
+{
+    indexLib++;
+}
+
+void SDLLib::prevGraphicLib(int &indexLib)
+{
+    indexLib--;
+}
+
 bool SDLLib::keyReleasedEvent(void)
 {
     return (false);
