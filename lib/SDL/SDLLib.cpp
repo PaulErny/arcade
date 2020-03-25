@@ -12,6 +12,7 @@ SDLLib::~SDLLib()
 
 int SDLLib::createShape(ShapeType type, int width, int height)
 {
+    return (-1);
 }
 
 void SDLLib::drawShape(int index)
@@ -36,7 +37,7 @@ void SDLLib::setShapePos(int index, int x, int y)
 
 int SDLLib::createImageFromFile(std::string filename)
 {
-
+    return (-1);
 }
 
 void SDLLib::drawImage(int ImageId)
@@ -58,6 +59,7 @@ void SDLLib::deleteImage(int ImageId)
 int SDLLib::createFontFromFile(const std::string filename)
 {
     gFont.push_back(TTF_OpenFont(filename.c_str(), 24));
+    return (gFont.size() - 1);
 }
 
 int SDLLib::createText(std::string text, int fontId)
@@ -66,6 +68,7 @@ int SDLLib::createText(std::string text, int fontId)
     gTexture.push_back(SDL_CreateTextureFromSurface(gRenderer, gTextSurface.at(0)));
     if (gTextSurface.at(gTextSurface.size() - 1) == NULL)
         throw "Unable to create texture from rendered text";
+    return (gTexture.size() - 1); // may not be the right vector
 }
 
 void SDLLib::drawText(int textId)
@@ -176,21 +179,21 @@ void SDLLib::deleteWindow(void)
 
 bool SDLLib::events(void)
 {
-    while (SDL_PollEvent(&e) != 0) {
-        this->closeWindowEvent();
-    }
+    return (SDL_PollEvent(&e));
 }
 
 bool SDLLib::closeWindowEvent(void)
 {
     if (e.type == SDL_QUIT) {
-            quit = true;
+        quit = true;
+        return (true);
     }
+    return (false);
 }
 
 bool SDLLib::keyReleasedEvent(void)
 {
-
+    return (false);
 }
 
 extern "C" std::shared_ptr<SDLLib> create_object()
