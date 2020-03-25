@@ -97,7 +97,10 @@ void NcursesLib::createWindow(int width, int height, std::string name)
 
 bool NcursesLib::isWindowOpen(void)
 {
-    return (true);
+    if (this->_ky_gen == 27)
+        return (false);
+    else 
+        return (true);
 }
 
 void NcursesLib::clearWindow(void)
@@ -173,8 +176,7 @@ void NcursesLib::nextGraphicLib(int &indexLib)
 
 void NcursesLib::prevGraphicLib(int &indexLib)
 {   
-    if (this->_ky == 97)
-        indexLib = indexLib - 1;
+    indexLib = this->_indexLib;
 }
 
 extern "C" std::unique_ptr<NcursesLib> create_object()

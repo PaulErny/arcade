@@ -54,6 +54,7 @@ int NcursesLib::inGame()
         case 10: //enter
             this->_ky2 = check_game(this->_selection_game, game_list);
             break;
+        
         }
         mvprintw(0, 0, "%i", this->_selection_game);
     }
@@ -62,14 +63,13 @@ int NcursesLib::inGame()
 
 int NcursesLib::menu_game()
 {
-    int the;
-    initscr();
-    noecho();
-    keypad(stdscr, TRUE);
-    curs_set(0);
-    the = this->inGame();
+    //initscr();
+    //noecho();
+    //keypad(stdscr, TRUE);
+    //curs_set(0);
+    this->inGame();
     refresh();
     getch(); // a enlever pour lancer direct après enter
     endwin();
-    return (the);
+    return (0);
 }

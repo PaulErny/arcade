@@ -66,7 +66,6 @@ int NcursesLib::menu(state &pgState, bool close, std::vector<std::string> &libsN
     highScores;
     close = true;
     int row, col;
-    this->_indexLib = 0;
     getmaxyx(stdscr, row, col);
     this->test(10, col);
 
@@ -75,11 +74,11 @@ int NcursesLib::menu(state &pgState, bool close, std::vector<std::string> &libsN
         this->_ky_gen = getch();
         if (pseudo.empty() == true)
             pseudo = this->enterName(pgState, close);
-        this->libSelectionMenu(pgState, close, libsNames);
-        this->gameSelectionMenu(pgState, close, gamesNames, highScores);
-        //this->nextGraphicLib(indexLib);
-        // std::cout << "ici ->>>>>" << this->_indexLib << std::endl;
+        indexLib = this->libSelectionMenu(pgState, close, libsNames);
         indexLib = this->_indexLib;
+        indexLib = this->gameSelectionMenu(pgState, close, gamesNames, highScores);
+        this->nextGraphicLib(indexLib);
+        // std::cout << "ici ->>>>>" << this->_indexLib << std::endl;
         // std::cout << "après ->>>>" << this->_indexLib << std::endl;
     // }
     return (0);
