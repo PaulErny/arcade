@@ -7,29 +7,24 @@
 
 #include "../NcursesLib.hpp"
 
-int NcursesLib::check_game(int selection, const char **game_list)
+int NcursesLib::check_game(int selection, std::vector<std::string> &gamesNames)
 {
-    if (strcmp(game_list[selection], "Snake") == 0)
-        mvprintw(20, 20, "Snake", game_list[selection]);
-    else if (strcmp(game_list[selection], "PAC-MAN") == 0)
-        mvprintw(20, 20, "PAC-MAN", game_list[selection]);
+    if (!gamesNames.at(selection).compare("Snake"))
+        mvprintw(20, 20, "Snake", gamesNames[selection]);
+    else if (!gamesNames.at(selection).compare("PAC-MAN"))
+        mvprintw(20, 20, "PAC-MAN", gamesNames[selection]);
     return (27);
 }
 
-int NcursesLib::inGame()
+int NcursesLib::inGame(std::vector<std::string> &gamesNames)
 {
-    const char *game_list[] = {
-        "Snake",
-        "PAC-MAN",
-        "Exit",
-    };
     while (this->_ky2 != 27)
     {
         for (this->_counter_game = 0; this->_counter_game < this->_menulength_game - 1; this->_counter_game++)
         {
             if (this->_counter_game + this->_offset_game == this->_selection_game)
                 attron(A_REVERSE);
-            mvprintw(this->_row_game + this->_counter_game + 20, this->_col_game + 120, game_list[this->_counter_game + this->_offset_game]);
+            mvprintw(this->_row_game + this->_counter_game + 20, this->_col_game + 120, gamesNames.at(this->_counter_game + this->_offset_game).c_str());
             attroff(A_REVERSE);
         }
         this->_ky2 = getch();
@@ -52,32 +47,29 @@ int NcursesLib::inGame()
             }
             break;
         case 10: //enter
-            this->_ky2 = check_game(this->_selection_game, game_list);
+            this->_ky2 = check_game(this->_selection_game, gamesNames);
             break;
         case 'a':
-            std::cerr << "E" << std::endl;
             this->_indexLib = this->_indexLib - 1;
             return (-1);
             break;
         case 'e':
-            std::cerr << "P" << std::endl;
             this->_indexLib = this->_indexLib + 1;
             return (-1);
             break;
         }
-        mvprintw(0, 0, "%i", this->_selection_game);
     }
     return (18);
 }
 
-int NcursesLib::menu_game()
+int NcursesLib::menu_game(std::vector<std::string> &gamesNames)
 {
     initscr();
     noecho();
     keypad(stdscr, TRUE);
     curs_set(0);
     int temp = 0;
-    temp = this->inGame();
+    temp = this->inGame(gamesNames);
     refresh();
     endwin();
     return (temp);

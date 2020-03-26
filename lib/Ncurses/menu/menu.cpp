@@ -43,7 +43,7 @@ int NcursesLib::libSelectionMenu(state &pgState, bool close, std::vector<std::st
     close = true;
     int which_lib = 0;
 
-    which_lib = menu_lib();
+    which_lib = menu_lib(libsNames);
     return (which_lib);
 }
 
@@ -55,7 +55,7 @@ int NcursesLib::gameSelectionMenu(state &pgState, bool close, std::vector<std::s
     close = true;
     int which_game = 0;
 
-    which_game = menu_game();
+    which_game = menu_game(gamesNames);
     return (which_game);
 }
 
@@ -63,8 +63,6 @@ int NcursesLib::menu(state &pgState, bool close, std::vector<std::string> &libsN
 {
     // while (_ky2 != 27)
     // {
-    getmaxyx(stdscr, row, col);
-    this->test(10, col);
     // this->_ky_gen = getch();
     this->_indexLib = indexLib;
     if (pseudo.empty() == true)

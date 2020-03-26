@@ -166,19 +166,19 @@ void NcursesLib::init_menu(std::vector<std::string> &libsNames, std::vector<std:
     this->_offset_lib = 0;
     this->_selection_lib = 0;
     this->_row_lib = 1;
-    this->_col_lib = 4;
-    this->_arraylength_lib = 4;
-    this->_width_lib = 5;
-    this->_menulength_lib = 5;
+    this->_col_lib = 3;
+    this->_arraylength_lib = 3;
+    this->_width_lib = 4;
+    this->_menulength_lib = 4;
 
     this->_counter_game = 0;
     this->_offset_game = 0;
     this->_selection_game = 0;
     this->_row_game = 1;
-    this->_col_game = 3;
-    this->_arraylength_game = 3;
-    this->_width_game = 4;
-    this->_menulength_game = 4;
+    this->_col_game = 2;
+    this->_arraylength_game = 2;
+    this->_width_game = 3;
+    this->_menulength_game = 3;
 }
 
 void NcursesLib::nextGraphicLib(int &indexLib)

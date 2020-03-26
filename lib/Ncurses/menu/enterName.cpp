@@ -24,7 +24,7 @@ std::string NcursesLib::menu_name(void)
 {
     int row, col;
     std::string thename;
-
+    initscr();
     getmaxyx(stdscr, row, col);
     this->test(10, col);
     thename = this->get_name(row, col);

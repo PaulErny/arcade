@@ -52,12 +52,12 @@ public:
     NcursesLib();
     ~NcursesLib();
 
-    int check_lib(int selection, const char **);
-    int check_game(int selection, const char **);
-    int menu_lib(void);
-    int inLib(void);
-    int inGame(void);
-    int menu_game(void);
+    int check_lib(int selection, std::vector<std::string> &libsNames);
+    int check_game(int selection, std::vector<std::string> &gamesNames);
+    int menu_lib(std::vector<std::string> &libsNames);
+    int inLib(std::vector<std::string> &libsNames);
+    int inGame(std::vector<std::string> &gamesNames);
+    int menu_game(std::vector<std::string> &gamesNames);
     std::string get_name(int, int);
     std::string menu_name(void);
     void test(int, int);
