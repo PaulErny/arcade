@@ -190,10 +190,9 @@ void SFMLMenu::displayHighScores(std::vector<int> gamesNamesID)
     
     graphics->drawText(gamesNamesID[this->chosenGame + 2]);
     for (i = 0; i != this->chosenGame && i < this->scoreTextID.size(); i++);
-    // for (int j = 0; j < this->scoreTextID[i].size(); j++) {
-    //     graphics->drawText(this->scoreTextID[i][j]);
-    // }
-    // std::cout << this->chosenGame << " " << this->chosenAction << std::endl;
+    for (int j = 0; j < this->scoreTextID[i].size(); j++) {
+        graphics->drawText(this->scoreTextID[i][j]);
+    }
     if (!this->isKeyDown && sf::Keyboard::isKeyPressed(sf::Keyboard::BackSpace)) {
         this->isKeyDown = true;
         graphics->setTextColor(gamesNamesID[1], 230, 230, 0);
