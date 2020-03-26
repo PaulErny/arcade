@@ -99,7 +99,7 @@ void SDLLib::drawText(int textId)
 
 void SDLLib::setTextString(int textId, std::string str)
 {
-    gTextSurface.push_back(TTF_RenderText_Solid(gFont.at(textId), str.c_str(), gColor.at(textId));
+    gTextSurface.push_back(TTF_RenderText_Solid(gFont.at(textId), str.c_str(), gColor.at(textId)));
     gTexture.push_back(SDL_CreateTextureFromSurface(gRenderer, gTextSurface.at(textId)));
 }
 
