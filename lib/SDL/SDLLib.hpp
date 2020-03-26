@@ -54,6 +54,10 @@ private:
     SDL_Rect rectNextLib = {0, 200, 500, 100};
     SDL_Rect rectPrevLib = {0, 300, 500, 100};
     SDL_Rect rectYourName = {10, 10, 300, 50};
+    std::vector<SDL_Rect> shapeRect;
+    std::vector<ShapeType> shapeType;
+    std::vector<SDL_Texture *> textureImage;
+    std::vector<SDL_Rect> rectImage;
 
 public : 
     SDLLib(/* args */);

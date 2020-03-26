@@ -12,11 +12,19 @@ SDLLib::~SDLLib()
 
 int SDLLib::createShape(ShapeType type, int width, int height)
 {
-    return (-1);
+    shapeRect.push_back({0, 0, width, height});
+    shapeType.push_back(type);
+    return (int)(shapeRect.size() - 1);
 }
 
 void SDLLib::drawShape(int index)
 {
+    if (index < (int)shapeRect.size() && shapeType.at(index) == RECTANGLE) {
+        SDL_RenderDrawRect(gRenderer, &shapeRect.at(index));
+    }
+    // else if (index < (int)shapeRect.size() && shapeType.at(index) == CIRCLE) {
+    //     SDL_RenderDraw
+    // }
 }
 
 void SDLLib::setShapeColor(int index, int r, int g, int b, int a)
@@ -30,24 +38,35 @@ void SDLLib::deleteShape(int index)
 
 void SDLLib::setShapePos(int index, int x, int y)
 {
-
+    if (index < (int)shapeRect.size()) {
+        shapeRect.at(index).x = x;
+        shapeRect.at(index).y = y;
+    }
 }
 
 /* ------------------------------- RELATED TO SPRITES ------------------------------- */
 
 int SDLLib::createImageFromFile(std::string filename)
 {
-    return (-1);
+    textureImage.push_back(IMG_LoadTexture(gRenderer, filename.c_str()));
+    return (int)(textureImage.size() - 1);
 }
 
 void SDLLib::drawImage(int ImageId)
 {
-
+    SDL_RenderCopy(gRenderer, textureImage.at(ImageId), NULL, &rectImage.at(ImageId));
 }
 
 void SDLLib::setImagePos(int ImageId, int x, int y)
 {
-
+    int w, h;
+    SDL_QueryTexture(textureImage.at(ImageId), NULL, NULL, &w, &h);
+    SDL_Rect texr;
+    texr.x = x;
+    texr.y = y;
+    texr.h = h * 2;
+    texr.w = w * 2;
+    rectImage.push_back(texr);
 }
 
 void SDLLib::deleteImage(int ImageId)
@@ -64,21 +83,24 @@ int SDLLib::createFontFromFile(const std::string filename)
 
 int SDLLib::createText(std::string text, int fontId)
 {
-    gTextSurface.push_back(TTF_RenderText_Solid(gFont.at(gFont.size() - 1), text.c_str(), gColor.at(gColor.size() - 1)));
-    gTexture.push_back(SDL_CreateTextureFromSurface(gRenderer, gTextSurface.at(0)));
-    if (gTextSurface.at(gTextSurface.size() - 1) == NULL)
-        throw "Unable to create texture from rendered text";
+    if (fontId < gFont.size()) {
+        gTextSurface.push_back(TTF_RenderText_Solid(gFont.at(fontId), text.c_str(), gColor.at(fontId)));
+        gTexture.push_back(SDL_CreateTextureFromSurface(gRenderer, gTextSurface.at(fontId)));
+        if (gTextSurface.at(gTextSurface.size() - 1) == NULL)
+            throw "Unable to create texture from rendered text";
+    }
     return (gTexture.size() - 1); // may not be the right vector
 }
 
 void SDLLib::drawText(int textId)
 {
-    // SDL_RenderCopy()
+    SDL_RenderCopy(gRenderer, gTexture.at(textId), NULL, &gRect.at(textId));
 }
 
 void SDLLib::setTextString(int textId, std::string str)
 {
-
+    gTextSurface.push_back(TTF_RenderText_Solid(gFont.at(textId), str.c_str(), gColor.at(textId));
+    gTexture.push_back(SDL_CreateTextureFromSurface(gRenderer, gTextSurface.at(textId)));
 }
 
 void SDLLib::setTextPos(int textId, int x, int y)
@@ -103,12 +125,11 @@ void SDLLib::setTextColor(int textId, int r, int g, int b, int a)
 
 void SDLLib::deleteText(int TextId)
 {
-
 }
 
 void SDLLib::deleteFont(int FontId)
 {
-
+    TTF_CloseFont(gFont.at(FontId));
 }
 
 /* ------------------------------- RELATED TO WINDOWS ------------------------------- */
