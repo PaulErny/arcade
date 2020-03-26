@@ -11,11 +11,15 @@
 
 int NcursesLib::createShape(ShapeType type, int width, int height)
 {
-    return (0);
+    nShape.push_back(width);
+    posyShape.push_back(0);
+    posxShape.push_back(0);
+    return (int)(nShape.size() - 1);
 }
 
 void NcursesLib::drawShape(int index)
 {
+    mvprintw(posxShape.at(index), posyShape.at(index), (char *)nShape.at(index));
 }
 
 void NcursesLib::setShapeColor(int index, int r, int g, int b, int a)
@@ -28,6 +32,8 @@ void NcursesLib::deleteShape(int index)
 
 void NcursesLib::setShapePos(int index, int x, int y)
 {
+    posxShape.at(index) = x;
+    posyShape.at(index) = y;
 }
 
 /* ------------------------------- RELATED TO SPRITES ------------------------------- */
@@ -53,24 +59,31 @@ void NcursesLib::deleteImage(int ImageId)
 
 int NcursesLib::createFontFromFile(const std::string filename)
 {
+    posx.push_back(0);
+    posy.push_back(0);
     return (0);
 }
 
 int NcursesLib::createText(std::string text, int fontId)
 {
-    return (0);
+    nText.push_back(text);
+    return (int)(nText.size() - 1);
 }
 
 void NcursesLib::drawText(int textId)
 {
+    mvprintw(posx.at(textId), posy.at(textId), nText.at(textId).c_str());
 }
 
 void NcursesLib::setTextString(int textId, std::string str)
 {
+    nText.at(textId) = str;
 }
 
 void NcursesLib::setTextPos(int textId, int x, int y)
 {
+    posx.at(textId) = x;
+    posy.at(textId) = y;
 }
 
 void NcursesLib::setTextCharSize(int textId, int charSize)

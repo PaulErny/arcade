@@ -41,6 +41,12 @@ private:
     int _ky_gen;
     int _row_gen;
     int _col_gen;
+    std::vector<std::string> nText;
+    std::vector<int> posx;
+    std::vector<int> posy;
+    std::vector<char> nShape;
+    std::vector<int> posxShape;
+    std::vector<int> posyShape;
 
 public:
     NcursesLib();
