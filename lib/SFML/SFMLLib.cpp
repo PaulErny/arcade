@@ -202,6 +202,9 @@ void SFMLLib::renameWindow(std::string name)
 
 void SFMLLib::deleteWindow(void)
 {
+    if (this->isWindowOpen()) {
+        this->window.close();
+    }
 }
 
 /* ------------------------------- RELATED TO EVENTS ------------------------------- */
