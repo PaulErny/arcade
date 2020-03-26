@@ -2,7 +2,25 @@
 
 Core::Core(char *arg) : m_arg(arg) 
 {
+    indexLib = -1;
+    isMenuInit = false;
+    isGameInit = false;
+    pgState = NOTHING;
+    m_pseudo = "";
 
+    m_handle = dlopen(arg, RTLD_LAZY);
+    if (dlerror() != NULL)
+        throw "Cannot open lib";
+    std::unique_ptr<ILibs> (*create)();
+    create = (std::unique_ptr<ILibs>(*)())dlsym(m_handle, "create_object");
+    if (dlerror() != NULL)
+        throw "Cannot open lib";
+    Lib = (std::unique_ptr<ILibs>)create();
+
+    this->fillLibVector();
+    this->fillGamesVector();
+    this->indexLibFill();
+    this->Lib->createWindow(1080, 1080, "Arcade");
 }
 
 Core::~Core()
@@ -80,8 +98,6 @@ void Core::fillLibVector()
     closedir(rep);
 }
 
-//
-
 void Core::fillGamesVector()
 {
     DIR *rep = NULL;
@@ -119,74 +135,61 @@ void Core::indexLibFill()
     }
 }
 
-void Core::laodLib()
+void Core::laodLib(int currentLib)
 {
-    m_handle = dlopen(m_arg, RTLD_LAZY);
-
-    if (dlerror() != NULL)
-        throw "Cannot open lib";
-    std::unique_ptr<ILibs> (*create)();
-    create = (std::unique_ptr<ILibs>(*)())dlsym(m_handle, "create_object");
-    if (dlerror() != NULL)
-        throw "Cannot open lib";
-    Lib = (std::unique_ptr<ILibs>)create();
-    Lib->createWindow(1080, 1080, "Arcade");
-    state pgState = MENU;
-    std::vector<std::string> names{"pacman", "nibbler"};
-    this->fillLibVector();
-    this->indexLibFill();
-    std::cout << indexLib << std::endl;
-    std::vector<std::vector<std::string>> highScores{{"pseudo1\t10655", "pseudo2\t10385", "pseudo1\t4521"}, {"pseudo1\t53", "pseudo2\t41", "pseudo1\t9"}};
-    std::string pseudo = "";
-    Lib->init_menu(m_libs, names, highScores, pseudo);
-    int ind = 0;
-
-    while (Lib->isWindowOpen())
-    {
-        ind = indexLib;
-        if (pgState == MENU)
-            Lib->menu(pgState, false, m_libs, names, highScores, pseudo, indexLib);
-        // std::cout << indexLib << std::endl;
-        if (ind != indexLib) {
-            Lib->deleteWindow();
-            changeLib();
-            Lib->createWindow(1080, 1080, "Arcade");
-            Lib->init_menu(m_libs, names, highScores, pseudo);
-        }
+    if (currentLib != indexLib) {
+        this->Lib->deleteWindow();
+        this->changeLib();
+        this->isMenuInit = false;
+        this->isGameInit = false;
+        this->Lib->createWindow(1080, 1080, "Arcade");
     }
-    // dlclose(m_handle);
 }
 
-
-void Core::loop()
+void Core::loadGameLib(int gameIndex)
 {
-    state pgState = MENU; // add to class variables ?
+
+}
+
+void Core::run()
+{
+    // TMP
     std::vector<std::vector<std::string>> highScores{{"pseudo1\t10655", "pseudo2\t10385", "pseudo1\t4521"}, {"pseudo1\t53", "pseudo2\t41", "pseudo1\t9"}};
     std::vector<std::string> names{"pacman", "nibbler"};
-    std::string pseudo = "";
-    int gameToLaunch = -1;
+
+    int chosenGame = -1;
+    int currentLib = 0;
+    this->pgState = MENU;
 
     while (this->Lib->isWindowOpen()) {
-        while (this->Lib->events()) {
-            this->Lib->closeWindowEvent();
+        currentLib = this->indexLib;
+        
+        // run the menu
+        if (this->pgState == MENU) {
+            //check if the menu has to be init
+            if (!this->isMenuInit) {
+                this->Lib->init_menu(this->m_libs, names, highScores, this->m_pseudo);
+                this->isMenuInit = true;
+            }
+            // in case we want to change game
+            if (this->isGameInit)
+                this->isGameInit = false;
+
+            // if no game was chosen yet chosenGame should be equal to -1, else its the index of the game in m_games
+            chosenGame = this->Lib->menu(this->pgState, false, this->m_libs, names, highScores, this->m_pseudo, this->indexLib);
+        }
+        // this->Lib->nextGraphicLib(indexLib);
+        // this->Lib->prevGraphicLib(indexLib);
+        if (this->pgState == GAME && chosenGame != -1) {
+            if (!this->isGameInit) {
+                this->loadGameLib(chosenGame);
+                // this->gameLib->initGame()
+                this->isGameInit = true;
+            }
+            // this->gameLib->runGame()
         }
 
-        // check for prev or next lib
-        // this->Lib->nextGraphicLib();
-        // this->Lib->prevGraphicLib();
-
-        this->Lib->clearWindow();
-
-        if (pgState == MENU) {
-            if (!this->isMenuInit)
-                this->Lib->init_menu(this->m_libs, names, highScores, pseudo);
-            gameToLaunch = Lib->menu(pgState, false, m_libs, names, highScores, pseudo, indexLib);
-        } else if (pgState == GAME) {
-            // start playing
-        } else {
-            // blem
-        }
-
-        this->Lib->update();
+        // check for lib changment
+        this->laodLib(currentLib);
     }
 }

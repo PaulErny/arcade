@@ -15,7 +15,11 @@ private:
     void *m_handle;
     char *m_arg;
     int indexLib;
-    bool isMenuInit=false;
+    bool isMenuInit;
+    bool isGameInit;
+    state pgState;
+    std::string m_pseudo = "";
+
     std::vector<std::string> m_libs;
     std::vector<std::string> m_games;
     std::unique_ptr<ILibs> Lib;
@@ -29,9 +33,10 @@ public : Core(char *arg);
     void changeLib();
     void fillLibVector();
     void fillGamesVector();
-    void laodLib();
-
-    void loop();
+    void laodLib(int currentLib);
+    void loadGameLib(int gameIndex);
+    void run();
+    void game();
 
 };
 
