@@ -11,8 +11,8 @@ int main(int ac, char *av[])
         if (ac != 2)
             throw "Arcade accept 2 arguments";
         Core core(av[1]);
-        core.laodLib();
-        core.fillLibVector();
+        core.run();
+        //core.fillLibVector();
     }
     catch (const std::exception &e) {
         std::cerr << e.what() << std::endl;
