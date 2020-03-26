@@ -57,12 +57,12 @@ int NcursesLib::inLib(void)
         case 10: //enter
             this->_ky = check_lib(this->_selection_lib, lib_list);
             break;
-        case 'e':
+        case 'a':
             std::cerr << "E" << std::endl;
             this->_indexLib = this->_indexLib - 1;
             return (-1);
             break;
-        case 'p':
+        case 'e':
             std::cerr << "P" << std::endl;
             this->_indexLib = this->_indexLib + 1;
             return (-1);
@@ -76,6 +76,7 @@ int NcursesLib::inLib(void)
 int NcursesLib::menu_lib(void)
 {
     int temp = 0;
+    initscr();
     noecho();
     keypad(stdscr, TRUE);
     curs_set(0);

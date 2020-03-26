@@ -74,11 +74,15 @@ void SDLLib::init_menu(std::vector<std::string> &libsNames, std::vector<std::str
     surfaceYourName = TTF_RenderText_Solid(font, "Your name : ", color);
     textureYourName = SDL_CreateTextureFromSurface(gRenderer, surfaceYourName);
     sizeGamesName = (int)gamesNames.size() - 1;
-    for (auto i = 0; i < (int)gamesNames.size(); i++)
-    {
+    for (auto i = 0; i < (int)gamesNames.size(); i++) {
         gamesSurface.push_back(TTF_RenderText_Solid(font, gamesNames.at(i).c_str(), color));
         gamesTexture.push_back(SDL_CreateTextureFromSurface(gRenderer, gamesSurface.at(i)));
         gamesRect.push_back({600, i * 100 + 200, (int)gamesNames.at(i).size() * 50, 100});
+    }
+    for (auto i = 0; i < (int)libsNames.size(); i++) {
+        libsSurface.push_back(TTF_RenderText_Solid(font, libsNames.at(i).c_str(), color));
+        libsTexture.push_back(SDL_CreateTextureFromSurface(gRenderer, libsSurface.at(i)));
+        libsRect.push_back({10, i * 100 + 500, (int)libsNames.at(i).size() * 50, 100});
     }
     SDL_StartTextInput();
     SDL_QueryTexture(texturePseudo, NULL, NULL, &texW, &texH);
@@ -86,6 +90,7 @@ void SDLLib::init_menu(std::vector<std::string> &libsNames, std::vector<std::str
 
 int SDLLib::menu(state &pgState, bool close, std::vector<std::string> &libsNames, std::vector<std::string> &gamesName, std::vector<std::vector<std::string>> highScores, std::string &pseudo, int &indexLib)
 {
+    pseudo = name;
     this->eventMenu(indexLib);
     this->clearWindow();
     if (name == "") {
@@ -106,7 +111,7 @@ int SDLLib::menu(state &pgState, bool close, std::vector<std::string> &libsNames
         SDL_RenderCopy(gRenderer, textureYourName, NULL, &rectYourName);
         SDL_RenderCopy(gRenderer, texturePseudo, NULL, &rectPseudo);
         SDL_RenderCopy(gRenderer, textureNextLib, NULL, &rectNextLib);
-        SDL_RenderCopy(gRenderer, textureNextLib, NULL, &rectPrevLib);
+        SDL_RenderCopy(gRenderer, texturePrevLib, NULL, &rectPrevLib);
         for (auto i = 0; i < (int)gamesName.size(); i++) {
             if (i == indexGame) {
                 if (indexGame < (int)gamesSurface.size()) {
@@ -118,6 +123,9 @@ int SDLLib::menu(state &pgState, bool close, std::vector<std::string> &libsNames
                 gamesTexture.at(i) = SDL_CreateTextureFromSurface(gRenderer, gamesSurface.at(i));
             }
             SDL_RenderCopy(gRenderer, gamesTexture.at(i), NULL, &gamesRect.at(i));
+        }
+        for (size_t i = 0; i < libsNames.size(); i++) {
+            SDL_RenderCopy(gRenderer, libsTexture.at(i), NULL, &libsRect.at(i));
         }
         count = 1;
     }

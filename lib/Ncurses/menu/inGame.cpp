@@ -54,12 +54,12 @@ int NcursesLib::inGame()
         case 10: //enter
             this->_ky2 = check_game(this->_selection_game, game_list);
             break;
-        case 'e':
+        case 'a':
             std::cerr << "E" << std::endl;
             this->_indexLib = this->_indexLib - 1;
             return (-1);
             break;
-        case 'p':
+        case 'e':
             std::cerr << "P" << std::endl;
             this->_indexLib = this->_indexLib + 1;
             return (-1);

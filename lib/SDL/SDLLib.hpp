@@ -42,6 +42,9 @@ private:
     std::vector<SDL_Surface *> gamesSurface;
     std::vector<SDL_Texture *> gamesTexture;
     std::vector<SDL_Rect> gamesRect;
+    std::vector<SDL_Surface *> libsSurface;
+    std::vector<SDL_Texture *> libsTexture;
+    std::vector<SDL_Rect> libsRect;
     TTF_Font *font;
     int texW = 1000;
     int texH = 200;

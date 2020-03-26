@@ -133,8 +133,7 @@ void Core::laodLib()
     Lib->createWindow(1080, 1080, "Arcade");
     state pgState = MENU;
     std::vector<std::string> names{"pacman", "nibbler"};
-    // this->fillLibVector();
-    m_libs = {"sdl2", "sfml", "ncurses"};
+    this->fillLibVector();
     this->indexLibFill();
     std::cout << indexLib << std::endl;
     std::vector<std::vector<std::string>> highScores{{"pseudo1\t10655", "pseudo2\t10385", "pseudo1\t4521"}, {"pseudo1\t53", "pseudo2\t41", "pseudo1\t9"}};
