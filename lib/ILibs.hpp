@@ -99,6 +99,10 @@ class ILibs {
         // checks if a btn to change lib is pressed and changes indexLib accordingly
         virtual void nextGraphicLib(int &indexLib)=0;
         virtual void prevGraphicLib(int &indexLib)=0;
+        virtual bool upArrow()=0;
+        virtual bool downArrow()=0;
+        virtual bool leftArrow()=0;
+        virtual bool rigthArrow()=0;
 
         /* ------------------------------- MENU ------------------------------- */
         // menu for selecting the graphical lib. returns 0 if nCurses is selected, 2 for SFML and 3 for SDL -1 for errors
