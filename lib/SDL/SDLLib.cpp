@@ -228,6 +228,26 @@ void SDLLib::prevGraphicLib(int &indexLib)
     }
 }
 
+bool upArrow()
+{
+
+}
+
+bool downArrow()
+{
+
+}
+
+bool leftArrow()
+{
+
+}
+
+bool rigthArrow()
+{
+    
+}
+
 bool SDLLib::keyReleasedEvent(void)
 {
     return (false);
