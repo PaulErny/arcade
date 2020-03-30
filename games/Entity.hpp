@@ -1,13 +1,13 @@
-#ifndef IENTITY_HPP
-#define IENTITY_HPP
+#ifndef ENTITY_HPP
+#define ENTITY_HPP
 
-class IEntity
+class Entity
 {
 private:
     /* data */
 public:
-    IEntity(/* args */);
-    ~IEntity();
+    Entity(/* args */);
+    ~Entity();
 };
 
 #endif
