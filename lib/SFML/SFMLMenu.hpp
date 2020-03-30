@@ -41,6 +41,10 @@ class SFMLMenu {
         int nibblerImgID;
         int pacmanImgID;
         std::vector<std::vector<int>> scoreTextID;
+        std::vector<int> textLibsID;
+        int nextLibTxtID;
+        int prevLibTxtID;
+
 };
 
 #endif /* !SFMLMENU_HPP_ */
