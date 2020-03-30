@@ -228,6 +228,42 @@ void SDLLib::prevGraphicLib(int &indexLib)
     }
 }
 
+bool SDLLib::upArrow()
+{
+    if (e.type == SDL_KEYDOWN) {
+        if (e.key.keysym.sym == SDLK_UP)
+            return (true);
+    }
+    return false;
+}
+
+bool SDLLib::downArrow()
+{
+    if (e.type == SDL_KEYDOWN) {
+        if (e.key.keysym.sym == SDLK_DOWN)
+            return (true);
+    }
+    return false;
+}
+
+bool SDLLib::leftArrow()
+{
+    if (e.type == SDL_KEYDOWN) {
+        if (e.key.keysym.sym == SDLK_LEFT)
+            return (true);
+    }
+    return false;
+}
+
+bool SDLLib::rigthArrow()
+{
+    if (e.type == SDL_KEYDOWN) {
+        if (e.key.keysym.sym == SDLK_RIGHT)
+            return (true);
+    }
+    return false;
+}
+
 bool SDLLib::keyReleasedEvent(void)
 {
     return (false);

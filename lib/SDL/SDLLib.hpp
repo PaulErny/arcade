@@ -129,8 +129,12 @@ public :
     // closes the window in case of such an event
     bool closeWindowEvent(void);
     bool keyReleasedEvent(void);
-    virtual void nextGraphicLib(int &indexLib);
-    virtual void prevGraphicLib(int &indexLib);
+    void nextGraphicLib(int &indexLib);
+    void prevGraphicLib(int &indexLib);
+    bool upArrow();
+    bool downArrow();
+    bool leftArrow();
+    bool rigthArrow();
     /* ------------------------------- MENU ------------------------------- */
     // menu for selecting the graphical lib. returns 0 if nCurses is selected, 2 for SFML and 3 for SDL -1 for errors
     int libSelectionMenu(state &pgState, bool close, std::vector<std::string> &libsNames);
