@@ -183,13 +183,42 @@ void NcursesLib::init_menu(std::vector<std::string> &libsNames, std::vector<std:
 
 void NcursesLib::nextGraphicLib(int &indexLib)
 {
-    if (this->_ky_gen == 101)
-        indexLib = indexLib + 1;
 }
 
 void NcursesLib::prevGraphicLib(int &indexLib)
-{   
-    indexLib = this->_indexLib;
+{
+}
+
+bool NcursesLib::upArrow()
+{
+    if (getch() == KEY_UP)
+        return (true);
+    else
+        return (false);
+}
+
+bool NcursesLib::downArrow()
+{
+    if (getch() == KEY_DOWN)
+        return (true);
+    else
+        return (false);
+}
+
+bool NcursesLib::leftArrow()
+{
+    if (getch() == KEY_LEFT)
+        return (true);
+    else
+        return (false);
+}
+
+bool NcursesLib::rigthArrow()
+{
+    if (getch() == KEY_RIGHT)
+        return (true);
+    else
+        return (false);
 }
 
 extern "C" std::unique_ptr<NcursesLib> create_object()

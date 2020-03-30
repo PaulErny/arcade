@@ -134,6 +134,10 @@ public:
         // checks if a btn to change lib is pressed and changes indexLib accordingly
         void nextGraphicLib(int &indexLib);
         void prevGraphicLib(int &indexLib);
+        bool upArrow();
+        bool downArrow();
+        bool leftArrow();
+        bool rigthArrow();
 
         /* ------------------------------- MENU ------------------------------- */
         // menu for selecting the graphical lib. returns 0 if nCurses is selected, 2 for SFML and 3 for SDL -1 for errors
