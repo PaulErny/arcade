@@ -65,6 +65,25 @@ void SFMLMenu::init_menu(std::vector<std::string> &libsNames, std::vector<std::s
         yPos = 625;
         xPos += 220;
     }
+
+    // create libs texts
+    xPos = 290;
+    yPos = 1050;
+    for (size_t i = 0; i < libsNames.size(); i++) {
+        this->textLibsID.push_back(this->graphics->createText(libsNames[i], this->fontID));
+        this->graphics->setTextCharSize(this->textLibsID[i], 20);
+        this->graphics->setTextPos(this->textLibsID[i], xPos, yPos);
+        if (libsNames[i] == "SFML" || libsNames[i] == "sfml")
+            this->graphics->setTextColor(this->textLibsID[i], 0, 255, 0); // 30, 230, 30
+        xPos += 200;
+    }
+    this->nextLibTxtID = this->graphics->createText("E ->", this->fontID);
+    this->graphics->setTextCharSize(this->nextLibTxtID, 20);
+    this->graphics->setTextPos(this->nextLibTxtID, 975, 1050);
+
+    this->prevLibTxtID = this->graphics->createText("<- A", this->fontID);
+    this->graphics->setTextCharSize(this->prevLibTxtID, 20);
+    this->graphics->setTextPos(this->prevLibTxtID, 30, 1050);
 }
 
 int SFMLMenu::menu(state &pgState, bool close, std::vector<std::string> &libsNames, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores, std::string &pseudo, int &indexLib)
@@ -112,6 +131,14 @@ int SFMLMenu::menu(state &pgState, bool close, std::vector<std::string> &libsNam
     } else if (this->chosenAction == 1) {
         this->displayHighScores(this->buttons);
     }
+    // draw libs texts
+    this->graphics->drawText(this->nextLibTxtID);
+    this->graphics->drawText(this->prevLibTxtID);
+    for (size_t i = 0; i < this->textLibsID.size(); i++) {
+        this->graphics->drawText(this->textLibsID[i]);
+    }
+    
+
     graphics->update();
     return (-1);
 }
