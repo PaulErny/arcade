@@ -67,6 +67,7 @@ int NcursesLib::inLib(std::vector<std::string> &libsNames)
 int NcursesLib::menu_lib(std::vector<std::string> &libsNames)
 {
     int temp = 0;
+
     initscr();
     noecho();
     keypad(stdscr, TRUE);

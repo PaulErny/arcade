@@ -22,9 +22,9 @@ void NcursesLib::test(int row, int col)
     char title3[] = "  / /| | / /_/ / /   / /| | / / / / __/   ";
     char title4[] = " / ___ |/ _, _/ /___/ ___ |/ /_/ / /___   ";
     char title5[] = "/_/  |_/_/ |_/_____/_/  |_/_____/______/ ";
+
     start_color();
     init_pair(1, COLOR_RED, COLOR_BLACK);
-
     attron(COLOR_PAIR(1));
     mvprintw(row / 2 - 5, (col - strlen(title1)) / 2, "%s", title1);
     mvprintw(row / 2 - 4, (col - strlen(title2)) / 2, "%s", title2);
@@ -61,9 +61,6 @@ int NcursesLib::gameSelectionMenu(state &pgState, bool close, std::vector<std::s
 
 int NcursesLib::menu(state &pgState, bool close, std::vector<std::string> &libsNames, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores, std::string &pseudo, int &indexLib)
 {
-    // while (_ky2 != 27)
-    // {
-    // this->_ky_gen = getch();
     this->_indexLib = indexLib;
     if (pseudo.empty() == true)
         pseudo = this->enterName(pgState, close);
@@ -75,8 +72,5 @@ int NcursesLib::menu(state &pgState, bool close, std::vector<std::string> &libsN
         indexLib = this->_indexLib;
         return (0);
     }
-             // std::cout << "ici ->>>>>" << this->_indexLib << std::endl;
-        // std::cout << "après ->>>>" << this->_indexLib << std::endl;
-    // }
     return (0);
 }

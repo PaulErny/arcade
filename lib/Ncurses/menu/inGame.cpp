@@ -64,11 +64,12 @@ int NcursesLib::inGame(std::vector<std::string> &gamesNames)
 
 int NcursesLib::menu_game(std::vector<std::string> &gamesNames)
 {
+    int temp = 0;
+    
     initscr();
     noecho();
     keypad(stdscr, TRUE);
     curs_set(0);
-    int temp = 0;
     temp = this->inGame(gamesNames);
     refresh();
     endwin();

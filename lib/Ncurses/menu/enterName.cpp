@@ -11,6 +11,7 @@ std::string NcursesLib::get_name(int row, int col)
 {
     char title[] = "ENTER YOUR NAME";
     char str[80];
+
     initscr();
     getmaxyx(stdscr, row, col);
     mvprintw(row / 2, (col - strlen(title)) / 2, "%s", title);
@@ -22,8 +23,10 @@ std::string NcursesLib::get_name(int row, int col)
 
 std::string NcursesLib::menu_name(void)
 {
-    int row, col;
+    int row;
+    int col;
     std::string thename;
+
     initscr();
     getmaxyx(stdscr, row, col);
     this->test(10, col);
