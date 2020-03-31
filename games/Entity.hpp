@@ -11,7 +11,7 @@ enum entityType {
 class Entity
 {
     public:
-        Entity(); // creates an entity
+        Entity(entityType type); // creates an entity
         ~Entity();
 
         void move(int xOffset, int yOffset); // moves the entity from its current pos to (posX + xOffset, posY + yOffset)
