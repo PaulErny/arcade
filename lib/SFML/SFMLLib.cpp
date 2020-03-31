@@ -247,6 +247,34 @@ void SFMLLib::prevGraphicLib(int &indexLib)
         indexLib--;
 }
 
+bool SFMLLib::upArrow(void)
+{
+    if (this->event.type == sf::Event::KeyPressed && this->event.key.code == sf::Keyboard::Up)
+        return true;
+    return false;
+}
+
+bool SFMLLib::downArrow(void)
+{
+    if (this->event.type == sf::Event::KeyPressed && this->event.key.code == sf::Keyboard::Down)
+        return true;
+    return false;
+}
+
+bool SFMLLib::leftArrow(void)
+{
+    if (this->event.type == sf::Event::KeyPressed && this->event.key.code == sf::Keyboard::Left)
+        return true;
+    return false;
+}
+
+bool SFMLLib::rigthArrow(void)
+{
+    if (this->event.type == sf::Event::KeyPressed && this->event.key.code == sf::Keyboard::Right)
+        return true;
+    return false;
+}
+
 /* ------------------------------- MENU ------------------------------- */
 void SFMLLib::init_menu(std::vector<std::string> &libsNames, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores, std::string &pseudo)
 {
