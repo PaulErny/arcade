@@ -1,12 +1,15 @@
 #ifndef IGAMES_HPP
 #define IGAMES_HPP
 
-class IGames
+class Igames
 {
 private:
     /* data */
 public:
-    virtual ~IGames()=0;
+    virtual ~Igames()=0;
+
+    virtual void initGame()=0;
+    virtual void runGame()=0;
 };
 
 #endif
