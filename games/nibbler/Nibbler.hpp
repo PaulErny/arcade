@@ -14,15 +14,15 @@ enum Direction {
     DOWN
 };
 
-class Nibbler : public Igames
+class Nibbler : public IGames
 {
 private:
     Direction dir;
     int speed;
-    std::unique_ptr<Entity> food;
+    std::shared_ptr<Entity> food;
     std::vector<int> indexSnake;
-    std::vector<std::unique_ptr<Entity>> snake;
-    std::unique_ptr<ILibs> Lib;
+    std::vector<std::shared_ptr<Entity>> snake;
+    std::shared_ptr<ILibs> Lib;
     int prevPosx;
     int prevPosy;
     int indexFood;

@@ -11,10 +11,10 @@ void Nibbler::initGameData()
 
 void Nibbler::initGraphics()
 {
-    food = std::make_unique<Entity>(SHAPE, this->Lib);
+    food = std::make_shared<Entity>(SHAPE, this->Lib);
     food->addShape(40, 40);
     food->setPosition(rand() % 1080, rand() % 1080);
-    std::unique_ptr<Entity> head = std::make_unique<Entity>(SHAPE, this->Lib);
+    std::shared_ptr<Entity> head = std::make_shared<Entity>(SHAPE, this->Lib);
     head->addShape(40, 40);
     snake.push_back(head);
 }
@@ -76,7 +76,7 @@ void Nibbler::keyPressed()
 
 void Nibbler::eatFood()
 {
-    std::unique_ptr<Entity> tail = std::make_unique<Entity>(SHAPE, this->Lib);
+    std::shared_ptr<Entity> tail = std::make_shared<Entity>(SHAPE, this->Lib);
     tail->addShape(40, 40);
     snake.push_back(tail);
     food->setPosition(rand() % 1080, rand() % 1080);

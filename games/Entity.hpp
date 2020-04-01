@@ -12,7 +12,7 @@ enum entityType {
 class Entity
 {
     public:
-        Entity(entityType type, std::unique_ptr<ILibs>); // creates an entity
+        Entity(entityType type, std::shared_ptr<ILibs>); // creates an entity
         ~Entity();
 
         void move(int xOffset, int yOffset); // moves the entity from its current pos to (posX + xOffset, posY + yOffset)
@@ -43,7 +43,7 @@ class Entity
         std::vector<int> shapes; // for sprite sheets or animations with shapes
         int currentShape;
 
-        std::unique_ptr<ILibs> graphics;
+        std::shared_ptr<ILibs> graphics;
 };
 
 #endif
