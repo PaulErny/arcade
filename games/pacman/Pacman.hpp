@@ -23,6 +23,9 @@ class Pacman : public IGames {
         void runGame();
 
     private:
+        void initMapCell(int x, int y);
+        bool isAdjacentCellForbidden(int x, int y);
+
         std::vector<std::vector<int>> map;
         std::vector<std::vector<int>> mapSpritesID;
         std::shared_ptr<ILibs> graphics;
