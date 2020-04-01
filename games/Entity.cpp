@@ -7,9 +7,9 @@
 
 #include "Entity.hpp"
 
-Entity::Entity(entityType type, std::shared_ptr<ILibs>)
+Entity::Entity()
 {
-    this->type = type;
+    this->currentShape = 0;
 }
 
 Entity::~Entity()
@@ -18,8 +18,18 @@ Entity::~Entity()
 
 void Entity::move(int xOffset, int yOffset)
 {
-    this->posX = xOffset;
-    this->posY = yOffset;
+    this->posX += xOffset;
+    this->posY += yOffset;
+    for (size_t i = 0; i < this->shapes.size(); i++) {
+        if (this->type == SHAPE)
+            this->graphics->setShapePos(this->shapes[i], this->posX, this->posY);
+        else if (this->type == SPRITE)
+            this->graphics->setImagePos(this->shapes[i], this->posX, this->posY);
+    }
+}
+
+void Entity::updatePosition()
+{
     for (size_t i = 0; i < this->shapes.size(); i++) {
         if (this->type == SHAPE)
             this->graphics->setShapePos(this->shapes[i], this->posX, this->posY);
@@ -93,4 +103,14 @@ const int &Entity::getYposition() const
 const std::vector<int> &Entity::getVectorOfShape() const
 {
     return this->shapes;
+}
+
+void Entity::setLibPtr(std::shared_ptr<ILibs> lib)
+{
+    this->graphics = lib;
+}
+
+void Entity::setType(entityType type)
+{
+    this->type = type;
 }

@@ -12,7 +12,7 @@ enum entityType {
 class Entity
 {
     public:
-        Entity(entityType type, std::shared_ptr<ILibs>); // creates an entity
+        Entity(); // creates an entity
         ~Entity();
 
         void move(int xOffset, int yOffset); // moves the entity from its current pos to (posX + xOffset, posY + yOffset)
@@ -22,10 +22,13 @@ class Entity
         void prevShape();
         void changeColor(int r, int g, int b); // explicit
         void setPosition(int x, int y);
+        void updatePosition();
         const int &getXposition() const;
         const int &getYposition() const;
         const std::vector<int> &getVectorOfShape() const;
         void draw();
+        void setLibPtr(std::shared_ptr<ILibs>);
+        void setType(entityType type);
 
     private:
         int inVector;

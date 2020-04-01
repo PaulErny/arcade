@@ -15,19 +15,20 @@
 
 class Pacman : public IGames {
     public:
-        Pacman(std::shared_ptr<ILibs> &graphics);
+        Pacman();
         ~Pacman();
 
         void initGameData();
         void initGraphics();
         void runGame();
+        void setLib(std::shared_ptr<ILibs> &graphics);
 
     private:
         void initMapCell(int x, int y);
         bool isAdjacentCellForbidden(int x, int y);
 
         std::vector<std::vector<int>> map;
-        std::vector<std::vector<int>> mapSpritesID;
+        std::vector<std::vector<Entity>> mapSpritesID;
         std::shared_ptr<ILibs> graphics;
 };
 
