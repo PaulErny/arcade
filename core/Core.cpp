@@ -8,14 +8,14 @@ Core::Core(char *arg) : m_arg(arg)
     pgState = NOTHING;
     m_pseudo = "";
 
-    m_handle = dlopen(arg, RTLD_LAZY);
+    m_handle = dlopen(m_arg, RTLD_LAZY);
     if (dlerror() != NULL)
         throw "Cannot open lib";
-    std::unique_ptr<ILibs> (*create)();
-    create = (std::unique_ptr<ILibs>(*)())dlsym(m_handle, "create_object");
+    std::shared_ptr<ILibs> (*create)();
+    create = (std::shared_ptr<ILibs>(*)())dlsym(m_handle, "create_object");
     if (dlerror() != NULL)
         throw "Cannot open lib";
-    Lib = (std::unique_ptr<ILibs>)create();
+    Lib = (std::shared_ptr<ILibs>)create();
 
     this->fillLibVector();
     this->fillGamesVector();
@@ -34,16 +34,16 @@ void Core::nextLib(std::string libName)
         dlclose(m_handle);
     std::string open("lib/lib_arcade_" + libName);
     m_handle = dlopen(open.c_str(), RTLD_LAZY);
-    std::unique_ptr<ILibs> (*create)();
-    create = (std::unique_ptr<ILibs>(*)())dlsym(m_handle, "create_object");
+    std::shared_ptr<ILibs> (*create)();
+    create = (std::shared_ptr<ILibs>(*)())dlsym(m_handle, "create_object");
     if (dlerror() != NULL)
         throw "Cannot open lib";
-    std::unique_ptr<ILibs> Lib = (std::unique_ptr<ILibs>)create();
+    std::shared_ptr<ILibs> Lib = (std::shared_ptr<ILibs>)create();
 }
 
 void Core::changeLib()
 {
-    // if (dlclose(m_handle);
+    // dlclose(m_handle);
     if (dlerror() != NULL)
         throw dlerror();
     if (indexLib >= (int)m_libs.size()) {
@@ -57,12 +57,12 @@ void Core::changeLib()
     m_handle = dlopen(open.c_str(), RTLD_LAZY);
     if (dlerror() != NULL)
         throw "Cannot open Lib";
-    std::unique_ptr<ILibs> (*create)();
-    create = (std::unique_ptr<ILibs>(*)())dlsym(m_handle, "create_object");
+    std::shared_ptr<ILibs> (*create)();
+    create = (std::shared_ptr<ILibs>(*)())dlsym(m_handle, "create_object");
     if (dlerror() != NULL)
         throw "Cannot open lib";
     std::cout << "ok" << std::endl;
-    Lib = (std::unique_ptr<ILibs>)create();
+    Lib = (std::shared_ptr<ILibs>)create();
 }
 
 const std::vector<std::string> &Core::getLibs() const

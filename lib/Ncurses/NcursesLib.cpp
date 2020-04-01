@@ -223,5 +223,5 @@ bool NcursesLib::rigthArrow()
 
 extern "C" std::shared_ptr<NcursesLib> create_object()
 {
-    return std::make_unique<NcursesLib>();
+    return std::make_shared<NcursesLib>();
 }

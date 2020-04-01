@@ -303,5 +303,5 @@ std::string SFMLLib::enterName(state &pgState, bool close)
 
 extern "C" std::shared_ptr<SFMLLib> create_object()
 {
-    return std::make_unique<SFMLLib>();
+    return std::make_shared<SFMLLib>();
 }
