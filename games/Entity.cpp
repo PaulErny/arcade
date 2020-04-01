@@ -7,7 +7,7 @@
 
 #include "Entity.hpp"
 
-Entity::Entity(entityType type)
+Entity::Entity(entityType type, std::unique_ptr<ILibs>)
 {
     this->type = type;
 }
@@ -72,4 +72,25 @@ void Entity::draw()
         this->graphics->drawShape(this->shapes[this->currentShape]);
     if (this->type == SPRITE)
         this->graphics->drawImage(this->shapes[this->currentShape]);
+}
+
+void Entity::setPosition(int x, int y)
+{
+    this->posX = x;
+    this->posY = y;
+}
+
+const int &Entity::getXposition() const
+{
+    return this->posX;
+}
+
+const int &Entity::getYposition() const
+{
+    return this->posY;
+}
+
+const std::vector<int> &Entity::getVectorOfShape() const
+{
+    return this->shapes;
 }

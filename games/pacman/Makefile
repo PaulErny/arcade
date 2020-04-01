@@ -1,21 +1,18 @@
+NAME	= games_arcade_pacman.so
+
 CXX	= g++
 
 RM	= rm -f
 
-MAKE:
-	make -C ./nibbler/
-	make -C ./pacman/
-
-SRCS	= ./Entity.cpp \
+SRCS	= 
 
 OBJS	= $(SRCS:=.o)
 
-override CFLAGS = -I 
-override CXXLAGS += -Wall -Wextra
-override LDFLAGS = -std=c++17 -fPIC -shared
+CFLAGS = -I 
+CFLAGS += -Wall -Wextra
+override LDFLAGS = -fPIC -shared
 
 all: $(NAME)
-	MAKE
 
 $(NAME): $(OBJS)
 	 $(CC) $(OBJS) -o $(NAME) $(LDFLAGS)

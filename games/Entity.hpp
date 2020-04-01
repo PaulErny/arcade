@@ -1,6 +1,7 @@
 #ifndef IENTITY_HPP
 #define IENTITY_HPP
 
+#include <memory>
 #include "../lib/ILibs.hpp"
 
 enum entityType {
@@ -11,7 +12,7 @@ enum entityType {
 class Entity
 {
     public:
-        Entity(entityType type); // creates an entity
+        Entity(entityType type, std::unique_ptr<ILibs>); // creates an entity
         ~Entity();
 
         void move(int xOffset, int yOffset); // moves the entity from its current pos to (posX + xOffset, posY + yOffset)
@@ -20,9 +21,14 @@ class Entity
         void nextShape(); // explicit
         void prevShape();
         void changeColor(int r, int g, int b); // explicit
+        void setPosition(int x, int y);
+        const int &getXposition() const;
+        const int &getYposition() const;
+        const std::vector<int> &getVectorOfShape() const;
         void draw();
 
     private:
+        int inVector;
         int posX;
         int posY;
 
@@ -37,7 +43,7 @@ class Entity
         std::vector<int> shapes; // for sprite sheets or animations with shapes
         int currentShape;
 
-        ILibs *graphics;
+        std::unique_ptr<ILibs> graphics;
 };
 
 #endif
