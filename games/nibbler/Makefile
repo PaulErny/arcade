@@ -16,7 +16,8 @@ override LDFLAGS = -fPIC -shared
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	 $(CC) $(OBJS) -o $(NAME) $(LDFLAGS)
+	 $(CC) $(LDFLAGS) $(CXXFLAGS) $(SRCS) -o $(NAME)
+	 cp $(NAME) ../
 
 clean:
 	$(RM) $(OBJS)

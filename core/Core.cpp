@@ -155,7 +155,6 @@ void Core::run()
 {
     // TMP
     std::vector<std::vector<std::string>> highScores{{"pseudo1\t10655", "pseudo2\t10385", "pseudo1\t4521"}, {"pseudo1\t53", "pseudo2\t41", "pseudo1\t9"}};
-    std::vector<std::string> names{"pacman", "nibbler"};
 
     int chosenGame = -1;
     int currentLib = 0;
@@ -168,7 +167,7 @@ void Core::run()
         if (this->pgState == MENU) {
             //check if the menu has to be init
             if (!this->isMenuInit) {
-                this->Lib->init_menu(this->m_libs, names, highScores, this->m_pseudo);
+                this->Lib->init_menu(this->m_libs, m_games, highScores, this->m_pseudo);
                 this->isMenuInit = true;
             }
             // in case we want to change game
@@ -176,7 +175,7 @@ void Core::run()
                 this->isGameInit = false;
 
             // if no game was chosen yet chosenGame should be equal to -1, else its the index of the game in m_games
-            chosenGame = this->Lib->menu(this->pgState, false, this->m_libs, names, highScores, this->m_pseudo, this->indexLib);
+            chosenGame = this->Lib->menu(this->pgState, false, this->m_libs, m_games, highScores, this->m_pseudo, this->indexLib);
         }
         // this->Lib->nextGraphicLib(indexLib);
         // this->Lib->prevGraphicLib(indexLib);
