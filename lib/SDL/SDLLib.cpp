@@ -269,7 +269,7 @@ bool SDLLib::keyReleasedEvent(void)
     return (false);
 }
 
-extern "C" std::unique_ptr<SDLLib> create_object()
+extern "C" std::shared_ptr<SDLLib> create_object()
 {
     return std::make_unique<SDLLib>();
 }

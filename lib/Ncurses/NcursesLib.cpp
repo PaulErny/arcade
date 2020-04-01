@@ -221,7 +221,7 @@ bool NcursesLib::rigthArrow()
         return (false);
 }
 
-extern "C" std::unique_ptr<NcursesLib> create_object()
+extern "C" std::shared_ptr<NcursesLib> create_object()
 {
     return std::make_unique<NcursesLib>();
 }

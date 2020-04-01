@@ -22,7 +22,7 @@ private:
 
     std::vector<std::string> m_libs;
     std::vector<std::string> m_games;
-    std::unique_ptr<ILibs> Lib;
+    std::shared_ptr<ILibs> Lib;
 
 public : Core(char *arg);
     ~Core();
