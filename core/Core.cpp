@@ -65,6 +65,27 @@ void Core::changeLib()
     Lib = (std::shared_ptr<ILibs>)create();
 }
 
+void Core::changeGame()
+{
+    if (dlerror() != NULL)
+        throw dlerror();
+    if (indexLib >= (int)m_games.size()) {
+        indexLib = 0;
+    }
+    if (indexLib < 0) {
+        indexLib = (int)m_games.size() - 1;
+    }
+    std::string open("games/games_arcade_" + m_games.at(indexLib) + ".so");
+    m_handleGame = dlopen(open.c_str(), RTLD_LAZY);
+    if (dlerror() != NULL)
+        throw "Cannot open Lib";
+    std::shared_ptr<IGames> (*create)();
+    create = (std::shared_ptr<IGames>(*)())dlsym(m_handleGame, "create_object");
+    if (dlerror() != NULL)
+        throw "Cannot open lib";
+    Lib = (std::shared_ptr<IGames>)create();
+}
+
 const std::vector<std::string> &Core::getLibs() const
 {
     return (m_libs);
@@ -139,16 +160,22 @@ void Core::laodLib(int currentLib)
 {
     if (currentLib != indexLib) {
         this->Lib->deleteWindow();
-        this->changeLib();
+        this->changeGame();
         this->isMenuInit = false;
         this->isGameInit = false;
-        this->Lib->createWindow(1080, 1080, "Arcade");
+        this->Games->initGameData();
+        this->Games->initGraphics();
     }
 }
 
 void Core::loadGameLib(int gameIndex)
 {
-
+    if (gameIndex != indexLib) {
+        this->changeLib();
+        this->isMenuInit = false;
+        this->isGameInit = false;
+        this->Lib->createWindow(1080, 1080, "Arcade");
+    }
 }
 
 void Core::run()
@@ -158,6 +185,7 @@ void Core::run()
 
     int chosenGame = -1;
     int currentLib = 0;
+    int gameIndex = 0;
     this->pgState = MENU;
 
     while (this->Lib->isWindowOpen()) {
@@ -185,10 +213,9 @@ void Core::run()
                 // this->gameLib->initGame()
                 this->isGameInit = true;
             }
-            // this->gameLib->runGame()
-        }
-
-        // check for lib changment
+            this->Games->runGame();
+        }    
+        // check for lib changment  
         this->laodLib(currentLib);
     }
 }
