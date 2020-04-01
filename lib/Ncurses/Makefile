@@ -18,7 +18,7 @@ override LDLIBS = -lncurses
 override LDFLAGS = -fPIC -shared
 
 all: $(NAME)
-	mv lib_arcade_ncurses.so ../
+	cp $(NAME) ../
 
 $(NAME): $(OBJS)
 	 $(CXX) $(LDFLAGS) $(LDLIBS) $(SRCS) -o $(NAME) $(CXXFLAGS)

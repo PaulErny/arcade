@@ -15,7 +15,7 @@ override LDLIBS = -lSDL2 -lSDL2_ttf -lSDL2_image
 override LDFLAGS = -fPIC -shared
 
 all: $(NAME)
-	mv $(NAME) ../
+	cp $(NAME) ../
 
 $(NAME): $(OBJS)
 	 $(CXX) $(LDFLAGS) $(LDLIBS) $(SRCS) -o $(NAME) $(CXXFLAGS)

@@ -110,7 +110,7 @@ void NcursesLib::createWindow(int width, int height, std::string name)
 
 bool NcursesLib::isWindowOpen(void)
 {
-    if (this->_ky_gen == 27)
+    if (this->_ky == 27 || this->_ky2 == 27)
         return (false);
     else 
         return (true);
