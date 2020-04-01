@@ -7,7 +7,7 @@
 
 #include "Entity.hpp"
 
-Entity::Entity(entityType type, std::unique_ptr<ILibs>)
+Entity::Entity(entityType type, std::shared_ptr<ILibs>)
 {
     this->type = type;
 }
@@ -28,7 +28,7 @@ void Entity::move(int xOffset, int yOffset)
     }
 }
 
-void Entity::addShape(int height, int width, int r=255, int g=255, int b=255)
+void Entity::addShape(int height, int width, int r, int g, int b)
 {
     if (this->type == SHAPE) {
         this->shapes.push_back(this->graphics->createShape(RECTANGLE, width, height));

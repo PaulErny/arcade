@@ -6,7 +6,7 @@ class IGames
 private:
     /* data */
 public:
-    virtual ~IGames()=0;
+    virtual ~IGames()=default;
 
     virtual void initGameData()=0;
     virtual void initGraphics()=0;

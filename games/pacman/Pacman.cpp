@@ -5,6 +5,7 @@
 ** Pacman
 */
 
+#include <iostream>
 #include "Pacman.hpp"
 
 Pacman::Pacman(std::shared_ptr<ILibs> &graphics)
@@ -41,6 +42,8 @@ Pacman::Pacman(std::shared_ptr<ILibs> &graphics)
                  {1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1},
                  {1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1},
                  {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}};
+
+    this->mapSpritesID = std::vector<std::vector<int>>(this->map.size(), std::vector<int>(this->map[0].size()));
 }
 
 Pacman::~Pacman()
@@ -54,14 +57,15 @@ void Pacman::initGameData()
 void Pacman::initGraphics()
 {
     for (size_t y = 0; y < this->map.size(); y++) {
-        this->map.push_back(std::vector<int>());
         for (size_t x = 0; x < this->map[y].size(); x++) {
-            this->mapSpritesID[y].push_back(this->graphics->createShape(RECTANGLE, 35, 35));
-            if (this->map[y][x] == 1)
-                this->graphics->setShapeColor(this->mapSpritesID[y].size() - 1, 30, 230, 30);
-            else
-                this->graphics->setShapeColor(this->mapSpritesID[y].size() - 1, 0, 0, 0);
-            this->graphics->setShapePos(this->mapSpritesID[y].size() - 1, 35*x, 35*y);
+            if (this->map[y][x] == 1) {
+                this->mapSpritesID[y][x] = this->graphics->createShape(RECTANGLE, 25, 25);
+                this->graphics->setShapeColor(this->mapSpritesID[y][x], 30, 30, 230);
+            } else {
+                this->mapSpritesID[y][x] = this->graphics->createShape(RECTANGLE, 35, 35);
+                this->graphics->setShapeColor(this->mapSpritesID[y][x], 0, 0, 0);
+            }
+            this->graphics->setShapePos(this->mapSpritesID[y][x], 35*x, 35*y);
         }
     }
 }
