@@ -1,21 +1,23 @@
 NAME	= games_arcade_pacman.so
 
-CXX	= g++
+CXX	= g++ 
 
 RM	= rm -f
 
-SRCS	= 
+SRCS	= ./Pacman.cpp 
 
-OBJS	= $(SRCS:=.o)
+OBJS	= $(SRCS:.cpp=.o)
 
-CFLAGS = -I 
-CFLAGS += -Wall -Wextra
+CPPFLAGS = -I ./pp
+CPPFLAGS += -Wall -Wextra
+override CXXFLAGS = -std=c++17
 override LDFLAGS = -fPIC -shared
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	 $(CC) $(OBJS) -o $(NAME) $(LDFLAGS)
+	 $(CC) $(LDFLAGS) $(CXXFLAGS) $(SRCS) -o $(NAME)
+	 cp $(NAME) ../
 
 clean:
 	$(RM) $(OBJS)

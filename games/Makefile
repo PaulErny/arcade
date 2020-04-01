@@ -21,11 +21,15 @@ $(NAME): $(OBJS)
 	 $(CC) $(OBJS) -o $(NAME) $(LDFLAGS)
 
 clean:
-	$(RM) $(OBJS)
+	make clean -C ./nibbler/
+	make clean -C ./pacman/
 
-fclean: clean
-	$(RM) $(NAME)
+fclean:
+	make fclean -C ./nibbler/
+	make fclean -C ./pacman/
 
-re: fclean all
+re: 
+	make re -C ./nibbler/
+	make re -C ./pacman/
 
 .PHONY: all clean fclean re
