@@ -119,3 +119,8 @@ void Pacman::runGame()
         }
     }
 }
+
+extern "C" std::shared_ptr<Pacman> create_object()
+{
+    return std::make_shared<Pacman>();
+}

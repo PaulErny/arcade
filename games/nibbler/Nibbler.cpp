@@ -81,3 +81,8 @@ void Nibbler::eatFood()
     snake.push_back(tail);
     food->setPosition(rand() % 1080, rand() % 1080);
 }
+
+extern "C" std::shared_ptr<Nibbler> create_object()
+{
+    return std::make_shared<Nibbler>();
+}
