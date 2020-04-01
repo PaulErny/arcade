@@ -18,7 +18,7 @@ override LDLIBS = -lncurses
 override LDFLAGS = -fPIC -shared
 
 all: $(NAME)
-	cp $(NAME) ../
+	mv $(NAME) ../
 
 $(NAME): $(OBJS)
 	 $(CXX) $(LDFLAGS) $(LDLIBS) $(SRCS) -o $(NAME) $(CXXFLAGS)
@@ -27,7 +27,7 @@ clean:
 	$(RM) $(OBJS)
 
 fclean: clean
-	$(RM) $(NAME)
+	$(RM) ../$(NAME)
 
 re: fclean all
 
