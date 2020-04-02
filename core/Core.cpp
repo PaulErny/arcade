@@ -83,7 +83,7 @@ void Core::changeGame()
     create = (std::shared_ptr<IGames>(*)())dlsym(m_handleGame, "create_object");
     if (dlerror() != NULL)
         throw "Cannot open lib";
-    Lib = (std::shared_ptr<IGames>)create();
+    Games = (std::shared_ptr<IGames>)create();
 }
 
 const std::vector<std::string> &Core::getLibs() const
@@ -160,21 +160,21 @@ void Core::laodLib(int currentLib)
 {
     if (currentLib != indexLib) {
         this->Lib->deleteWindow();
-        this->changeGame();
+        this->changeLib();
         this->isMenuInit = false;
         this->isGameInit = false;
-        this->Games->initGameData();
-        this->Games->initGraphics();
+        this->Lib->createWindow(1080, 1080, "Arcade");
     }
 }
 
 void Core::loadGameLib(int gameIndex)
 {
     if (gameIndex != indexLib) {
-        this->changeLib();
+        this->changeGame();
         this->isMenuInit = false;
         this->isGameInit = false;
-        this->Lib->createWindow(1080, 1080, "Arcade");
+        this->Games->initGameData();
+        this->Games->initGraphics();
     }
 }
 
@@ -210,7 +210,8 @@ void Core::run()
         if (this->pgState == GAME && chosenGame != -1) {
             if (!this->isGameInit) {
                 this->loadGameLib(chosenGame);
-                // this->gameLib->initGame()
+                this->Games->initGameData();
+                this->Games->initGraphics();
                 this->isGameInit = true;
             }
             this->Games->runGame();
