@@ -25,9 +25,11 @@ private:
     std::shared_ptr<ILibs> Lib;
     int prevPosx;
     int prevPosy;
-    int indexFood;
+    int indexTitle;
+    int indexPseudo;
 public:
     Nibbler();
+    void setLib(std::shared_ptr<ILibs> &Lib);
     void keyPressed();
     void moove();
     void eatFood();
