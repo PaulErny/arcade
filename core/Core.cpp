@@ -65,17 +65,18 @@ void Core::changeLib()
     Lib = (std::shared_ptr<ILibs>)create();
 }
 
-void Core::changeGame()
+void Core::changeGame(int choosenGame)
 {
     if (dlerror() != NULL)
         throw dlerror();
-    if (indexLib >= (int)m_games.size()) {
-        indexLib = 0;
+    if (choosenGame >= (int)m_games.size()) {
+        choosenGame = 0;
     }
-    if (indexLib < 0) {
-        indexLib = (int)m_games.size() - 1;
+    if (choosenGame < 0) {
+        choosenGame = (int)m_games.size() - 1;
     }
-    std::string open("games/games_arcade_" + m_games.at(indexLib) + ".so");
+    std::string open("games/lib_arcade_" + m_games.at(choosenGame) + ".so");
+    std::cout << open << std::endl;
     m_handleGame = dlopen(open.c_str(), RTLD_LAZY);
     if (dlerror() != NULL)
         throw "Cannot open Lib";
@@ -167,10 +168,10 @@ void Core::laodLib(int currentLib)
     }
 }
 
-void Core::loadGameLib(int gameIndex)
+void Core::loadGameLib(int choosenGame, int indexGame)
 {
-    if (gameIndex != indexLib) {
-        this->changeGame();
+    if (choosenGame != indexGame) {
+        this->changeGame(choosenGame);
         this->isMenuInit = false;
     }
 }
@@ -183,6 +184,7 @@ void Core::run()
     int chosenGame = -1;
     int currentLib = 0;
     int gameIndex = 0;
+    int indexGame = -1;
     this->pgState = MENU;
 
     while (this->Lib->isWindowOpen()) {
@@ -204,14 +206,14 @@ void Core::run()
         }
         // this->Lib->nextGraphicLib(indexLib);
         // this->Lib->prevGraphicLib(indexLib);
-        if (this->pgState == GAME && chosenGame != -1) {
+        if (this->pgState == GAME && chosenGame != -1 || chosenGame != indexGame) {
             if (!this->isGameInit) {
-                this->loadGameLib(chosenGame);
-                this->Games->initGameData();
+                this->loadGameLib(chosenGame, indexGame);
+                this->Games->initGameData(m_pseudo);
                 this->Games->initGraphics();
                 this->isGameInit = true;
             }
-            this->Games->runGame();
+            this->Games->runGame(chosenGame);
         }    
         // check for lib changment  
         this->laodLib(currentLib);
