@@ -103,6 +103,8 @@ class ILibs {
         virtual bool downArrow()=0;
         virtual bool leftArrow()=0;
         virtual bool rigthArrow()=0;
+        virtual void nextGameLib(int &indexGame)=0;
+        virtual void prevGameLib(int &indexGame)=0;
 
         /* ------------------------------- MENU ------------------------------- */
         // menu for selecting the graphical lib. returns 0 if nCurses is selected, 2 for SFML and 3 for SDL -1 for errors

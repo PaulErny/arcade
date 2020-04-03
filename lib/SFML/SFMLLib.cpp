@@ -127,7 +127,7 @@ void SFMLLib::drawText(int textId)
 
 void SFMLLib::setTextString(int textId, std::string str)
 {
-    if (this->texts.size() > textId && this->texts[textId])
+    if (this->texts.size() > textId && !this->texts[textId])
         this->texts[textId]->setString(str);
     else
         throw "SFML setTextString() -> unknown index";
@@ -245,6 +245,18 @@ void SFMLLib::prevGraphicLib(int &indexLib)
 {
     if (this->event.type == sf::Event::KeyPressed && this->event.key.code == sf::Keyboard::A)
         indexLib--;
+}
+
+void SFMLLib::nextGameLib(int &indexGame)
+{
+    if (this->event.type == sf::Event::KeyPressed && this->event.key.code == sf::Keyboard::Q)
+        indexGame++;
+}
+
+void SFMLLib::prevGameLib(int &indexGame)
+{
+    if (this->event.type == sf::Event::KeyPressed && this->event.key.code == sf::Keyboard::D)
+        indexGame--;
 }
 
 bool SFMLLib::upArrow(void)
