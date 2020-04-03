@@ -8,28 +8,24 @@
 #ifndef PACMAN_HPP_
 #define PACMAN_HPP_
 
-#include <map>
-#include <memory>
-#include "../IGames.hpp"
+#include "../../lib/ILibs.hpp"
 #include "../Entity.hpp"
 
-class Pacman : public IGames {
+class Pacman : public Entity {
     public:
-        Pacman();
+        Pacman(std::shared_ptr<ILibs> lib);
         ~Pacman();
 
-        void initGameData();
         void initGraphics();
-        void runGame();
-        void setLib(std::shared_ptr<ILibs> &graphics);
-
+        void goRight();
+        void goLeft();
+        void goUp();
+        void goDown();
     private:
-        void initMapCell(int x, int y);
-        bool isAdjacentCellForbidden(int x, int y);
-
-        std::vector<std::vector<int>> map;
-        std::vector<std::vector<Entity>> mapSpritesID;
-        std::shared_ptr<ILibs> graphics;
+        bool rightDirection;
+        bool leftDirection;
+        bool upDirection;
+        bool downDirection;
 };
 
 #endif /* !PACMAN_HPP_ */

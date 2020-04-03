@@ -30,7 +30,7 @@ class Entity
         void setLibPtr(std::shared_ptr<ILibs>);
         void setType(entityType type);
 
-    private:
+    protected:
         int inVector;
         int posX;
         int posY;
