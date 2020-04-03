@@ -88,6 +88,12 @@ void Entity::setPosition(int x, int y)
 {
     this->posX = x;
     this->posY = y;
+    for (size_t i = 0; i < this->shapes.size(); i++) {
+        if (this->type == SHAPE)
+            this->graphics->setShapePos(this->shapes[i], this->posX, this->posY);
+        else if (this->type == SPRITE)
+            this->graphics->setImagePos(this->shapes[i], this->posX, this->posY);
+    }
 }
 
 const int &Entity::getXposition() const
