@@ -41,7 +41,6 @@ PacmanGame::PacmanGame()
                  {1, 2, 7, 1, 1, 1, 1, 1, 1, 1, 1, 8, 2, 7, 8, 2, 7, 1, 1, 1, 1, 1, 1, 1, 1, 8, 2, 1},
                  {1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1},
                  {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}};
-
     this->mapSpritesID = std::vector<std::vector<Entity>>(this->map.size(), std::vector<Entity>(this->map[0].size()));
     this->deltaTime = 0.0;
     this->seconds = 0.0;
@@ -210,6 +209,7 @@ void PacmanGame::runGame(int &indexGame)
         if (this->graphics->downArrow())
             this->player->goDown();
     }
+    this->player->movePlayer(this->deltaTime / (double)CLOCKS_PER_SEC);
 
     for (size_t y = 0; y < this->map.size(); y++) {
         for (size_t x = 0; x < this->map[y].size(); x++) {
@@ -217,11 +217,13 @@ void PacmanGame::runGame(int &indexGame)
         }
     }
     this->player->draw();
+
     this->endFrame = std::clock();
     this->deltaTime = this->endFrame - this->beginFrame;
     this->frames++;
     this->seconds += this->deltaTime;
 
+    std::cout << deltaTime / (double)CLOCKS_PER_SEC << std::endl;
     if ((this->seconds / (double)CLOCKS_PER_SEC) * 1000 > 1000.0) // to have deltaTime in sec
         this->getFPS();
 }

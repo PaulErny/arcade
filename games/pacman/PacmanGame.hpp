@@ -11,6 +11,7 @@
 #include <map>
 #include <memory>
 #include <ctime>
+#include <unistd.h>
 #include "../../lib/ILibs.hpp"
 #include "../IGames.hpp"
 #include "../Entity.hpp"
@@ -33,6 +34,9 @@ class PacmanGame : public IGames {
         void initMapBorder(int x, int y);
         bool isAdjacentCellForbidden(int x, int y);
 
+        void update();
+        void draw();
+
         std::vector<std::vector<int>> map;
         std::vector<std::vector<Entity>> mapSpritesID;
         std::unique_ptr<Pacman> player;
@@ -42,10 +46,11 @@ class PacmanGame : public IGames {
 
         std::clock_t beginFrame;
         std::clock_t endFrame;
-        std::clock_t seconds;
-        std::clock_t deltaTime;
-        int frames;
+        double seconds;
+        double deltaTime;
         double frameRate;
+        int maxUpdates;
+        int frames;
 
 
 };

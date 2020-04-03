@@ -12,6 +12,11 @@ Pacman::Pacman(std::shared_ptr<ILibs> lib)
     this->setLibPtr(lib);
     this->setType(SPRITE);
     this->setPosition(/* xOffset */92 + /* x */14 * 32 - 16, /* yOffset */44 + /* y */ 23 *32);
+
+    this->rightDirection = false;
+    this->leftDirection = false;
+    this->upDirection = false;
+    this->downDirection = false;
 }
 
 Pacman::~Pacman()
@@ -37,7 +42,7 @@ void Pacman::goRight()
 
 void Pacman::goLeft()
 {
-    if (!this->rightDirection) {
+    if (!this->leftDirection) {
         this->rightDirection = false;
         this->leftDirection = true;
         this->upDirection = false;
@@ -47,7 +52,7 @@ void Pacman::goLeft()
 
 void Pacman::goUp()
 {
-    if (!this->rightDirection) {
+    if (!this->upDirection) {
         this->rightDirection = false;
         this->leftDirection = false;
         this->upDirection = true;
@@ -57,10 +62,22 @@ void Pacman::goUp()
 
 void Pacman::goDown()
 {
-    if (!this->rightDirection) {
+    if (!this->downDirection) {
         this->rightDirection = false;
         this->leftDirection = false;
         this->upDirection = false;
         this->downDirection = true;
     }
+}
+
+void Pacman::movePlayer(double deltaTime) // in sec
+{
+    if (this->rightDirection)
+        this->move(500 * deltaTime, 0);
+    if (this->leftDirection)
+        this->move(-500 * deltaTime, 0);
+    if (this->upDirection)
+        this->move(0, -500 * deltaTime);
+    if (this->downDirection)
+        this->move(0, 500 * deltaTime);
 }
