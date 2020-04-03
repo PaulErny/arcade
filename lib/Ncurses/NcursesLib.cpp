@@ -183,10 +183,31 @@ void NcursesLib::init_menu(std::vector<std::string> &libsNames, std::vector<std:
 
 void NcursesLib::nextGraphicLib(int &indexLib)
 {
+    if (getch() == 'a') {
+        indexLib--;
+    }
 }
 
 void NcursesLib::prevGraphicLib(int &indexLib)
 {
+    if (getch() == 'e') {
+        indexLib++;
+    }
+}
+
+void NcursesLib::nextGameLib(int &indexGame)
+{
+    if (getch() == 'q')
+    {
+        indexGame--;
+    }
+}
+
+void NcursesLib::prevGameLib(int &indexGame)
+{
+    if (getch() == 'd') {
+        indexGame++;
+    }
 }
 
 bool NcursesLib::upArrow()

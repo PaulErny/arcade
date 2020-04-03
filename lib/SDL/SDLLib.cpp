@@ -271,6 +271,24 @@ bool SDLLib::keyReleasedEvent(void)
     return (false);
 }
 
+void SDLLib::nextGameLib(int &indexGame)
+{
+    if (e.type == SDL_KEYDOWN)
+    {
+        if (e.key.keysym.sym == SDLK_d)
+            indexGame++;
+    }
+}
+
+void SDLLib::prevGameLib(int &indexGame)
+{
+    if (e.type == SDL_KEYDOWN)
+    {
+        if (e.key.keysym.sym == SDLK_q)
+            indexGame--;
+    }
+}
+
 extern "C" std::shared_ptr<SDLLib> create_object()
 {
     return std::make_shared<SDLLib>();

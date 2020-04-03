@@ -102,6 +102,8 @@ class SFMLLib : public ILibs {
         bool downArrow(void);
         bool leftArrow(void);
         bool rigthArrow(void);
+        void nextGameLib(int &indexGame);
+        void prevGameLib(int &indexGame);
 
         /* ------------------------------- MENU ------------------------------- */
         // menu for selecting the graphical lib. returns 0 if nCurses is selected, 2 for SFML and 3 for SDL -1 for errors
