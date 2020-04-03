@@ -10,7 +10,7 @@ SRCS	= ./Core.cpp \
 OBJS	= $(SRCS:.cpp=.o)
 
 CPPFLAGS = -I ./pp
-override CXXFLAGS = -std=c++17 -Wall -Wextra
+override CXXFLAGS = -std=c++17 -g -Wall -Wextra
 
 LDFLAGS = -ldl
 

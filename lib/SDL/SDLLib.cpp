@@ -83,7 +83,9 @@ int SDLLib::createFontFromFile(const std::string filename)
 
 int SDLLib::createText(std::string text, int fontId)
 {
-    if (fontId < gFont.size()) {
+    if (fontId < gFont.size() + 1) {
+        this->setTextColor(fontId, 255, 255, 255);
+        std::cout << fontId << "test" << gColor.size() << "tes2" << gFont.size() << std::endl;
         gTextSurface.push_back(TTF_RenderText_Solid(gFont.at(fontId), text.c_str(), gColor.at(fontId)));
         gTexture.push_back(SDL_CreateTextureFromSurface(gRenderer, gTextSurface.at(fontId)));
         if (gTextSurface.at(gTextSurface.size() - 1) == NULL)

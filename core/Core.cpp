@@ -127,14 +127,14 @@ void Core::fillGamesVector()
         throw "No lib directory";
     std::string fileString;
     std::string toVector;
-    std::regex regGames("games_arcade_.*[.so]$");
+    std::regex regGames("lib_arcade_.*[.so]$");
     struct dirent *file = NULL;
     while ((file = readdir(rep)) != NULL)
     {
         fileString.assign(file->d_name);
         if (std::regex_search(fileString, regGames))
         {
-            for (auto i = 13; i < (int)fileString.find(".so"); i++)
+            for (auto i = 11; i < (int)fileString.find(".so"); i++)
             {
                 toVector.push_back(fileString[i]);
             }
@@ -172,9 +172,6 @@ void Core::loadGameLib(int gameIndex)
     if (gameIndex != indexLib) {
         this->changeGame();
         this->isMenuInit = false;
-        this->isGameInit = false;
-        this->Games->initGameData();
-        this->Games->initGraphics();
     }
 }
 

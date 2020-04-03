@@ -20,6 +20,7 @@ private:
     std::string text = "";
     std::string name = "";
     int indexGame = 0;
+    int indexGameReturn = -1;
     int sizeGamesName = 0;
     bool rendertext = false;
     bool quit; 
