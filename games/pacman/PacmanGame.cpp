@@ -58,7 +58,7 @@ void PacmanGame::setLib(std::shared_ptr<ILibs> &lib)
     this->graphics = lib;
 }
 
-void PacmanGame::initGameData()
+void PacmanGame::initGameData(std::string &pseudo)
 {
     for (size_t y = 0; y < this->map.size(); y++) {
         for (size_t x = 0; x < this->map[y].size(); x++) {
@@ -196,7 +196,7 @@ double PacmanGame::getFPS()
     std::cout << "CPU time was:" << averageFrameTimeMilliseconds << std::endl;
 }
 
-void PacmanGame::runGame()
+void PacmanGame::runGame(int &indexGame)
 {
     this->beginFrame = std::clock();
     while (this->graphics->events()) {

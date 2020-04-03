@@ -22,9 +22,9 @@ class PacmanGame : public IGames {
         PacmanGame();
         ~PacmanGame();
 
-        void initGameData();
+        void initGameData(std::string &pseudo);
         void initGraphics();
-        void runGame();
+        void runGame(int &indexGame);
         void setLib(std::shared_ptr<ILibs> &graphics);
         double getFPS();
 

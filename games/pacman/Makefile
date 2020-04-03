@@ -1,4 +1,4 @@
-NAME	= games_arcade_pacman.so
+NAME	= lib_arcade_pacman.so
 
 CXX	= g++ 
 

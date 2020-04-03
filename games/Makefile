@@ -1,5 +1,8 @@
 CXX	= g++
 
+NAME	= lib_arcade_pacman.so
+NAMETWO = lib_arcade_nibbler.so
+
 RM	= rm -f
 
 MAKE:
@@ -23,12 +26,15 @@ $(NAME): $(OBJS)
 clean:
 	make clean -C ./nibbler/
 	make clean -C ./pacman/
+	$(RM) $(NAME) $(NAMETWO)
 
 fclean:
 	make fclean -C ./nibbler/
 	make fclean -C ./pacman/
+	$(RM) $(NAME) $(NAMETWO)
 
 re: 
+	$(RM) $(NAME) $(NAMETWO)
 	make re -C ./nibbler/
 	make re -C ./pacman/
 
