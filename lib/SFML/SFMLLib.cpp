@@ -45,7 +45,7 @@ void SFMLLib::setShapeColor(int index, int r, int g, int b, int a)
         throw "SFML setShapeColor() -> unknown index"; 
 }
 
-void SFMLLib::setShapePos(int index, int x, int y)
+void SFMLLib::setShapePos(int index, float x, float y)
 {
     if (this->shapes.size() > index && this->shapes[index])
         this->shapes[index]->setPosition(sf::Vector2f(x, y));
@@ -83,7 +83,7 @@ void SFMLLib::drawImage(int ImageId)
         throw "SFML drawImage() -> unknown index";
 }
 
-void SFMLLib::setImagePos(int ImageId, int x, int y)
+void SFMLLib::setImagePos(int ImageId, float x, float y)
 {
     if (this->sprites[ImageId])
         this->sprites[ImageId]->setPosition(x, y);
@@ -133,7 +133,7 @@ void SFMLLib::setTextString(int textId, std::string str)
         throw "SFML setTextString() -> unknown index";
 }
 
-void SFMLLib::setTextPos(int textId, int x, int y)
+void SFMLLib::setTextPos(int textId, float x, float y)
 {
     if (this->texts.size() > textId && this->texts[textId])
         this->texts[textId]->setPosition(sf::Vector2f(x, y));

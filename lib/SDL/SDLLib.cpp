@@ -36,11 +36,11 @@ void SDLLib::deleteShape(int index)
 
 }
 
-void SDLLib::setShapePos(int index, int x, int y)
+void SDLLib::setShapePos(int index, float x, float y)
 {
     if (index < (int)shapeRect.size()) {
-        shapeRect.at(index).x = x;
-        shapeRect.at(index).y = y;
+        shapeRect.at(index).x = (int)x;
+        shapeRect.at(index).y = (int)y;
     }
 }
 
@@ -57,13 +57,13 @@ void SDLLib::drawImage(int ImageId)
     SDL_RenderCopy(gRenderer, textureImage.at(ImageId), NULL, &rectImage.at(ImageId));
 }
 
-void SDLLib::setImagePos(int ImageId, int x, int y)
+void SDLLib::setImagePos(int ImageId, float x, float y)
 {
     int w, h;
     SDL_QueryTexture(textureImage.at(ImageId), NULL, NULL, &w, &h);
     SDL_Rect texr;
-    texr.x = x;
-    texr.y = y;
+    texr.x = (int)x;
+    texr.y = (int)y;
     texr.h = h * 2;
     texr.w = w * 2;
     rectImage.push_back(texr);
@@ -105,11 +105,11 @@ void SDLLib::setTextString(int textId, std::string str)
     gTexture.push_back(SDL_CreateTextureFromSurface(gRenderer, gTextSurface.at(textId)));
 }
 
-void SDLLib::setTextPos(int textId, int x, int y)
+void SDLLib::setTextPos(int textId, float x, float y)
 {
     SDL_Rect Message_rect; //create a rect
-    Message_rect.x = x;    //controls the rect's x coordinate
-    Message_rect.y = y;    // controls the rect's y coordinte
+    Message_rect.x = (int)x;    //controls the rect's x coordinate
+    Message_rect.y = (int)y;    // controls the rect's y coordinte
     Message_rect.w = 100;  // controls the width of the rect
     Message_rect.h = 100;
     gRect.push_back(Message_rect);

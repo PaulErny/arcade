@@ -32,7 +32,7 @@ class SFMLLib : public ILibs {
         // draws the shape contained at $index of the vector of shapes
         void drawShape(int index);
         // sets the position of the shape contained at $index of the vector of shapes
-        void setShapePos(int index, int x, int y);
+        void setShapePos(int index, float x, float y);
         // sets the color of the shape contained at $index of the vector of shapes
         void setShapeColor(int index, int r, int g, int b, int a=255);
         // deletes the shape contained at $index of the vector of shapes
@@ -44,7 +44,7 @@ class SFMLLib : public ILibs {
         // draws the sprite contained at $ImageId of the vector of shapes
         void drawImage(int ImageId);
         // sets the position of the sprite contained at $ImageId of the vector of shapes
-        void setImagePos(int ImageId, int x, int y);
+        void setImagePos(int ImageId, float x, float y);
         // deletes the sprite contained at $ImageId of the vector of sprites
         void deleteImage(int ImageId);
 
@@ -60,7 +60,7 @@ class SFMLLib : public ILibs {
         // sets the string of a text element
         void setTextString(int textId, std::string str);
         // sets the position of the sprite contained at $spriteId of the vector of shapes
-        void setTextPos(int textId, int x, int y);
+        void setTextPos(int textId, float x, float y);
         // sets the size of the text to $charSize
         void setTextCharSize(int textId, int charSize);
         // changes the color of the text

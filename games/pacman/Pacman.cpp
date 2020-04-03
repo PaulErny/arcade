@@ -73,11 +73,11 @@ void Pacman::goDown()
 void Pacman::movePlayer(double deltaTime) // in sec
 {
     if (this->rightDirection)
-        this->move(500 * deltaTime, 0);
+        this->move(200 * deltaTime, 0);
     if (this->leftDirection)
-        this->move(-500 * deltaTime, 0);
+        this->move(-200 * deltaTime, 0);
     if (this->upDirection)
-        this->move(0, -500 * deltaTime);
+        this->move(0, -200 * deltaTime);
     if (this->downDirection)
-        this->move(0, 500 * deltaTime);
+        this->move(0, 200 * deltaTime);
 }

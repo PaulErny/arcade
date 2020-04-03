@@ -46,9 +46,10 @@ class PacmanGame : public IGames {
 
         std::clock_t beginFrame;
         std::clock_t endFrame;
-        double seconds;
+        double remainingTime;
         double deltaTime;
         double frameRate;
+        double frameTime;
         int maxUpdates;
         int frames;
 
