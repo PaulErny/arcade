@@ -40,7 +40,7 @@ public : Core(char *arg);
     void laodLib(int currentLib);
     void loadGame(int currentGame);
     void loadGameLib(int gameIndex);
-    void changeGame();
+    void changeGame(int choosenGame, int indexGame);
     void run();
     void game();
 
