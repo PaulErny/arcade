@@ -104,7 +104,7 @@ void Pacman::movePlayer(double deltaTime, std::vector<std::vector<int>> &map) //
     }
 }
 
-int Pacman::eatCoin(std::vector<std::vector<int>> &map, std::vector<std::vector<Entity>> &mapSpritesID)
+int Pacman::eatCoin(std::vector<std::vector<int>> &map, std::vector<std::vector<Entity>> &mapSpritesID, int &remainingCoins)
 {
     // get map pos
     float MapPosX = (this->posX + 16 - 92) / 32;
@@ -113,12 +113,14 @@ int Pacman::eatCoin(std::vector<std::vector<int>> &map, std::vector<std::vector<
     if (map[MapPosY][MapPosX] == 2) {
         map[(int)MapPosY][(int)MapPosX] = 0;
         mapSpritesID[(int)MapPosY][(int)MapPosX].nextShape();
-        return 100;
+        remainingCoins--;
+        return 50;
     }
     if (map[MapPosY][MapPosX] == 3) {
         map[(int)MapPosY][(int)MapPosX] = 0;
         mapSpritesID[(int)MapPosY][(int)MapPosX].nextShape();
-        return 300;
+        remainingCoins--;
+        return 150;
     }
     return 0;
 }

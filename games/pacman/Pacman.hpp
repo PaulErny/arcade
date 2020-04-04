@@ -22,7 +22,7 @@ class Pacman : public Entity {
         void goUp();
         void goDown();
         void movePlayer(double deltaTime, std::vector<std::vector<int>> &map);
-        int eatCoin(std::vector<std::vector<int>> &map, std::vector<std::vector<Entity>> &mapSpritesID);
+        int eatCoin(std::vector<std::vector<int>> &map, std::vector<std::vector<Entity>> &mapSpritesID, int &remainingCoins);
 
     private:
         bool rightDirection;

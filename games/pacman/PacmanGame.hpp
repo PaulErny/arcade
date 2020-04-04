@@ -37,7 +37,12 @@ class PacmanGame : public IGames {
         void update();
         void draw();
 
+        std::string name;
         int score;
+        int remainingCoins;
+        int fontID;
+        std::string scoreText;
+        int scoreTextID;
 
         std::vector<std::vector<int>> map;
         std::vector<std::vector<Entity>> mapSpritesID;

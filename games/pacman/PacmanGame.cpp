@@ -49,6 +49,7 @@ PacmanGame::PacmanGame()
     this->frameTime = 0.01; // in sec -> 10ms per frame -> 100 FPS
     this->maxUpdates = 5;
     this->score = 0;
+    this->remainingCoins = 246;
 }
 
 PacmanGame::~PacmanGame()
@@ -69,6 +70,7 @@ void PacmanGame::initGameData(std::string &pseudo)
         }
     }
     this->player = std::make_unique<Pacman>(this->graphics);
+    this->name = pseudo;
 }
 
 bool PacmanGame::isAdjacentCellForbidden(int x, int y)
@@ -187,15 +189,19 @@ void PacmanGame::initGraphics()
         }
     }
     this->player->initGraphics();
+    this->fontID = this->graphics->createFontFromFile("resources/ARCADE_I.TTF");
+    this->scoreText = this->name + "'s score:" + std::to_string(this->score);
+    this->scoreTextID = this->graphics->createText(this->scoreText, this->fontID);
+    this->graphics->setTextCharSize(this->scoreTextID, 25);
+    this->graphics->setTextPos(this->scoreTextID, 540 - ((this->scoreText.length() * 25) / 2), 5);
 }
 
 void PacmanGame::update()
 {
     this->player->movePlayer(this->deltaTime / (double)CLOCKS_PER_SEC, this->map);
-    // unsigned int tmp = this->score;
-    this->score += this->player->eatCoin(this->map, this->mapSpritesID);
-    // if (tmp != this->score)
-    //     this->map[(int)((this->player->getYposition() - 92 )/ 32)][(int)((this->player->getXposition() - 92 )/ 32)] = 0;
+    this->score += this->player->eatCoin(this->map, this->mapSpritesID, this->remainingCoins);
+    this->graphics->setTextString(this->scoreTextID, this->name + "'s score:" + std::to_string(this->score));
+    this->graphics->setTextPos(this->scoreTextID, 540 - ((this->scoreText.length() * 25) / 2), 5);
 }
 
 void PacmanGame::draw()
@@ -205,7 +211,8 @@ void PacmanGame::draw()
             this->mapSpritesID[y][x].draw();
         }
     }
-    this->player->draw();   
+    this->player->draw();
+    this->graphics->drawText(this->scoreTextID);
 }
 
 void PacmanGame::runGame(int &indexGame, int &indexLib)
