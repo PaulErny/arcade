@@ -46,8 +46,8 @@ class PacmanGame : public IGames {
 
         std::vector<std::vector<int>> map;
         std::vector<std::vector<Entity>> mapSpritesID;
-        std::unique_ptr<Pacman> player;
-        std::vector<Ghost> ghosts; //0 = red, 1 = blue, 2 = pink, 3 = yellow
+        std::shared_ptr<Pacman> player;
+        std::vector<std::unique_ptr<Ghost>> ghosts; //0 = red, 1 = blue, 2 = pink, 3 = yellow
 
         std::shared_ptr<ILibs> graphics;
 

@@ -69,8 +69,12 @@ void PacmanGame::initGameData(std::string &pseudo)
             this->mapSpritesID[y][x].setPosition(92 + x*32, 44 + y*32);
         }
     }
-    this->player = std::make_unique<Pacman>(this->graphics);
+    this->player = std::make_shared<Pacman>(this->graphics);
     this->name = pseudo;
+    // for (size_t i = 0; i < 4; i++) {
+        this->ghosts.push_back(std::make_unique<Ghost>(this->graphics));
+        this->ghosts[this->ghosts.size() - 1]->setPosition(/* xOffset */92 + /* x */14 * 32 - 16, /* yOffset */44 + /* y */ 11 *32);
+    // }
 }
 
 bool PacmanGame::isAdjacentCellForbidden(int x, int y)
@@ -188,6 +192,10 @@ void PacmanGame::initGraphics()
             this->initMapCell(x, y);
         }
     }
+
+    for (size_t i = 0; i < this->ghosts.size(); i++) {
+        this->ghosts[i]->initGraphics();
+    }
     this->player->initGraphics();
     this->fontID = this->graphics->createFontFromFile("resources/ARCADE_I.TTF");
     this->scoreText = this->name + "'s score:" + std::to_string(this->score);
@@ -198,6 +206,12 @@ void PacmanGame::initGraphics()
 
 void PacmanGame::update()
 {
+    for (size_t i = 0; i < this->ghosts.size(); i++){
+        this->ghosts[i]->movePlayer(this->deltaTime / (double)CLOCKS_PER_SEC, this->map);
+        if (this->ghosts[i]->hitPlayer(this->player)) {
+            // LOOSE
+        }
+    }
     this->player->movePlayer(this->deltaTime / (double)CLOCKS_PER_SEC, this->map);
     this->score += this->player->eatCoin(this->map, this->mapSpritesID, this->remainingCoins);
     this->graphics->setTextString(this->scoreTextID, this->name + "'s score:" + std::to_string(this->score));
@@ -211,6 +225,10 @@ void PacmanGame::draw()
             this->mapSpritesID[y][x].draw();
         }
     }
+    for (size_t i = 0; i < this->ghosts.size(); i++) {
+        this->ghosts[i]->draw();
+    }
+    
     this->player->draw();
     this->graphics->drawText(this->scoreTextID);
 }
@@ -228,6 +246,10 @@ void PacmanGame::runGame(int &indexGame, int &indexLib)
             this->player->goUp();
         if (this->graphics->downArrow())
             this->player->goDown();
+        this->graphics->nextGraphicLib(indexLib);
+        this->graphics->prevGraphicLib(indexLib);
+        this->graphics->nextGameLib(indexGame);
+        this->graphics->prevGameLib(indexGame);
     }
     this->draw();
 
