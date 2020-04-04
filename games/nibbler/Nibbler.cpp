@@ -17,8 +17,8 @@ void Nibbler::initGameData(std::string &pseudo)
 
 void Nibbler::initGraphics()
 {
-    int fontID = Lib->createFontFromFile("../resources/ARCADE_I.TTF");
-    int fontID2 = Lib->createFontFromFile("../resources/ARCADE_I.TTF");
+    int fontID = Lib->createFontFromFile("./resources/ARCADE_I.TTF");
+    int fontID2 = Lib->createFontFromFile("./resources/ARCADE_I.TTF");
     indexPseudo = Lib->createText(pseudo, fontID);
     indexGameLoose = Lib->createText("YOU LOOSE", fontID2);
     Lib->setTextPos(indexPseudo, 0, 0);
