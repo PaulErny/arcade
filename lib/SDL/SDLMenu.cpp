@@ -50,6 +50,9 @@ void SDLLib::eventMenu(int &indexLib)
                 if (e.key.keysym.sym == SDLK_a) {
                     this->prevGraphicLib(indexLib);
                 }
+                else if (e.key.keysym.sym == 13 && text.length() > 0 || e.key.keysym.sym == 10) {
+                    indexGameReturn = indexGame;
+                }
             }
         }
     }
@@ -93,6 +96,10 @@ int SDLLib::menu(state &pgState, bool close, std::vector<std::string> &libsNames
     pseudo = name;
     this->eventMenu(indexLib);
     this->clearWindow();
+    if (indexGameReturn != -1) {
+        pgState = GAME;
+        return indexGameReturn;
+    }
     if (name == "") {
         rectPseudo = {240, 540, (int)text.size() * 50, 100};
         SDL_RenderCopy(gRenderer, texturePseudo, NULL, &rectPseudo);
