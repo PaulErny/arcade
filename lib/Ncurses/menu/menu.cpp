@@ -1,21 +1,34 @@
-/*
-** EPITECH PROJECT, 2020
-** ncurses
-** File description:
-** main
-*/
+/**
+ * \file menu.cpp
+ * \brief Main file, for Ncurses
+ */
 
 #include "../NcursesLib.hpp"
 
+/**
+ * \fn NcursesLib::NcursesLib()
+ * \brief Constructor
+ */
 NcursesLib::NcursesLib()
 {
 }
 
+/**
+ * \fn NcursesLib::~NcursesLib()
+ * \brief Destructor
+ */
 NcursesLib::~NcursesLib()
 {
 }
 
-void NcursesLib::test(int row, int col)
+/**
+ * \fn void NcursesLib::displayArcade(int row, int col)
+ * \brief to display "ARCADE" in color
+ * \brief And to put the color in Ncurses
+ * 
+ * \param row
+ */
+void NcursesLib::displayArcade(int row, int col)
 {
     char title1[] = "   ____    ___  _________    ____  _____";
     char title2[] = "   /   |  / __ |/ ____/   |  / __ |/ ___/";
@@ -36,6 +49,15 @@ void NcursesLib::test(int row, int col)
 
 /* ------------------------------- MENU ------------------------------- */
 
+/**
+ * \fn int NcursesLib::libSelectionMenu(state &pgState, bool close, std::vector<std::string> &libsNames)
+ * \brief Main method for the selection of the library
+ *
+ * \param pgState is a enumeration
+ * \param close to check if the window is closed
+ * \param libsNames of vector
+ * \return int(library)
+ */
 int NcursesLib::libSelectionMenu(state &pgState, bool close, std::vector<std::string> &libsNames)
 {
     pgState = MENU;
@@ -47,6 +69,16 @@ int NcursesLib::libSelectionMenu(state &pgState, bool close, std::vector<std::st
     return (which_lib);
 }
 
+/**
+ * \fn int NcursesLib::gameSelectionMenu(state &pgState, bool close, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores)
+ * \briefMain method for the selection of the game
+ * 
+ * \param pgState is a enumeration
+ * \param close to check if the window is closed
+ * \param gamesNames of vector
+ * \param highScores of vector
+ * \return int(game)
+ */
 int NcursesLib::gameSelectionMenu(state &pgState, bool close, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores)
 {
     pgState = MENU;
@@ -59,16 +91,31 @@ int NcursesLib::gameSelectionMenu(state &pgState, bool close, std::vector<std::s
     return (which_game);
 }
 
+/**
+ * \fn int NcursesLib::menu(state &pgState, bool close, std::vector<std::string> &libsNames, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores, std::string &pseudo, int &indexLib)
+ * \brief Main method of the menu
+ * 
+ * \param pgState is a enumeration
+ * \param close to check if the window is closed
+ * \param libsNames
+ * \parama gamesNames of vector
+ * \param highScores of vector
+ * \param pseudo is the pseudo
+ * \param indexLib is for change the lib
+ * \return int
+ */
 int NcursesLib::menu(state &pgState, bool close, std::vector<std::string> &libsNames, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores, std::string &pseudo, int &indexLib)
 {
     this->_indexLib = indexLib;
     if (pseudo.empty() == true)
         pseudo = this->enterName(pgState, close);
-    if (this->libSelectionMenu(pgState, close, libsNames) == -1) {
+    if (this->libSelectionMenu(pgState, close, libsNames) == -1)
+    {
         indexLib = this->_indexLib;
         return (0);
     }
-    if (this->gameSelectionMenu(pgState, close, gamesNames, highScores) == -1) {
+    if (this->gameSelectionMenu(pgState, close, gamesNames, highScores) == -1)
+    {
         indexLib = this->_indexLib;
         return (0);
     }
