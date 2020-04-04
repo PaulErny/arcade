@@ -25,7 +25,7 @@ Pacman::~Pacman()
 
 void Pacman::initGraphics()
 {
-    this->addImage("pacman/resources/pacman_up_1.png");
+    this->addImage("games/pacman/resources/pacman_up_1.png");
     this->updatePosition();
 }
 

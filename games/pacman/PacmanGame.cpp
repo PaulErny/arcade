@@ -98,16 +98,16 @@ void PacmanGame::initMapBorder(int x, int y)
         this->mapSpritesID[y][x].addShape(32, 32, 30, 30, 230);
     } else if (y == 0) { // top row
         this->mapSpritesID[y][x].setType(SPRITE);
-        this->mapSpritesID[y][x].addImage("pacman/resources/border_4.png");
+        this->mapSpritesID[y][x].addImage("games/pacman/resources/border_4.png");
     } else if (y == this->map.size() - 1) { // bot row
         this->mapSpritesID[y][x].setType(SPRITE);
-        this->mapSpritesID[y][x].addImage("pacman/resources/border_3.png");
+        this->mapSpritesID[y][x].addImage("games/pacman/resources/border_3.png");
     } else if (x == 0) { // first column
         this->mapSpritesID[y][x].setType(SPRITE);
-        this->mapSpritesID[y][x].addImage("pacman/resources/border_2.png");
+        this->mapSpritesID[y][x].addImage("games/pacman/resources/border_2.png");
     } else if (x == this->map[0].size() - 1) { // last column
         this->mapSpritesID[y][x].setType(SPRITE);
-        this->mapSpritesID[y][x].addImage("pacman/resources/border_1.png");
+        this->mapSpritesID[y][x].addImage("games/pacman/resources/border_1.png");
     } else {
         this->mapSpritesID[y][x].setType(SHAPE);
         this->mapSpritesID[y][x].addShape(32, 32, 30, 30, 230);
@@ -120,61 +120,61 @@ void PacmanGame::initMapCell(int x, int y)
         if (y > 0 && y < this->map.size() && x > 0 && x < this->map[0].size() && !this->isAdjacentCellForbidden(x, y)) {
             this->mapSpritesID[y][x].setType(SPRITE);
             if (this->map[y - 1][x] == 1 && this->map[y + 1][x] == 1 && this->map[y][x - 1] == 1 && this->map[y][x + 1] == 1)
-                this->mapSpritesID[y][x].addImage("pacman/resources/empty.png");
+                this->mapSpritesID[y][x].addImage("games/pacman/resources/empty.png");
             else if (this->map[y - 1][x] == 2 || this->map[y - 1][x] == 3 || this->map[y - 1][x] == 0)
-                this->mapSpritesID[y][x].addImage("pacman/resources/wall_horizontal_up.png");
+                this->mapSpritesID[y][x].addImage("games/pacman/resources/wall_horizontal_up.png");
             else if (this->map[y + 1][x] == 2 || this->map[y + 1][x] == 3 || this->map[y + 1][x] == 0)
-                this->mapSpritesID[y][x].addImage("pacman/resources/wall_horizontal_down.png");
+                this->mapSpritesID[y][x].addImage("games/pacman/resources/wall_horizontal_down.png");
             else if (this->map[y][x - 1] == 2 || this->map[y][x - 1] == 3 || this->map[y][x - 1] == 0)
-                this->mapSpritesID[y][x].addImage("pacman/resources/wall_vertical_left.png");
+                this->mapSpritesID[y][x].addImage("games/pacman/resources/wall_vertical_left.png");
             else if (this->map[y][x + 1] == 2 || this->map[y][x + 1] == 3 || this->map[y][x + 1] == 0)
-                this->mapSpritesID[y][x].addImage("pacman/resources/wall_vertical_right.png");
+                this->mapSpritesID[y][x].addImage("games/pacman/resources/wall_vertical_right.png");
         } else {
             this->initMapBorder(x, y);
         }
     } else if (this->map[y][x] == 5) {
         if (this->map[y + 1][x + 1] != 1 && this->map[y + 1][x + 1] != 5) {
             this->mapSpritesID[y][x].setType(SPRITE);
-            this->mapSpritesID[y][x].addImage("pacman/resources/inward_coner_4.png");
+            this->mapSpritesID[y][x].addImage("games/pacman/resources/inward_coner_4.png");
         } else {
             this->mapSpritesID[y][x].setType(SPRITE);
-            this->mapSpritesID[y][x].addImage("pacman/resources/turn_up_right.png");
+            this->mapSpritesID[y][x].addImage("games/pacman/resources/turn_up_right.png");
         }
     } else if (this->map[y][x] == 6) {
         if (this->map[y + 1][x - 1] != 1 && this->map[y + 1][x - 1] != 6) {
             this->mapSpritesID[y][x].setType(SPRITE);
-            this->mapSpritesID[y][x].addImage("pacman/resources/inward_coner_3.png");
+            this->mapSpritesID[y][x].addImage("games/pacman/resources/inward_coner_3.png");
         } else {
             this->mapSpritesID[y][x].setType(SPRITE);
-            this->mapSpritesID[y][x].addImage("pacman/resources/turn_up_left.png");
+            this->mapSpritesID[y][x].addImage("games/pacman/resources/turn_up_left.png");
         }
     } else if (this->map[y][x] == 7) {
         if (this->map[y - 1][x + 1] != 1 && this->map[y - 1][x + 1] != 7) {
             this->mapSpritesID[y][x].setType(SPRITE);
-            this->mapSpritesID[y][x].addImage("pacman/resources/inward_coner_1.png");
+            this->mapSpritesID[y][x].addImage("games/pacman/resources/inward_coner_1.png");
         } else {
             this->mapSpritesID[y][x].setType(SPRITE);
-            this->mapSpritesID[y][x].addImage("pacman/resources/turn_down_right.png");
+            this->mapSpritesID[y][x].addImage("games/pacman/resources/turn_down_right.png");
         }
     } else if (this->map[y][x] == 8) {
         if (this->map[y - 1][x - 1] != 1 && this->map[y - 1][x - 1] != 8) {
             this->mapSpritesID[y][x].setType(SPRITE);
-            this->mapSpritesID[y][x].addImage("pacman/resources/inward_coner_2.png");
+            this->mapSpritesID[y][x].addImage("games/pacman/resources/inward_coner_2.png");
         } else {
             this->mapSpritesID[y][x].setType(SPRITE);
-            this->mapSpritesID[y][x].addImage("pacman/resources/turn_down_left.png");
+            this->mapSpritesID[y][x].addImage("games/pacman/resources/turn_down_left.png");
         }
     } else if (this->map[y][x] == 2) {
         this->mapSpritesID[y][x].setType(SPRITE);
-        this->mapSpritesID[y][x].addImage("pacman/resources/small_coin.png");
-        this->mapSpritesID[y][x].addImage("pacman/resources/empty.png");
+        this->mapSpritesID[y][x].addImage("games/pacman/resources/small_coin.png");
+        this->mapSpritesID[y][x].addImage("games/pacman/resources/empty.png");
     } else if (this->map[y][x] == 3) {
         this->mapSpritesID[y][x].setType(SPRITE);
-        this->mapSpritesID[y][x].addImage("pacman/resources/big_coin_1.png");
-        this->mapSpritesID[y][x].addImage("pacman/resources/empty.png");
+        this->mapSpritesID[y][x].addImage("games/pacman/resources/big_coin_1.png");
+        this->mapSpritesID[y][x].addImage("games/pacman/resources/empty.png");
     } else if (this->map[y][x] == 0 || this->map[y][x] == 4) {
         this->mapSpritesID[y][x].setType(SPRITE);
-        this->mapSpritesID[y][x].addImage("pacman/resources/empty.png");
+        this->mapSpritesID[y][x].addImage("games/pacman/resources/empty.png");
     }
     this->mapSpritesID[y][x].updatePosition();
 }
@@ -238,7 +238,7 @@ void PacmanGame::runGame(int &indexGame, int &indexLib)
     }
 }
 
-// extern "C" std::shared_ptr<Pacman> create_object()
-// {
-//     return std::make_shared<Pacman>();
-// }
+extern "C" std::shared_ptr<PacmanGame> create_object()
+{
+    return std::make_shared<PacmanGame>();
+}
