@@ -1,0 +1,423 @@
+\hypertarget{class_ncurses_lib}{}\doxysection{Ncurses\+Lib Class Reference}
+\label{class_ncurses_lib}\index{NcursesLib@{NcursesLib}}
+
+
+classe de la librairie Ncurses  
+
+
+
+
+{\ttfamily \#include $<$Ncurses\+Lib.\+hpp$>$}
+
+Inheritance diagram for Ncurses\+Lib\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_ncurses_lib}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_ncurses_lib_a3cf20e6138a0637e1f8b874fbb14fe13}\label{class_ncurses_lib_a3cf20e6138a0637e1f8b874fbb14fe13}} 
+\mbox{\hyperlink{class_ncurses_lib_a3cf20e6138a0637e1f8b874fbb14fe13}{Ncurses\+Lib}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ncurses_lib_ab9ee0cd5ef987b406c179410ae1f6094}\label{class_ncurses_lib_ab9ee0cd5ef987b406c179410ae1f6094}} 
+\mbox{\hyperlink{class_ncurses_lib_ab9ee0cd5ef987b406c179410ae1f6094}{$\sim$\+Ncurses\+Lib}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_ncurses_lib_aa57c51f9cb607c1f7c60c0974d78c1ec}{check\+\_\+lib}} (int selection, std\+::vector$<$ std\+::string $>$ \&libs\+Names)
+\begin{DoxyCompactList}\small\item\em Fonction qui check la librairie séléctionée. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_ncurses_lib_a537a5bb1c8ae69439bb184ebc5065c06}{check\+\_\+game}} (int selection, std\+::vector$<$ std\+::string $>$ \&games\+Names)
+\begin{DoxyCompactList}\small\item\em Fonction qui check le jeu séléctioné \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_ncurses_lib_a8b4001849ccbe9912fff27db719e03fa}{menu\+\_\+lib}} (std\+::vector$<$ std\+::string $>$ \&libs\+Names)
+\begin{DoxyCompactList}\small\item\em Fonction principale du menu de selection des librairies. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_ncurses_lib_a5db744ef150529beace2e379e2c787b8}{in\+Lib}} (std\+::vector$<$ std\+::string $>$ \&libs\+Names)
+\begin{DoxyCompactList}\small\item\em Fonction qui check avec getch() l\textquotesingle{}utilisation du clavier. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_ncurses_lib_a87091658f5bdaaa1a826d2f469717e3a}{in\+Game}} (std\+::vector$<$ std\+::string $>$ \&games\+Names)
+\begin{DoxyCompactList}\small\item\em Fonction qui check avec getch() l\textquotesingle{}utilisation du clavier. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_ncurses_lib_af04c7b69415e8de7db2dcbe7a54a5a45}{menu\+\_\+game}} (std\+::vector$<$ std\+::string $>$ \&games\+Names)
+\begin{DoxyCompactList}\small\item\em Fonction principale du menu de selection des jeux. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_ncurses_lib_acdbe66717d2960e2459b72acf8e276ec}{get\+\_\+name}} (int, int)
+\begin{DoxyCompactList}\small\item\em Fonction qui récupère le pseudo. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_ncurses_lib_aad45ba11a00314fc598f5a7b65aa2424}{menu\+\_\+name}} (void)
+\begin{DoxyCompactList}\small\item\em Fonction principale du menu de récupération de pseudo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_ncurses_lib_ac43e4faf5f8d6614730290af635ecb79}{display\+Arcade}} (int, int)
+\begin{DoxyCompactList}\small\item\em Pour afficher un gros A\+R\+C\+A\+DE en couleur. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ncurses_lib_a2100b7a86f58d0d82a553a85d2d9813c}\label{class_ncurses_lib_a2100b7a86f58d0d82a553a85d2d9813c}} 
+void {\bfseries init\+\_\+menu} ()
+\item 
+\mbox{\Hypertarget{class_ncurses_lib_a204c1ebbe7b0876532f3e22185296ebb}\label{class_ncurses_lib_a204c1ebbe7b0876532f3e22185296ebb}} 
+int {\bfseries create\+Shape} (Shape\+Type, int width, int height=0)
+\item 
+\mbox{\Hypertarget{class_ncurses_lib_a73b26a85c34aaf9e5ef5ce9688e1e7cb}\label{class_ncurses_lib_a73b26a85c34aaf9e5ef5ce9688e1e7cb}} 
+void {\bfseries draw\+Shape} (int index)
+\item 
+\mbox{\Hypertarget{class_ncurses_lib_aa8a79f8fec156de9801cbdf75c15de0d}\label{class_ncurses_lib_aa8a79f8fec156de9801cbdf75c15de0d}} 
+void {\bfseries set\+Shape\+Pos} (int index, float x, float y)
+\item 
+\mbox{\Hypertarget{class_ncurses_lib_aef8f446c81cfcf78b49151c7bff38faa}\label{class_ncurses_lib_aef8f446c81cfcf78b49151c7bff38faa}} 
+void {\bfseries set\+Shape\+Color} (int index, int r, int g, int b, int a=255)
+\item 
+\mbox{\Hypertarget{class_ncurses_lib_a09e94568ec047f134a98ac98ada02961}\label{class_ncurses_lib_a09e94568ec047f134a98ac98ada02961}} 
+void {\bfseries delete\+Shape} (int index)
+\item 
+\mbox{\Hypertarget{class_ncurses_lib_a2e31ef45e76601b27f119ba2d28dcf4f}\label{class_ncurses_lib_a2e31ef45e76601b27f119ba2d28dcf4f}} 
+int {\bfseries create\+Image\+From\+File} (std\+::string filename)
+\item 
+\mbox{\Hypertarget{class_ncurses_lib_a99d64c833b3f5bb709704132b185464a}\label{class_ncurses_lib_a99d64c833b3f5bb709704132b185464a}} 
+void {\bfseries draw\+Image} (int Image\+Id)
+\item 
+\mbox{\Hypertarget{class_ncurses_lib_a4862997e111103cf0c39bd126992afcf}\label{class_ncurses_lib_a4862997e111103cf0c39bd126992afcf}} 
+void {\bfseries set\+Image\+Pos} (int Image\+Id, float x, float y)
+\item 
+\mbox{\Hypertarget{class_ncurses_lib_a05912e0b512e7e3d3d47e6dd7bff4421}\label{class_ncurses_lib_a05912e0b512e7e3d3d47e6dd7bff4421}} 
+void {\bfseries delete\+Image} (int Image\+Id)
+\item 
+\mbox{\Hypertarget{class_ncurses_lib_a0e019a9176746f05ab48126a81383399}\label{class_ncurses_lib_a0e019a9176746f05ab48126a81383399}} 
+int {\bfseries create\+Font\+From\+File} (const std\+::string filename)
+\item 
+\mbox{\Hypertarget{class_ncurses_lib_a1a6ff164eb4cbb9f582caf42074e6975}\label{class_ncurses_lib_a1a6ff164eb4cbb9f582caf42074e6975}} 
+int {\bfseries create\+Text} (std\+::string text, int font\+Id)
+\item 
+\mbox{\Hypertarget{class_ncurses_lib_a30ee55d20c229a23a386059d13d213b8}\label{class_ncurses_lib_a30ee55d20c229a23a386059d13d213b8}} 
+void {\bfseries draw\+Text} (int text\+Id)
+\item 
+\mbox{\Hypertarget{class_ncurses_lib_aedb2e1c76535bf5d86320a0b84b8d24f}\label{class_ncurses_lib_aedb2e1c76535bf5d86320a0b84b8d24f}} 
+void {\bfseries set\+Text\+String} (int text\+Id, std\+::string str)
+\item 
+\mbox{\Hypertarget{class_ncurses_lib_a9982310c111adc71720d5b8fbb1f37c2}\label{class_ncurses_lib_a9982310c111adc71720d5b8fbb1f37c2}} 
+void {\bfseries set\+Text\+Pos} (int text\+Id, float x, float y)
+\item 
+\mbox{\Hypertarget{class_ncurses_lib_a218c189adb6411691009a2ef96f2aec1}\label{class_ncurses_lib_a218c189adb6411691009a2ef96f2aec1}} 
+void {\bfseries set\+Text\+Char\+Size} (int text\+Id, int char\+Size)
+\item 
+\mbox{\Hypertarget{class_ncurses_lib_aa4c535e74ab48e1079ad20e55a380180}\label{class_ncurses_lib_aa4c535e74ab48e1079ad20e55a380180}} 
+void {\bfseries set\+Text\+Color} (int text\+Id, int r, int g, int b, int a=255)
+\item 
+\mbox{\Hypertarget{class_ncurses_lib_aecd635c13a19fa888437686bd3884d04}\label{class_ncurses_lib_aecd635c13a19fa888437686bd3884d04}} 
+void {\bfseries delete\+Text} (int Text\+Id)
+\item 
+\mbox{\Hypertarget{class_ncurses_lib_a54653752b96674549c9eb4431921e400}\label{class_ncurses_lib_a54653752b96674549c9eb4431921e400}} 
+void {\bfseries delete\+Font} (int Font\+Id)
+\item 
+\mbox{\Hypertarget{class_ncurses_lib_a18f55e07b2fa5255b515daa2462fc2d1}\label{class_ncurses_lib_a18f55e07b2fa5255b515daa2462fc2d1}} 
+void {\bfseries create\+Window} (int width, int height, std\+::string name)
+\item 
+\mbox{\Hypertarget{class_ncurses_lib_a035e29ffa17c647c333290a7d05b658c}\label{class_ncurses_lib_a035e29ffa17c647c333290a7d05b658c}} 
+bool {\bfseries is\+Window\+Open} (void)
+\item 
+\mbox{\Hypertarget{class_ncurses_lib_aacb195ad810b7c22d0b1cf1560ab18b5}\label{class_ncurses_lib_aacb195ad810b7c22d0b1cf1560ab18b5}} 
+void {\bfseries clear\+Window} (void)
+\item 
+\mbox{\Hypertarget{class_ncurses_lib_ac58cc07cb72acefb5722c4c155ee5771}\label{class_ncurses_lib_ac58cc07cb72acefb5722c4c155ee5771}} 
+void {\bfseries update} (void)
+\item 
+\mbox{\Hypertarget{class_ncurses_lib_aff50d98aa724541b300696db69e123db}\label{class_ncurses_lib_aff50d98aa724541b300696db69e123db}} 
+void {\bfseries resize\+Window} (int width, int height)
+\item 
+\mbox{\Hypertarget{class_ncurses_lib_a3498501203e2c08e55bf6af869b976b1}\label{class_ncurses_lib_a3498501203e2c08e55bf6af869b976b1}} 
+void {\bfseries rename\+Window} (std\+::string name)
+\item 
+\mbox{\Hypertarget{class_ncurses_lib_a0245bca670d7aeddf41da9b674032632}\label{class_ncurses_lib_a0245bca670d7aeddf41da9b674032632}} 
+void {\bfseries delete\+Window} (void)
+\item 
+\mbox{\Hypertarget{class_ncurses_lib_a38acb54f5ddb9cb37d21fcf3bf63e677}\label{class_ncurses_lib_a38acb54f5ddb9cb37d21fcf3bf63e677}} 
+bool {\bfseries events} (void)
+\item 
+\mbox{\Hypertarget{class_ncurses_lib_af492569cabe30fde2753cad2e66ff3f2}\label{class_ncurses_lib_af492569cabe30fde2753cad2e66ff3f2}} 
+bool {\bfseries close\+Window\+Event} (void)
+\item 
+\mbox{\Hypertarget{class_ncurses_lib_a7685d067354b1e8a88f0264193983001}\label{class_ncurses_lib_a7685d067354b1e8a88f0264193983001}} 
+bool {\bfseries key\+Released\+Event} (void)
+\item 
+\mbox{\Hypertarget{class_ncurses_lib_a355a6cf06f9dbe49d0b8756ec5d1f310}\label{class_ncurses_lib_a355a6cf06f9dbe49d0b8756ec5d1f310}} 
+void {\bfseries next\+Graphic\+Lib} (int \&index\+Lib)
+\item 
+\mbox{\Hypertarget{class_ncurses_lib_a0209d3b3ff3ceca3aefe05749b8310c3}\label{class_ncurses_lib_a0209d3b3ff3ceca3aefe05749b8310c3}} 
+void {\bfseries prev\+Graphic\+Lib} (int \&index\+Lib)
+\item 
+\mbox{\Hypertarget{class_ncurses_lib_a640427407ec734ce56deb65a64692ef4}\label{class_ncurses_lib_a640427407ec734ce56deb65a64692ef4}} 
+bool {\bfseries up\+Arrow} ()
+\item 
+\mbox{\Hypertarget{class_ncurses_lib_a296b7a839e4a79d07167e4de99536ccc}\label{class_ncurses_lib_a296b7a839e4a79d07167e4de99536ccc}} 
+bool {\bfseries down\+Arrow} ()
+\item 
+\mbox{\Hypertarget{class_ncurses_lib_acb2d9fcce32919443e19ef1f9b584816}\label{class_ncurses_lib_acb2d9fcce32919443e19ef1f9b584816}} 
+bool {\bfseries left\+Arrow} ()
+\item 
+\mbox{\Hypertarget{class_ncurses_lib_a5900acbc795a24e7062444e0e2bb02f0}\label{class_ncurses_lib_a5900acbc795a24e7062444e0e2bb02f0}} 
+bool {\bfseries rigth\+Arrow} ()
+\item 
+\mbox{\Hypertarget{class_ncurses_lib_a2816f8c9f10bb3ff255c189e19565e7c}\label{class_ncurses_lib_a2816f8c9f10bb3ff255c189e19565e7c}} 
+void {\bfseries next\+Game\+Lib} (int \&index\+Game)
+\item 
+\mbox{\Hypertarget{class_ncurses_lib_a1e4df1325a8ace7737253f3e64cb0af6}\label{class_ncurses_lib_a1e4df1325a8ace7737253f3e64cb0af6}} 
+void {\bfseries prev\+Game\+Lib} (int \&index\+Game)
+\item 
+int \mbox{\hyperlink{class_ncurses_lib_ac19b13061356ce806f04d9008fcd0034}{lib\+Selection\+Menu}} (state \&pg\+State, bool close, std\+::vector$<$ std\+::string $>$ \&libs\+Names)
+\begin{DoxyCompactList}\small\item\em Methode principale de la selection de la librairie. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_ncurses_lib_aa080a433d929852dbc7c82e444031512}{game\+Selection\+Menu}} (state \&pg\+State, bool close, std\+::vector$<$ std\+::string $>$ \&games\+Names, std\+::vector$<$ std\+::vector$<$ std\+::string $>$$>$ high\+Scores)
+\begin{DoxyCompactList}\small\item\em Methode principale de la selection du jeu. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_ncurses_lib_ae632c1b6f2c73a2075f0e633aa2d4874}{enter\+Name}} (state \&pg\+State, bool close)
+\begin{DoxyCompactList}\small\item\em Fonction principale du menu de récupération de pseudo. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ncurses_lib_a7995b4d04024fcea574ec261fbe685f4}\label{class_ncurses_lib_a7995b4d04024fcea574ec261fbe685f4}} 
+void {\bfseries init\+\_\+menu} (std\+::vector$<$ std\+::string $>$ \&libs\+Names, std\+::vector$<$ std\+::string $>$ \&games\+Names, std\+::vector$<$ std\+::vector$<$ std\+::string $>$$>$ high\+Scores, std\+::string \&pseudo)
+\item 
+int \mbox{\hyperlink{class_ncurses_lib_a5c4a9145afd977955a5e900255ee5a9b}{menu}} (state \&pg\+State, bool close, std\+::vector$<$ std\+::string $>$ \&libs\+Names, std\+::vector$<$ std\+::string $>$ \&games\+Names, std\+::vector$<$ std\+::vector$<$ std\+::string $>$$>$ high\+Scores, std\+::string \&pseudo, int \&index\+Lib)
+\begin{DoxyCompactList}\small\item\em Methode principale du Menu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+classe de la librairie Ncurses 
+
+La classe gère toute la librairie Ncurses 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_ncurses_lib_a537a5bb1c8ae69439bb184ebc5065c06}\label{class_ncurses_lib_a537a5bb1c8ae69439bb184ebc5065c06}} 
+\index{NcursesLib@{NcursesLib}!check\_game@{check\_game}}
+\index{check\_game@{check\_game}!NcursesLib@{NcursesLib}}
+\doxysubsubsection{\texorpdfstring{check\_game()}{check\_game()}}
+{\footnotesize\ttfamily int Ncurses\+Lib\+::check\+\_\+game (\begin{DoxyParamCaption}\item[{int}]{selection,  }\item[{std\+::vector$<$ std\+::string $>$ \&}]{games\+Names }\end{DoxyParamCaption})}
+
+
+
+Fonction qui check le jeu séléctioné 
+
+
+\begin{DoxyParams}{Parameters}
+{\em selection} & = la selecion et games\+Names vecteur de string qui contient tout les jeux \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+27 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ncurses_lib_aa57c51f9cb607c1f7c60c0974d78c1ec}\label{class_ncurses_lib_aa57c51f9cb607c1f7c60c0974d78c1ec}} 
+\index{NcursesLib@{NcursesLib}!check\_lib@{check\_lib}}
+\index{check\_lib@{check\_lib}!NcursesLib@{NcursesLib}}
+\doxysubsubsection{\texorpdfstring{check\_lib()}{check\_lib()}}
+{\footnotesize\ttfamily int Ncurses\+Lib\+::check\+\_\+lib (\begin{DoxyParamCaption}\item[{int}]{selection,  }\item[{std\+::vector$<$ std\+::string $>$ \&}]{libs\+Names }\end{DoxyParamCaption})}
+
+
+
+Fonction qui check la librairie séléctionée. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em selection} & = la selecion et libs\+Names vecteur de string qui contient toutes les librairies \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+27 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ncurses_lib_ac43e4faf5f8d6614730290af635ecb79}\label{class_ncurses_lib_ac43e4faf5f8d6614730290af635ecb79}} 
+\index{NcursesLib@{NcursesLib}!displayArcade@{displayArcade}}
+\index{displayArcade@{displayArcade}!NcursesLib@{NcursesLib}}
+\doxysubsubsection{\texorpdfstring{displayArcade()}{displayArcade()}}
+{\footnotesize\ttfamily void Ncurses\+Lib\+::display\+Arcade (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col }\end{DoxyParamCaption})}
+
+
+
+Pour afficher un gros A\+R\+C\+A\+DE en couleur. 
+
+et pour mettre de la couleur en Ncurses \mbox{\Hypertarget{class_ncurses_lib_ae632c1b6f2c73a2075f0e633aa2d4874}\label{class_ncurses_lib_ae632c1b6f2c73a2075f0e633aa2d4874}} 
+\index{NcursesLib@{NcursesLib}!enterName@{enterName}}
+\index{enterName@{enterName}!NcursesLib@{NcursesLib}}
+\doxysubsubsection{\texorpdfstring{enterName()}{enterName()}}
+{\footnotesize\ttfamily std\+::string Ncurses\+Lib\+::enter\+Name (\begin{DoxyParamCaption}\item[{state \&}]{pg\+State,  }\item[{bool}]{close }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Fonction principale du menu de récupération de pseudo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pg\+State} & énumération et close regarder si la fenêtre est fermé \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Le pseudo du joueur 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_libs}{I\+Libs}}.
+
+\mbox{\Hypertarget{class_ncurses_lib_aa080a433d929852dbc7c82e444031512}\label{class_ncurses_lib_aa080a433d929852dbc7c82e444031512}} 
+\index{NcursesLib@{NcursesLib}!gameSelectionMenu@{gameSelectionMenu}}
+\index{gameSelectionMenu@{gameSelectionMenu}!NcursesLib@{NcursesLib}}
+\doxysubsubsection{\texorpdfstring{gameSelectionMenu()}{gameSelectionMenu()}}
+{\footnotesize\ttfamily int Ncurses\+Lib\+::game\+Selection\+Menu (\begin{DoxyParamCaption}\item[{state \&}]{pg\+State,  }\item[{bool}]{close,  }\item[{std\+::vector$<$ std\+::string $>$ \&}]{games\+Names,  }\item[{std\+::vector$<$ std\+::vector$<$ std\+::string $>$$>$}]{high\+Scores }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Methode principale de la selection du jeu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pg\+State} & énumération, close regarder si la fenêtre est fermé et games\+Names vecteur de string qui contient tout les jeux \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Le jeu séléctioné 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_libs}{I\+Libs}}.
+
+\mbox{\Hypertarget{class_ncurses_lib_acdbe66717d2960e2459b72acf8e276ec}\label{class_ncurses_lib_acdbe66717d2960e2459b72acf8e276ec}} 
+\index{NcursesLib@{NcursesLib}!get\_name@{get\_name}}
+\index{get\_name@{get\_name}!NcursesLib@{NcursesLib}}
+\doxysubsubsection{\texorpdfstring{get\_name()}{get\_name()}}
+{\footnotesize\ttfamily std\+::string Ncurses\+Lib\+::get\+\_\+name (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col }\end{DoxyParamCaption})}
+
+
+
+Fonction qui récupère le pseudo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & = ligne et col = colonne \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Le pseudo du joueur 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ncurses_lib_a87091658f5bdaaa1a826d2f469717e3a}\label{class_ncurses_lib_a87091658f5bdaaa1a826d2f469717e3a}} 
+\index{NcursesLib@{NcursesLib}!inGame@{inGame}}
+\index{inGame@{inGame}!NcursesLib@{NcursesLib}}
+\doxysubsubsection{\texorpdfstring{inGame()}{inGame()}}
+{\footnotesize\ttfamily int Ncurses\+Lib\+::in\+Game (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$ \&}]{games\+Names }\end{DoxyParamCaption})}
+
+
+
+Fonction qui check avec getch() l\textquotesingle{}utilisation du clavier. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em games\+Names} & vecteur de string qui contient tout les jeux \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+18 ou -\/1 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ncurses_lib_a5db744ef150529beace2e379e2c787b8}\label{class_ncurses_lib_a5db744ef150529beace2e379e2c787b8}} 
+\index{NcursesLib@{NcursesLib}!inLib@{inLib}}
+\index{inLib@{inLib}!NcursesLib@{NcursesLib}}
+\doxysubsubsection{\texorpdfstring{inLib()}{inLib()}}
+{\footnotesize\ttfamily int Ncurses\+Lib\+::in\+Lib (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$ \&}]{libs\+Names }\end{DoxyParamCaption})}
+
+
+
+Fonction qui check avec getch() l\textquotesingle{}utilisation du clavier. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em libs\+Names} & vecteur de string qui contient toutes les librairies \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+18 ou -\/1 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ncurses_lib_ac19b13061356ce806f04d9008fcd0034}\label{class_ncurses_lib_ac19b13061356ce806f04d9008fcd0034}} 
+\index{NcursesLib@{NcursesLib}!libSelectionMenu@{libSelectionMenu}}
+\index{libSelectionMenu@{libSelectionMenu}!NcursesLib@{NcursesLib}}
+\doxysubsubsection{\texorpdfstring{libSelectionMenu()}{libSelectionMenu()}}
+{\footnotesize\ttfamily int Ncurses\+Lib\+::lib\+Selection\+Menu (\begin{DoxyParamCaption}\item[{state \&}]{pg\+State,  }\item[{bool}]{close,  }\item[{std\+::vector$<$ std\+::string $>$ \&}]{libs\+Names }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Methode principale de la selection de la librairie. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pg\+State} & énumération, close regarder si la fenêtre est fermé et libs\+Names vecteur de string qui contient toutes les librairies \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+La librairie séléctionée 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_libs}{I\+Libs}}.
+
+\mbox{\Hypertarget{class_ncurses_lib_a5c4a9145afd977955a5e900255ee5a9b}\label{class_ncurses_lib_a5c4a9145afd977955a5e900255ee5a9b}} 
+\index{NcursesLib@{NcursesLib}!menu@{menu}}
+\index{menu@{menu}!NcursesLib@{NcursesLib}}
+\doxysubsubsection{\texorpdfstring{menu()}{menu()}}
+{\footnotesize\ttfamily int Ncurses\+Lib\+::menu (\begin{DoxyParamCaption}\item[{state \&}]{pg\+State,  }\item[{bool}]{close,  }\item[{std\+::vector$<$ std\+::string $>$ \&}]{libs\+Names,  }\item[{std\+::vector$<$ std\+::string $>$ \&}]{games\+Names,  }\item[{std\+::vector$<$ std\+::vector$<$ std\+::string $>$$>$}]{high\+Scores,  }\item[{std\+::string \&}]{pseudo,  }\item[{int \&}]{index\+Lib }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Methode principale du Menu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pg\+State} & énumération, close regarder si la fenêtre est fermé, libs\+Names vecteur de string qui contient toutes les librairies, games\+Names vecteur de string qui contient tout les jeux, high\+Scores veteur de string qui contient les meilleurs scores, pseudo string qui contient le pseudo, index\+Lib qui permet de changer de librairie \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_libs}{I\+Libs}}.
+
+\mbox{\Hypertarget{class_ncurses_lib_af04c7b69415e8de7db2dcbe7a54a5a45}\label{class_ncurses_lib_af04c7b69415e8de7db2dcbe7a54a5a45}} 
+\index{NcursesLib@{NcursesLib}!menu\_game@{menu\_game}}
+\index{menu\_game@{menu\_game}!NcursesLib@{NcursesLib}}
+\doxysubsubsection{\texorpdfstring{menu\_game()}{menu\_game()}}
+{\footnotesize\ttfamily int Ncurses\+Lib\+::menu\+\_\+game (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$ \&}]{games\+Names }\end{DoxyParamCaption})}
+
+
+
+Fonction principale du menu de selection des jeux. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em games\+Names} & vecteur de string qui contient tout les jeux \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+18 ou -\/1 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ncurses_lib_a8b4001849ccbe9912fff27db719e03fa}\label{class_ncurses_lib_a8b4001849ccbe9912fff27db719e03fa}} 
+\index{NcursesLib@{NcursesLib}!menu\_lib@{menu\_lib}}
+\index{menu\_lib@{menu\_lib}!NcursesLib@{NcursesLib}}
+\doxysubsubsection{\texorpdfstring{menu\_lib()}{menu\_lib()}}
+{\footnotesize\ttfamily int Ncurses\+Lib\+::menu\+\_\+lib (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$ \&}]{libs\+Names }\end{DoxyParamCaption})}
+
+
+
+Fonction principale du menu de selection des librairies. 
+
+Elle affiche aussi les commandes pour changer de librairies.
+
+
+\begin{DoxyParams}{Parameters}
+{\em libs\+Names} & vecteur de string qui contient toutes les librairies \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+18 ou -\/1
+\end{DoxyReturn}
+Test \mbox{\Hypertarget{class_ncurses_lib_aad45ba11a00314fc598f5a7b65aa2424}\label{class_ncurses_lib_aad45ba11a00314fc598f5a7b65aa2424}} 
+\index{NcursesLib@{NcursesLib}!menu\_name@{menu\_name}}
+\index{menu\_name@{menu\_name}!NcursesLib@{NcursesLib}}
+\doxysubsubsection{\texorpdfstring{menu\_name()}{menu\_name()}}
+{\footnotesize\ttfamily std\+::string Ncurses\+Lib\+::menu\+\_\+name (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Fonction principale du menu de récupération de pseudo. 
+
+\begin{DoxyReturn}{Returns}
+Le pseudo du joueur 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+Ncurses/\mbox{\hyperlink{_ncurses_lib_8hpp}{Ncurses\+Lib.\+hpp}}\item 
+lib/\+Ncurses/menu/\mbox{\hyperlink{enter_name_8cpp}{enter\+Name.\+cpp}}\item 
+lib/\+Ncurses/menu/\mbox{\hyperlink{in_game_8cpp}{in\+Game.\+cpp}}\item 
+lib/\+Ncurses/menu/\mbox{\hyperlink{in_lib_8cpp}{in\+Lib.\+cpp}}\item 
+lib/\+Ncurses/menu/\mbox{\hyperlink{menu_8cpp}{menu.\+cpp}}\item 
+lib/\+Ncurses/\mbox{\hyperlink{_ncurses_lib_8cpp}{Ncurses\+Lib.\+cpp}}\end{DoxyCompactItemize}
