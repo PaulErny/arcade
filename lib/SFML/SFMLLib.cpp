@@ -127,7 +127,7 @@ void SFMLLib::drawText(int textId)
 
 void SFMLLib::setTextString(int textId, std::string str)
 {
-    if (this->texts.size() > textId && !this->texts[textId])
+    if (this->texts.size() > textId && this->texts[textId])
         this->texts[textId]->setString(str);
     else
         throw "SFML setTextString() -> unknown index";
