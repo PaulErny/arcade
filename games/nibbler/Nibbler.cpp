@@ -17,8 +17,8 @@ void Nibbler::initGameData(std::string &pseudo)
 
 void Nibbler::initGraphics()
 {
-    int fontID = Lib->createFontFromFile("./resources/ARCADE_I.TTF");
-    int fontID2 = Lib->createFontFromFile("./resources/ARCADE_I.TTF");
+    int fontID = Lib->createFontFromFile("../resources/ARCADE_I.TTF");
+    int fontID2 = Lib->createFontFromFile("../resources/ARCADE_I.TTF");
     indexPseudo = Lib->createText(pseudo, fontID);
     indexGameLoose = Lib->createText("YOU LOOSE", fontID2);
     Lib->setTextPos(indexPseudo, 0, 0);
@@ -60,8 +60,12 @@ void Nibbler::checkLoose()
 void Nibbler::runGame(int &indexGame, int &indexLib)
 {
     keyPressed(indexGame, indexLib);
-    if (food->getXposition() == snake.at(0)->getXposition() &&
-        food->getYposition() == snake.at(0)->getYposition())
+    // std::cout << "food "<< food->getXposition() << " " << food->getYposition() << std::endl;
+    // std::cout << "snake " << snake.at(0)->getXposition() << " " << snake.at(0)->getYposition() << std::endl;
+    if (food->getXposition() + 32 > snake.at(0)->getXposition() &&
+        food->getXposition() - 32 < snake.at(0)->getXposition() &&
+        food->getYposition() + 32 > snake.at(0)->getYposition() &&
+        food->getYposition() - 32 < snake.at(0)->getYposition())
     {
         eatFood();
         std::cout << snake.size() << std::endl;
@@ -79,28 +83,28 @@ void Nibbler::moove()
 {
     if (dir == UP) {
         prevPosy = snake.at(0)->getYposition();
-        snake.at(0)->move(0, -1);
+        snake.at(0)->move(0, -0.4);
         for (int i = 0; i < (int)snake.size() - 1; i++) {
             snake.at(i + 1)->move(0, prevPosy);
             prevPosy = snake.at(i)->getYposition();
         }
     } else if (dir == DOWN) {
         prevPosy = snake.at(0)->getYposition();
-        snake.at(0)->move(0, 1);
+        snake.at(0)->move(0, 0.4);
         for (int i = 0; i < (int)snake.size() - 1; i++) {
             snake.at(i + 1)->move(0, prevPosy);
             prevPosy = snake.at(i)->getYposition();
         }
     } else if (dir == LEFT) {
         prevPosx = snake.at(0)->getXposition();
-        snake.at(0)->move(-1, 0);
+        snake.at(0)->move(-0.4, 0);
         for (int i = 0; i < (int)snake.size() - 1; i++) {
             snake.at(i + 1)->move(prevPosx, 0);
             prevPosx = snake.at(i)->getXposition();
         }
     } else if (dir == RIGTH) {
         prevPosx = snake.at(0)->getXposition();
-        snake.at(0)->move(1, 0);
+        snake.at(0)->move(0.4, 0);
         for (int i = 0; i < (int)snake.size() - 1; i++) {
             snake.at(i + 1)->move(prevPosx, 0);
             prevPosx = snake.at(i)->getXposition();
@@ -133,7 +137,7 @@ void Nibbler::eatFood()
     tail->setLibPtr(Lib);
     tail->setType(SHAPE);
     tail->addShape(32, 32);
-    tail->setPosition(snake.at(0)->getXposition(), snake.at(0)->getYposition());
+    tail->setPosition(snake.at(0)->getXposition() - 32, snake.at(0)->getYposition() -32);
     snake.push_back(tail);
     food->setPosition(rand() % 1080, rand() % 1080);
 }
