@@ -188,7 +188,7 @@ void PacmanGame::initGraphics()
 
 void PacmanGame::update()
 {
-    this->player->movePlayer(this->deltaTime / (double)CLOCKS_PER_SEC);
+    this->player->movePlayer(this->deltaTime / (double)CLOCKS_PER_SEC, this->map);
 }
 
 void PacmanGame::draw()
@@ -201,7 +201,7 @@ void PacmanGame::draw()
     this->player->draw();   
 }
 
-void PacmanGame::runGame(int &indexGame)
+void PacmanGame::runGame(int &indexGame, int &indexLib)
 {
     this->beginFrame = std::clock();
     while (this->graphics->events()) {

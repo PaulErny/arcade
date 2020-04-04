@@ -21,7 +21,7 @@ class Pacman : public Entity {
         void goLeft();
         void goUp();
         void goDown();
-        void movePlayer(double deltaTime);
+        void movePlayer(double deltaTime, std::vector<std::vector<int>> map);
 
     private:
         bool rightDirection;
