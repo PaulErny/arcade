@@ -5,6 +5,11 @@
 ** SFMLMenu
 */
 
+/**
+ * \file SFMLMenu.hpp
+ * \brief Menu SFML
+ */
+
 #ifndef SFMLMENU_HPP_
 #define SFMLMENU_HPP_
 

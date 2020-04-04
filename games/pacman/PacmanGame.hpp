@@ -5,6 +5,11 @@
 ** Pacman
 */
 
+/**
+ * \file PacmanGame.hpp
+ * \brief Pacman-Man
+ */
+
 #ifndef PACMANGAME_HPP_
 #define PACMANGAME_HPP_
 
@@ -18,15 +23,35 @@
 #include "Pacman.hpp"
 #include "Ghost.hpp"
 
+/*! \class PacmanGame
+   * \brief class of PacmanGame
+   *
+   */
 class PacmanGame : public IGames {
     public:
+    /**
+ * \fn PacmanGame();
+ * \brief Constructor
+ * 
+ */
         PacmanGame();
+        /**
+ * \fn ~PacmanGame();
+ * \brief Destructor
+ * 
+ */
         ~PacmanGame();
 
         void initGameData(std::string &pseudo);
         void initGraphics();
         void runGame(int &indexGame, int &indexLib);
         void setLib(std::shared_ptr<ILibs> &graphics);
+        /**
+ * \fn double getFPS();
+ * \brief Function that get FPS in Pacman
+ * 
+ * \return double
+ */
         double getFPS();
 
     private:

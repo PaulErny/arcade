@@ -1,3 +1,7 @@
+/**
+ * \file main.cpp
+ * \brief Main
+ */
 #include <exception>
 #include <iostream>
 #include <dlfcn.h>

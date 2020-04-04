@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['uparrow_158',['upArrow',['../class_i_libs.html#ae0e614c00bf8940c29b293e90e27b8d4',1,'ILibs::upArrow()'],['../class_ncurses_lib.html#a640427407ec734ce56deb65a64692ef4',1,'NcursesLib::upArrow()'],['../class_s_d_l_lib.html#afcbb0e3f4a9d65086b93d481ecc20717',1,'SDLLib::upArrow()'],['../class_s_f_m_l_lib.html#a979735c9f1cfcfcdeeaffcc35b7a7b09',1,'SFMLLib::upArrow()']]],
-  ['update_159',['update',['../class_i_libs.html#ad48febdec739d4c777c8e42d8967739b',1,'ILibs::update()'],['../class_ncurses_lib.html#ac58cc07cb72acefb5722c4c155ee5771',1,'NcursesLib::update()'],['../class_s_d_l_lib.html#ab1cdbe995997c2174e8256d8183786d4',1,'SDLLib::update()'],['../class_s_f_m_l_lib.html#a088343a6923e2ff0eefe280db36ff3ff',1,'SFMLLib::update()']]]
+  ['pacman_279',['Pacman',['../class_pacman.html#ada49661870d0791c9222ea33f249162e',1,'Pacman']]],
+  ['pacmangame_280',['PacmanGame',['../class_pacman_game.html#a4498e637c775083dfde149c43f136caf',1,'PacmanGame']]],
+  ['prevgamelib_281',['prevGameLib',['../class_i_libs.html#a7e171eb4a908087f6486d69cbfb9dd74',1,'ILibs::prevGameLib()'],['../class_ncurses_lib.html#a1e4df1325a8ace7737253f3e64cb0af6',1,'NcursesLib::prevGameLib()'],['../class_s_d_l_lib.html#a952a1401c2c520b9070ceb02a0fe5dea',1,'SDLLib::prevGameLib()'],['../class_s_f_m_l_lib.html#aacaec24f847669f50a0fbba4a1184766',1,'SFMLLib::prevGameLib()']]],
+  ['prevgraphiclib_282',['prevGraphicLib',['../class_i_libs.html#aa4714ab138e2f7c3cb18c78303456699',1,'ILibs::prevGraphicLib()'],['../class_ncurses_lib.html#a0209d3b3ff3ceca3aefe05749b8310c3',1,'NcursesLib::prevGraphicLib()'],['../class_s_d_l_lib.html#a9df1f2885ec8c990d9a7383d2342b6e9',1,'SDLLib::prevGraphicLib()'],['../class_s_f_m_l_lib.html#a70ce2fcd11e156290c3f34d0c1d0fd02',1,'SFMLLib::prevGraphicLib()']]],
+  ['prevshape_283',['prevShape',['../class_entity.html#a1726e97287b9efecacaaa9f6713526b3',1,'Entity']]]
 ];

@@ -1,3 +1,8 @@
+/**
+ * \file SDLMenu.cpp
+ * \brief Menu SDL
+ */
+
 #include "SDLLib.hpp"
 
 /* ------------------------------- MENU ------------------------------- */

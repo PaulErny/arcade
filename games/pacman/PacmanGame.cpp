@@ -5,6 +5,11 @@
 ** Pacman
 */
 
+/**
+ * \file PacmanGame.cpp
+ * \brief Pac-Man
+ */
+
 #include <iostream>
 #include "PacmanGame.hpp"
 

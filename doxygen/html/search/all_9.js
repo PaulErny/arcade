@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['pacman_56',['Pacman',['../class_pacman.html',1,'']]],
-  ['pacmangame_57',['PacmanGame',['../class_pacman_game.html',1,'']]],
-  ['prevgamelib_58',['prevGameLib',['../class_i_libs.html#a7e171eb4a908087f6486d69cbfb9dd74',1,'ILibs::prevGameLib()'],['../class_ncurses_lib.html#a1e4df1325a8ace7737253f3e64cb0af6',1,'NcursesLib::prevGameLib()'],['../class_s_d_l_lib.html#a952a1401c2c520b9070ceb02a0fe5dea',1,'SDLLib::prevGameLib()'],['../class_s_f_m_l_lib.html#aacaec24f847669f50a0fbba4a1184766',1,'SFMLLib::prevGameLib()']]],
-  ['prevgraphiclib_59',['prevGraphicLib',['../class_i_libs.html#aa4714ab138e2f7c3cb18c78303456699',1,'ILibs::prevGraphicLib()'],['../class_ncurses_lib.html#a0209d3b3ff3ceca3aefe05749b8310c3',1,'NcursesLib::prevGraphicLib()'],['../class_s_d_l_lib.html#a9df1f2885ec8c990d9a7383d2342b6e9',1,'SDLLib::prevGraphicLib()'],['../class_s_f_m_l_lib.html#a70ce2fcd11e156290c3f34d0c1d0fd02',1,'SFMLLib::prevGraphicLib()']]]
+  ['laodlib_80',['laodLib',['../class_core.html#ac0391cdf80d33504dbd84bf2dade3386',1,'Core']]],
+  ['leftarrow_81',['leftArrow',['../class_i_libs.html#a00f40c571bf86203ed0937a9e7d9a383',1,'ILibs::leftArrow()'],['../class_ncurses_lib.html#acb2d9fcce32919443e19ef1f9b584816',1,'NcursesLib::leftArrow()'],['../class_s_d_l_lib.html#a9467d5ab4c4e732fb0a78986626ed881',1,'SDLLib::leftArrow()'],['../class_s_f_m_l_lib.html#a5bddf96aa91f5fe45f484c60f4703a72',1,'SFMLLib::leftArrow()']]],
+  ['libselectionmenu_82',['libSelectionMenu',['../class_i_libs.html#a390d50de42613f88674ba78046498ff4',1,'ILibs::libSelectionMenu()'],['../class_ncurses_lib.html#ac19b13061356ce806f04d9008fcd0034',1,'NcursesLib::libSelectionMenu()'],['../class_s_d_l_lib.html#ad70caef87364ffc19f515aecf5539952',1,'SDLLib::libSelectionMenu()'],['../class_s_f_m_l_lib.html#af457c88105e78e507d9df0714d0f082f',1,'SFMLLib::libSelectionMenu()']]],
+  ['loadgame_83',['loadGame',['../class_core.html#aa728d0eaff6b4377ce91e4e3632d6074',1,'Core']]],
+  ['loadgamelib_84',['loadGameLib',['../class_core.html#a4e19d5cdf9c939c91e32a54f6dd9e4af',1,'Core']]]
 ];

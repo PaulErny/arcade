@@ -4,6 +4,10 @@
 ** File description:
 ** Ghost
 */
+/**
+ * \file Ghost.cpp
+ * \brief Ghost
+ */
 
 #include "Ghost.hpp"
 

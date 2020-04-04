@@ -5,6 +5,11 @@
 ** Pacman
 */
 
+/**
+ * \file Pacman.cpp
+ * \brief Pac-Man
+ */
+
 #include "Pacman.hpp"
 
 Pacman::Pacman(std::shared_ptr<ILibs> lib)

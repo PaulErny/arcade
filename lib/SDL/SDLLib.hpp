@@ -1,3 +1,7 @@
+/**
+ * \file SDLLib.hpp
+ * \brief SDL Lib
+ */
 #ifndef SDL_HPP
 #define SDL_HPP
 

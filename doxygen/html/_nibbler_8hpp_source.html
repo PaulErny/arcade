@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.18"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: games/nibbler/Nibbler.hpp Source File</title>
+<title>The Arcade: games/nibbler/Nibbler.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,9 +20,12 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="Borne_arcade_pixel.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">The Arcade
+   &#160;<span id="projectnumber">PROMO 2023</span>
    </div>
+   <div id="projectbrief">By Hugo Lalet, Victor Maurin, Paul Erny</div>
   </td>
  </tr>
  </tbody>
@@ -69,56 +72,69 @@ $(function() {
 <div class="title">Nibbler.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef NIBBLER_HPP</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define NIBLLER_HPP</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;../../lib/ILibs.hpp&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;../IGames.hpp&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;../Entity.hpp&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">enum</span> Direction {</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    RIGTH,</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    LEFT,</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    UP,</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    DOWN,</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    NO</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;};</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_nibbler.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_nibbler.html">Nibbler</a> : <span class="keyword">public</span> <a class="code" href="class_i_games.html">IGames</a></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    Direction dir;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">int</span> speed;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    std::shared_ptr&lt;Entity&gt; food;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    std::vector&lt;int&gt; indexSnake;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    std::vector&lt;std::shared_ptr&lt;Entity&gt;&gt; snake;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    std::shared_ptr&lt;ILibs&gt; Lib;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">int</span> prevPosx;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">int</span> prevPosy;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">int</span> indexTitle;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">int</span> indexPseudo;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    std::string pseudo;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">int</span> indexGameLoose;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="class_nibbler.html">Nibbler</a>();</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">void</span> setLib(std::shared_ptr&lt;ILibs&gt; &amp;Lib);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">void</span> keyPressed(<span class="keywordtype">int</span> &amp;indexGame, <span class="keywordtype">int</span> &amp;indexLib);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">void</span> moove();</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">void</span> eatFood();</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">void</span> setPos();</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> initGameData(std::string &amp;pseudo);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">void</span> initGraphics();</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> runGame(<span class="keywordtype">int</span> &amp;indexGame, <span class="keywordtype">int</span> &amp;indexLib);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> checkLoose();</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> endGame();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;};</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#endif</span></div>
+<a href="_nibbler_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef NIBBLER_HPP</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define NIBLLER_HPP</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;../../lib/ILibs.hpp&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;../IGames.hpp&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;../Entity.hpp&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="_nibbler_8hpp.html#a224b9163917ac32fc95a60d8c1eec3aa">   21</a></span>&#160;<span class="keyword">enum</span> <a class="code" href="_nibbler_8hpp.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    RIGTH,</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    LEFT,</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    UP,</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    DOWN,</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    NO</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;};</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="class_nibbler.html">   32</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_nibbler.html">Nibbler</a> : <span class="keyword">public</span> <a class="code" href="class_i_games.html">IGames</a></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="_nibbler_8hpp.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> dir;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">int</span> speed;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    std::shared_ptr&lt;Entity&gt; food;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    std::vector&lt;int&gt; indexSnake;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    std::vector&lt;std::shared_ptr&lt;Entity&gt;&gt; snake;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    std::shared_ptr&lt;ILibs&gt; Lib;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">int</span> prevPosx;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">int</span> prevPosy;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">int</span> indexTitle;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">int</span> indexPseudo;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    std::string pseudo;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">int</span> indexGameLoose;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <a class="code" href="class_nibbler.html#ad19e09642ac1516e78109a3c1f43995c">Nibbler</a>();</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_nibbler.html#a628904699fe3540a364b60d44b4738ac">setLib</a>(std::shared_ptr&lt;ILibs&gt; &amp;Lib);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_nibbler.html#a0978e8c96c7028a64316b73091315069">keyPressed</a>(<span class="keywordtype">int</span> &amp;indexGame, <span class="keywordtype">int</span> &amp;indexLib);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_nibbler.html#a2975d69d71c2ad4f0003a6cdab11e14d">moove</a>();</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_nibbler.html#a35c0396f7fb9bde9da9bbb948b99478f">eatFood</a>();</div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="class_nibbler.html#ac0cba1d9786603d9926b3515f889f11c">   79</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_nibbler.html#ac0cba1d9786603d9926b3515f889f11c">setPos</a>();</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_nibbler.html#a1c2cc47fa53ea327c65da77ac94b8417">initGameData</a>(std::string &amp;pseudo);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_nibbler.html#a4368faa43d91b863aa051afb85f2c198">initGraphics</a>();</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_nibbler.html#ac13597af082d700f9aa1e8ff38abcb52">runGame</a>(<span class="keywordtype">int</span> &amp;indexGame, <span class="keywordtype">int</span> &amp;indexLib);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_nibbler.html#a96a0518ae5364ed146103dcaa01e090c">checkLoose</a>();</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_nibbler.html#a91e7ce6868733a63aee090d8cb6be9ed">endGame</a>();</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;};</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclass_nibbler_html"><div class="ttname"><a href="class_nibbler.html">Nibbler</a></div><div class="ttdef"><b>Definition:</b> Nibbler.hpp:19</div></div>
-<div class="ttc" id="aclass_i_games_html"><div class="ttname"><a href="class_i_games.html">IGames</a></div><div class="ttdef"><b>Definition:</b> IGames.hpp:7</div></div>
+<div class="ttc" id="aclass_nibbler_html_a1c2cc47fa53ea327c65da77ac94b8417"><div class="ttname"><a href="class_nibbler.html#a1c2cc47fa53ea327c65da77ac94b8417">Nibbler::initGameData</a></div><div class="ttdeci">void initGameData(std::string &amp;pseudo)</div><div class="ttdoc">Function that init game data.</div><div class="ttdef"><b>Definition:</b> Nibbler.cpp:16</div></div>
+<div class="ttc" id="aclass_nibbler_html_a91e7ce6868733a63aee090d8cb6be9ed"><div class="ttname"><a href="class_nibbler.html#a91e7ce6868733a63aee090d8cb6be9ed">Nibbler::endGame</a></div><div class="ttdeci">void endGame()</div><div class="ttdoc">End Screen.</div><div class="ttdef"><b>Definition:</b> Nibbler.cpp:43</div></div>
+<div class="ttc" id="aclass_nibbler_html_a35c0396f7fb9bde9da9bbb948b99478f"><div class="ttname"><a href="class_nibbler.html#a35c0396f7fb9bde9da9bbb948b99478f">Nibbler::eatFood</a></div><div class="ttdeci">void eatFood()</div><div class="ttdoc">Function that see if the player eat food.</div><div class="ttdef"><b>Definition:</b> Nibbler.cpp:138</div></div>
+<div class="ttc" id="aclass_nibbler_html_a0978e8c96c7028a64316b73091315069"><div class="ttname"><a href="class_nibbler.html#a0978e8c96c7028a64316b73091315069">Nibbler::keyPressed</a></div><div class="ttdeci">void keyPressed(int &amp;indexGame, int &amp;indexLib)</div><div class="ttdoc">Function that manage the event with the keyboard.</div><div class="ttdef"><b>Definition:</b> Nibbler.cpp:119</div></div>
+<div class="ttc" id="aclass_nibbler_html_a96a0518ae5364ed146103dcaa01e090c"><div class="ttname"><a href="class_nibbler.html#a96a0518ae5364ed146103dcaa01e090c">Nibbler::checkLoose</a></div><div class="ttdeci">void checkLoose()</div><div class="ttdoc">Function that check if the game is Loose. If the player touch the wall is loose.</div><div class="ttdef"><b>Definition:</b> Nibbler.cpp:55</div></div>
+<div class="ttc" id="a_nibbler_8hpp_html_a224b9163917ac32fc95a60d8c1eec3aa"><div class="ttname"><a href="_nibbler_8hpp.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a></div><div class="ttdeci">Direction</div><div class="ttdoc">Direction player.</div><div class="ttdef"><b>Definition:</b> Nibbler.hpp:21</div></div>
+<div class="ttc" id="aclass_nibbler_html"><div class="ttname"><a href="class_nibbler.html">Nibbler</a></div><div class="ttdoc">class of Nibbler</div><div class="ttdef"><b>Definition:</b> Nibbler.hpp:33</div></div>
+<div class="ttc" id="aclass_nibbler_html_a2975d69d71c2ad4f0003a6cdab11e14d"><div class="ttname"><a href="class_nibbler.html#a2975d69d71c2ad4f0003a6cdab11e14d">Nibbler::moove</a></div><div class="ttdeci">void moove()</div><div class="ttdoc">Function that manage the player's movement.</div><div class="ttdef"><b>Definition:</b> Nibbler.cpp:86</div></div>
+<div class="ttc" id="aclass_nibbler_html_ac13597af082d700f9aa1e8ff38abcb52"><div class="ttname"><a href="class_nibbler.html#ac13597af082d700f9aa1e8ff38abcb52">Nibbler::runGame</a></div><div class="ttdeci">void runGame(int &amp;indexGame, int &amp;indexLib)</div><div class="ttdoc">Function that start game.</div><div class="ttdef"><b>Definition:</b> Nibbler.cpp:64</div></div>
+<div class="ttc" id="aclass_nibbler_html_ac0cba1d9786603d9926b3515f889f11c"><div class="ttname"><a href="class_nibbler.html#ac0cba1d9786603d9926b3515f889f11c">Nibbler::setPos</a></div><div class="ttdeci">void setPos()</div><div class="ttdoc">Function that set pos the player.</div></div>
+<div class="ttc" id="aclass_nibbler_html_ad19e09642ac1516e78109a3c1f43995c"><div class="ttname"><a href="class_nibbler.html#ad19e09642ac1516e78109a3c1f43995c">Nibbler::Nibbler</a></div><div class="ttdeci">Nibbler()</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition:</b> Nibbler.cpp:7</div></div>
+<div class="ttc" id="aclass_nibbler_html_a628904699fe3540a364b60d44b4738ac"><div class="ttname"><a href="class_nibbler.html#a628904699fe3540a364b60d44b4738ac">Nibbler::setLib</a></div><div class="ttdeci">void setLib(std::shared_ptr&lt; ILibs &gt; &amp;Lib)</div><div class="ttdoc">Function that set the lib.</div><div class="ttdef"><b>Definition:</b> Nibbler.cpp:11</div></div>
+<div class="ttc" id="aclass_nibbler_html_a4368faa43d91b863aa051afb85f2c198"><div class="ttname"><a href="class_nibbler.html#a4368faa43d91b863aa051afb85f2c198">Nibbler::initGraphics</a></div><div class="ttdeci">void initGraphics()</div><div class="ttdoc">Function that init Graphics.</div><div class="ttdef"><b>Definition:</b> Nibbler.cpp:22</div></div>
+<div class="ttc" id="aclass_i_games_html"><div class="ttname"><a href="class_i_games.html">IGames</a></div><div class="ttdoc">class of IGames</div><div class="ttdef"><b>Definition:</b> IGames.hpp:14</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

@@ -10,12 +10,24 @@
 #include <vector>
 #include <iostream>
 
+/**
+ * \enum ShapeType
+ * \brief Rectangle or Circle
+ * 
+ * RECTANGLE / CIRCLE
+ */
 enum ShapeType
 {
     RECTANGLE,
     CIRCLE,
 };
 
+/**
+ * \enum state
+ * \brief state of menu
+ * 
+ * NOTHING / MENU / PAUSE / GAME
+ */
 enum state
 {
     NOTHING,

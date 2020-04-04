@@ -1,3 +1,7 @@
+/**
+ * \file Nibbler.cpp
+ * \brief Game Nibbler
+ */
 #include "Nibbler.hpp"
 
 Nibbler::Nibbler()

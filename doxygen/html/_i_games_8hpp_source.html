@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.18"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: games/IGames.hpp Source File</title>
+<title>The Arcade: games/IGames.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,9 +20,12 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="Borne_arcade_pixel.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">The Arcade
+   &#160;<span id="projectnumber">PROMO 2023</span>
    </div>
+   <div id="projectbrief">By Hugo Lalet, Victor Maurin, Paul Erny</div>
   </td>
  </tr>
  </tbody>
@@ -69,28 +72,30 @@ $(function() {
 <div class="title">IGames.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef IGAMES_HPP</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define IGAMES_HPP</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;../lib/ILibs.hpp&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="class_i_games.html">    6</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_i_games.html">IGames</a></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="comment">/* data */</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="class_i_games.html">IGames</a>()=<span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> initGameData(std::string &amp;pseudo)=0;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> initGraphics()=0;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> runGame(<span class="keywordtype">int</span> &amp;indexGame, <span class="keywordtype">int</span> &amp;indexLib)=0;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> setLib(std::shared_ptr&lt;ILibs&gt; &amp;graphics)=0;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;};</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#endif</span></div>
+<a href="_i_games_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef IGAMES_HPP</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define IGAMES_HPP</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;../lib/ILibs.hpp&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_i_games.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_i_games.html">IGames</a></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="comment">/* data */</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="class_i_games.html">IGames</a>()=<span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="class_i_games.html#a2af71803758f780cbc9cb1415da7954d">   25</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_i_games.html#a2af71803758f780cbc9cb1415da7954d">initGameData</a>(std::string &amp;pseudo)=0;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="class_i_games.html#a11ac61152955513c6ce6da5cf27146a5">   31</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_i_games.html#a11ac61152955513c6ce6da5cf27146a5">initGraphics</a>()=0;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="class_i_games.html#a95064ee4751d1691e04e8a47d56e5bc6">   39</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_i_games.html#a95064ee4751d1691e04e8a47d56e5bc6">runGame</a>(<span class="keywordtype">int</span> &amp;indexGame, <span class="keywordtype">int</span> &amp;indexLib)=0;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="class_i_games.html#ab5235edd21dfeb7ccbb9fc6213d23f1e">   46</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_i_games.html#ab5235edd21dfeb7ccbb9fc6213d23f1e">setLib</a>(std::shared_ptr&lt;ILibs&gt; &amp;graphics)=0;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;};</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclass_i_games_html"><div class="ttname"><a href="class_i_games.html">IGames</a></div><div class="ttdef"><b>Definition:</b> IGames.hpp:7</div></div>
+<div class="ttc" id="aclass_i_games_html_a2af71803758f780cbc9cb1415da7954d"><div class="ttname"><a href="class_i_games.html#a2af71803758f780cbc9cb1415da7954d">IGames::initGameData</a></div><div class="ttdeci">virtual void initGameData(std::string &amp;pseudo)=0</div><div class="ttdoc">Function that init game data.</div></div>
+<div class="ttc" id="aclass_i_games_html_a95064ee4751d1691e04e8a47d56e5bc6"><div class="ttname"><a href="class_i_games.html#a95064ee4751d1691e04e8a47d56e5bc6">IGames::runGame</a></div><div class="ttdeci">virtual void runGame(int &amp;indexGame, int &amp;indexLib)=0</div><div class="ttdoc">Function that start game.</div></div>
+<div class="ttc" id="aclass_i_games_html_ab5235edd21dfeb7ccbb9fc6213d23f1e"><div class="ttname"><a href="class_i_games.html#ab5235edd21dfeb7ccbb9fc6213d23f1e">IGames::setLib</a></div><div class="ttdeci">virtual void setLib(std::shared_ptr&lt; ILibs &gt; &amp;graphics)=0</div><div class="ttdoc">Function that set the lib.</div></div>
+<div class="ttc" id="aclass_i_games_html_a11ac61152955513c6ce6da5cf27146a5"><div class="ttname"><a href="class_i_games.html#a11ac61152955513c6ce6da5cf27146a5">IGames::initGraphics</a></div><div class="ttdeci">virtual void initGraphics()=0</div><div class="ttdoc">Function that init Graphics.</div></div>
+<div class="ttc" id="aclass_i_games_html"><div class="ttname"><a href="class_i_games.html">IGames</a></div><div class="ttdoc">class of IGames</div><div class="ttdef"><b>Definition:</b> IGames.hpp:14</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

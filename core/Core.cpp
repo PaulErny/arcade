@@ -1,3 +1,7 @@
+/**
+ * \file Core.cpp
+ * \brief Core
+ */
 #include "Core.hpp"
 
 Core::Core(char *arg) : m_arg(arg) 

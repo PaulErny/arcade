@@ -1,7 +1,10 @@
 var searchData=
 [
-  ['gameselectionmenu_124',['gameSelectionMenu',['../class_i_libs.html#a83b4941ff7cbecab92d683d0fc5a069c',1,'ILibs::gameSelectionMenu()'],['../class_ncurses_lib.html#aa080a433d929852dbc7c82e444031512',1,'NcursesLib::gameSelectionMenu()'],['../class_s_d_l_lib.html#a43e5a2d11b87bb13224e83b65d8d52cf',1,'SDLLib::gameSelectionMenu()'],['../class_s_f_m_l_lib.html#ab0dd6f5afa1d33fb9a9d9396357db49f',1,'SFMLLib::gameSelectionMenu()']]],
-  ['get_5fname_125',['get_name',['../class_ncurses_lib.html#acdbe66717d2960e2459b72acf8e276ec',1,'NcursesLib']]],
-  ['getevt_126',['getEvt',['../class_s_f_m_l_lib.html#abb99e4756d21872defec67f5686cde7c',1,'SFMLLib']]],
-  ['getpseudo_127',['getPseudo',['../class_s_f_m_l_menu.html#a2b8b549be24abe8ccac5a5fb7d87baa2',1,'SFMLMenu']]]
+  ['eatcoin_226',['eatCoin',['../class_pacman.html#af85f149713758f5667bca74622313e7f',1,'Pacman']]],
+  ['eatfood_227',['eatFood',['../class_nibbler.html#a35c0396f7fb9bde9da9bbb948b99478f',1,'Nibbler']]],
+  ['endgame_228',['endGame',['../class_nibbler.html#a91e7ce6868733a63aee090d8cb6be9ed',1,'Nibbler']]],
+  ['entername_229',['enterName',['../class_i_libs.html#a735103e8f9f72e76ff4cc70fd0cc5e0c',1,'ILibs::enterName()'],['../class_ncurses_lib.html#ae632c1b6f2c73a2075f0e633aa2d4874',1,'NcursesLib::enterName()'],['../class_s_d_l_lib.html#ab32ac29da275072d614fe23a505b46fa',1,'SDLLib::enterName()'],['../class_s_f_m_l_lib.html#adf1073f7e9281115d797e108b6955908',1,'SFMLLib::enterName()']]],
+  ['entity_230',['Entity',['../class_entity.html#a980f368aa07ce358583982821533a54a',1,'Entity']]],
+  ['eventmenu_231',['eventMenu',['../class_s_d_l_lib.html#acfd102f932cedd52b046b2b38262bf6e',1,'SDLLib']]],
+  ['events_232',['events',['../class_i_libs.html#a28f3ef67df87a1b2cdb6fdebe84c0546',1,'ILibs::events()'],['../class_ncurses_lib.html#a38acb54f5ddb9cb37d21fcf3bf63e677',1,'NcursesLib::events()'],['../class_s_d_l_lib.html#a76aa443a45b16ff6d8885d98367ea2be',1,'SDLLib::events()'],['../class_s_f_m_l_lib.html#ad519f75bebd0dfa5999b3545096004fa',1,'SFMLLib::events()']]]
 ];

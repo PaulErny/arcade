@@ -5,6 +5,11 @@
 ** SFMLLib
 */
 
+/**
+ * \file SFMLLib.cpp
+ * \brief SFMLLib
+ */
+
 #include "SFMLLib.hpp"
 
 SFMLLib::SFMLLib()

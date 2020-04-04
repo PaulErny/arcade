@@ -1,3 +1,8 @@
+/**
+ * \file SDLLib.cpp
+ * \brief SDL Lib
+ */
+
 #include "SDLLib.hpp"
 
 SDLLib::SDLLib()

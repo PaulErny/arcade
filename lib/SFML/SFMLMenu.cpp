@@ -5,6 +5,11 @@
 ** SFMLMenu
 */
 
+/**
+ * \file SFMLMenu.cpp
+ * \brief Menu SFML
+ */
+
 #include "SFMLMenu.hpp"
 
 SFMLMenu::SFMLMenu(SFMLLib *lib)

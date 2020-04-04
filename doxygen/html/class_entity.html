@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.18"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: Entity Class Reference</title>
+<title>The Arcade: Entity Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,9 +20,12 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="Borne_arcade_pixel.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">The Arcade
+   &#160;<span id="projectnumber">PROMO 2023</span>
    </div>
+   <div id="projectbrief">By Hugo Lalet, Victor Maurin, Paul Erny</div>
   </td>
  </tr>
  </tbody>
@@ -69,59 +72,78 @@ $(function() {
 <div class="title">Entity Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>class of <a class="el" href="class_entity.html" title="class of Entity">Entity</a>  
+ <a href="class_entity.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Entity:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_entity.png" usemap="#Entity_map" alt=""/>
   <map id="Entity_map" name="Entity_map">
-<area href="class_pacman.html" alt="Pacman" shape="rect" coords="0,56,57,80"/>
+<area href="class_ghost.html" title="class of Ghost" alt="Ghost" shape="rect" coords="0,56,57,80"/>
+<area href="class_pacman.html" title="class of Pacman" alt="Pacman" shape="rect" coords="67,56,124,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:acbd3a664e132862b89db68fabfdd924c"><td class="memItemLeft" align="right" valign="top"><a id="acbd3a664e132862b89db68fabfdd924c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>move</b> (float xOffset, float yOffset)</td></tr>
+<tr class="memitem:a980f368aa07ce358583982821533a54a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a980f368aa07ce358583982821533a54a">Entity</a> ()</td></tr>
+<tr class="memdesc:a980f368aa07ce358583982821533a54a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="class_entity.html#a980f368aa07ce358583982821533a54a">More...</a><br /></td></tr>
+<tr class="separator:a980f368aa07ce358583982821533a54a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf6d3f7cb1b2ba029b6b048a395cc8ae"><td class="memItemLeft" align="right" valign="top"><a id="adf6d3f7cb1b2ba029b6b048a395cc8ae"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#adf6d3f7cb1b2ba029b6b048a395cc8ae">~Entity</a> ()</td></tr>
+<tr class="memdesc:adf6d3f7cb1b2ba029b6b048a395cc8ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br /></td></tr>
+<tr class="separator:adf6d3f7cb1b2ba029b6b048a395cc8ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbd3a664e132862b89db68fabfdd924c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#acbd3a664e132862b89db68fabfdd924c">move</a> (float xOffset, float yOffset)</td></tr>
+<tr class="memdesc:acbd3a664e132862b89db68fabfdd924c"><td class="mdescLeft">&#160;</td><td class="mdescRight">moves the entity from its current pos to (posX + xOffset, posY + yOffset)  <a href="class_entity.html#acbd3a664e132862b89db68fabfdd924c">More...</a><br /></td></tr>
 <tr class="separator:acbd3a664e132862b89db68fabfdd924c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9c829370f07f231e94cd1e2c2b353a0"><td class="memItemLeft" align="right" valign="top"><a id="ad9c829370f07f231e94cd1e2c2b353a0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addShape</b> (int height, int width, int r=255, int g=255, int b=255)</td></tr>
+<tr class="memitem:ad9c829370f07f231e94cd1e2c2b353a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#ad9c829370f07f231e94cd1e2c2b353a0">addShape</a> (int height, int width, int r=255, int g=255, int b=255)</td></tr>
+<tr class="memdesc:ad9c829370f07f231e94cd1e2c2b353a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">adds a shape to the shapes vector  <a href="class_entity.html#ad9c829370f07f231e94cd1e2c2b353a0">More...</a><br /></td></tr>
 <tr class="separator:ad9c829370f07f231e94cd1e2c2b353a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab08a99fe04771bf2b58bfcf7637f4b0f"><td class="memItemLeft" align="right" valign="top"><a id="ab08a99fe04771bf2b58bfcf7637f4b0f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addImage</b> (std::string file)</td></tr>
+<tr class="memitem:ab08a99fe04771bf2b58bfcf7637f4b0f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#ab08a99fe04771bf2b58bfcf7637f4b0f">addImage</a> (std::string file)</td></tr>
+<tr class="memdesc:ab08a99fe04771bf2b58bfcf7637f4b0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">adds a sprite to the shapes vector  <a href="class_entity.html#ab08a99fe04771bf2b58bfcf7637f4b0f">More...</a><br /></td></tr>
 <tr class="separator:ab08a99fe04771bf2b58bfcf7637f4b0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc416b8120b0f591a13d20e727e4f3c1"><td class="memItemLeft" align="right" valign="top"><a id="afc416b8120b0f591a13d20e727e4f3c1"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>nextShape</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#afc416b8120b0f591a13d20e727e4f3c1">nextShape</a> ()</td></tr>
+<tr class="memdesc:afc416b8120b0f591a13d20e727e4f3c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that change Shape by incrementing. <br /></td></tr>
 <tr class="separator:afc416b8120b0f591a13d20e727e4f3c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1726e97287b9efecacaaa9f6713526b3"><td class="memItemLeft" align="right" valign="top"><a id="a1726e97287b9efecacaaa9f6713526b3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>prevShape</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a1726e97287b9efecacaaa9f6713526b3">prevShape</a> ()</td></tr>
+<tr class="memdesc:a1726e97287b9efecacaaa9f6713526b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that change Shape by decrementing. <br /></td></tr>
 <tr class="separator:a1726e97287b9efecacaaa9f6713526b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ecdb7c8074871582688d5b1c26f0afb"><td class="memItemLeft" align="right" valign="top"><a id="a0ecdb7c8074871582688d5b1c26f0afb"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>changeColor</b> (int r, int g, int b)</td></tr>
+<tr class="memitem:a0ecdb7c8074871582688d5b1c26f0afb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a0ecdb7c8074871582688d5b1c26f0afb">changeColor</a> (int r, int g, int b)</td></tr>
+<tr class="memdesc:a0ecdb7c8074871582688d5b1c26f0afb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that change the color of the entity.  <a href="class_entity.html#a0ecdb7c8074871582688d5b1c26f0afb">More...</a><br /></td></tr>
 <tr class="separator:a0ecdb7c8074871582688d5b1c26f0afb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93306ecdce9446da37560f5f2b5307c0"><td class="memItemLeft" align="right" valign="top"><a id="a93306ecdce9446da37560f5f2b5307c0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setPosition</b> (float x, float y)</td></tr>
+<tr class="memitem:a93306ecdce9446da37560f5f2b5307c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a93306ecdce9446da37560f5f2b5307c0">setPosition</a> (float x, float y)</td></tr>
+<tr class="memdesc:a93306ecdce9446da37560f5f2b5307c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that set position of the entity.  <a href="class_entity.html#a93306ecdce9446da37560f5f2b5307c0">More...</a><br /></td></tr>
 <tr class="separator:a93306ecdce9446da37560f5f2b5307c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45b872272c8087ccd93897f6fe337b4a"><td class="memItemLeft" align="right" valign="top"><a id="a45b872272c8087ccd93897f6fe337b4a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>updatePosition</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a45b872272c8087ccd93897f6fe337b4a">updatePosition</a> ()</td></tr>
+<tr class="memdesc:a45b872272c8087ccd93897f6fe337b4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that update the position of the entity. <br /></td></tr>
 <tr class="separator:a45b872272c8087ccd93897f6fe337b4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa26571256156ac9afb8c0fc0860b3d7"><td class="memItemLeft" align="right" valign="top"><a id="afa26571256156ac9afb8c0fc0860b3d7"></a>
-const float &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getXposition</b> () const</td></tr>
+<tr class="memitem:afa26571256156ac9afb8c0fc0860b3d7"><td class="memItemLeft" align="right" valign="top">const float &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#afa26571256156ac9afb8c0fc0860b3d7">getXposition</a> () const</td></tr>
+<tr class="memdesc:afa26571256156ac9afb8c0fc0860b3d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that get position X of the entity.  <a href="class_entity.html#afa26571256156ac9afb8c0fc0860b3d7">More...</a><br /></td></tr>
 <tr class="separator:afa26571256156ac9afb8c0fc0860b3d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a841c17eabc25e8d64e79e90199bfa14c"><td class="memItemLeft" align="right" valign="top"><a id="a841c17eabc25e8d64e79e90199bfa14c"></a>
-const float &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getYposition</b> () const</td></tr>
+<tr class="memitem:a841c17eabc25e8d64e79e90199bfa14c"><td class="memItemLeft" align="right" valign="top">const float &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a841c17eabc25e8d64e79e90199bfa14c">getYposition</a> () const</td></tr>
+<tr class="memdesc:a841c17eabc25e8d64e79e90199bfa14c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that get position Y of the entity.  <a href="class_entity.html#a841c17eabc25e8d64e79e90199bfa14c">More...</a><br /></td></tr>
 <tr class="separator:a841c17eabc25e8d64e79e90199bfa14c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52ad3457c136aea6d1a2295ca03a27fd"><td class="memItemLeft" align="right" valign="top"><a id="a52ad3457c136aea6d1a2295ca03a27fd"></a>
-const std::vector&lt; int &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getVectorOfShape</b> () const</td></tr>
+<tr class="memitem:a52ad3457c136aea6d1a2295ca03a27fd"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; int &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a52ad3457c136aea6d1a2295ca03a27fd">getVectorOfShape</a> () const</td></tr>
+<tr class="memdesc:a52ad3457c136aea6d1a2295ca03a27fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that get vector of shape.  <a href="class_entity.html#a52ad3457c136aea6d1a2295ca03a27fd">More...</a><br /></td></tr>
 <tr class="separator:a52ad3457c136aea6d1a2295ca03a27fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7666f416dd0d1fce0f1133f78df44476"><td class="memItemLeft" align="right" valign="top"><a id="a7666f416dd0d1fce0f1133f78df44476"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>draw</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a7666f416dd0d1fce0f1133f78df44476">draw</a> ()</td></tr>
+<tr class="memdesc:a7666f416dd0d1fce0f1133f78df44476"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that draw the entity. <br /></td></tr>
 <tr class="separator:a7666f416dd0d1fce0f1133f78df44476"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4631848516b8cd63c894b90b0629651b"><td class="memItemLeft" align="right" valign="top"><a id="a4631848516b8cd63c894b90b0629651b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setLibPtr</b> (std::shared_ptr&lt; <a class="el" href="class_i_libs.html">ILibs</a> &gt;)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a4631848516b8cd63c894b90b0629651b">setLibPtr</a> (std::shared_ptr&lt; <a class="el" href="class_i_libs.html">ILibs</a> &gt;)</td></tr>
+<tr class="memdesc:a4631848516b8cd63c894b90b0629651b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that set lib. <br /></td></tr>
 <tr class="separator:a4631848516b8cd63c894b90b0629651b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc8e4e0a2828a817244446cae0a0fb20"><td class="memItemLeft" align="right" valign="top"><a id="afc8e4e0a2828a817244446cae0a0fb20"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setType</b> (entityType type)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#afc8e4e0a2828a817244446cae0a0fb20">setType</a> (<a class="el" href="_entity_8hpp.html#ac25bae40f86dbaf62807318d4042d75c">entityType</a> <a class="el" href="class_entity.html#a70da6c268b2cc0b615095dcb762a51d0">type</a>)</td></tr>
+<tr class="memdesc:afc8e4e0a2828a817244446cae0a0fb20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that set type. <br /></td></tr>
 <tr class="separator:afc8e4e0a2828a817244446cae0a0fb20"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
@@ -150,8 +172,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>color_g</b></td></tr>
 <tr class="memitem:a51d4211e2575ad44fdaee3ca814be8c9"><td class="memItemLeft" align="right" valign="top"><a id="a51d4211e2575ad44fdaee3ca814be8c9"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>color_b</b></td></tr>
 <tr class="separator:a51d4211e2575ad44fdaee3ca814be8c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70da6c268b2cc0b615095dcb762a51d0"><td class="memItemLeft" align="right" valign="top"><a id="a70da6c268b2cc0b615095dcb762a51d0"></a>
-entityType&#160;</td><td class="memItemRight" valign="bottom"><b>type</b></td></tr>
+<tr class="memitem:a70da6c268b2cc0b615095dcb762a51d0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_entity_8hpp.html#ac25bae40f86dbaf62807318d4042d75c">entityType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a70da6c268b2cc0b615095dcb762a51d0">type</a></td></tr>
 <tr class="separator:a70da6c268b2cc0b615095dcb762a51d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac5e8e8b20f35a6a2724fe0208e699b78"><td class="memItemLeft" align="right" valign="top"><a id="ac5e8e8b20f35a6a2724fe0208e699b78"></a>
 std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>shapes</b></td></tr>
@@ -163,9 +184,325 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>currentShape</b></td><
 std::shared_ptr&lt; <a class="el" href="class_i_libs.html">ILibs</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>graphics</b></td></tr>
 <tr class="separator:ab370f688ff6add9ed667770391ab24f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>class of <a class="el" href="class_entity.html" title="class of Entity">Entity</a> </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a980f368aa07ce358583982821533a54a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a980f368aa07ce358583982821533a54a">&#9670;&nbsp;</a></span>Entity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Entity::Entity </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arg</td><td>is the arguments </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ab08a99fe04771bf2b58bfcf7637f4b0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab08a99fe04771bf2b58bfcf7637f4b0f">&#9670;&nbsp;</a></span>addImage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Entity::addImage </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>file</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>adds a sprite to the shapes vector </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>is the path to the ressource </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad9c829370f07f231e94cd1e2c2b353a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9c829370f07f231e94cd1e2c2b353a0">&#9670;&nbsp;</a></span>addShape()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Entity::addShape </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>r</em> = <code>255</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>g</em> = <code>255</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>b</em> = <code>255</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>adds a shape to the shapes vector </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">height</td><td>is for the height </td></tr>
+    <tr><td class="paramname">width</td><td>is for the width </td></tr>
+    <tr><td class="paramname">r</td><td>for the color </td></tr>
+    <tr><td class="paramname">g</td><td>for the color </td></tr>
+    <tr><td class="paramname">b</td><td>for the color </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0ecdb7c8074871582688d5b1c26f0afb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ecdb7c8074871582688d5b1c26f0afb">&#9670;&nbsp;</a></span>changeColor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Entity::changeColor </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function that change the color of the entity. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r</td><td>for the color </td></tr>
+    <tr><td class="paramname">g</td><td>for the color </td></tr>
+    <tr><td class="paramname">b</td><td>for the color </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a52ad3457c136aea6d1a2295ca03a27fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52ad3457c136aea6d1a2295ca03a27fd">&#9670;&nbsp;</a></span>getVectorOfShape()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt; int &gt; &amp; Entity::getVectorOfShape </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function that get vector of shape. </p>
+<dl class="section return"><dt>Returns</dt><dd>std::vector&lt;int&gt; </dd></dl>
+
+</div>
+</div>
+<a id="afa26571256156ac9afb8c0fc0860b3d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa26571256156ac9afb8c0fc0860b3d7">&#9670;&nbsp;</a></span>getXposition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const float &amp; Entity::getXposition </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function that get position X of the entity. </p>
+<dl class="section return"><dt>Returns</dt><dd>float </dd></dl>
+
+</div>
+</div>
+<a id="a841c17eabc25e8d64e79e90199bfa14c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a841c17eabc25e8d64e79e90199bfa14c">&#9670;&nbsp;</a></span>getYposition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const float &amp; Entity::getYposition </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function that get position Y of the entity. </p>
+<dl class="section return"><dt>Returns</dt><dd>float </dd></dl>
+
+</div>
+</div>
+<a id="acbd3a664e132862b89db68fabfdd924c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbd3a664e132862b89db68fabfdd924c">&#9670;&nbsp;</a></span>move()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Entity::move </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>xOffset</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>yOffset</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>moves the entity from its current pos to (posX + xOffset, posY + yOffset) </p>
+<p><br  />
+ </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">xOffset</td><td>is the coordinate x </td></tr>
+    <tr><td class="paramname">yOffset</td><td>is the coordinate y </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a93306ecdce9446da37560f5f2b5307c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93306ecdce9446da37560f5f2b5307c0">&#9670;&nbsp;</a></span>setPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Entity::setPosition </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function that set position of the entity. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>for the coordonate </td></tr>
+    <tr><td class="paramname">y</td><td>for the coordonate </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a70da6c268b2cc0b615095dcb762a51d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70da6c268b2cc0b615095dcb762a51d0">&#9670;&nbsp;</a></span>type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_entity_8hpp.html#ac25bae40f86dbaf62807318d4042d75c">entityType</a> Entity::type</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>type of the shapes </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>games/<a class="el" href="_entity_8hpp_source.html">Entity.hpp</a></li>
-<li>games/Entity.cpp</li>
+<li>games/<a class="el" href="_entity_8cpp.html">Entity.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

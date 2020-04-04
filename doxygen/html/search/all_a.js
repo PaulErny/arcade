@@ -1,7 +1,12 @@
 var searchData=
 [
-  ['rechoose_60',['rechoose',['../class_s_f_m_l_menu.html#a74b3b159d6ee7483ed1ac48472d0a436',1,'SFMLMenu']]],
-  ['renamewindow_61',['renameWindow',['../class_i_libs.html#af4a98350a59abd61d22d5424671ef8f2',1,'ILibs::renameWindow()'],['../class_ncurses_lib.html#a3498501203e2c08e55bf6af869b976b1',1,'NcursesLib::renameWindow()'],['../class_s_d_l_lib.html#abb31f2cf460d9ca36c4c6458681736a8',1,'SDLLib::renameWindow()'],['../class_s_f_m_l_lib.html#aa74cf81e256f6fd553b75c53e462dfea',1,'SFMLLib::renameWindow()']]],
-  ['resizewindow_62',['resizeWindow',['../class_i_libs.html#a3c808e1792bfd45c9b82bce6a28ecbbc',1,'ILibs::resizeWindow()'],['../class_ncurses_lib.html#aff50d98aa724541b300696db69e123db',1,'NcursesLib::resizeWindow()'],['../class_s_d_l_lib.html#a14bdc83778b52e63a24a853970630d5b',1,'SDLLib::resizeWindow()'],['../class_s_f_m_l_lib.html#a32d6547f66822811232fc6c73fbe7b59',1,'SFMLLib::resizeWindow()']]],
-  ['rigtharrow_63',['rigthArrow',['../class_i_libs.html#a6b10fb58d42706a346605b62884c06e9',1,'ILibs::rigthArrow()'],['../class_ncurses_lib.html#a5900acbc795a24e7062444e0e2bb02f0',1,'NcursesLib::rigthArrow()'],['../class_s_d_l_lib.html#a487871ce2ab0d562edce71d9e0bb4ec5',1,'SDLLib::rigthArrow()'],['../class_s_f_m_l_lib.html#a3250142d23e241636fb6135f9958bc10',1,'SFMLLib::rigthArrow()']]]
+  ['main_2ecpp_85',['main.cpp',['../main_8cpp.html',1,'']]],
+  ['menu_86',['menu',['../class_i_libs.html#a52a4d6da69d16fe2be18fde6ada9287f',1,'ILibs::menu()'],['../class_ncurses_lib.html#a5c4a9145afd977955a5e900255ee5a9b',1,'NcursesLib::menu()'],['../class_s_d_l_lib.html#a2d0ee75a64af19005d0e32f17cdc03e4',1,'SDLLib::menu()'],['../class_s_f_m_l_lib.html#ab1046bb513c03f481af77c39ed5987ea',1,'SFMLLib::menu()'],['../class_s_f_m_l_menu.html#a9f4d4fc39126e0efa1d7cb33a2307063',1,'SFMLMenu::menu()']]],
+  ['menu_2ecpp_87',['menu.cpp',['../menu_8cpp.html',1,'']]],
+  ['menu_5fgame_88',['menu_game',['../class_ncurses_lib.html#af04c7b69415e8de7db2dcbe7a54a5a45',1,'NcursesLib']]],
+  ['menu_5flib_89',['menu_lib',['../class_ncurses_lib.html#a0ff887a7e300a1f1b1d9380814b696f7',1,'NcursesLib']]],
+  ['menu_5fname_90',['menu_name',['../class_ncurses_lib.html#aad45ba11a00314fc598f5a7b65aa2424',1,'NcursesLib']]],
+  ['moove_91',['moove',['../class_nibbler.html#a2975d69d71c2ad4f0003a6cdab11e14d',1,'Nibbler']]],
+  ['move_92',['move',['../class_entity.html#acbd3a664e132862b89db68fabfdd924c',1,'Entity']]],
+  ['moveplayer_93',['movePlayer',['../class_ghost.html#a6efb08c8b44e852547ce61c01c296f8f',1,'Ghost::movePlayer()'],['../class_pacman.html#a72ebda7ef7423ecedd6bdb25b3cd53d6',1,'Pacman::movePlayer()']]]
 ];

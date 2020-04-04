@@ -5,6 +5,11 @@
 ** SFMLLib
 */
 
+/**
+ * \file SFMLLib.hpp
+ * \brief SFML Lib
+ */
+
 #ifndef SFMLLIB_HPP
 #define SFMLLIB_HPP
 

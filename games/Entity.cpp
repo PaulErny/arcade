@@ -4,7 +4,10 @@
 ** File description:
 ** Entity
 */
-
+/**
+ * \file Entity.cpp
+ * \brief Entity
+ */
 #include "Entity.hpp"
 
 Entity::Entity()
