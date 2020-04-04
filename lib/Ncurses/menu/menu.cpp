@@ -62,6 +62,7 @@ int NcursesLib::menu(state &pgState, bool close, std::vector<std::string> &libsN
     this->_indexLib = indexLib;
     if (pseudo.empty() == true)
         pseudo = this->enterName(pgState, close);
+    mvprintw(3, 150, "Your name = %s", pseudo.c_str());
     if (this->libSelectionMenu(pgState, close, libsNames) == -1)
     {
         indexLib = this->_indexLib;

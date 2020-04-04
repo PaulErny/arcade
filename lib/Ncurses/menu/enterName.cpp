@@ -39,6 +39,5 @@ std::string NcursesLib::enterName(state &pgState, bool close)
     std::string thename;
 
     thename = menu_name();
-    mvprintw(3, 150, "Your name = %s", thename.c_str());
     return (thename);
 }
