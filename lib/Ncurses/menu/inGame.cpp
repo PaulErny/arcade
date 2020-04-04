@@ -5,27 +5,12 @@
 
 #include "../NcursesLib.hpp"
 
-/**
- * \fn int NcursesLib::check_game(int selection, std::vector<std::string> &gamesNames)
- * \brief Function that checks which game are selected
- *
- * \param selection is the selection
- * \param gamesNames of vector
- * \return int
- */
 int NcursesLib::check_game(int selection, std::vector<std::string> &gamesNames)
 {
     mvprintw(20, 20, gamesNames[selection].c_str());
     return (27);
 }
 
-/**
- * \fn NcursesLib::inGame(std::vector<std::string> &gamesNames)
- * \brief Function that checks with getch(), which key are activated with the keyboard
- *
- * \param gamesNames of vector
- * \return int
- */
 int NcursesLib::inGame(std::vector<std::string> &gamesNames)
 {
     while (this->_ky2 != 27)
@@ -71,14 +56,6 @@ int NcursesLib::inGame(std::vector<std::string> &gamesNames)
     }
     return (18);
 }
-
-/**
- * \fn int NcursesLib::menu_game(std::vector<std::string> &gamesNames)
- * \brief Main function of the game menu
- *
- * \param gamesNames of vector
- * \return int
- */
 
 int NcursesLib::menu_game(std::vector<std::string> &gamesNames)
 {

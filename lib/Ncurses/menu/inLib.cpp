@@ -5,27 +5,12 @@
 
 #include "../NcursesLib.hpp"
 
-/**
- * \fn int NcursesLib::check_lib(int selection, std::vector<std::string> &libsNames)
- * \brief Function that checks which library are selected
- *
- * \param selection is the selection
- * \param libsNames of vector
- * \return int
- */
 int NcursesLib::check_lib(int selection, std::vector<std::string> &libsNames)
 {
     mvprintw(20, 0, libsNames[selection].c_str());
     return (27);
 }
 
-/**
- * \fn NcursesLib::inLib(std::vector<std::string> &libsNames)
- * \brief Function that checks with getch(), which key are activated with the keyboard
- *
- * \param libsNames of vector
- * \return int
- */
 int NcursesLib::inLib(std::vector<std::string> &libsNames)
 {
     while (this->_ky != 27)
@@ -72,14 +57,6 @@ int NcursesLib::inLib(std::vector<std::string> &libsNames)
     return (this->_indexLib);
 }
 
-/**
- * \fn NcursesLib::menu_lib(std::vector<std::string> &libsNames)
- * \brief Main function of the library menu
- * \brief THe function display too, the commands for change the library
- *
- * \param libsNames of vector
- * \return int
- */
 int NcursesLib::menu_lib(std::vector<std::string> &libsNames)
 {
     int temp = 0;

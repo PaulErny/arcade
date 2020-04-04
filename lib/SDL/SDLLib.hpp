@@ -8,6 +8,10 @@
 #include "SDL2/SDL_image.h"
 #include "../ILibs.hpp"
 
+/*! \class SDLLib
+   * \brief class of SDL Library
+   *
+   */
 class SDLLib : public ILibs
 {
 private:
@@ -61,7 +65,15 @@ private:
     std::vector<SDL_Rect> rectImage;
 
 public : 
+/**
+ * \fn SDLLib()
+ * \brief Constructor
+ */
     SDLLib(/* args */);
+    /**
+ * \fn ~SDLLib();
+ * \brief Destructor
+ */
     ~SDLLib();
     /* ------------------------------- RELATED TO SHAPES ------------------------------- */
     // explicit. if rectangle -> use $width and $height, if sphere -> $width = radius
@@ -145,6 +157,12 @@ public :
     int gameSelectionMenu(state &pgState, bool close, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores);
     // menu to enter the name. returns string with the name
     std::string enterName(state &pgState, bool close);
+    /**
+     * \fn void eventMenu(int &indexLib)
+     * \brief Check the events in the menu
+     * 
+     * \param indexLib of vector 
+     */
     void eventMenu(int &indexLib);
     void init_menu(std::vector<std::string> &libsNames, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores, std::string &pseudo);
     int menu(state &pgState, bool close, std::vector<std::string> &libsNames, std::vector<std::string> &gamesName, std::vector<std::vector<std::string>> highScores, std::string &pseudo, int &indexLib);
