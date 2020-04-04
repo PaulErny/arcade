@@ -1,10 +1,13 @@
 NAME	= lib_arcade_pacman.so
 
-CXX	= g++ 
+CC	= g++
 
 RM	= rm -f
 
-SRCS	= ./Pacman.cpp 
+SRCS	= ../Entity.cpp \
+		  ./Ghost.cpp \
+	      ./Pacman.cpp \
+	      ./PacmanGame.cpp 
 
 OBJS	= $(SRCS:.cpp=.o)
 

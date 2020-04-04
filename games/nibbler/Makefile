@@ -1,6 +1,6 @@
 NAME	= lib_arcade_nibbler.so
 
-CXX	= g++ 
+CC	= g++ 
 
 RM	= rm -f
 
