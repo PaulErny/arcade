@@ -70,13 +70,13 @@ void Pacman::goDown()
     }
 }
 
-void Pacman::movePlayer(double deltaTime, std::vector<std::vector<int>> map) // deltaTime in sec
+void Pacman::movePlayer(double deltaTime, std::vector<std::vector<int>> &map) // deltaTime in sec
 {
     // get map pos
-    float topLeftMapPosX = (this->posX + 7 - 92) / 32; // - 7 and + 24 to reduce the hitbox of pacman from 32x32px to 17x17px makes turning easier
-    float topLeftMapPosY = (this->posY + 7 - 44) / 32; // -92 and -44 are xOffset and yOffset used to put sprites in the center of the window
-    float botRightMapPosX = (this->posX + 24 - 92) / 32; // 32 is the default size of a sprite -> divide by 32 to obtain the sprite pos in the map
-    float botRightMapPosY = (this->posY + 24 - 44) / 32;
+    float topLeftMapPosX = (this->posX + 3 - 92) / 32; // - 3 and + 28 to reduce the hitbox of pacman from 32x32px to 25x25px makes turning easier
+    float topLeftMapPosY = (this->posY + 3 - 44) / 32; // -92 and -44 are xOffset and yOffset used to put sprites in the center of the window
+    float botRightMapPosX = (this->posX + 28 - 92) / 32; // 32 is the default size of a sprite -> divide by 32 to obtain the sprite pos in the map
+    float botRightMapPosY = (this->posY + 28 - 44) / 32;
     // move pacman if possible
     if (this->rightDirection) {
         if (map[(int)botRightMapPosY][(int)(botRightMapPosX + ((200 * deltaTime) / 32))] == 2 || // 2 is small coin
@@ -102,4 +102,23 @@ void Pacman::movePlayer(double deltaTime, std::vector<std::vector<int>> map) // 
             map[(int)(botRightMapPosY + ((200 * deltaTime) / 32))][(int)botRightMapPosX] == 0)
             this->move(0, 200 * deltaTime);
     }
+}
+
+int Pacman::eatCoin(std::vector<std::vector<int>> &map, std::vector<std::vector<Entity>> &mapSpritesID)
+{
+    // get map pos
+    float MapPosX = (this->posX + 16 - 92) / 32;
+    float MapPosY = (this->posY + 16 - 44) / 32;
+
+    if (map[MapPosY][MapPosX] == 2) {
+        map[(int)MapPosY][(int)MapPosX] = 0;
+        mapSpritesID[(int)MapPosY][(int)MapPosX].nextShape();
+        return 100;
+    }
+    if (map[MapPosY][MapPosX] == 3) {
+        map[(int)MapPosY][(int)MapPosX] = 0;
+        mapSpritesID[(int)MapPosY][(int)MapPosX].nextShape();
+        return 300;
+    }
+    return 0;
 }

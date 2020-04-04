@@ -21,7 +21,8 @@ class Pacman : public Entity {
         void goLeft();
         void goUp();
         void goDown();
-        void movePlayer(double deltaTime, std::vector<std::vector<int>> map);
+        void movePlayer(double deltaTime, std::vector<std::vector<int>> &map);
+        int eatCoin(std::vector<std::vector<int>> &map, std::vector<std::vector<Entity>> &mapSpritesID);
 
     private:
         bool rightDirection;

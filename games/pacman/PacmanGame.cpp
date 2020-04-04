@@ -48,6 +48,7 @@ PacmanGame::PacmanGame()
     this->frames = 0;
     this->frameTime = 0.01; // in sec -> 10ms per frame -> 100 FPS
     this->maxUpdates = 5;
+    this->score = 0;
 }
 
 PacmanGame::~PacmanGame()
@@ -166,9 +167,11 @@ void PacmanGame::initMapCell(int x, int y)
     } else if (this->map[y][x] == 2) {
         this->mapSpritesID[y][x].setType(SPRITE);
         this->mapSpritesID[y][x].addImage("pacman/resources/small_coin.png");
+        this->mapSpritesID[y][x].addImage("pacman/resources/empty.png");
     } else if (this->map[y][x] == 3) {
         this->mapSpritesID[y][x].setType(SPRITE);
         this->mapSpritesID[y][x].addImage("pacman/resources/big_coin_1.png");
+        this->mapSpritesID[y][x].addImage("pacman/resources/empty.png");
     } else if (this->map[y][x] == 0 || this->map[y][x] == 4) {
         this->mapSpritesID[y][x].setType(SPRITE);
         this->mapSpritesID[y][x].addImage("pacman/resources/empty.png");
@@ -189,6 +192,10 @@ void PacmanGame::initGraphics()
 void PacmanGame::update()
 {
     this->player->movePlayer(this->deltaTime / (double)CLOCKS_PER_SEC, this->map);
+    // unsigned int tmp = this->score;
+    this->score += this->player->eatCoin(this->map, this->mapSpritesID);
+    // if (tmp != this->score)
+    //     this->map[(int)((this->player->getYposition() - 92 )/ 32)][(int)((this->player->getXposition() - 92 )/ 32)] = 0;
 }
 
 void PacmanGame::draw()

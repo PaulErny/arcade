@@ -37,6 +37,8 @@ class PacmanGame : public IGames {
         void update();
         void draw();
 
+        int score;
+
         std::vector<std::vector<int>> map;
         std::vector<std::vector<Entity>> mapSpritesID;
         std::unique_ptr<Pacman> player;
