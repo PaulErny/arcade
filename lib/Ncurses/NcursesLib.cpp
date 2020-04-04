@@ -19,7 +19,7 @@ int NcursesLib::createShape(ShapeType type, int width, int height)
 
 void NcursesLib::drawShape(int index)
 {
-    mvprintw(posxShape.at(index), posyShape.at(index), (char *)nShape.at(index));
+    mvprintw(posxShape.at(index), posyShape.at(index), "%c" , nShape.at(index));
 }
 
 void NcursesLib::setShapeColor(int index, int r, int g, int b, int a)

@@ -9,12 +9,7 @@
 
 int NcursesLib::check_lib(int selection, std::vector<std::string> &libsNames)
 {
-    if (!libsNames.at(selection).compare("Ncurses"))
-        mvprintw(20, 0, "Ncurses", libsNames[selection]);
-    else if (!libsNames.at(selection).compare("SFML"))
-        mvprintw(20, 0, "SFML", libsNames[selection]);
-    else if (!libsNames.at(selection).compare("SDL"))
-        mvprintw(20, 0, "SDL", libsNames[selection]);
+    mvprintw(20, 0, libsNames[selection].c_str());
     return (27);
 }
 

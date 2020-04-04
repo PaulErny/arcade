@@ -9,10 +9,7 @@
 
 int NcursesLib::check_game(int selection, std::vector<std::string> &gamesNames)
 {
-    if (!gamesNames.at(selection).compare("Snake"))
-        mvprintw(20, 20, "Snake", gamesNames[selection]);
-    else if (!gamesNames.at(selection).compare("PAC-MAN"))
-        mvprintw(20, 20, "PAC-MAN", gamesNames[selection]);
+    mvprintw(20, 20, gamesNames[selection].c_str());
     return (27);
 }
 
