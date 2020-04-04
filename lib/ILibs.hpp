@@ -35,7 +35,7 @@ class ILibs {
         // draws the shape contained at $index of the vector of shapes
         virtual void drawShape(int index)=0;
         // sets the position of the shape contained at $index of the vector of shapes
-        virtual void setShapePos(int index, int x, int y)=0;
+        virtual void setShapePos(int index, float x, float y)=0;
         // sets the color of the shape contained at $index of the vector of shapes
         virtual void setShapeColor(int index, int r, int g, int b, int a=255)=0;
         // deletes the shape contained at $index of the vector of shapes
@@ -47,7 +47,7 @@ class ILibs {
         // draws the sprite contained at $ImageId of the vector of shapes
         virtual void drawImage(int ImageId)=0;
         // sets the position of the sprite contained at $ImageId of the vector of shapes
-        virtual void setImagePos(int ImageId, int x, int y)=0;
+        virtual void setImagePos(int ImageId, float x, float y)=0;
         // deletes the sprite contained at $ImageId of the vector of sprites
         virtual void deleteImage(int ImageId)=0;
 
@@ -63,7 +63,7 @@ class ILibs {
         // sets the string of a text element
         virtual void setTextString(int textId, std::string str)=0;
         // sets the position of the sprite contained at $spriteId of the vector of shapes
-        virtual void setTextPos(int textId, int x, int y)=0;
+        virtual void setTextPos(int textId, float x, float y)=0;
         // sets the size of the text to $charSize
         virtual void setTextCharSize(int textId, int charSize)=0;
         // changes the color of the text

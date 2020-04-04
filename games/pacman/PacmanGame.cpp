@@ -41,12 +41,13 @@ PacmanGame::PacmanGame()
                  {1, 2, 7, 1, 1, 1, 1, 1, 1, 1, 1, 8, 2, 7, 8, 2, 7, 1, 1, 1, 1, 1, 1, 1, 1, 8, 2, 1},
                  {1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1},
                  {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}};
-
     this->mapSpritesID = std::vector<std::vector<Entity>>(this->map.size(), std::vector<Entity>(this->map[0].size()));
     this->deltaTime = 0.0;
-    this->seconds = 0.0;
+    this->remainingTime = 0.0;
     this->frameRate = 30;
     this->frames = 0;
+    this->frameTime = 0.01; // in sec -> 10ms per frame -> 100 FPS
+    this->maxUpdates = 5;
 }
 
 PacmanGame::~PacmanGame()
@@ -185,15 +186,19 @@ void PacmanGame::initGraphics()
     this->player->initGraphics();
 }
 
-double PacmanGame::getFPS()
+void PacmanGame::update()
 {
-    frameRate = (double)frames*0.5 +  frameRate*0.5; //more stable
-    std::cout << "FPS:" << frames << std::endl;
-    frames = 0;
-    this->seconds -= CLOCKS_PER_SEC;
-    double averageFrameTimeMilliseconds  = 1000.0 / (frameRate == 0 ? 0.001 : frameRate);
+    this->player->movePlayer(this->deltaTime / (double)CLOCKS_PER_SEC);
+}
 
-    std::cout << "CPU time was:" << averageFrameTimeMilliseconds << std::endl;
+void PacmanGame::draw()
+{
+    for (size_t y = 0; y < this->map.size(); y++) {
+        for (size_t x = 0; x < this->map[y].size(); x++) {
+            this->mapSpritesID[y][x].draw();
+        }
+    }
+    this->player->draw();   
 }
 
 void PacmanGame::runGame(int &indexGame)
@@ -210,20 +215,20 @@ void PacmanGame::runGame(int &indexGame)
         if (this->graphics->downArrow())
             this->player->goDown();
     }
+    this->draw();
 
-    for (size_t y = 0; y < this->map.size(); y++) {
-        for (size_t x = 0; x < this->map[y].size(); x++) {
-            this->mapSpritesID[y][x].draw();
-        }
-    }
-    this->player->draw();
+    this->update();
+
     this->endFrame = std::clock();
     this->deltaTime = this->endFrame - this->beginFrame;
-    this->frames++;
-    this->seconds += this->deltaTime;
 
-    if ((this->seconds / (double)CLOCKS_PER_SEC) * 1000 > 1000.0) // to have deltaTime in sec
-        this->getFPS();
+    this->remainingTime += this->deltaTime;
+    unsigned int updates = 0;
+    while (remainingTime / (double)CLOCKS_PER_SEC > this->frameTime) {
+        remainingTime -= this->frameTime * (double)CLOCKS_PER_SEC;
+        if (updates++ < this->maxUpdates) // Ensure we don't get stuck if we can't reach our intended number of updates per second
+            update(); // Do one game logic tick
+    }
 }
 
 // extern "C" std::shared_ptr<Pacman> create_object()

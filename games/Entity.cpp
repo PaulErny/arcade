@@ -16,7 +16,7 @@ Entity::~Entity()
 {
 }
 
-void Entity::move(int xOffset, int yOffset)
+void Entity::move(float xOffset, float yOffset)
 {
     this->posX += xOffset;
     this->posY += yOffset;
@@ -84,7 +84,7 @@ void Entity::draw()
         this->graphics->drawImage(this->shapes[this->currentShape]);
 }
 
-void Entity::setPosition(int x, int y)
+void Entity::setPosition(float x, float y)
 {
     this->posX = x;
     this->posY = y;
@@ -96,12 +96,12 @@ void Entity::setPosition(int x, int y)
     }
 }
 
-const int &Entity::getXposition() const
+const float &Entity::getXposition() const
 {
     return this->posX;
 }
 
-const int &Entity::getYposition() const
+const float &Entity::getYposition() const
 {
     return this->posY;
 }

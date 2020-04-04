@@ -21,6 +21,8 @@ class Pacman : public Entity {
         void goLeft();
         void goUp();
         void goDown();
+        void movePlayer(double deltaTime);
+
     private:
         bool rightDirection;
         bool leftDirection;

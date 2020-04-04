@@ -15,16 +15,16 @@ class Entity
         Entity(); // creates an entity
         ~Entity();
 
-        void move(int xOffset, int yOffset); // moves the entity from its current pos to (posX + xOffset, posY + yOffset)
+        void move(float xOffset, float yOffset); // moves the entity from its current pos to (posX + xOffset, posY + yOffset)
         void addShape(int height, int width, int r=255, int g=255, int b=255); // adds a shape to the shapes vector
         void addImage(std::string file); // adds a sprite to the shapes vector
         void nextShape(); // explicit
         void prevShape();
         void changeColor(int r, int g, int b); // explicit
-        void setPosition(int x, int y);
+        void setPosition(float x, float y);
         void updatePosition();
-        const int &getXposition() const;
-        const int &getYposition() const;
+        const float &getXposition() const;
+        const float &getYposition() const;
         const std::vector<int> &getVectorOfShape() const;
         void draw();
         void setLibPtr(std::shared_ptr<ILibs>);
@@ -32,8 +32,8 @@ class Entity
 
     protected:
         int inVector;
-        int posX;
-        int posY;
+        float posX;
+        float posY;
 
         int height;
         int width;
