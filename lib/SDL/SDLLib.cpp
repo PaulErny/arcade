@@ -25,7 +25,9 @@ int SDLLib::createShape(ShapeType type, int width, int height)
 void SDLLib::drawShape(int index)
 {
     if (index < (int)shapeRect.size() && shapeType.at(index) == RECTANGLE) {
-        SDL_RenderDrawRect(gRenderer, &shapeRect.at(index));
+        SDL_SetRenderDrawColor(gRenderer, 255, 255, 255, 255);
+        SDL_RenderFillRect(gRenderer, &shapeRect.at(index));
+        SDL_SetRenderDrawColor(gRenderer, 0, 0, 0, 255);
     }
     // else if (index < (int)shapeRect.size() && shapeType.at(index) == CIRCLE) {
     //     SDL_RenderDraw
@@ -34,7 +36,7 @@ void SDLLib::drawShape(int index)
 
 void SDLLib::setShapeColor(int index, int r, int g, int b, int a)
 {
-    SDL_SetRenderDrawColor(gRenderer, a, g, b, a);
+    // SDL_SetRenderDrawColor(gRenderer, a, g, b, a);
 }
 
 void SDLLib::deleteShape(int index)
