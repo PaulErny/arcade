@@ -29,6 +29,7 @@ void SDLLib::drawShape(int index)
 
 void SDLLib::setShapeColor(int index, int r, int g, int b, int a)
 {
+    SDL_SetRenderDrawColor(gRenderer, a, g, b, a);
 }
 
 void SDLLib::deleteShape(int index)
@@ -48,7 +49,8 @@ void SDLLib::setShapePos(int index, float x, float y)
 
 int SDLLib::createImageFromFile(std::string filename)
 {
-    textureImage.push_back(IMG_LoadTexture(gRenderer, filename.c_str()));
+    SDL_Surface *image = IMG_Load(filename.c_str());
+    textureImage.push_back(SDL_CreateTextureFromSurface(gRenderer, image));
     return (int)(textureImage.size() - 1);
 }
 
@@ -138,7 +140,7 @@ void SDLLib::deleteFont(int FontId)
 
 void SDLLib::createWindow(int width, int height, std::string name)
 {
-    SDL_Init(SDL_INIT_VIDEO);
+    SDL_Init(SDL_INIT_EVERYTHING);
     this->quit = false;
     gWindow = SDL_CreateWindow(name.c_str(), SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_SHOWN);
     if (gWindow == NULL)
@@ -191,6 +193,7 @@ void SDLLib::deleteWindow(void)
 {
     SDL_DestroyRenderer(gRenderer);
     SDL_DestroyWindow(gWindow);
+    TTF_CloseFont(font);
     gWindow = NULL;
     gRenderer = NULL;
     IMG_Quit();

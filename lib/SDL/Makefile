@@ -12,7 +12,7 @@ OBJS	= $(SRCS:.cpp=.o)
 CPPFLAGS = -I ./
 override CXXFLAGS = -std=c++17
 override LDLIBS = -lSDL2 -lSDL2_ttf -lSDL2_image
-override LDFLAGS = -fPIC -shared
+override LDFLAGS = -fPIC -shared -g
 
 all: $(NAME)
 	mv $(NAME) ../

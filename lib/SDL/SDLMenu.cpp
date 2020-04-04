@@ -105,6 +105,8 @@ int SDLLib::menu(state &pgState, bool close, std::vector<std::string> &libsNames
         SDL_RenderCopy(gRenderer, texturePseudo, NULL, &rectPseudo);
         SDL_RenderCopy(gRenderer, textureEnterPseudo, NULL, &rectEnterPseudo);
         if (rendertext && name == "") {
+            SDL_FreeSurface(surfacePseudo);
+            SDL_DestroyTexture(texturePseudo);
             surfacePseudo = TTF_RenderText_Solid(font, text.c_str(), color);
             texturePseudo = SDL_CreateTextureFromSurface(gRenderer, surfacePseudo);
             SDL_SetTextInputRect(&rectPseudo);
@@ -112,6 +114,8 @@ int SDLLib::menu(state &pgState, bool close, std::vector<std::string> &libsNames
     } else {
         if (count == 0) {
             rectPseudo = {400, 0, (int)name.size() * 50, 100};
+            SDL_FreeSurface(surfacePseudo);
+            SDL_DestroyTexture(texturePseudo);
             surfacePseudo = TTF_RenderText_Solid(font, name.c_str(), color);
             texturePseudo = SDL_CreateTextureFromSurface(gRenderer, surfacePseudo);
         }
@@ -120,6 +124,8 @@ int SDLLib::menu(state &pgState, bool close, std::vector<std::string> &libsNames
         SDL_RenderCopy(gRenderer, textureNextLib, NULL, &rectNextLib);
         SDL_RenderCopy(gRenderer, texturePrevLib, NULL, &rectPrevLib);
         for (auto i = 0; i < (int)gamesName.size(); i++) {
+            SDL_FreeSurface(gamesSurface.at(i));
+            SDL_DestroyTexture(gamesTexture.at(i));
             if (i == indexGame) {
                 if (indexGame < (int)gamesSurface.size()) {
                 gamesSurface.at(indexGame) = TTF_RenderText_Solid(font, gamesName.at(indexGame).c_str(), yellowColor);
