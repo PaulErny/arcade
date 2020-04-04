@@ -206,14 +206,18 @@ void Core::run()
         }
         // this->Lib->nextGraphicLib(indexLib);
         // this->Lib->prevGraphicLib(indexLib);
-        if (this->pgState == GAME && chosenGame != -1 || chosenGame != indexGame) {
+        if (this->pgState == GAME && chosenGame != -1) {
             if (!this->isGameInit) {
                 this->loadGameLib(chosenGame, indexGame);
+                this->Games->setLib(Lib);
                 this->Games->initGameData(m_pseudo);
                 this->Games->initGraphics();
                 this->isGameInit = true;
             }
-            this->Games->runGame(chosenGame);
+            Lib->clearWindow();
+            indexGame = chosenGame;
+            this->Games->runGame(chosenGame, indexLib);
+            Lib->update();
         }    
         // check for lib changment  
         this->laodLib(currentLib);

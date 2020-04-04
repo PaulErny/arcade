@@ -11,7 +11,8 @@ enum Direction {
     RIGTH,
     LEFT,
     UP,
-    DOWN
+    DOWN,
+    NO
 };
 
 class Nibbler : public IGames
@@ -27,16 +28,20 @@ private:
     int prevPosy;
     int indexTitle;
     int indexPseudo;
+    std::string pseudo;
+    int indexGameLoose;
 public:
     Nibbler();
     void setLib(std::shared_ptr<ILibs> &Lib);
-    void keyPressed();
+    void keyPressed(int &indexGame, int &indexLib);
     void moove();
     void eatFood();
     void setPos();
-    void initGameData();
+    void initGameData(std::string &pseudo);
     void initGraphics();
-    void runGame();
+    void runGame(int &indexGame, int &indexLib);
+    void checkLoose();
+    void endGame();
 };
 
 #endif

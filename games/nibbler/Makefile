@@ -4,7 +4,8 @@ CXX	= g++
 
 RM	= rm -f
 
-SRCS	= ./Nibbler.cpp 
+SRCS	= ./Nibbler.cpp \
+			../Entity.cpp
 
 OBJS	= $(SRCS:.cpp=.o)
 

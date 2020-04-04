@@ -12,7 +12,7 @@ public:
 
     virtual void initGameData(std::string &pseudo)=0;
     virtual void initGraphics()=0;
-    virtual void runGame(int &indexGame)=0;
+    virtual void runGame(int &indexGame, int &indexLib)=0;
 
     virtual void setLib(std::shared_ptr<ILibs> &graphics)=0;
 };

@@ -17,7 +17,7 @@ private:
     void *m_handleGame;
     char *m_arg;
     int indexLib;
-    int indexGame;
+    int indexGame = -1;
     bool isMenuInit;
     bool isGameInit;
     state pgState;
@@ -39,8 +39,8 @@ public : Core(char *arg);
     void fillGamesVector();
     void laodLib(int currentLib);
     void loadGame(int currentGame);
-    void loadGameLib(int gameIndex);
-    void changeGame(int choosenGame, int indexGame);
+    void loadGameLib(int gameIndex, int indexGame);
+    void changeGame(int choosenGame);
     void run();
     void game();
 
