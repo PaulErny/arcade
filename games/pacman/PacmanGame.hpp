@@ -84,8 +84,6 @@ class PacmanGame : public IGames {
         double frameTime;
         int maxUpdates;
         int frames;
-
-
 };
 
 #endif /* !PACMANGAME_HPP_ */

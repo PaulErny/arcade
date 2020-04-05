@@ -16,8 +16,8 @@ Ghost::Ghost(std::shared_ptr<ILibs> lib)
     this->setLibPtr(lib);
     this->setType(SHAPE); // TMP
 
-    this->directionChosen = false;
-    this->rightDirection = false;
+    this->directionChosen = true;
+    this->rightDirection = true;
     this->leftDirection = false;
     this->upDirection = false;
     this->downDirection = false;
@@ -33,63 +33,163 @@ void Ghost::initGraphics()
     this->updatePosition();
 }
 
-void Ghost::chooseRandomDirection(std::vector<std::vector<int>> &map)
+void Ghost::goRight()
 {
-    if (!this->directionChosen) {
-        float topLeftMapPosX = (this->posX - 92) / 32;
-        float topLeftMapPosY = (this->posY - 44) / 32; // -92 and -44 are xOffset and yOffset used to put sprites in the center of the window
-        float botRightMapPosX = (this->posX + 31 - 92) / 32; // 32 is the default size of a sprite -> divide by 32 to obtain the sprite pos in the map
-        float botRightMapPosY = (this->posY + 31 - 44) / 32;
-        int dir = std::rand() % 4; // 0 = up; 1 = right; 2 = down; 3 = left;
+    if (!this->rightDirection) {
+        this->rightDirection = true;
+        this->leftDirection = false;
         this->upDirection = false;
+        this->downDirection = false;
+    }
+
+}
+
+void Ghost::goLeft()
+{
+    if (!this->leftDirection) {
+        this->rightDirection = false;
+        this->leftDirection = true;
+        this->upDirection = false;
+        this->downDirection = false;
+    }
+}
+
+void Ghost::goUp()
+{
+    if (!this->upDirection) {
         this->rightDirection = false;
         this->leftDirection = false;
+        this->upDirection = true;
         this->downDirection = false;
-        switch (dir) {
-            case 0: // up
-                if (map[(int)(topLeftMapPosY - 1)][(int)topLeftMapPosX] == 2 || 
-                map[(int)(topLeftMapPosY - 1)][(int)topLeftMapPosX] == 3 || 
-                map[(int)(topLeftMapPosY - 1)][(int)topLeftMapPosX] == 4 ||
-                map[(int)(topLeftMapPosY - 1)][(int)topLeftMapPosX] == 0)
-                    this->upDirection = true;
-                else
-                    this->chooseRandomDirection(map);
-                break;
-            case 1: // right
-                if (map[(int)topLeftMapPosY][(int)topLeftMapPosX + 1] == 2 || 
-                map[(int)topLeftMapPosY][(int)topLeftMapPosX + 1] == 3 || 
-                map[(int)topLeftMapPosY][(int)topLeftMapPosX + 1] == 4 ||
-                map[(int)topLeftMapPosY][(int)topLeftMapPosX + 1] == 0)
-                    this->rightDirection = true;
-                else
-                    this->chooseRandomDirection(map);
-                break;
-            case 2: // down
-            if (map[(int)(topLeftMapPosY + 1)][(int)topLeftMapPosX] == 2 || 
-                map[(int)(topLeftMapPosY + 1)][(int)topLeftMapPosX] == 3 || 
-                map[(int)(topLeftMapPosY + 1)][(int)topLeftMapPosX] == 4 ||
-                map[(int)(topLeftMapPosY + 1)][(int)topLeftMapPosX] == 0)
-                    this->leftDirection = true;
-                else
-                    this->chooseRandomDirection(map);
-                break;
-            case 3: // left
-                if (map[(int)topLeftMapPosY][(int)topLeftMapPosX - 1] == 2 || 
-                map[(int)topLeftMapPosY][(int)topLeftMapPosX - 1] == 3 || 
-                map[(int)topLeftMapPosY][(int)topLeftMapPosX - 1] == 4 ||
-                map[(int)topLeftMapPosY][(int)topLeftMapPosX - 1] == 0)
-                    this->downDirection = true;
-                else
-                    this->chooseRandomDirection(map);
-                break;
+    }
+}
+
+void Ghost::goDown()
+{
+    if (!this->downDirection) {
+        this->rightDirection = false;
+        this->leftDirection = false;
+        this->upDirection = false;
+        this->downDirection = true;
+    }
+}
+
+void Ghost::chooseRandomDirection(std::vector<std::vector<int>> &map)
+{
+}
+
+bool Ghost::isCellWalkable(int x, int y, std::vector<std::vector<int>> &map)
+{
+    if (map[y][x] == 0 || 
+        map[y][x] == 2 ||
+        map[y][x] == 3)
+        return (true);
+    return (false);
+}
+
+void Ghost::chooseDirection(std::vector<std::vector<int>> &map)
+{
+    std::vector<int> nextUp = {(int)((this->posX - 92) / 32), (int)((this->posY - 44) / 32) - 1};
+    std::vector<int> nextDown = {(int)((this->posX - 92) / 32), (int)((this->posY - 44) / 32) + 1};
+    std::vector<int> nextRight = {(int)((this->posX - 92) / 32) + 1, (int)((this->posY - 44) / 32)};
+    std::vector<int> nextLeft = {(int)((this->posX - 92) / 32) - 1, (int)((this->posY - 44) / 32)};
+    int changeDir = std::rand() % 2;
+
+    if (this->rightDirection) {
+        int dir = std::rand() % 2;
+        if (!this->isCellWalkable((int)nextRight[0], (int)nextRight[1], map)) {
+            std::cout << (int)((this->posX - 92) / 32) << " " << (int)((this->posY - 44) / 32) << " " << map[(int)((this->posY - 44) / 32)][(int)((this->posX - 92) / 32)] << std::endl;
+            if (dir == 0 && this->isCellWalkable((int)nextUp[0], (int)nextUp[1], map)) {
+                this->goUp();
+            } else if (dir == 1 && this->isCellWalkable((int)nextDown[0], (int)nextDown[1], map)) {
+                this->goDown();
+            } else if (this->isCellWalkable((int)nextUp[0], (int)nextUp[1], map))
+                this->goUp();
+            else if (this->isCellWalkable((int)nextDown[0], (int)nextDown[1], map))
+                this->goDown();
         }
-        this->directionChosen = true;
+        if (changeDir == 0) {
+            if (dir == 0 && this->isCellWalkable((int)nextUp[0], (int)nextUp[1], map)) {
+                this->goUp();
+            } else if (dir == 1 && this->isCellWalkable((int)nextDown[0], (int)nextDown[1], map)) {
+                this->goDown();
+            } else if (this->isCellWalkable((int)nextUp[0], (int)nextUp[1], map))
+                this->goUp();
+            else if (this->isCellWalkable((int)nextDown[0], (int)nextDown[1], map))
+                this->goDown();
+        } 
+    } else if (this->leftDirection) {
+        int dir = std::rand() % 2;
+        if (!this->isCellWalkable((int)nextLeft[0], (int)nextLeft[1], map)) {
+            if (dir == 0 && this->isCellWalkable((int)nextUp[0], (int)nextUp[1], map)) {
+                this->goUp();
+            } else if (dir == 1 && this->isCellWalkable((int)nextDown[0], (int)nextDown[1], map)) {
+                this->goDown();
+            } else if (this->isCellWalkable((int)nextUp[0], (int)nextUp[1], map))
+                this->goUp();
+            else if (this->isCellWalkable((int)nextDown[0], (int)nextDown[1], map))
+                this->goDown();
+        }
+        if (changeDir == 0) {
+            if (dir == 0 && this->isCellWalkable((int)nextUp[0], (int)nextUp[1], map)) {
+                this->goUp();
+            } else if (dir == 1 && this->isCellWalkable((int)nextDown[0], (int)nextDown[1], map)) {
+                this->goDown();
+            } else if (this->isCellWalkable((int)nextUp[0], (int)nextUp[1], map))
+                this->goUp();
+            else if (this->isCellWalkable((int)nextDown[0], (int)nextDown[1], map))
+                this->goDown();
+        }
+    } else if (this->upDirection) {
+        int dir = std::rand() % 2;
+        if (!this->isCellWalkable((int)nextUp[0], (int)nextUp[1], map)) {
+            if (dir == 0 && this->isCellWalkable((int)nextRight[0], (int)nextRight[1], map)) {
+                this->goRight();
+            } else if (dir == 1 && this->isCellWalkable((int)nextLeft[0], (int)nextLeft[1], map)) {
+                this->goLeft();
+            } else if (this->isCellWalkable((int)nextRight[0], (int)nextRight[1], map))
+                this->goRight();
+            else if (this->isCellWalkable((int)nextLeft[0], (int)nextLeft[1], map))
+                this->goLeft();
+        }
+        if (changeDir == 0) {
+            if (dir == 0 && this->isCellWalkable((int)nextRight[0], (int)nextRight[1], map)) {
+                this->goRight();
+            } else if (dir == 1 && this->isCellWalkable((int)nextLeft[0], (int)nextLeft[1], map)) {
+                this->goLeft();
+            } else if (this->isCellWalkable((int)nextRight[0], (int)nextRight[1], map))
+                this->goRight();
+            else if (this->isCellWalkable((int)nextLeft[0], (int)nextLeft[1], map))
+                this->goLeft();
+        }
+    } else if (this->downDirection) {
+        int dir = std::rand() % 2;
+        if (!this->isCellWalkable(nextDown[0], nextDown[1], map)) {
+            if (dir == 0 && this->isCellWalkable(nextRight[0], nextRight[1], map)) {
+                this->goRight();
+            } else if (dir == 1 && this->isCellWalkable(nextLeft[0], nextLeft[1], map)) {
+                this->goLeft();
+            } else if (this->isCellWalkable((int)nextRight[0], (int)nextRight[1], map))
+                this->goRight();
+            else if (this->isCellWalkable((int)nextLeft[0], (int)nextLeft[1], map))
+                this->goLeft();
+        }
+        if (changeDir == 0) {
+            if (dir == 0 && this->isCellWalkable(nextRight[0], nextRight[1], map)) {
+                this->goRight();
+            } else if (dir == 1 && this->isCellWalkable(nextLeft[0], nextLeft[1], map)) {
+                this->goLeft();
+            } else if (this->isCellWalkable((int)nextRight[0], (int)nextRight[1], map))
+                this->goRight();
+            else if (this->isCellWalkable((int)nextLeft[0], (int)nextLeft[1], map))
+                this->goLeft();
+        }
     }
 }
 
 void Ghost::movePlayer(double deltaTime, std::vector<std::vector<int>> &map) // deltaTime in sec
 {
-    this->chooseRandomDirection(map);
+    static std::vector<int> prevPos = {(int)(this->posX), (int)(this->posY)};
 
     if (this->rightDirection)
         this->move(200 * deltaTime, 0);
@@ -99,14 +199,13 @@ void Ghost::movePlayer(double deltaTime, std::vector<std::vector<int>> &map) // 
         this->move(0, -200 * deltaTime);
     if (this->downDirection)
         this->move(0, 200 * deltaTime);
-
-    int topLeftMapPosX = (this->posX - 92) / 32; // + 31 because the sprites have a size of 32x32px
-    int topLeftMapPosY = (this->posY - 44) / 32; // -92 and -44 are xOffset and yOffset used to put sprites in the center of the window
-    int botRightMapPosX = (this->posX + 31 - 92) / 32; // 32 is the default size of a sprite -> divide by 32 to obtain the sprite pos in the map
-    int botRightMapPosY = (this->posY + 31 - 44) / 32;
-
-    if (topLeftMapPosX == botRightMapPosX && topLeftMapPosY == botRightMapPosY) // means after the ghost have moved, is it placed on a new tile ? If so -> it can choose anther tile to go to
-        this->directionChosen = false;
+    
+    if ((int)this->posX == prevPos[0] + 32 || (int)this->posY == prevPos[1] + 32 ||
+        (int)this->posX == prevPos[0] - 32 || (int)this->posY == prevPos[1] - 32) {
+        prevPos[0] = this->posX;
+        prevPos[1] = this->posY;
+        this->chooseDirection(map);
+    }
 }
 
 bool Ghost::hitPlayer(std::shared_ptr<Pacman> pacman)

@@ -57,8 +57,30 @@ class Ghost : public Entity {
  * \return bool
  */
         bool hitPlayer(std::shared_ptr<Pacman> pacman);
+        /**
+ * \fn void goRight();
+ * \brief Function that move player to the right
+ */
+        void goRight();
+   /**
+ * \fn void goLeft();
+ * \brief Function that move player to the left
+ */
+        void goLeft();
+   /**
+ * \fn void goUp();
+ * \brief Function that move player to the up
+ */
+        void goUp();
+   /**
+ * \fn void goDown();
+ * \brief Function that move player to the down
+ */
+        void goDown();
 
     private:
+        bool isCellWalkable(int x, int y, std::vector<std::vector<int>> &map);
+        void chooseDirection(std::vector<std::vector<int>> &map);
         void chooseRandomDirection(std::vector<std::vector<int>> &map);
 
         bool directionChosen;
