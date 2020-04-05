@@ -88,7 +88,7 @@ void SDLLib::deleteImage(int ImageId)
 
 int SDLLib::createFontFromFile(const std::string filename)
 {
-    gFont.push_back(TTF_OpenFont(filename.c_str(), 24));
+    gFont.push_back(TTF_OpenFont(filename.c_str(), 12));
     return (gFont.size() - 1);
 }
 
@@ -98,13 +98,13 @@ int SDLLib::createText(std::string text, int fontId)
         SDL_Rect Message_rect;   //create a rect
         Message_rect.x = 0; //controls the rect's x coordinate
         Message_rect.y = 0; // controls the rect's y coordinte
-        Message_rect.w = 200;    // controls the width of the rect
-        Message_rect.h = 200;
-        gRect.push_back(Message_rect);
+        Message_rect.w = 0;    // controls the width of the rect
+        Message_rect.h = 0;
         this->setTextColor(fontId, 255, 255, 255);
-        std::cout << fontId << "test" << gColor.size() << "tes2" << gFont.size() << std::endl;
         gTextSurface.push_back(TTF_RenderText_Solid(gFont.at(fontId), text.c_str(), gColor.at(fontId)));
         gTexture.push_back(SDL_CreateTextureFromSurface(gRenderer, gTextSurface.at(fontId)));
+        SDL_QueryTexture(gTexture.at(fontId), NULL, NULL, &Message_rect.w, &Message_rect.h);
+        gRect.push_back(Message_rect);
         if (gTextSurface.at(gTextSurface.size() - 1) == NULL)
             throw "Unable to create texture from rendered text";
     }
@@ -120,7 +120,8 @@ void SDLLib::setTextString(int textId, std::string str)
 {
     if (textId < (int)gTexture.size()) {
         SDL_FreeSurface(gTextSurface.at(textId));
-        SDL_free(gTexture.at(textId));
+        SDL_DestroyTexture(gTexture.at(textId));
+        gTexture.at(textId) = NULL;
         gTextSurface.at(textId) = (TTF_RenderText_Solid(gFont.at(textId), str.c_str(), gColor.at(textId)));
         gTexture.at(textId) = (SDL_CreateTextureFromSurface(gRenderer, gTextSurface.at(textId)));
     }

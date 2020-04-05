@@ -1,8 +1,3 @@
-/**
- * \file SDLMenu.cpp
- * \brief Menu SDL
- */
-
 #include "SDLLib.hpp"
 
 /* ------------------------------- MENU ------------------------------- */
@@ -86,14 +81,20 @@ void SDLLib::init_menu(std::vector<std::string> &libsNames, std::vector<std::str
         gamesSurface.push_back(TTF_RenderText_Solid(font, gamesNames.at(i).c_str(), color));
         gamesTexture.push_back(SDL_CreateTextureFromSurface(gRenderer, gamesSurface.at(i)));
         gamesRect.push_back({600, i * 100 + 200, (int)gamesNames.at(i).size() * 50, 100});
+        SDL_QueryTexture(gamesTexture.at(i), NULL, NULL, &gamesRect.at(i).w, &gamesRect.at(i).h);
     }
     for (auto i = 0; i < (int)libsNames.size(); i++) {
         libsSurface.push_back(TTF_RenderText_Solid(font, libsNames.at(i).c_str(), color));
         libsTexture.push_back(SDL_CreateTextureFromSurface(gRenderer, libsSurface.at(i)));
         libsRect.push_back({10, i * 100 + 500, (int)libsNames.at(i).size() * 50, 100});
+        SDL_QueryTexture(libsTexture.at(i), NULL, NULL, &libsRect.at(i).w, &libsRect.at(i).h);
     }
     SDL_StartTextInput();
     SDL_QueryTexture(texturePseudo, NULL, NULL, &texW, &texH);
+    SDL_QueryTexture(textureNextLib, NULL, NULL, &rectNextLib.w, &rectNextLib.h);
+    SDL_QueryTexture(texturePrevLib, NULL, NULL, &rectPrevLib.w, &rectPrevLib.h);
+    SDL_QueryTexture(texturePseudo, NULL, NULL, &rectPseudo.w, &rectPseudo.h);
+    SDL_QueryTexture(textureYourName, NULL, NULL, &rectYourName.w, &rectYourName.h);
 }
 
 int SDLLib::menu(state &pgState, bool close, std::vector<std::string> &libsNames, std::vector<std::string> &gamesName, std::vector<std::vector<std::string>> highScores, std::string &pseudo, int &indexLib)
