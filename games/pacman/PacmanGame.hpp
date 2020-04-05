@@ -55,9 +55,9 @@ class PacmanGame : public IGames {
         double getFPS();
 
     private:
-        void initMapCell(int x, int y);
-        void initMapBorder(int x, int y);
-        bool isAdjacentCellForbidden(int x, int y);
+        void initMapCell(size_t x, size_t y);
+        void initMapBorder(size_t x, size_t y);
+        bool isAdjacentCellForbidden(size_t x, size_t y);
 
         void update();
         void draw();

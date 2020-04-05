@@ -82,7 +82,7 @@ void PacmanGame::initGameData(std::string &pseudo)
     // }
 }
 
-bool PacmanGame::isAdjacentCellForbidden(int x, int y)
+bool PacmanGame::isAdjacentCellForbidden(size_t x, size_t y)
 {
     // check if any of the 8 surrounding cells are forbiden for PacMan to walk in
     if (x == 0 || x == this->map[0].size() -1 || y == 0 || y == this->map.size() -1)
@@ -93,7 +93,7 @@ bool PacmanGame::isAdjacentCellForbidden(int x, int y)
     return false;
 }
 
-void PacmanGame::initMapBorder(int x, int y)
+void PacmanGame::initMapBorder(size_t x, size_t y)
 {
     if (y == 0 && x == 0) { // top left corner
         this->mapSpritesID[y][x].setType(SHAPE);
@@ -125,7 +125,7 @@ void PacmanGame::initMapBorder(int x, int y)
     }
 }
 
-void PacmanGame::initMapCell(int x, int y)
+void PacmanGame::initMapCell(size_t x, size_t y)
 {
     if (this->map[y][x] == 1) {
         if (y > 0 && y < this->map.size() && x > 0 && x < this->map[0].size() && !this->isAdjacentCellForbidden(x, y)) {
@@ -264,7 +264,7 @@ void PacmanGame::runGame(int &indexGame, int &indexLib)
     this->deltaTime = this->endFrame - this->beginFrame;
 
     this->remainingTime += this->deltaTime;
-    unsigned int updates = 0;
+    size_t updates = 0;
     while (remainingTime / (double)CLOCKS_PER_SEC > this->frameTime) {
         remainingTime -= this->frameTime * (double)CLOCKS_PER_SEC;
         if (updates++ < this->maxUpdates) // Ensure we don't get stuck if we can't reach our intended number of updates per second
