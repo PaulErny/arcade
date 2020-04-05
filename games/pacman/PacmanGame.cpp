@@ -54,6 +54,7 @@ PacmanGame::PacmanGame()
     this->maxUpdates = 5;
     this->score = 0;
     this->remainingCoins = 246;
+    this->gameLost = false;
 }
 
 PacmanGame::~PacmanGame()
@@ -207,11 +208,16 @@ void PacmanGame::initGraphics()
     this->player->setLibPtr(this->graphics);
     this->player->resetGraphics();
     this->player->initGraphics();
-    this->fontID = this->graphics->createFontFromFile("resources/ARCADE_I.TTF");
     this->scoreText = this->name + "'s score:" + std::to_string(this->score);
-    this->scoreTextID = this->graphics->createText(this->scoreText, this->fontID);
+    this->scoreTextID = this->graphics->createText(this->scoreText, this->graphics->createFontFromFile("resources/ARCADE_I.TTF"));
     this->graphics->setTextCharSize(this->scoreTextID, 25);
     this->graphics->setTextPos(this->scoreTextID, 540 - ((this->scoreText.length() * 25) / 2), 5);
+    this->winTextID = this->graphics->createText("You Won GG", this->graphics->createFontFromFile("resources/ARCADE_I.TTF"));
+    this->graphics->setTextCharSize(this->winTextID, 50);
+    this->graphics->setTextPos(this->winTextID, 290, 490);
+    this->LoseTextID = this->graphics->createText("You Lost =(", this->graphics->createFontFromFile("resources/ARCADE_I.TTF"));
+    this->graphics->setTextCharSize(this->LoseTextID, 50);
+    this->graphics->setTextPos(this->LoseTextID, 290, 490);
 }
 
 void PacmanGame::update()
@@ -219,7 +225,7 @@ void PacmanGame::update()
     for (size_t i = 0; i < this->ghosts.size(); i++){
         this->ghosts[i]->movePlayer(this->deltaTime / (double)CLOCKS_PER_SEC, this->map);
         if (this->ghosts[i]->hitPlayer(this->player)) {
-            // LOOSE
+            this->gameLost = true;
         }
     }
     this->player->movePlayer(this->deltaTime / (double)CLOCKS_PER_SEC, this->map);
@@ -230,16 +236,40 @@ void PacmanGame::update()
 
 void PacmanGame::draw()
 {
-    for (size_t y = 0; y < this->map.size(); y++) {
-        for (size_t x = 0; x < this->map[y].size(); x++) {
-            this->mapSpritesID[y][x].draw();
+    if (this->remainingCoins > 0) {
+        // draw the map
+        for (size_t y = 0; y < this->map.size(); y++) {
+            for (size_t x = 0; x < this->map[y].size(); x++) {
+                this->mapSpritesID[y][x].draw();
+            }
         }
+        // draw the ghosts
+        for (size_t i = 0; i < this->ghosts.size(); i++) {
+            this->ghosts[0]->draw();
+        }
+        // draw pacman
+        this->player->draw();
+        // draw the score
+        this->graphics->drawText(this->scoreTextID);
+    } else  if (this->gameLost) {
+        //draw the map
+        for (size_t y = 0; y < this->map.size(); y++) {
+            for (size_t x = 0; x < this->map[y].size(); x++) {
+                this->mapSpritesID[y][x].draw();
+            }
+        }
+        // draw 'You Lost'
+        this->graphics->drawText(this->LoseTextID);
+    } else {
+        //draw the map
+        for (size_t y = 0; y < this->map.size(); y++) {
+            for (size_t x = 0; x < this->map[y].size(); x++) {
+                this->mapSpritesID[y][x].draw();
+            }
+        }
+        // draw 'You Won'
+        this->graphics->drawText(this->winTextID);
     }
-    for (size_t i = 0; i < this->ghosts.size(); i++) {
-        this->ghosts[0]->draw();
-    }
-    this->player->draw();
-    this->graphics->drawText(this->scoreTextID);
 }
 
 void PacmanGame::runGame(int &indexGame, int &indexLib)
