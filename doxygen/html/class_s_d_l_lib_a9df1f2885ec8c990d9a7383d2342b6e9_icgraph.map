@@ -1,0 +1,5 @@
+<map id="SDLLib::prevGraphicLib" name="SDLLib::prevGraphicLib">
+<area shape="rect" id="node1" title="checks if a btn to change lib is pressed and changes indexLib accordingly" alt="" coords="359,5,531,32"/>
+<area shape="rect" id="node2" href="$class_s_d_l_lib.html#acfd102f932cedd52b046b2b38262bf6e" title="Check the events in the menu." alt="" coords="164,5,311,32"/>
+<area shape="rect" id="node3" href="$class_s_d_l_lib.html#a2d0ee75a64af19005d0e32f17cdc03e4" title="Main method of the menu." alt="" coords="5,5,116,32"/>
+</map>

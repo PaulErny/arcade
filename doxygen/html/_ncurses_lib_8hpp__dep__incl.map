@@ -1,0 +1,8 @@
+<map id="lib/Ncurses/NcursesLib.hpp" name="lib/Ncurses/NcursesLib.hpp">
+<area shape="rect" id="node1" title="Fichier .hpp pour la librairie Ncurses." alt="" coords="510,5,707,32"/>
+<area shape="rect" id="node2" href="$enter_name_8cpp.html" title="Menu for enter name." alt="" coords="5,80,244,107"/>
+<area shape="rect" id="node3" href="$in_game_8cpp.html" title="Menu to choice the Game in Ncurses." alt="" coords="268,80,485,107"/>
+<area shape="rect" id="node4" href="$in_lib_8cpp.html" title="Menu to choice the library." alt="" coords="510,80,707,107"/>
+<area shape="rect" id="node5" href="$menu_8cpp.html" title="Main file, for Ncurses." alt="" coords="731,80,934,107"/>
+<area shape="rect" id="node6" href="$_ncurses_lib_8cpp.html" title="Ncurses Library." alt="" coords="959,80,1155,107"/>
+</map>

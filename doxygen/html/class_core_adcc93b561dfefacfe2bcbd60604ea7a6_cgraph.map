@@ -1,0 +1,7 @@
+<map id="Core::run" name="Core::run">
+<area shape="rect" id="node1" title="Function that launch the Arcade." alt="" coords="5,31,87,57"/>
+<area shape="rect" id="node2" href="$class_core.html#ac0391cdf80d33504dbd84bf2dade3386" title="Function that load library." alt="" coords="155,5,261,32"/>
+<area shape="rect" id="node4" href="$class_core.html#a4e19d5cdf9c939c91e32a54f6dd9e4af" title="Function that load game with the current library." alt="" coords="135,56,281,83"/>
+<area shape="rect" id="node3" href="$class_core.html#a819b8b1797e84683b1fb4a67cb17e5be" title="Function that change the Library." alt="" coords="339,5,466,32"/>
+<area shape="rect" id="node5" href="$class_core.html#acf6c15f54156695904476ef6718d72b2" title="Function that change game." alt="" coords="329,56,476,83"/>
+</map>

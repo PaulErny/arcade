@@ -1,0 +1,5 @@
+<map id="SFMLMenu::displayHighScores" name="SFMLMenu::displayHighScores">
+<area shape="rect" id="node1" title="Display the HighScores;." alt="" coords="5,31,227,57"/>
+<area shape="rect" id="node2" href="$class_s_f_m_l_lib.html#ad818ce57aaa0d55ed32c1795d6d473e5" title="draws the text contained at $textId of the vector of shapes" alt="" coords="286,5,429,32"/>
+<area shape="rect" id="node3" href="$class_s_f_m_l_lib.html#a9e83a2740fa4b0002c02efb463cea22c" title="changes the color of the text" alt="" coords="275,56,440,83"/>
+</map>

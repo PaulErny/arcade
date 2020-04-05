@@ -1,0 +1,6 @@
+<map id="Core::Core" name="Core::Core">
+<area shape="rect" id="node1" title="Constructor." alt="" coords="5,56,96,83"/>
+<area shape="rect" id="node2" href="$class_core.html#ad114e99ac804cb1fdacc347121060c74" title="Function that get games available in a vector." alt="" coords="144,5,307,32"/>
+<area shape="rect" id="node3" href="$class_core.html#a2efb0c1f06809f7a8e41b132ca12a574" title="Function that get library available in a vector." alt="" coords="157,56,293,83"/>
+<area shape="rect" id="node4" href="$class_core.html#a92198ddc967cc2b25e51b28529f07a43" title="create index for lib" alt="" coords="158,107,293,133"/>
+</map>

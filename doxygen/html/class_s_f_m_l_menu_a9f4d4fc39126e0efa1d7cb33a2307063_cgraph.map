@@ -1,0 +1,24 @@
+<map id="SFMLMenu::menu" name="SFMLMenu::menu">
+<area shape="rect" id="node1" title="Main method of the menu." alt="" coords="5,335,144,361"/>
+<area shape="rect" id="node2" href="$class_s_f_m_l_menu.html#a1a3ad14783e4f60da036dd5297eaf103" title="Choose between Play or Highscores." alt="" coords="209,5,397,32"/>
+<area shape="rect" id="node4" href="$class_s_f_m_l_menu.html#a8b92699bd432423f414e53867c8a2666" title="choose the game" alt="" coords="209,56,396,83"/>
+<area shape="rect" id="node5" href="$class_s_f_m_l_lib.html#ae8548af18ba2bf4d4af6cc61f34dce8c" title="refreshes the window" alt="" coords="481,208,649,235"/>
+<area shape="rect" id="node6" href="$class_s_f_m_l_lib.html#abed263a114ec82b16c95634066e25e3a" title="closes the window in case of such an event" alt="" coords="461,259,668,285"/>
+<area shape="rect" id="node7" href="$class_s_f_m_l_menu.html#aa5de36d0beab1c148506d58d925eac8e" title="Display the HighScores;." alt="" coords="192,157,413,184"/>
+<area shape="rect" id="node8" href="$class_s_f_m_l_lib.html#ad818ce57aaa0d55ed32c1795d6d473e5" title="draws the text contained at $textId of the vector of shapes" alt="" coords="493,157,636,184"/>
+<area shape="rect" id="node9" href="$class_s_f_m_l_lib.html#a037d5649fc0eace2a4dd640215f3fb96" title="draws the sprite contained at $ImageId of the vector of shapes" alt="" coords="486,309,643,336"/>
+<area shape="rect" id="node10" href="$class_s_f_m_l_lib.html#ad519f75bebd0dfa5999b3545096004fa" title="handle events occuring in the window" alt="" coords="501,664,629,691"/>
+<area shape="rect" id="node11" href="$class_s_f_m_l_menu.html#a2b8b549be24abe8ccac5a5fb7d87baa2" title="Function that to get the pseudo;." alt="" coords="218,411,387,437"/>
+<area shape="rect" id="node18" href="$class_s_f_m_l_lib.html#a088343a6923e2ff0eefe280db36ff3ff" title="updates the display" alt="" coords="500,715,629,741"/>
+<area shape="rect" id="node19" href="$class_s_f_m_l_lib.html#a70c5b440ab802631ebbdebda8675e922" title="returns true if a key was released" alt="" coords="201,563,405,589"/>
+<area shape="rect" id="node20" href="$class_s_f_m_l_lib.html#a7419851cc1efb2c39b6964c365cef680" title="checks if a btn to change lib is pressed and changes indexLib accordingly" alt="" coords="211,613,394,640"/>
+<area shape="rect" id="node21" href="$class_s_f_m_l_lib.html#a70ce2fcd11e156290c3f34d0c1d0fd02" title="checks if a btn to change lib is pressed and changes indexLib accordingly" alt="" coords="211,664,394,691"/>
+<area shape="rect" id="node22" href="$class_s_f_m_l_menu.html#a74b3b159d6ee7483ed1ac48472d0a436" title="Rechoose the game if you go back." alt="" coords="223,107,383,133"/>
+<area shape="rect" id="node3" href="$class_s_f_m_l_lib.html#a9e83a2740fa4b0002c02efb463cea22c" title="changes the color of the text" alt="" coords="482,81,647,108"/>
+<area shape="rect" id="node12" href="$class_s_f_m_l_lib.html#af8fc374c4cfcbc451f4f6eecbd77a052" title="creates a text and sets if font according to the id returned by createFontFromFile()" alt="" coords="489,512,641,539"/>
+<area shape="rect" id="node13" href="$class_s_f_m_l_lib.html#abb99e4756d21872defec67f5686cde7c" title="check the event in the menu" alt="" coords="501,563,628,589"/>
+<area shape="rect" id="node14" href="$class_s_f_m_l_lib.html#a8946ed3f58f3c2d8a28bdcfac8d6cd0d" title="returns true if the window is open" alt="" coords="474,613,655,640"/>
+<area shape="rect" id="node15" href="$class_s_f_m_l_lib.html#afecb51d7adeabadbe3b6af79e49d2549" title="sets the size of the text to $charSize" alt="" coords="471,360,659,387"/>
+<area shape="rect" id="node16" href="$class_s_f_m_l_lib.html#ad93d2a0b50316e4313dd4678e564476c" title="sets the position of the sprite contained at $spriteId of the vector of shapes" alt="" coords="487,411,642,437"/>
+<area shape="rect" id="node17" href="$class_s_f_m_l_lib.html#a40e49e01d4430dae4cc1b7a3537bfe04" title="sets the string of a text element" alt="" coords="480,461,649,488"/>
+</map>

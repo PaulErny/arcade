@@ -1,0 +1,8 @@
+<map id="NcursesLib::displayArcade" name="NcursesLib::displayArcade">
+<area shape="rect" id="node1" title="to display &quot;ARCADE&quot; in color" alt="" coords="684,31,877,57"/>
+<area shape="rect" id="node2" href="$class_ncurses_lib.html#a0ff887a7e300a1f1b1d9380814b696f7" title="Main function of the library menu." alt="" coords="464,5,625,32"/>
+<area shape="rect" id="node5" href="$class_ncurses_lib.html#aad45ba11a00314fc598f5a7b65aa2424" title="Main function to get the pseudo." alt="" coords="453,56,636,83"/>
+<area shape="rect" id="node3" href="$class_ncurses_lib.html#ac19b13061356ce806f04d9008fcd0034" title="Main method for the selection of the library." alt="" coords="192,5,405,32"/>
+<area shape="rect" id="node4" href="$class_ncurses_lib.html#a5c4a9145afd977955a5e900255ee5a9b" title="Main method of the menu." alt="" coords="5,31,144,57"/>
+<area shape="rect" id="node6" href="$class_ncurses_lib.html#ae632c1b6f2c73a2075f0e633aa2d4874" title="Main methode to get the pseudo." alt="" coords="211,56,386,83"/>
+</map>

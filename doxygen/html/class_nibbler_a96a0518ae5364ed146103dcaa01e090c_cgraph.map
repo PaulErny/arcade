@@ -1,0 +1,4 @@
+<map id="Nibbler::checkLoose" name="Nibbler::checkLoose">
+<area shape="rect" id="node1" title="Function that check if the game is Loose. If the player touch the wall is loose." alt="" coords="5,5,159,32"/>
+<area shape="rect" id="node2" href="$class_nibbler.html#a91e7ce6868733a63aee090d8cb6be9ed" title="End Screen." alt="" coords="207,5,347,32"/>
+</map>

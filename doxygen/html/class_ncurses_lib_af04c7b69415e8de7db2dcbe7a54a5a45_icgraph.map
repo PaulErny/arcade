@@ -1,0 +1,5 @@
+<map id="NcursesLib::menu_game" name="NcursesLib::menu_game">
+<area shape="rect" id="node1" title="Main function of the game menu." alt="" coords="475,5,657,32"/>
+<area shape="rect" id="node2" href="$class_ncurses_lib.html#aa080a433d929852dbc7c82e444031512" title=" " alt="" coords="192,5,427,32"/>
+<area shape="rect" id="node3" href="$class_ncurses_lib.html#a5c4a9145afd977955a5e900255ee5a9b" title="Main method of the menu." alt="" coords="5,5,144,32"/>
+</map>

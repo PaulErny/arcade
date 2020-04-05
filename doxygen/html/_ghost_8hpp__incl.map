@@ -1,0 +1,10 @@
+<map id="games/pacman/Ghost.hpp" name="games/pacman/Ghost.hpp">
+<area shape="rect" id="node1" title="Ghost." alt="" coords="57,5,249,32"/>
+<area shape="rect" id="node2" href="$_i_libs_8hpp.html" title="ILibs." alt="" coords="58,229,182,256"/>
+<area shape="rect" id="node6" href="$_entity_8hpp.html" title="Entity." alt="" coords="181,155,280,181"/>
+<area shape="rect" id="node8" href="$_pacman_8hpp.html" title="Pac&#45;Man." alt="" coords="103,80,204,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,304,64,331"/>
+<area shape="rect" id="node4" title=" " alt="" coords="89,304,151,331"/>
+<area shape="rect" id="node5" title=" " alt="" coords="176,304,256,331"/>
+<area shape="rect" id="node7" title=" " alt="" coords="207,229,284,256"/>
+</map>

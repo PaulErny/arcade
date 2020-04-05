@@ -1,0 +1,4 @@
+<map id="Entity::addImage" name="Entity::addImage">
+<area shape="rect" id="node1" title="adds a sprite to the shapes vector" alt="" coords="212,5,344,32"/>
+<area shape="rect" id="node2" href="$class_pacman.html#a9972f079126bef863160f02f537fc179" title="Function that init graphic for Pac&#45;Man." alt="" coords="5,5,164,32"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="games/IGames.hpp" name="games/IGames.hpp">
+<area shape="rect" id="node1" title="iGames" alt="" coords="301,5,449,32"/>
+<area shape="rect" id="node2" href="$_core_8hpp.html" title="Core." alt="" coords="142,80,254,107"/>
+<area shape="rect" id="node5" href="$_nibbler_8hpp.html" title="Game Nibbler." alt="" coords="279,80,472,107"/>
+<area shape="rect" id="node7" href="$_pacman_game_8hpp.html" title="Pacman&#45;Man." alt="" coords="496,80,740,107"/>
+<area shape="rect" id="node3" href="$_core_8cpp.html" title="Core." alt="" coords="5,155,116,181"/>
+<area shape="rect" id="node4" href="$main_8cpp.html" title="Main." alt="" coords="141,155,255,181"/>
+<area shape="rect" id="node6" href="$_nibbler_8cpp.html" title="Game Nibbler." alt="" coords="279,155,471,181"/>
+<area shape="rect" id="node8" href="$_pacman_game_8cpp.html" title="Pac&#45;Man." alt="" coords="497,155,739,181"/>
+</map>

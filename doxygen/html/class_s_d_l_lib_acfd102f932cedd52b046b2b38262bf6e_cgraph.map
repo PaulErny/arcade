@@ -1,0 +1,6 @@
+<map id="SDLLib::eventMenu" name="SDLLib::eventMenu">
+<area shape="rect" id="node1" title="Check the events in the menu." alt="" coords="5,56,152,83"/>
+<area shape="rect" id="node2" href="$class_s_d_l_lib.html#ac5832934b134e72ca7d53074d309c529" title="closes the window in case of such an event" alt="" coords="200,5,397,32"/>
+<area shape="rect" id="node3" href="$class_s_d_l_lib.html#adeca291a8035b1eecc750cb77412e525" title="checks if a btn to change lib is pressed and changes indexLib accordingly" alt="" coords="213,56,385,83"/>
+<area shape="rect" id="node4" href="$class_s_d_l_lib.html#a9df1f2885ec8c990d9a7383d2342b6e9" title="checks if a btn to change lib is pressed and changes indexLib accordingly" alt="" coords="213,107,385,133"/>
+</map>

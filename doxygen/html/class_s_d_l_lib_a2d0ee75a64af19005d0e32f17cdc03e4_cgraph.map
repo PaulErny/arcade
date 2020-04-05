@@ -1,0 +1,9 @@
+<map id="SDLLib::menu" name="SDLLib::menu">
+<area shape="rect" id="node1" title="Main method of the menu." alt="" coords="5,56,116,83"/>
+<area shape="rect" id="node2" href="$class_s_d_l_lib.html#a344b9fe53b9269e4747941753ded72c3" title="refreshes the window" alt="" coords="164,5,323,32"/>
+<area shape="rect" id="node3" href="$class_s_d_l_lib.html#acfd102f932cedd52b046b2b38262bf6e" title="Check the events in the menu." alt="" coords="170,56,317,83"/>
+<area shape="rect" id="node7" href="$class_s_d_l_lib.html#ab1cdbe995997c2174e8256d8183786d4" title="updates the display" alt="" coords="184,107,303,133"/>
+<area shape="rect" id="node4" href="$class_s_d_l_lib.html#ac5832934b134e72ca7d53074d309c529" title="closes the window in case of such an event" alt="" coords="371,5,568,32"/>
+<area shape="rect" id="node5" href="$class_s_d_l_lib.html#adeca291a8035b1eecc750cb77412e525" title="checks if a btn to change lib is pressed and changes indexLib accordingly" alt="" coords="383,56,555,83"/>
+<area shape="rect" id="node6" href="$class_s_d_l_lib.html#a9df1f2885ec8c990d9a7383d2342b6e9" title="checks if a btn to change lib is pressed and changes indexLib accordingly" alt="" coords="383,107,555,133"/>
+</map>

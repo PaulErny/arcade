@@ -1,0 +1,5 @@
+<map id="Entity::move" name="Entity::move">
+<area shape="rect" id="node1" title="moves the entity from its current pos to (posX + xOffset, posY + yOffset)" alt="" coords="212,31,316,57"/>
+<area shape="rect" id="node2" href="$class_ghost.html#a6efb08c8b44e852547ce61c01c296f8f" title="Function that get FPS in Pac&#45;Man." alt="" coords="11,5,158,32"/>
+<area shape="rect" id="node3" href="$class_pacman.html#a72ebda7ef7423ecedd6bdb25b3cd53d6" title="Function that get FPS in Pac&#45;Man." alt="" coords="5,56,164,83"/>
+</map>

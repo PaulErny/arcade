@@ -1,0 +1,4 @@
+<map id="SDLLib::createText" name="SDLLib::createText">
+<area shape="rect" id="node1" title="creates a text and sets if font according to the id returned by createFontFromFile()" alt="" coords="5,5,148,32"/>
+<area shape="rect" id="node2" href="$class_s_d_l_lib.html#a8807f4096f7bd22fed4e0129629dc73e" title="changes the color of the text" alt="" coords="196,5,351,32"/>
+</map>

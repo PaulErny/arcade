@@ -1,0 +1,9 @@
+<map id="SFMLLib::setTextColor" name="SFMLLib::setTextColor">
+<area shape="rect" id="node1" title="changes the color of the text" alt="" coords="461,107,627,133"/>
+<area shape="rect" id="node2" href="$class_s_f_m_l_menu.html#a1a3ad14783e4f60da036dd5297eaf103" title="Choose between Play or Highscores." alt="" coords="209,5,397,32"/>
+<area shape="rect" id="node4" href="$class_s_f_m_l_menu.html#a8b92699bd432423f414e53867c8a2666" title="choose the game" alt="" coords="209,56,396,83"/>
+<area shape="rect" id="node5" href="$class_s_f_m_l_menu.html#aa5de36d0beab1c148506d58d925eac8e" title="Display the HighScores;." alt="" coords="192,107,413,133"/>
+<area shape="rect" id="node6" href="$class_s_f_m_l_menu.html#a980fd90dd0871b0fb083beaf06a5de3f" title="init variable of the menu" alt="" coords="219,157,386,184"/>
+<area shape="rect" id="node7" href="$class_s_f_m_l_menu.html#a74b3b159d6ee7483ed1ac48472d0a436" title="Rechoose the game if you go back." alt="" coords="223,208,383,235"/>
+<area shape="rect" id="node3" href="$class_s_f_m_l_menu.html#a9f4d4fc39126e0efa1d7cb33a2307063" title="Main method of the menu." alt="" coords="5,81,144,108"/>
+</map>

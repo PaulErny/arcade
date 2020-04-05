@@ -1,0 +1,5 @@
+<map id="Entity::updatePosition" name="Entity::updatePosition">
+<area shape="rect" id="node1" title="Function that update the position of the entity." alt="" coords="212,31,376,57"/>
+<area shape="rect" id="node2" href="$class_ghost.html#a7e8dcaf52c8a1ad620e57896df5a6183" title="Function that init graphic for the Ghosts in Pac&#45;Man." alt="" coords="11,5,158,32"/>
+<area shape="rect" id="node3" href="$class_pacman.html#a9972f079126bef863160f02f537fc179" title="Function that init graphic for Pac&#45;Man." alt="" coords="5,56,164,83"/>
+</map>

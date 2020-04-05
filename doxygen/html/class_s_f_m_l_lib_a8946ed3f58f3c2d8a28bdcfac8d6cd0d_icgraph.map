@@ -1,0 +1,6 @@
+<map id="SFMLLib::isWindowOpen" name="SFMLLib::isWindowOpen">
+<area shape="rect" id="node1" title="returns true if the window is open" alt="" coords="417,31,599,57"/>
+<area shape="rect" id="node2" href="$class_s_f_m_l_lib.html#ac6b0a85ade6d58bb809c37bfd5e5fc30" title="deletes the window" alt="" coords="192,5,369,32"/>
+<area shape="rect" id="node3" href="$class_s_f_m_l_menu.html#a2b8b549be24abe8ccac5a5fb7d87baa2" title="Function that to get the pseudo;." alt="" coords="196,56,365,83"/>
+<area shape="rect" id="node4" href="$class_s_f_m_l_menu.html#a9f4d4fc39126e0efa1d7cb33a2307063" title="Main method of the menu." alt="" coords="5,56,144,83"/>
+</map>

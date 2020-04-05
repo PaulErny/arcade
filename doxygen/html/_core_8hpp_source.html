@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.18"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>The Arcade: core/Core.hpp Source File</title>
+<title>Arcade: core/Core.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,12 +20,12 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="Borne_arcade_pixel.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="6846207_preview.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">The Arcade
+   <div id="projectname">Arcade
    &#160;<span id="projectnumber">PROMO 2023</span>
    </div>
-   <div id="projectbrief">By Hugo Lalet, Victor Maurin, Paul Erny</div>
+   <div id="projectbrief">by Hugo Lalet, Victor Maurin, Paul Erny</div>
   </td>
  </tr>
  </tbody>
@@ -94,51 +94,57 @@ $(function() {
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">int</span> indexLib;</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">int</span> indexGame = -1;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">bool</span> isMenuInit;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">bool</span> isGameInit;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="_i_libs_8hpp.html#adc6e5733fc3c22f0a7b2914188c49c90">state</a> pgState;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    std::string m_pseudo = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    std::vector&lt;std::string&gt; m_libs;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    std::vector&lt;std::string&gt; m_games;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    std::shared_ptr&lt;ILibs&gt; Lib;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    std::shared_ptr&lt;IGames&gt; Games;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="class_core.html#a2b955ccca1f49bf18c5b80b7c9acbca9">Core</a>(<span class="keywordtype">char</span> *arg);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="class_core.html#a776f8c46504b14183883c6273f93eaed">~Core</a>();</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">const</span> std::vector&lt;std::string&gt; &amp;<a class="code" href="class_core.html#ae88cc026665606833e671a9e9b1a9fc0">getLibs</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keyword">const</span> std::vector&lt;std::string&gt; &amp;<a class="code" href="class_core.html#a302e36fbfc580d8e77e60b3fc200c404">getGames</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_core.html#a8b842360836bc997efd5f73bbbbcbd8d">nextLib</a>(std::string libName);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_core.html#a92198ddc967cc2b25e51b28529f07a43">indexLibFill</a>();</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_core.html#a819b8b1797e84683b1fb4a67cb17e5be">changeLib</a>();</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_core.html#a2efb0c1f06809f7a8e41b132ca12a574">fillLibVector</a>();</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_core.html#ad114e99ac804cb1fdacc347121060c74">fillGamesVector</a>();</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_core.html#ac0391cdf80d33504dbd84bf2dade3386">laodLib</a>(<span class="keywordtype">int</span> currentLib);</div>
-<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="class_core.html#aa728d0eaff6b4377ce91e4e3632d6074">  106</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_core.html#aa728d0eaff6b4377ce91e4e3632d6074">loadGame</a>(<span class="keywordtype">int</span> currentGame);</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_core.html#a4e19d5cdf9c939c91e32a54f6dd9e4af">loadGameLib</a>(<span class="keywordtype">int</span> gameIndex, <span class="keywordtype">int</span> indexGame);</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_core.html#acf6c15f54156695904476ef6718d72b2">changeGame</a>(<span class="keywordtype">int</span> choosenGame);</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_core.html#adcc93b561dfefacfe2bcbd60604ea7a6">run</a>();</div>
-<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="class_core.html#ae013d248a5059902cbcaee2785b61faa">  131</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_core.html#ae013d248a5059902cbcaee2785b61faa">game</a>();</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;};</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">bool</span> isGameDataInit;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">bool</span> isGameInit;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="_i_libs_8hpp.html#adc6e5733fc3c22f0a7b2914188c49c90">state</a> pgState;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    std::string m_pseudo = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    std::vector&lt;std::string&gt; m_libs;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    std::vector&lt;std::string&gt; m_games;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    std::shared_ptr&lt;ILibs&gt; Lib;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    std::shared_ptr&lt;IGames&gt; Games;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="class_core.html#a2b955ccca1f49bf18c5b80b7c9acbca9">Core</a>(<span class="keywordtype">char</span> *arg);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <a class="code" href="class_core.html#a776f8c46504b14183883c6273f93eaed">~Core</a>();</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">const</span> std::vector&lt;std::string&gt; &amp;<a class="code" href="class_core.html#ae88cc026665606833e671a9e9b1a9fc0">getLibs</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keyword">const</span> std::vector&lt;std::string&gt; &amp;<a class="code" href="class_core.html#a302e36fbfc580d8e77e60b3fc200c404">getGames</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_core.html#a8b842360836bc997efd5f73bbbbcbd8d">nextLib</a>(std::string libName);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_core.html#a92198ddc967cc2b25e51b28529f07a43">indexLibFill</a>();</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_core.html#a819b8b1797e84683b1fb4a67cb17e5be">changeLib</a>();</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_core.html#a2efb0c1f06809f7a8e41b132ca12a574">fillLibVector</a>();</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_core.html#ad114e99ac804cb1fdacc347121060c74">fillGamesVector</a>();</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_core.html#ac0391cdf80d33504dbd84bf2dade3386">laodLib</a>(<span class="keywordtype">int</span> currentLib);</div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="class_core.html#aa728d0eaff6b4377ce91e4e3632d6074">  108</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_core.html#aa728d0eaff6b4377ce91e4e3632d6074">loadGame</a>(<span class="keywordtype">int</span> currentGame);</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_core.html#a4e19d5cdf9c939c91e32a54f6dd9e4af">loadGameLib</a>(<span class="keywordtype">int</span> gameIndex, <span class="keywordtype">int</span> indexGame);</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_core.html#acf6c15f54156695904476ef6718d72b2">changeGame</a>(<span class="keywordtype">int</span> choosenGame);</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_core.html#adcc93b561dfefacfe2bcbd60604ea7a6">run</a>();</div>
+<div class="line"><a name="l00133"></a><span class="lineno"><a class="line" href="class_core.html#ae013d248a5059902cbcaee2785b61faa">  133</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_core.html#ae013d248a5059902cbcaee2785b61faa">game</a>();</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;};</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclass_core_html_a4e19d5cdf9c939c91e32a54f6dd9e4af"><div class="ttname"><a href="class_core.html#a4e19d5cdf9c939c91e32a54f6dd9e4af">Core::loadGameLib</a></div><div class="ttdeci">void loadGameLib(int gameIndex, int indexGame)</div><div class="ttdoc">Function that load game with the current library.</div><div class="ttdef"><b>Definition:</b> Core.cpp:175</div></div>
+<div class="ttc" id="aclass_core_html_a4e19d5cdf9c939c91e32a54f6dd9e4af"><div class="ttname"><a href="class_core.html#a4e19d5cdf9c939c91e32a54f6dd9e4af">Core::loadGameLib</a></div><div class="ttdeci">void loadGameLib(int gameIndex, int indexGame)</div><div class="ttdoc">Function that load game with the current library.</div><div class="ttdef"><b>Definition:</b> Core.cpp:176</div></div>
 <div class="ttc" id="aclass_core_html_aa728d0eaff6b4377ce91e4e3632d6074"><div class="ttname"><a href="class_core.html#aa728d0eaff6b4377ce91e4e3632d6074">Core::loadGame</a></div><div class="ttdeci">void loadGame(int currentGame)</div><div class="ttdoc">Function that load game.</div></div>
-<div class="ttc" id="aclass_core_html_a302e36fbfc580d8e77e60b3fc200c404"><div class="ttname"><a href="class_core.html#a302e36fbfc580d8e77e60b3fc200c404">Core::getGames</a></div><div class="ttdeci">const std::vector&lt; std::string &gt; &amp; getGames() const</div><div class="ttdoc">Function that get Games available.</div><div class="ttdef"><b>Definition:</b> Core.cpp:99</div></div>
-<div class="ttc" id="aclass_core_html_acf6c15f54156695904476ef6718d72b2"><div class="ttname"><a href="class_core.html#acf6c15f54156695904476ef6718d72b2">Core::changeGame</a></div><div class="ttdeci">void changeGame(int choosenGame)</div><div class="ttdoc">Function that change game.</div><div class="ttdef"><b>Definition:</b> Core.cpp:72</div></div>
-<div class="ttc" id="aclass_core_html_a92198ddc967cc2b25e51b28529f07a43"><div class="ttname"><a href="class_core.html#a92198ddc967cc2b25e51b28529f07a43">Core::indexLibFill</a></div><div class="ttdeci">void indexLibFill()</div><div class="ttdoc">create index for lib</div><div class="ttdef"><b>Definition:</b> Core.cpp:153</div></div>
-<div class="ttc" id="aclass_core_html_a8b842360836bc997efd5f73bbbbcbd8d"><div class="ttname"><a href="class_core.html#a8b842360836bc997efd5f73bbbbcbd8d">Core::nextLib</a></div><div class="ttdeci">void nextLib(std::string libName)</div><div class="ttdoc">Function that change the lib.</div><div class="ttdef"><b>Definition:</b> Core.cpp:35</div></div>
-<div class="ttc" id="aclass_core_html_a819b8b1797e84683b1fb4a67cb17e5be"><div class="ttname"><a href="class_core.html#a819b8b1797e84683b1fb4a67cb17e5be">Core::changeLib</a></div><div class="ttdeci">void changeLib()</div><div class="ttdoc">Function that change the Library.</div><div class="ttdef"><b>Definition:</b> Core.cpp:48</div></div>
+<div class="ttc" id="a_core_8hpp_html"><div class="ttname"><a href="_core_8hpp.html">Core.hpp</a></div><div class="ttdoc">Core.</div></div>
+<div class="ttc" id="aclass_core_html_a302e36fbfc580d8e77e60b3fc200c404"><div class="ttname"><a href="class_core.html#a302e36fbfc580d8e77e60b3fc200c404">Core::getGames</a></div><div class="ttdeci">const std::vector&lt; std::string &gt; &amp; getGames() const</div><div class="ttdoc">Function that get Games available.</div><div class="ttdef"><b>Definition:</b> Core.cpp:100</div></div>
+<div class="ttc" id="aclass_core_html_acf6c15f54156695904476ef6718d72b2"><div class="ttname"><a href="class_core.html#acf6c15f54156695904476ef6718d72b2">Core::changeGame</a></div><div class="ttdeci">void changeGame(int choosenGame)</div><div class="ttdoc">Function that change game.</div><div class="ttdef"><b>Definition:</b> Core.cpp:73</div></div>
+<div class="ttc" id="aclass_core_html_a92198ddc967cc2b25e51b28529f07a43"><div class="ttname"><a href="class_core.html#a92198ddc967cc2b25e51b28529f07a43">Core::indexLibFill</a></div><div class="ttdeci">void indexLibFill()</div><div class="ttdoc">create index for lib</div><div class="ttdef"><b>Definition:</b> Core.cpp:154</div></div>
+<div class="ttc" id="aclass_core_html_a8b842360836bc997efd5f73bbbbcbd8d"><div class="ttname"><a href="class_core.html#a8b842360836bc997efd5f73bbbbcbd8d">Core::nextLib</a></div><div class="ttdeci">void nextLib(std::string libName)</div><div class="ttdoc">Function that change the lib.</div><div class="ttdef"><b>Definition:</b> Core.cpp:36</div></div>
+<div class="ttc" id="aclass_core_html_a819b8b1797e84683b1fb4a67cb17e5be"><div class="ttname"><a href="class_core.html#a819b8b1797e84683b1fb4a67cb17e5be">Core::changeLib</a></div><div class="ttdeci">void changeLib()</div><div class="ttdoc">Function that change the Library.</div><div class="ttdef"><b>Definition:</b> Core.cpp:49</div></div>
 <div class="ttc" id="aclass_core_html_ae013d248a5059902cbcaee2785b61faa"><div class="ttname"><a href="class_core.html#ae013d248a5059902cbcaee2785b61faa">Core::game</a></div><div class="ttdeci">void game()</div><div class="ttdoc">Function that launch the game.</div></div>
-<div class="ttc" id="aclass_core_html_adcc93b561dfefacfe2bcbd60604ea7a6"><div class="ttname"><a href="class_core.html#adcc93b561dfefacfe2bcbd60604ea7a6">Core::run</a></div><div class="ttdeci">void run()</div><div class="ttdoc">Function that launch the Arcade.</div><div class="ttdef"><b>Definition:</b> Core.cpp:183</div></div>
+<div class="ttc" id="a_i_libs_8hpp_html_adc6e5733fc3c22f0a7b2914188c49c90a4c40e60bc71a32b924ce1f08d57f9721"><div class="ttname"><a href="_i_libs_8hpp.html#adc6e5733fc3c22f0a7b2914188c49c90a4c40e60bc71a32b924ce1f08d57f9721">MENU</a></div><div class="ttdeci">@ MENU</div><div class="ttdef"><b>Definition:</b> ILibs.hpp:34</div></div>
+<div class="ttc" id="aclass_core_html_adcc93b561dfefacfe2bcbd60604ea7a6"><div class="ttname"><a href="class_core.html#adcc93b561dfefacfe2bcbd60604ea7a6">Core::run</a></div><div class="ttdeci">void run()</div><div class="ttdoc">Function that launch the Arcade.</div><div class="ttdef"><b>Definition:</b> Core.cpp:185</div></div>
 <div class="ttc" id="a_i_libs_8hpp_html_adc6e5733fc3c22f0a7b2914188c49c90"><div class="ttname"><a href="_i_libs_8hpp.html#adc6e5733fc3c22f0a7b2914188c49c90">state</a></div><div class="ttdeci">state</div><div class="ttdoc">state of menu</div><div class="ttdef"><b>Definition:</b> ILibs.hpp:32</div></div>
-<div class="ttc" id="aclass_core_html_a776f8c46504b14183883c6273f93eaed"><div class="ttname"><a href="class_core.html#a776f8c46504b14183883c6273f93eaed">Core::~Core</a></div><div class="ttdeci">~Core()</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition:</b> Core.cpp:30</div></div>
-<div class="ttc" id="aclass_core_html_ac0391cdf80d33504dbd84bf2dade3386"><div class="ttname"><a href="class_core.html#ac0391cdf80d33504dbd84bf2dade3386">Core::laodLib</a></div><div class="ttdeci">void laodLib(int currentLib)</div><div class="ttdoc">Function that load library.</div><div class="ttdef"><b>Definition:</b> Core.cpp:164</div></div>
-<div class="ttc" id="aclass_core_html_ae88cc026665606833e671a9e9b1a9fc0"><div class="ttname"><a href="class_core.html#ae88cc026665606833e671a9e9b1a9fc0">Core::getLibs</a></div><div class="ttdeci">const std::vector&lt; std::string &gt; &amp; getLibs() const</div><div class="ttdoc">Function that get Library available.</div><div class="ttdef"><b>Definition:</b> Core.cpp:94</div></div>
+<div class="ttc" id="aclass_core_html_a776f8c46504b14183883c6273f93eaed"><div class="ttname"><a href="class_core.html#a776f8c46504b14183883c6273f93eaed">Core::~Core</a></div><div class="ttdeci">~Core()</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition:</b> Core.cpp:31</div></div>
+<div class="ttc" id="aclass_core_html_ac0391cdf80d33504dbd84bf2dade3386"><div class="ttname"><a href="class_core.html#ac0391cdf80d33504dbd84bf2dade3386">Core::laodLib</a></div><div class="ttdeci">void laodLib(int currentLib)</div><div class="ttdoc">Function that load library.</div><div class="ttdef"><b>Definition:</b> Core.cpp:165</div></div>
+<div class="ttc" id="aclass_core_html_ae88cc026665606833e671a9e9b1a9fc0"><div class="ttname"><a href="class_core.html#ae88cc026665606833e671a9e9b1a9fc0">Core::getLibs</a></div><div class="ttdeci">const std::vector&lt; std::string &gt; &amp; getLibs() const</div><div class="ttdoc">Function that get Library available.</div><div class="ttdef"><b>Definition:</b> Core.cpp:95</div></div>
 <div class="ttc" id="aclass_core_html_a2b955ccca1f49bf18c5b80b7c9acbca9"><div class="ttname"><a href="class_core.html#a2b955ccca1f49bf18c5b80b7c9acbca9">Core::Core</a></div><div class="ttdeci">Core(char *arg)</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition:</b> Core.cpp:7</div></div>
-<div class="ttc" id="aclass_core_html_a2efb0c1f06809f7a8e41b132ca12a574"><div class="ttname"><a href="class_core.html#a2efb0c1f06809f7a8e41b132ca12a574">Core::fillLibVector</a></div><div class="ttdeci">void fillLibVector()</div><div class="ttdoc">Function that get library available in a vector.</div><div class="ttdef"><b>Definition:</b> Core.cpp:104</div></div>
-<div class="ttc" id="aclass_core_html_ad114e99ac804cb1fdacc347121060c74"><div class="ttname"><a href="class_core.html#ad114e99ac804cb1fdacc347121060c74">Core::fillGamesVector</a></div><div class="ttdeci">void fillGamesVector()</div><div class="ttdoc">Function that get games available in a vector.</div><div class="ttdef"><b>Definition:</b> Core.cpp:127</div></div>
+<div class="ttc" id="aclass_core_html_a2efb0c1f06809f7a8e41b132ca12a574"><div class="ttname"><a href="class_core.html#a2efb0c1f06809f7a8e41b132ca12a574">Core::fillLibVector</a></div><div class="ttdeci">void fillLibVector()</div><div class="ttdoc">Function that get library available in a vector.</div><div class="ttdef"><b>Definition:</b> Core.cpp:105</div></div>
+<div class="ttc" id="a_i_libs_8hpp_html_adc6e5733fc3c22f0a7b2914188c49c90acfe24a7b308a82835c8a9a9a89bc4ca2"><div class="ttname"><a href="_i_libs_8hpp.html#adc6e5733fc3c22f0a7b2914188c49c90acfe24a7b308a82835c8a9a9a89bc4ca2">NOTHING</a></div><div class="ttdeci">@ NOTHING</div><div class="ttdef"><b>Definition:</b> ILibs.hpp:33</div></div>
+<div class="ttc" id="aclass_core_html_ad114e99ac804cb1fdacc347121060c74"><div class="ttname"><a href="class_core.html#ad114e99ac804cb1fdacc347121060c74">Core::fillGamesVector</a></div><div class="ttdeci">void fillGamesVector()</div><div class="ttdoc">Function that get games available in a vector.</div><div class="ttdef"><b>Definition:</b> Core.cpp:128</div></div>
+<div class="ttc" id="a_i_libs_8hpp_html_adc6e5733fc3c22f0a7b2914188c49c90ad50cf309d7568040619ed26ee6835a84"><div class="ttname"><a href="_i_libs_8hpp.html#adc6e5733fc3c22f0a7b2914188c49c90ad50cf309d7568040619ed26ee6835a84">GAME</a></div><div class="ttdeci">@ GAME</div><div class="ttdef"><b>Definition:</b> ILibs.hpp:36</div></div>
 <div class="ttc" id="aclass_core_html"><div class="ttname"><a href="class_core.html">Core</a></div><div class="ttdoc">class of Core</div><div class="ttdef"><b>Definition:</b> Core.hpp:22</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

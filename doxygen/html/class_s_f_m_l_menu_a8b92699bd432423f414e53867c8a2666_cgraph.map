@@ -1,0 +1,4 @@
+<map id="SFMLMenu::chooseGame" name="SFMLMenu::chooseGame">
+<area shape="rect" id="node1" title="choose the game" alt="" coords="5,5,192,32"/>
+<area shape="rect" id="node2" href="$class_s_f_m_l_lib.html#a9e83a2740fa4b0002c02efb463cea22c" title="changes the color of the text" alt="" coords="240,5,405,32"/>
+</map>

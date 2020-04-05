@@ -1,0 +1,8 @@
+<map id="Nibbler::runGame" name="Nibbler::runGame">
+<area shape="rect" id="node1" title="Function that start game." alt="" coords="5,81,143,108"/>
+<area shape="rect" id="node2" href="$class_nibbler.html#a96a0518ae5364ed146103dcaa01e090c" title="Function that check if the game is Loose. If the player touch the wall is loose." alt="" coords="191,5,344,32"/>
+<area shape="rect" id="node4" href="$class_nibbler.html#a35c0396f7fb9bde9da9bbb948b99478f" title="Function that see if the player eat food." alt="" coords="203,56,332,83"/>
+<area shape="rect" id="node5" href="$class_nibbler.html#a0978e8c96c7028a64316b73091315069" title="Function that manage the event with the keyboard." alt="" coords="192,107,343,133"/>
+<area shape="rect" id="node6" href="$class_nibbler.html#a2975d69d71c2ad4f0003a6cdab11e14d" title="Function that manage the player&#39;s movement." alt="" coords="206,157,329,184"/>
+<area shape="rect" id="node3" href="$class_nibbler.html#a91e7ce6868733a63aee090d8cb6be9ed" title="End Screen." alt="" coords="392,5,532,32"/>
+</map>

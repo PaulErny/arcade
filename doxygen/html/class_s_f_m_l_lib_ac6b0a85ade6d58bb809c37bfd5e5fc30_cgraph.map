@@ -1,0 +1,4 @@
+<map id="SFMLLib::deleteWindow" name="SFMLLib::deleteWindow">
+<area shape="rect" id="node1" title="deletes the window" alt="" coords="5,5,183,32"/>
+<area shape="rect" id="node2" href="$class_s_f_m_l_lib.html#a8946ed3f58f3c2d8a28bdcfac8d6cd0d" title="returns true if the window is open" alt="" coords="231,5,412,32"/>
+</map>

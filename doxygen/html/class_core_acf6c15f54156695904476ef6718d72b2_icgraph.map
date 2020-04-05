@@ -1,0 +1,6 @@
+<map id="Core::changeGame" name="Core::changeGame">
+<area shape="rect" id="node1" title="Function that change game." alt="" coords="432,5,579,32"/>
+<area shape="rect" id="node2" href="$class_core.html#a4e19d5cdf9c939c91e32a54f6dd9e4af" title="Function that load game with the current library." alt="" coords="237,5,384,32"/>
+<area shape="rect" id="node3" href="$class_core.html#adcc93b561dfefacfe2bcbd60604ea7a6" title="Function that launch the Arcade." alt="" coords="108,5,189,32"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#adacbe0175a79dff748855d8c9839f82b" title=" " alt="" coords="5,5,60,32"/>
+</map>

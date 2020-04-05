@@ -1,0 +1,4 @@
+<map id="NcursesLib::inLib" name="NcursesLib::inLib">
+<area shape="rect" id="node1" title="Function that checks with getch(), which key are activated with the keyboard." alt="" coords="5,5,137,32"/>
+<area shape="rect" id="node2" href="$class_ncurses_lib.html#aa57c51f9cb607c1f7c60c0974d78c1ec" title="Function that checks which library are selected." alt="" coords="185,5,348,32"/>
+</map>

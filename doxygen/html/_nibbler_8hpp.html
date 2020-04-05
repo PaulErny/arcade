@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.18"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>The Arcade: games/nibbler/Nibbler.hpp File Reference</title>
+<title>Arcade: games/nibbler/Nibbler.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,12 +20,12 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="Borne_arcade_pixel.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="6846207_preview.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">The Arcade
+   <div id="projectname">Arcade
    &#160;<span id="projectnumber">PROMO 2023</span>
    </div>
-   <div id="projectbrief">By Hugo Lalet, Victor Maurin, Paul Erny</div>
+   <div id="projectbrief">by Hugo Lalet, Victor Maurin, Paul Erny</div>
   </td>
  </tr>
  </tbody>
@@ -84,6 +84,30 @@ $(function() {
 <code>#include &quot;<a class="el" href="_i_libs_8hpp_source.html">../../lib/ILibs.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_i_games_8hpp_source.html">../IGames.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_entity_8hpp_source.html">../Entity.hpp</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for Nibbler.hpp:</div>
+<div class="dyncontent">
+<div class="center"><img src="_nibbler_8hpp__incl.png" border="0" usemap="#games_2nibbler_2_nibbler_8hpp" alt=""/></div>
+<map name="games_2nibbler_2_nibbler_8hpp" id="games_2nibbler_2_nibbler_8hpp">
+<area shape="rect" title="Game Nibbler." alt="" coords="12,5,205,32"/>
+<area shape="rect" title=" " alt="" coords="7,229,69,256"/>
+<area shape="rect" title=" " alt="" coords="19,155,97,181"/>
+<area shape="rect" href="_i_libs_8hpp.html" title="ILibs." alt="" coords="127,155,251,181"/>
+<area shape="rect" href="_i_games_8hpp.html" title="iGames" alt="" coords="233,80,345,107"/>
+<area shape="rect" href="_entity_8hpp.html" title="Entity." alt="" coords="59,80,158,107"/>
+<area shape="rect" title=" " alt="" coords="113,229,171,256"/>
+<area shape="rect" title=" " alt="" coords="195,229,275,256"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="_nibbler_8hpp__dep__incl.png" border="0" usemap="#games_2nibbler_2_nibbler_8hppdep" alt=""/></div>
+<map name="games_2nibbler_2_nibbler_8hppdep" id="games_2nibbler_2_nibbler_8hppdep">
+<area shape="rect" title="Game Nibbler." alt="" coords="5,5,199,32"/>
+<area shape="rect" href="_nibbler_8cpp.html" title="Game Nibbler." alt="" coords="6,80,198,107"/>
+</map>
+</div>
 </div>
 <p><a href="_nibbler_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -93,15 +117,20 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">class of <a class="el" href="class_nibbler.html" title="class of Nibbler">Nibbler</a>  <a href="class_nibbler.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a07b65d139af851065ecbed3578174e63"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_nibbler_8hpp.html#a07b65d139af851065ecbed3578174e63">NIBLLER_HPP</a></td></tr>
+<tr class="separator:a07b65d139af851065ecbed3578174e63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
 <tr class="memitem:a224b9163917ac32fc95a60d8c1eec3aa"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_nibbler_8hpp.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> { <br />
-&#160;&#160;<b>RIGTH</b>, 
-<b>LEFT</b>, 
-<b>UP</b>, 
-<b>DOWN</b>, 
+&#160;&#160;<a class="el" href="_nibbler_8hpp.html#a224b9163917ac32fc95a60d8c1eec3aaac2cd8d8289760e9d504f8e44fdf48e95">RIGTH</a>, 
+<a class="el" href="_nibbler_8hpp.html#a224b9163917ac32fc95a60d8c1eec3aaadb45120aafd37a973140edee24708065">LEFT</a>, 
+<a class="el" href="_nibbler_8hpp.html#a224b9163917ac32fc95a60d8c1eec3aaaba595d8bca8bc5e67c37c0a9d89becfa">UP</a>, 
+<a class="el" href="_nibbler_8hpp.html#a224b9163917ac32fc95a60d8c1eec3aaa9b0b4a95b99523966e0e34ffdadac9da">DOWN</a>, 
 <br />
-&#160;&#160;<b>NO</b>
+&#160;&#160;<a class="el" href="_nibbler_8hpp.html#a224b9163917ac32fc95a60d8c1eec3aaa0d077f5b932ce05e5b9f30c6087a2f31">NO</a>
 <br />
  }</td></tr>
 <tr class="memdesc:a224b9163917ac32fc95a60d8c1eec3aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Direction player.  <a href="_nibbler_8hpp.html#a224b9163917ac32fc95a60d8c1eec3aa">More...</a><br /></td></tr>
@@ -109,7 +138,22 @@ Enumerations</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Game <a class="el" href="class_nibbler.html" title="class of Nibbler">Nibbler</a>. </p>
-</div><h2 class="groupheader">Enumeration Type Documentation</h2>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a07b65d139af851065ecbed3578174e63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07b65d139af851065ecbed3578174e63">&#9670;&nbsp;</a></span>NIBLLER_HPP</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NIBLLER_HPP</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
 <a id="a224b9163917ac32fc95a60d8c1eec3aa"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a224b9163917ac32fc95a60d8c1eec3aa">&#9670;&nbsp;</a></span>Direction</h2>
 
@@ -124,6 +168,13 @@ Enumerations</h2></td></tr>
 
 <p>Direction player. </p>
 <p>RIGHT / LEFT / UP / DOWN / NO </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a224b9163917ac32fc95a60d8c1eec3aaac2cd8d8289760e9d504f8e44fdf48e95"></a>RIGTH&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a224b9163917ac32fc95a60d8c1eec3aaadb45120aafd37a973140edee24708065"></a>LEFT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a224b9163917ac32fc95a60d8c1eec3aaaba595d8bca8bc5e67c37c0a9d89becfa"></a>UP&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a224b9163917ac32fc95a60d8c1eec3aaa9b0b4a95b99523966e0e34ffdadac9da"></a>DOWN&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a224b9163917ac32fc95a60d8c1eec3aaa0d077f5b932ce05e5b9f30c6087a2f31"></a>NO&#160;</td><td class="fielddoc"></td></tr>
+</table>
 
 </div>
 </div>

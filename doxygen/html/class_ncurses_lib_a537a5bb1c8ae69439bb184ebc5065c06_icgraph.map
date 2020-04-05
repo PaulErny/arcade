@@ -1,0 +1,7 @@
+<map id="NcursesLib::check_game" name="NcursesLib::check_game">
+<area shape="rect" id="node1" title="Function that checks which game are selected." alt="" coords="905,5,1088,32"/>
+<area shape="rect" id="node2" href="$class_ncurses_lib.html#a8b3b317288967e52855014813e6ded90" title="Function that checks with getch(), which key are activated with the keyboard." alt="" coords="705,5,857,32"/>
+<area shape="rect" id="node3" href="$class_ncurses_lib.html#af04c7b69415e8de7db2dcbe7a54a5a45" title="Main function of the game menu." alt="" coords="475,5,657,32"/>
+<area shape="rect" id="node4" href="$class_ncurses_lib.html#aa080a433d929852dbc7c82e444031512" title=" " alt="" coords="192,5,427,32"/>
+<area shape="rect" id="node5" href="$class_ncurses_lib.html#a5c4a9145afd977955a5e900255ee5a9b" title="Main method of the menu." alt="" coords="5,5,144,32"/>
+</map>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.18"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>The Arcade: games/Entity.hpp File Reference</title>
+<title>Arcade: games/Entity.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,12 +20,12 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="Borne_arcade_pixel.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="6846207_preview.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">The Arcade
+   <div id="projectname">Arcade
    &#160;<span id="projectnumber">PROMO 2023</span>
    </div>
-   <div id="projectbrief">By Hugo Lalet, Victor Maurin, Paul Erny</div>
+   <div id="projectbrief">by Hugo Lalet, Victor Maurin, Paul Erny</div>
   </td>
  </tr>
  </tbody>
@@ -80,6 +80,36 @@ $(function() {
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;memory&gt;</code><br />
 <code>#include &quot;<a class="el" href="_i_libs_8hpp_source.html">../lib/ILibs.hpp</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for Entity.hpp:</div>
+<div class="dyncontent">
+<div class="center"><img src="_entity_8hpp__incl.png" border="0" usemap="#games_2_entity_8hpp" alt=""/></div>
+<map name="games_2_entity_8hpp" id="games_2_entity_8hpp">
+<area shape="rect" title="Entity." alt="" coords="35,5,170,32"/>
+<area shape="rect" title=" " alt="" coords="5,80,83,107"/>
+<area shape="rect" href="_i_libs_8hpp.html" title="ILibs." alt="" coords="107,80,219,107"/>
+<area shape="rect" title=" " alt="" coords="48,155,107,181"/>
+<area shape="rect" title=" " alt="" coords="131,155,194,181"/>
+<area shape="rect" title=" " alt="" coords="219,155,299,181"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="_entity_8hpp__dep__incl.png" border="0" usemap="#games_2_entity_8hppdep" alt=""/></div>
+<map name="games_2_entity_8hppdep" id="games_2_entity_8hppdep">
+<area shape="rect" title="Entity." alt="" coords="327,5,462,32"/>
+<area shape="rect" href="_entity_8cpp.html" title="Entity." alt="" coords="5,80,139,107"/>
+<area shape="rect" href="_nibbler_8hpp.html" title="Game Nibbler." alt="" coords="163,80,357,107"/>
+<area shape="rect" href="_ghost_8hpp.html" title="Ghost." alt="" coords="301,155,493,181"/>
+<area shape="rect" href="_pacman_game_8hpp.html" title="Pacman&#45;Man." alt="" coords="463,229,707,256"/>
+<area shape="rect" href="_pacman_8hpp.html" title="Pac&#45;Man." alt="" coords="432,80,637,107"/>
+<area shape="rect" href="_nibbler_8cpp.html" title="Game Nibbler." alt="" coords="85,155,277,181"/>
+<area shape="rect" href="_ghost_8cpp.html" title="Ghost." alt="" coords="249,229,439,256"/>
+<area shape="rect" href="_pacman_game_8cpp.html" title="Pac&#45;Man." alt="" coords="464,304,707,331"/>
+<area shape="rect" href="_pacman_8cpp.html" title="Pac&#45;Man." alt="" coords="569,155,773,181"/>
+</map>
+</div>
 </div>
 <p><a href="_entity_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -91,8 +121,8 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:ac25bae40f86dbaf62807318d4042d75c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_entity_8hpp.html#ac25bae40f86dbaf62807318d4042d75c">entityType</a> { <b>SHAPE</b>, 
-<b>SPRITE</b>
+<tr class="memitem:ac25bae40f86dbaf62807318d4042d75c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_entity_8hpp.html#ac25bae40f86dbaf62807318d4042d75c">entityType</a> { <a class="el" href="_entity_8hpp.html#ac25bae40f86dbaf62807318d4042d75ca20f1b6e28cd67b9244936ffc716e5611">SHAPE</a>, 
+<a class="el" href="_entity_8hpp.html#ac25bae40f86dbaf62807318d4042d75ca2dd609ad1f04fe6e979d97ae1276f880">SPRITE</a>
  }</td></tr>
 <tr class="memdesc:ac25bae40f86dbaf62807318d4042d75c"><td class="mdescLeft">&#160;</td><td class="mdescRight">All entityType.  <a href="_entity_8hpp.html#ac25bae40f86dbaf62807318d4042d75c">More...</a><br /></td></tr>
 <tr class="separator:ac25bae40f86dbaf62807318d4042d75c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -114,6 +144,10 @@ Enumerations</h2></td></tr>
 
 <p>All entityType. </p>
 <p>SHAPE and SPRITE </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ac25bae40f86dbaf62807318d4042d75ca20f1b6e28cd67b9244936ffc716e5611"></a>SHAPE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac25bae40f86dbaf62807318d4042d75ca2dd609ad1f04fe6e979d97ae1276f880"></a>SPRITE&#160;</td><td class="fielddoc"></td></tr>
+</table>
 
 </div>
 </div>

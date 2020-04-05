@@ -1,0 +1,4 @@
+<map id="Ghost::movePlayer" name="Ghost::movePlayer">
+<area shape="rect" id="node1" title="Function that get FPS in Pac&#45;Man." alt="" coords="5,5,152,32"/>
+<area shape="rect" id="node2" href="$class_entity.html#acbd3a664e132862b89db68fabfdd924c" title="moves the entity from its current pos to (posX + xOffset, posY + yOffset)" alt="" coords="200,5,304,32"/>
+</map>

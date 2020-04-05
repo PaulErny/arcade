@@ -1,0 +1,12 @@
+<map id="games/Entity.hpp" name="games/Entity.hpp">
+<area shape="rect" id="node1" title="Entity." alt="" coords="327,5,462,32"/>
+<area shape="rect" id="node2" href="$_entity_8cpp.html" title="Entity." alt="" coords="5,80,139,107"/>
+<area shape="rect" id="node3" href="$_nibbler_8hpp.html" title="Game Nibbler." alt="" coords="163,80,357,107"/>
+<area shape="rect" id="node5" href="$_ghost_8hpp.html" title="Ghost." alt="" coords="301,155,493,181"/>
+<area shape="rect" id="node7" href="$_pacman_game_8hpp.html" title="Pacman&#45;Man." alt="" coords="463,229,707,256"/>
+<area shape="rect" id="node9" href="$_pacman_8hpp.html" title="Pac&#45;Man." alt="" coords="432,80,637,107"/>
+<area shape="rect" id="node4" href="$_nibbler_8cpp.html" title="Game Nibbler." alt="" coords="85,155,277,181"/>
+<area shape="rect" id="node6" href="$_ghost_8cpp.html" title="Ghost." alt="" coords="249,229,439,256"/>
+<area shape="rect" id="node8" href="$_pacman_game_8cpp.html" title="Pac&#45;Man." alt="" coords="464,304,707,331"/>
+<area shape="rect" id="node10" href="$_pacman_8cpp.html" title="Pac&#45;Man." alt="" coords="569,155,773,181"/>
+</map>

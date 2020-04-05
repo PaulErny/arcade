@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['fillgamesvector_233',['fillGamesVector',['../class_core.html#ad114e99ac804cb1fdacc347121060c74',1,'Core']]],
-  ['filllibvector_234',['fillLibVector',['../class_core.html#a2efb0c1f06809f7a8e41b132ca12a574',1,'Core']]]
+  ['fillgamesvector_262',['fillGamesVector',['../class_core.html#ad114e99ac804cb1fdacc347121060c74',1,'Core']]],
+  ['filllibvector_263',['fillLibVector',['../class_core.html#a2efb0c1f06809f7a8e41b132ca12a574',1,'Core']]]
 ];

@@ -1,0 +1,5 @@
+<map id="Entity" name="Entity">
+<area shape="rect" id="node1" title="class of Entity" alt="" coords="61,5,225,479"/>
+<area shape="rect" id="node2" href="$class_ghost.html" title="class of Ghost" alt="" coords="5,556,131,692"/>
+<area shape="rect" id="node3" href="$class_pacman.html" title="class of Pacman" alt="" coords="155,527,280,721"/>
+</map>

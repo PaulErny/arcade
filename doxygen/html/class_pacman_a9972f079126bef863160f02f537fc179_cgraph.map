@@ -1,0 +1,5 @@
+<map id="Pacman::initGraphics" name="Pacman::initGraphics">
+<area shape="rect" id="node1" title="Function that init graphic for Pac&#45;Man." alt="" coords="5,31,164,57"/>
+<area shape="rect" id="node2" href="$class_entity.html#ab08a99fe04771bf2b58bfcf7637f4b0f" title="adds a sprite to the shapes vector" alt="" coords="228,5,360,32"/>
+<area shape="rect" id="node3" href="$class_entity.html#a45b872272c8087ccd93897f6fe337b4a" title="Function that update the position of the entity." alt="" coords="212,56,376,83"/>
+</map>

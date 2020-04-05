@@ -1,0 +1,4 @@
+<map id="Entity::addShape" name="Entity::addShape">
+<area shape="rect" id="node1" title="adds a shape to the shapes vector" alt="" coords="200,5,331,32"/>
+<area shape="rect" id="node2" href="$class_ghost.html#a7e8dcaf52c8a1ad620e57896df5a6183" title="Function that init graphic for the Ghosts in Pac&#45;Man." alt="" coords="5,5,152,32"/>
+</map>

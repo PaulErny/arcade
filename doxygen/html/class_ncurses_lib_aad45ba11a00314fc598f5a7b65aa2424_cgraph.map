@@ -1,0 +1,5 @@
+<map id="NcursesLib::menu_name" name="NcursesLib::menu_name">
+<area shape="rect" id="node1" title="Main function to get the pseudo." alt="" coords="5,31,188,57"/>
+<area shape="rect" id="node2" href="$class_ncurses_lib.html#ac43e4faf5f8d6614730290af635ecb79" title="to display &quot;ARCADE&quot; in color" alt="" coords="236,5,429,32"/>
+<area shape="rect" id="node3" href="$class_ncurses_lib.html#acdbe66717d2960e2459b72acf8e276ec" title="Function to get the pseudo." alt="" coords="249,56,416,83"/>
+</map>

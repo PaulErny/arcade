@@ -1,0 +1,6 @@
+<map id="NcursesLib::menu_lib" name="NcursesLib::menu_lib">
+<area shape="rect" id="node1" title="Main function of the library menu." alt="" coords="5,31,167,57"/>
+<area shape="rect" id="node2" href="$class_ncurses_lib.html#ac43e4faf5f8d6614730290af635ecb79" title="to display &quot;ARCADE&quot; in color" alt="" coords="215,5,408,32"/>
+<area shape="rect" id="node3" href="$class_ncurses_lib.html#a62f910a8677da9e44ac9a2dceb6b9cdd" title="Function that checks with getch(), which key are activated with the keyboard." alt="" coords="245,56,377,83"/>
+<area shape="rect" id="node4" href="$class_ncurses_lib.html#aa57c51f9cb607c1f7c60c0974d78c1ec" title="Function that checks which library are selected." alt="" coords="456,56,619,83"/>
+</map>

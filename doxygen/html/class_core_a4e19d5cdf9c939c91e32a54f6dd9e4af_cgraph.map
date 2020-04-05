@@ -1,0 +1,4 @@
+<map id="Core::loadGameLib" name="Core::loadGameLib">
+<area shape="rect" id="node1" title="Function that load game with the current library." alt="" coords="5,5,152,32"/>
+<area shape="rect" id="node2" href="$class_core.html#acf6c15f54156695904476ef6718d72b2" title="Function that change game." alt="" coords="200,5,347,32"/>
+</map>

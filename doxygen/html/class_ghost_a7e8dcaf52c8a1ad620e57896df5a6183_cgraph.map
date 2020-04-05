@@ -1,0 +1,5 @@
+<map id="Ghost::initGraphics" name="Ghost::initGraphics">
+<area shape="rect" id="node1" title="Function that init graphic for the Ghosts in Pac&#45;Man." alt="" coords="5,31,152,57"/>
+<area shape="rect" id="node2" href="$class_entity.html#ad9c829370f07f231e94cd1e2c2b353a0" title="adds a shape to the shapes vector" alt="" coords="217,5,347,32"/>
+<area shape="rect" id="node3" href="$class_entity.html#a45b872272c8087ccd93897f6fe337b4a" title="Function that update the position of the entity." alt="" coords="200,56,364,83"/>
+</map>

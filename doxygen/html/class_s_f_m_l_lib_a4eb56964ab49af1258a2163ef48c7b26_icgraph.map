@@ -1,0 +1,4 @@
+<map id="SFMLLib::createImageFromFile" name="SFMLLib::createImageFromFile">
+<area shape="rect" id="node1" title="creates a sprite from an image and return its ID to later modify it" alt="" coords="220,5,443,32"/>
+<area shape="rect" id="node2" href="$class_s_f_m_l_menu.html#a980fd90dd0871b0fb083beaf06a5de3f" title="init variable of the menu" alt="" coords="5,5,172,32"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="SFMLMenu::init_menu" name="SFMLMenu::init_menu">
+<area shape="rect" id="node1" title="init variable of the menu" alt="" coords="5,157,172,184"/>
+<area shape="rect" id="node2" href="$class_s_f_m_l_lib.html#adf637a7a11e1a7507db9e996eecf70e0" title="creates a texture from the image file given as parameter" alt="" coords="227,5,436,32"/>
+<area shape="rect" id="node3" href="$class_s_f_m_l_lib.html#a4eb56964ab49af1258a2163ef48c7b26" title="creates a sprite from an image and return its ID to later modify it" alt="" coords="220,56,443,83"/>
+<area shape="rect" id="node4" href="$class_s_f_m_l_lib.html#af8fc374c4cfcbc451f4f6eecbd77a052" title="creates a text and sets if font according to the id returned by createFontFromFile()" alt="" coords="255,107,407,133"/>
+<area shape="rect" id="node5" href="$class_s_f_m_l_lib.html#afce48d6363c47482927ab468766353a4" title="sets the position of the sprite contained at $ImageId of the vector of shapes" alt="" coords="247,157,415,184"/>
+<area shape="rect" id="node6" href="$class_s_f_m_l_lib.html#afecb51d7adeabadbe3b6af79e49d2549" title="sets the size of the text to $charSize" alt="" coords="237,208,425,235"/>
+<area shape="rect" id="node7" href="$class_s_f_m_l_lib.html#a9e83a2740fa4b0002c02efb463cea22c" title="changes the color of the text" alt="" coords="249,259,414,285"/>
+<area shape="rect" id="node8" href="$class_s_f_m_l_lib.html#ad93d2a0b50316e4313dd4678e564476c" title="sets the position of the sprite contained at $spriteId of the vector of shapes" alt="" coords="254,309,409,336"/>
+</map>
