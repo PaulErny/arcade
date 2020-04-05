@@ -9,6 +9,7 @@ Core::Core(char *arg) : m_arg(arg)
     indexLib = -1;
     isMenuInit = false;
     isGameInit = false;
+    isGameDataInit = false;
     pgState = NOTHING;
     m_pseudo = "";
 
@@ -177,6 +178,7 @@ void Core::loadGameLib(int choosenGame, int indexGame)
     if (choosenGame != indexGame) {
         this->changeGame(choosenGame);
         this->isMenuInit = false;
+        this->isGameDataInit = false;
     }
 }
 
@@ -214,7 +216,10 @@ void Core::run()
             if (!this->isGameInit) {
                 this->loadGameLib(chosenGame, indexGame);
                 this->Games->setLib(Lib);
-                this->Games->initGameData(m_pseudo);
+                if (!this->isGameDataInit) {
+                    this->Games->initGameData(m_pseudo);
+                    this->isGameDataInit = true;
+                }
                 this->Games->initGraphics();
                 this->isGameInit = true;
             }

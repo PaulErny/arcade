@@ -46,7 +46,6 @@ PacmanGame::PacmanGame()
                  {1, 2, 7, 1, 1, 1, 1, 1, 1, 1, 1, 8, 2, 7, 8, 2, 7, 1, 1, 1, 1, 1, 1, 1, 1, 8, 2, 1},
                  {1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1},
                  {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}};
-    this->mapSpritesID = std::vector<std::vector<Entity>>(this->map.size(), std::vector<Entity>(this->map[0].size()));
     this->deltaTime = 0.0;
     this->remainingTime = 0.0;
     this->frameRate = 30;
@@ -68,6 +67,7 @@ void PacmanGame::setLib(std::shared_ptr<ILibs> &lib)
 
 void PacmanGame::initGameData(std::string &pseudo)
 {
+    this->mapSpritesID = std::vector<std::vector<Entity>>(this->map.size(), std::vector<Entity>(this->map[0].size()));
     for (size_t y = 0; y < this->map.size(); y++) {
         for (size_t x = 0; x < this->map[y].size(); x++) {
             this->mapSpritesID[y][x].setLibPtr(this->graphics);
@@ -194,13 +194,15 @@ void PacmanGame::initGraphics()
 {
     for (size_t y = 0; y < this->map.size(); y++) {
         for (size_t x = 0; x < this->map[y].size(); x++) {
+            // this->mapSpritesID[y][x].resetGraphics();
             this->initMapCell(x, y);
         }
     }
-
     for (size_t i = 0; i < this->ghosts.size(); i++) {
+        // this->ghosts[i]->resetGraphics();
         this->ghosts[i]->initGraphics();
     }
+    // this->player->resetGraphics();
     this->player->initGraphics();
     this->fontID = this->graphics->createFontFromFile("resources/ARCADE_I.TTF");
     this->scoreText = this->name + "'s score:" + std::to_string(this->score);

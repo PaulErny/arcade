@@ -72,6 +72,12 @@ class Entity
  * \brief Function that change Shape by incrementing
  *
  */
+    void resetGraphics();
+   /**
+ * \fn void nextShape();
+ * \brief Function that change Shape by incrementing
+ *
+ */
     void nextShape();
    /**
  * \fn void prevShape();

@@ -55,6 +55,13 @@ void Entity::addImage(std::string file)
         this->shapes.push_back(this->graphics->createImageFromFile(file));
 }
 
+void Entity::resetGraphics()
+{
+    this->shapes.clear();
+    this->shapes.shrink_to_fit();
+    this->currentShape = 0;
+}
+
 void Entity::nextShape()
 {
     if (this->currentShape >= this->shapes.size() - 1)

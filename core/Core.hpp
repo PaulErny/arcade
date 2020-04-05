@@ -27,7 +27,9 @@ class Core
     int indexLib;
     int indexGame = -1;
     bool isMenuInit;
+    bool isGameDataInit;
     bool isGameInit;
+
     state pgState;
     std::string m_pseudo = "";
 
