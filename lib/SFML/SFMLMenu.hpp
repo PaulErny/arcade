@@ -101,7 +101,7 @@ class SFMLMenu
 
   private:
     SFMLLib *graphics;
-    int currentBtn = 0;
+    int currentBtn = 2;
     int chosenGame = -1;
     int chosenAction = -1;
     std::vector<int> buttons;
