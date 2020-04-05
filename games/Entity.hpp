@@ -153,8 +153,8 @@ class Entity
 
   protected:
     int inVector;
-    float posX;
-    float posY;
+    float posX = 0.0;
+    float posY = 0.0;
 
     int height;
     int width;

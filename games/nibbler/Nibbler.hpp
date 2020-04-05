@@ -32,6 +32,10 @@ enum Direction {
 class Nibbler : public IGames
 {
 private:
+    int headXpos;
+    int headYpos;
+    int foodXpos;
+    int foodYpos;
     Direction dir;
     int speed;
     std::shared_ptr<Entity> food;
@@ -42,6 +46,9 @@ private:
     int prevPosy;
     int indexTitle;
     int indexPseudo;
+    int indexScore;
+    int indexWin;
+    int score = 0;
     std::string pseudo;
     int indexGameLoose;
 public:
@@ -92,6 +99,8 @@ public:
  * \brief End Screen
  */
     void endGame();
+
+    void winGame();
 };
 
 #endif
