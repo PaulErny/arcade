@@ -194,15 +194,18 @@ void PacmanGame::initGraphics()
 {
     for (size_t y = 0; y < this->map.size(); y++) {
         for (size_t x = 0; x < this->map[y].size(); x++) {
-            // this->mapSpritesID[y][x].resetGraphics();
+            this->mapSpritesID[y][x].setLibPtr(this->graphics);
+            this->mapSpritesID[y][x].resetGraphics();
             this->initMapCell(x, y);
         }
     }
     for (size_t i = 0; i < this->ghosts.size(); i++) {
-        // this->ghosts[i]->resetGraphics();
+        this->ghosts[i]->setLibPtr(this->graphics);
+        this->ghosts[i]->resetGraphics();
         this->ghosts[i]->initGraphics();
     }
-    // this->player->resetGraphics();
+    this->player->setLibPtr(this->graphics);
+    this->player->resetGraphics();
     this->player->initGraphics();
     this->fontID = this->graphics->createFontFromFile("resources/ARCADE_I.TTF");
     this->scoreText = this->name + "'s score:" + std::to_string(this->score);
