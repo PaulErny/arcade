@@ -14,9 +14,9 @@ int main(int ac, char *av[])
     try {
         if (ac != 2)
             throw "Arcade accept 2 arguments";
-        Core core(av[1]);
-        core.run();
-        //core.fillLibVector();
+        srand(time(0));
+        std::shared_ptr<Core> core = std::make_shared<Core>(av[1]);
+        core->run();
     }
     catch (const std::exception &e) {
         std::cerr << e.what() << std::endl;

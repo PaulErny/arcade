@@ -200,7 +200,8 @@ void SDLLib::deleteWindow(void)
 {
     SDL_DestroyRenderer(gRenderer);
     SDL_DestroyWindow(gWindow);
-    TTF_CloseFont(font);
+    if (font != NULL)
+        TTF_CloseFont(font);
     gWindow = NULL;
     gRenderer = NULL;
     IMG_Quit();
