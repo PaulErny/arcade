@@ -78,7 +78,7 @@ void PacmanGame::initGameData(std::string &pseudo)
     this->name = pseudo;
     // for (size_t i = 0; i < 4; i++) {
         this->ghosts.push_back(std::make_unique<Ghost>(this->graphics));
-        this->ghosts[this->ghosts.size() - 1]->setPosition(/* xOffset */92 + /* x */14 * 32 - 16, /* yOffset */44 + /* y */ 11 *32);
+        this->ghosts[this->ghosts.size() - 1]->setPosition(/* xOffset */92 + /* x */14 * 32, /* yOffset */44 + /* y */ 11 *32);
     // }
 }
 
@@ -236,9 +236,8 @@ void PacmanGame::draw()
         }
     }
     for (size_t i = 0; i < this->ghosts.size(); i++) {
-        this->ghosts[i]->draw();
+        this->ghosts[0]->draw();
     }
-    
     this->player->draw();
     this->graphics->drawText(this->scoreTextID);
 }
