@@ -61,7 +61,7 @@ void SDLLib::eventMenu(int &indexLib)
 void SDLLib::init_menu(std::vector<std::string> &libsNames, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores, std::string &pseudo)
 {
     name = pseudo;
-    font = TTF_OpenFont("resources/ARCADE_I.TTF", 14);
+    font = TTF_OpenFont("resources/ARCADE_I.TTF", 24);
     if (font == NULL)
         throw "cannot open font";
     color = {255, 255, 255};
@@ -80,7 +80,7 @@ void SDLLib::init_menu(std::vector<std::string> &libsNames, std::vector<std::str
     for (auto i = 0; i < (int)gamesNames.size(); i++) {
         gamesSurface.push_back(TTF_RenderText_Solid(font, gamesNames.at(i).c_str(), color));
         gamesTexture.push_back(SDL_CreateTextureFromSurface(gRenderer, gamesSurface.at(i)));
-        gamesRect.push_back({600, i * 100 + 200, (int)gamesNames.at(i).size() * 50, 100});
+        gamesRect.push_back({700, i * 100 + 200, (int)gamesNames.at(i).size() * 50, 100});
         SDL_QueryTexture(gamesTexture.at(i), NULL, NULL, &gamesRect.at(i).w, &gamesRect.at(i).h);
     }
     for (auto i = 0; i < (int)libsNames.size(); i++) {
@@ -109,6 +109,7 @@ int SDLLib::menu(state &pgState, bool close, std::vector<std::string> &libsNames
     }
     if (name == "") {
         rectPseudo = {240, 540, (int)text.size() * 50, 100};
+        SDL_QueryTexture(texturePseudo, NULL, NULL, &rectPseudo.w, &rectPseudo.h);
         SDL_RenderCopy(gRenderer, texturePseudo, NULL, &rectPseudo);
         SDL_RenderCopy(gRenderer, textureEnterPseudo, NULL, &rectEnterPseudo);
         if (rendertext && name == "") {
