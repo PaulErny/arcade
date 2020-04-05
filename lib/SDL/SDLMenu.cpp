@@ -95,6 +95,7 @@ void SDLLib::init_menu(std::vector<std::string> &libsNames, std::vector<std::str
     SDL_QueryTexture(texturePrevLib, NULL, NULL, &rectPrevLib.w, &rectPrevLib.h);
     SDL_QueryTexture(texturePseudo, NULL, NULL, &rectPseudo.w, &rectPseudo.h);
     SDL_QueryTexture(textureYourName, NULL, NULL, &rectYourName.w, &rectYourName.h);
+    SDL_QueryTexture(textureEnterPseudo, NULL, NULL, &rectEnterPseudo.w, &rectEnterPseudo.h);
 }
 
 int SDLLib::menu(state &pgState, bool close, std::vector<std::string> &libsNames, std::vector<std::string> &gamesName, std::vector<std::vector<std::string>> highScores, std::string &pseudo, int &indexLib)
