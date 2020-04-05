@@ -58,6 +58,14 @@ int SDLLib::createImageFromFile(std::string filename)
 {
     SDL_Surface *image = IMG_Load(filename.c_str());
     textureImage.push_back(SDL_CreateTextureFromSurface(gRenderer, image));
+    int w, h;
+    SDL_QueryTexture(textureImage.at(textureImage.size() - 1), NULL, NULL, &w, &h);
+    SDL_Rect texr;
+    texr.x = 0;
+    texr.y = 0;
+    texr.h = h * 2;
+    texr.w = w * 2;
+    rectImage.push_back(texr);
     return (int)(textureImage.size() - 1);
 }
 
@@ -68,14 +76,8 @@ void SDLLib::drawImage(int ImageId)
 
 void SDLLib::setImagePos(int ImageId, float x, float y)
 {
-    int w, h;
-    SDL_QueryTexture(textureImage.at(ImageId), NULL, NULL, &w, &h);
-    SDL_Rect texr;
-    texr.x = (int)x;
-    texr.y = (int)y;
-    texr.h = h * 2;
-    texr.w = w * 2;
-    rectImage.push_back(texr);
+    rectImage.at(ImageId).x = (int)x;
+    rectImage.at(ImageId).y = (int)y;
 }
 
 void SDLLib::deleteImage(int ImageId)
@@ -119,8 +121,8 @@ void SDLLib::setTextPos(int textId, float x, float y)
     SDL_Rect Message_rect; //create a rect
     Message_rect.x = (int)x;    //controls the rect's x coordinate
     Message_rect.y = (int)y;    // controls the rect's y coordinte
-    Message_rect.w = 100;  // controls the width of the rect
-    Message_rect.h = 100;
+    Message_rect.w = 200;  // controls the width of the rect
+    Message_rect.h = 200;
     gRect.push_back(Message_rect);
 }
 
