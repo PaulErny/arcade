@@ -127,6 +127,8 @@ class SFMLLib : public ILibs
     bool rigthArrow(void);
     void nextGameLib(int &indexGame);
     void prevGameLib(int &indexGame);
+    void goToMenu(state &pgState);
+    bool restartGame();
 
     /* ------------------------------- MENU ------------------------------- */
     // menu for selecting the graphical lib. returns 0 if nCurses is selected, 2 for SFML and 3 for SDL -1 for errors

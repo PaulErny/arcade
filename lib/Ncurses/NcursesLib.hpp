@@ -224,6 +224,8 @@ public:
   bool leftArrow();
   // checks if a btn to change rightArrow is pressed and return true if he is pressed
   bool rigthArrow();
+  void goToMenu(state &pgState);
+  bool restartGame();
 
   /* ------------------------------- MENU ------------------------------- */
   // menu for selecting the graphical lib. returns 0 if nCurses is selected, 2 for SFML and 3 for SDL -1 for errors

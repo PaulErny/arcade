@@ -292,6 +292,19 @@ bool SFMLLib::rigthArrow(void)
     return false;
 }
 
+void SFMLLib::goToMenu(state &pgState)
+{
+    if (this->event.type == sf::Event::KeyPressed && this->event.key.code == sf::Keyboard::Escape) {
+        pgState = MENU;
+    }
+    else
+        return;
+}
+
+bool SFMLLib::restartGame()
+{
+}
+
 /* ------------------------------- MENU ------------------------------- */
 void SFMLLib::init_menu(std::vector<std::string> &libsNames, std::vector<std::string> &gamesNames, std::vector<std::vector<std::string>> highScores, std::string &pseudo)
 {

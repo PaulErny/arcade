@@ -311,6 +311,19 @@ void SDLLib::prevGameLib(int &indexGame)
     }
 }
 
+void SDLLib::goToMenu(state &pgState)
+{    
+    if (e.type == SDL_KEYDOWN)
+    {
+        if (e.key.keysym.sym == SDLK_ESCAPE)
+            pgState = MENU;
+    }
+}
+
+bool SDLLib::restartGame()
+{
+}
+
 extern "C" std::shared_ptr<SDLLib> create_object()
 {
     return std::make_shared<SDLLib>();

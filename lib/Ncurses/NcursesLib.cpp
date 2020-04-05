@@ -104,6 +104,8 @@ void NcursesLib::deleteFont(int FontId)
 
 void NcursesLib::createWindow(int width, int height, std::string name)
 {
+    initscr();
+    noecho();
 }
 
 bool NcursesLib::isWindowOpen(void)
@@ -214,6 +216,20 @@ bool NcursesLib::rigthArrow()
         return (true);
     else
         return (false);
+}
+
+void NcursesLib::goToMenu(state &pgState)
+{
+    if (getch() == 27) {
+        pgState = MENU;
+    }
+    else
+        return;
+}
+
+bool NcursesLib::restartGame()
+{
+
 }
 
 /* ------------------------------- MENU ------------------------------- */

@@ -332,6 +332,9 @@ class ILibs
  */
     virtual bool rigthArrow() = 0;
 
+    virtual void goToMenu(state &pgState) = 0;
+    virtual bool restartGame() = 0;
+
     /* ------------------------------- MENU ------------------------------- */
     /**
  * \fn virtual int libSelectionMenu(state &pgState, bool close, std::vector<std::string> &libsNames)
