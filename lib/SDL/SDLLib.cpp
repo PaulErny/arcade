@@ -95,6 +95,12 @@ int SDLLib::createFontFromFile(const std::string filename)
 int SDLLib::createText(std::string text, int fontId)
 {
     if (fontId < gFont.size() + 1) {
+        SDL_Rect Message_rect;   //create a rect
+        Message_rect.x = 0; //controls the rect's x coordinate
+        Message_rect.y = 0; // controls the rect's y coordinte
+        Message_rect.w = 200;    // controls the width of the rect
+        Message_rect.h = 200;
+        gRect.push_back(Message_rect);
         this->setTextColor(fontId, 255, 255, 255);
         std::cout << fontId << "test" << gColor.size() << "tes2" << gFont.size() << std::endl;
         gTextSurface.push_back(TTF_RenderText_Solid(gFont.at(fontId), text.c_str(), gColor.at(fontId)));
@@ -124,12 +130,8 @@ void SDLLib::setTextString(int textId, std::string str)
 
 void SDLLib::setTextPos(int textId, float x, float y)
 {
-    SDL_Rect Message_rect; //create a rect
-    Message_rect.x = (int)x;    //controls the rect's x coordinate
-    Message_rect.y = (int)y;    // controls the rect's y coordinte
-    Message_rect.w = 200;  // controls the width of the rect
-    Message_rect.h = 200;
-    gRect.push_back(Message_rect);
+    gRect.at(textId).x = int(x);
+    gRect.at(textId).y = int(y);
 }
 
 void SDLLib::setTextCharSize(int textId, int charSize)
