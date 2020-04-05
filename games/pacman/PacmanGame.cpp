@@ -29,7 +29,7 @@ PacmanGame::PacmanGame()
                  {4, 4, 4, 4, 4, 1, 2, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 1, 4, 4, 4, 4, 4},
                  {4, 4, 4, 4, 4, 1, 2, 1, 1, 0, 1, 1, 1, 4, 4, 1, 1, 1, 0, 1, 1, 2, 1, 4, 4, 4, 4, 4},
                  {1, 1, 1, 1, 1, 1, 2, 7, 8, 0, 1, 4, 4, 4, 4, 4, 4, 1, 0, 7, 8, 2, 1, 1, 1, 1, 1, 1},
-                 {0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 1, 4, 4, 4, 4, 4, 4, 1, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0},
+                 {0, 0, 0, 0, 0, 4, 2, 0, 0, 0, 1, 4, 4, 4, 4, 4, 4, 1, 0, 0, 0, 2, 4, 0, 0, 0, 0, 0},
                  {1, 1, 1, 1, 1, 1, 2, 5, 6, 0, 1, 4, 4, 4, 4, 4, 4, 1, 0, 5, 6, 2, 1, 1, 1, 1, 1, 1},
                  {4, 4, 4, 4, 4, 1, 2, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 2, 1, 4, 4, 4, 4, 4},
                  {4, 4, 4, 4, 4, 1, 2, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 1, 4, 4, 4, 4, 4},
@@ -80,6 +80,13 @@ void PacmanGame::initGameData(std::string &pseudo)
     // for (size_t i = 0; i < 4; i++) {
         this->ghosts.push_back(std::make_unique<Ghost>(this->graphics));
         this->ghosts[this->ghosts.size() - 1]->setPosition(/* xOffset */92 + /* x */14 * 32, /* yOffset */44 + /* y */ 11 *32);
+        this->ghosts.push_back(std::make_unique<Ghost>(this->graphics));
+        this->ghosts[this->ghosts.size() - 1]->setPosition(/* xOffset */92 + /* x */12 * 32, /* yOffset */44 + /* y */ 11 *32);
+        this->ghosts.push_back(std::make_unique<Ghost>(this->graphics));
+        this->ghosts[this->ghosts.size() - 1]->setPosition(/* xOffset */92 + /* x */16 * 32, /* yOffset */44 + /* y */ 11 *32);
+        this->ghosts.push_back(std::make_unique<Ghost>(this->graphics));
+        this->ghosts[this->ghosts.size() - 1]->setPosition(/* xOffset */92 + /* x */18 * 32, /* yOffset */44 + /* y */ 11 *32);
+        std::cout << this->ghosts[0] << " " << this->ghosts[1] << " " << this->ghosts[2] << " " << this->ghosts[3] << std::endl;
     // }
 }
 
@@ -236,7 +243,16 @@ void PacmanGame::update()
 
 void PacmanGame::draw()
 {
-    if (this->remainingCoins > 0) {
+    if (this->gameLost) {
+        //draw the map
+        for (size_t y = 0; y < this->map.size(); y++) {
+            for (size_t x = 0; x < this->map[y].size(); x++) {
+                this->mapSpritesID[y][x].draw();
+            }
+        }
+        // draw 'You Lost'
+        this->graphics->drawText(this->LoseTextID);
+    } else if (this->remainingCoins > 0) {
         // draw the map
         for (size_t y = 0; y < this->map.size(); y++) {
             for (size_t x = 0; x < this->map[y].size(); x++) {
@@ -251,15 +267,6 @@ void PacmanGame::draw()
         this->player->draw();
         // draw the score
         this->graphics->drawText(this->scoreTextID);
-    } else  if (this->gameLost) {
-        //draw the map
-        for (size_t y = 0; y < this->map.size(); y++) {
-            for (size_t x = 0; x < this->map[y].size(); x++) {
-                this->mapSpritesID[y][x].draw();
-            }
-        }
-        // draw 'You Lost'
-        this->graphics->drawText(this->LoseTextID);
     } else {
         //draw the map
         for (size_t y = 0; y < this->map.size(); y++) {

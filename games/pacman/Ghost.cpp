@@ -210,12 +210,10 @@ void Ghost::movePlayer(double deltaTime, std::vector<std::vector<int>> &map) // 
 bool Ghost::hitPlayer(std::shared_ptr<Pacman> pacman)
 {
     // If one rectangle is on left side of other 
-    if (pacman->getXposition() > this->posX + 31 || pacman->getXposition() + 32 > this->posX) 
-        return false; 
-  
-    // If one rectangle is above other 
-    if (pacman->getYposition() > this->posY + 31 || pacman->getYposition() + 32 > this->posY) 
-        return false; 
-  
-    return true;
+    if (pacman->getXposition() + 32 > this->posX &&
+        pacman->getXposition() - 32 < this->posX &&
+        pacman->getYposition() + 32 > this->posY &&
+        pacman->getYposition() - 32 < this->posY)
+        return true;
+    return false;
 }
