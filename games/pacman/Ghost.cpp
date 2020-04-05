@@ -98,7 +98,6 @@ void Ghost::chooseDirection(std::vector<std::vector<int>> &map)
     if (this->rightDirection) {
         int dir = std::rand() % 2;
         if (!this->isCellWalkable((int)nextRight[0], (int)nextRight[1], map)) {
-            std::cout << (int)((this->posX - 92) / 32) << " " << (int)((this->posY - 44) / 32) << " " << map[(int)((this->posY - 44) / 32)][(int)((this->posX - 92) / 32)] << std::endl;
             if (dir == 0 && this->isCellWalkable((int)nextUp[0], (int)nextUp[1], map)) {
                 this->goUp();
             } else if (dir == 1 && this->isCellWalkable((int)nextDown[0], (int)nextDown[1], map)) {
@@ -210,5 +209,13 @@ void Ghost::movePlayer(double deltaTime, std::vector<std::vector<int>> &map) // 
 
 bool Ghost::hitPlayer(std::shared_ptr<Pacman> pacman)
 {
-    return false;
+    // If one rectangle is on left side of other 
+    if (pacman->getXposition() > this->posX + 31 || pacman->getXposition() + 32 > this->posX) 
+        return false; 
+  
+    // If one rectangle is above other 
+    if (pacman->getYposition() > this->posY + 31 || pacman->getYposition() + 32 > this->posY) 
+        return false; 
+  
+    return true;
 }

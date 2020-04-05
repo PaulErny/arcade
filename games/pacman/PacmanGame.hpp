@@ -65,9 +65,12 @@ class PacmanGame : public IGames {
         std::string name;
         int score;
         int remainingCoins;
-        int fontID;
+        std::vector<int> fontID;
         std::string scoreText;
         int scoreTextID;
+        int winTextID;
+        int LoseTextID;
+        bool gameLost;
 
         std::vector<std::vector<int>> map;
         std::vector<std::vector<Entity>> mapSpritesID;
