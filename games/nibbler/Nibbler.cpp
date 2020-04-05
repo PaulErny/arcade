@@ -170,8 +170,8 @@ void Nibbler::keyPressed(int &indexGame, int &indexLib)
             dir = LEFT;
         else if (Lib->rigthArrow())
             dir = RIGTH;
-        Lib->nextGameLib(indexGame);
-        Lib->prevGameLib(indexGame);
+        // Lib->nextGameLib(indexGame);
+        // Lib->prevGameLib(indexGame);
         Lib->nextGraphicLib(indexLib);
         Lib->prevGraphicLib(indexLib);
         Lib->closeWindowEvent();
