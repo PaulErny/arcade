@@ -112,10 +112,14 @@ void SDLLib::drawText(int textId)
 
 void SDLLib::setTextString(int textId, std::string str)
 {
-    SDL_FreeSurface(gTextSurface.at(textId));
-    SDL_free(gTexture.at(textId));
-    gTextSurface.at(textId) = (TTF_RenderText_Solid(gFont.at(textId), str.c_str(), gColor.at(textId)));
-    gTexture.at(textId) = (SDL_CreateTextureFromSurface(gRenderer, gTextSurface.at(textId)));
+    if (textId < (int)gTexture.size()) {
+        SDL_FreeSurface(gTextSurface.at(textId));
+        SDL_free(gTexture.at(textId));
+        gTextSurface.at(textId) = (TTF_RenderText_Solid(gFont.at(textId), str.c_str(), gColor.at(textId)));
+        gTexture.at(textId) = (SDL_CreateTextureFromSurface(gRenderer, gTextSurface.at(textId)));
+    }
+    else
+        throw "SDL2 -> setTexString : unknown index";
 }
 
 void SDLLib::setTextPos(int textId, float x, float y)
