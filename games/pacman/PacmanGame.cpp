@@ -86,7 +86,6 @@ void PacmanGame::initGameData(std::string &pseudo)
         this->ghosts[this->ghosts.size() - 1]->setPosition(/* xOffset */92 + /* x */16 * 32, /* yOffset */44 + /* y */ 11 *32);
         this->ghosts.push_back(std::make_unique<Ghost>(this->graphics));
         this->ghosts[this->ghosts.size() - 1]->setPosition(/* xOffset */92 + /* x */18 * 32, /* yOffset */44 + /* y */ 11 *32);
-        std::cout << this->ghosts[0] << " " << this->ghosts[1] << " " << this->ghosts[2] << " " << this->ghosts[3] << std::endl;
     // }
 }
 
