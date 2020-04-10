@@ -105,7 +105,6 @@ void NcursesLib::deleteFont(int FontId)
 void NcursesLib::createWindow(int width, int height, std::string name)
 {
     initscr();
-    noecho();
 }
 
 bool NcursesLib::isWindowOpen(void)

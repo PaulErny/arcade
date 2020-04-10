@@ -10,7 +10,6 @@ std::string NcursesLib::get_name(int row, int col)
     char title[] = "ENTER YOUR NAME";
     char str[80];
 
-    initscr();
     getmaxyx(stdscr, row, col);
     mvprintw(row / 2, (col - strlen(title)) / 2, "%s", title);
     mvprintw(row / 2 + 1, (col - strlen(title)) / 2, "\t");
