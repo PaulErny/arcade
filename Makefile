@@ -37,4 +37,4 @@ re:
 	make re -C ./core/
 	make re -C ./games/
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re core lib games
